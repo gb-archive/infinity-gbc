@@ -1,0 +1,472 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_FRC:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$0c)
+   set(E,$0f)
+   set(G,X_ROLL)
+   call(frc_init)
+   goto(frc_part1_nf)
+O_FRC2:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$0a)
+   set(E,$12)
+   set(G,X_ROLL)
+   call(frc_init)
+   goto(frc_part10_nf)
+
+frc_init:
+   song(SNG_CAVE1)
+   set(F,ZONE_FRC)   // default zone
+
+   get(A,VAR_KSM1)
+   cif(A,CNE,0,frc_zone2)
+
+   get(A,VAR_FRC2)
+   cif(A,CNE,0,frc_zone3)
+
+   end
+
+frc_zone2:
+   set(F,ZONE_FRC2)
+   end
+frc_zone3:
+   set(F,0)
+   end
+
+frc_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+frc_part1_nf:
+   lmap(MAP_FRC_P1, D,E)
+   zone(F)
+   cstep(frc_part1a, $0c,$10)
+   cstep(frc_part1b, $03,$05)
+   cstep(frc_part1c, $15,$08)
+   cstep(frc_part1d, $09,$04)
+   ctres($19,IT_HPLO, $02,$08,$3B,SFX_CHEST)
+
+   get(A,VAR_FRC1)
+   cif(A,CE,1,frc_scene40_setup)
+
+   fadein(G)
+   end
+frc_part1a:
+   ; see if allowed to leave
+   get(A,VAR_FRC2)
+   if(A,CE,1,frc_noleave)
+
+   set(B,$2d)
+   set(C,$36)
+   goto(OVER_WARP)
+frc_part1b:
+   set(D,$09)
+   set(E,$0e)
+   goto(frc_part2)
+frc_part1c:
+   set(D,$05)
+   set(E,$03)
+   goto(frc_part3)
+frc_part1d:
+   set(D,$20)
+   set(E,$05)
+   goto(frc_part4)
+frc_noleave:
+   sleep(4)
+   say(S40_STXT1)
+   walk(0,UP,1)
+   sync
+   group
+   sync
+   end
+
+frc_part2:
+   fadeout(X_FADE)
+   lmap(MAP_FRC_P2, D,E)
+   zone(F)
+   cstep(frc_part2a, $09,$0f)
+   fadein(X_FADE)
+   end
+frc_part2a:
+   set(D,$03)
+   set(E,$05)
+   goto(frc_part1)
+
+frc_part3:
+   fadeout(X_FADE)
+   lmap(MAP_FRC_P3, D,E)
+   zone(F)
+   cstep(frc_part3a, $05,$03)
+   ctres($1a,IT_HPLO,     $02,$0e,$3B,SFX_CHEST)
+   ctres($1b,IT_CCrimson, $04,$0e,$3B,SFX_CHEST)
+   fadein(X_FADE)
+   end
+frc_part3a:
+   set(D,$15)
+   set(E,$08)
+   goto(frc_part1)
+
+frc_part4:
+   fadeout(X_FADE)
+   lmap(MAP_FRC_P4, D,E)
+   zone(F)
+   cstep(frc_part4a, $20,$05)
+   cstep(frc_part4b, $13,$04)
+   ctres($1c,IT_HPLO, $02,$07,$3B,SFX_CHEST)
+   fadein(X_FADE)
+   end
+frc_part4a:
+   set(D,$09)
+   set(E,$04)
+   goto(frc_part1)
+frc_part4b:
+   set(D,$09)
+   set(E,$13)
+   goto(frc_part5)
+
+frc_part5:
+   fadeout(X_FADE)
+   lmap(MAP_FRC_P5, D,E)
+   zone(F)
+   cstep(frc_part5a, $09,$14)
+   cstep(frc_part5b, $0a,$0d)
+   fadein(X_FADE)
+   end
+frc_part5a:
+   set(D,$13)
+   set(E,$04)
+   goto(frc_part4)
+frc_part5b:
+   set(D,$07)
+   set(E,$06)
+   goto(frc_part6)
+
+frc_part6:
+   fadeout(X_FADE)
+   lmap(MAP_FRC_P6, D,E)
+   zone(F)
+   cstep(frc_part6a, $07,$06)
+   cstep(frc_part6b, $0f,$06)
+   ctres($1d,IT_HPLO, $13,$0a,$3B,SFX_CHEST)
+   get(A,VAR_FRCFLAME)
+   cif(A,CE,0,frc_flame)
+   fadein(X_FADE)
+   end
+frc_part6a:
+   set(D,$0a)
+   set(E,$0d)
+   goto(frc_part5)
+frc_part6b:
+   set(D,$09)
+   set(E,$0c)
+   goto(frc_part7)
+frc_flame:
+   ldude(4,EN_FLAME,    $0B,$06,LEFT,STAND)
+   ctalk(frc_flame2,4)
+   end
+frc_flame2:
+   have(A,IT_WATER)
+   if(A,CE,0,frc_flame2a)
+   say(FRC_STXT2)
+   sleep(8)
+   say(FRC_STXT3)
+   sleep(16)
+   take(IT_WATER)
+   sfx(SFX_ENGULF)
+   sleep(4)
+   del(4)
+   sleep(32)
+   say(FRC_STXT4)
+   put(1,VAR_FRCFLAME)
+   end
+frc_flame2a:
+   say(FRC_STXT1)
+   end
+
+frc_part7:
+   fadeout(X_FADE)
+   lmap(MAP_FRC_P7, D,E)
+   cstep(frc_part7a, $09,$0c)
+   cstep(frc_part7b, $09,$02)
+   get(A,VAR_GUTANA)
+   cif(A,CE,0,frc_gutana1)
+   fadein(X_FADE)
+   end
+frc_part7a:
+   set(D,$0f)
+   set(E,$06)
+   goto(frc_part6)
+frc_part7b:
+   set(D,$04)
+   set(E,$09)
+   goto(frc_part8)
+frc_gutana1:
+   ldude(4,EN_GUTANA,   $09,$06,DOWN,STAND)
+   cstep(frc_gutana1a,  $09,$09)
+   end
+frc_gutana1a:
+   get(A,VAR_GUTANA)
+   if(A,CE,1,RET)
+
+   ldude(8,CH_ELYA,     $09,$02,DOWN,STAND)
+   walk(0,UP,1)
+   sync
+   say(S17_ETXT1)
+   sleep(16)
+   say(S17_ETXT2)
+   face(4,LEFT)
+   sleep(8)
+   face(4,UP)
+   sleep(8)
+   face(4,RIGHT)
+   sleep(8)
+   face(4,DOWN)
+   sleep(16)
+   say(S17_ETXT3)
+   sleep(16)
+   say(S17_ETXT4)
+   frame(4,8)
+   sleep(8)
+
+   ; load the flamies
+   sfx(SFX_ENGULF)
+   ldude(5,EN_FLAME,    $08,$08,RIGHT,STAND)
+   sleep(40)
+   sfx(SFX_ENGULF)
+   ldude(6,EN_FLAME,    $0a,$08,LEFT,STAND)
+   sleep(40)
+   sfx(SFX_ENGULF)
+   ldude(7,EN_FLAME,    $09,$07,DOWN,STAND)
+   sleep(40)
+   face(4,DOWN)
+
+   ; conner looks
+   face(0,LEFT)
+   sleep(8)
+   face(0,RIGHT)
+   sleep(8)
+   face(0,UP)
+   sleep(16)
+
+   say(S17_ETXT5)
+
+   ; elya
+   say(S17_ETXT6)
+   sleep(16)
+   ;sleep(8)
+   ;sfx(SFX_ENGULF2)
+   ;del(5)
+   ;del(6)
+   ;del(7)
+   sleep(32)
+   lockon(8)
+   sleep(32)
+   face(4,LEFT)
+   sleep(8)
+   face(4,UP)
+   sleep(8)
+   walk(8,DOWN,2)
+   sync
+   sleep(8)
+   say(S17_ETXT7)
+   sleep(16)
+   say(S17_ETXT8)
+   sleep(16)
+   say(S17_ETXT9)
+   frame(4,8)
+   sleep(8)
+   lockon(0)
+   sleep(16)
+
+   partyset(1,PARTY_ELYA)
+   levelup(1)
+
+   song_pause
+   bsong(SNG_BOSS1)
+   setform
+   battle(Special_Gutana,0,1,0,0)
+   revive
+   song_resume
+
+   del(4)
+
+   ; flammies
+   del(5)
+   del(6)
+   del(7)
+
+   del(8)
+   reform
+   partyarr
+   warp(0,$08,$06,RIGHT)
+   warp(1,$09,$06,LEFT)
+   sleep(32)
+   fadein(X_FADE)
+
+   put(1,VAR_GUTANA)
+
+   goto(frc_elya)
+
+frc_part8:
+   fadeout(X_FADE)
+   lmap(MAP_FRC_P8, D,E)
+   zone(F)
+   cstep(frc_part8a, $04,$0a)
+   cstep(frc_part8b, $02,$05)
+   cstep(frc_part8c, $06,$05)
+   fadein(X_FADE)
+   end
+frc_part8a:
+   set(D,$09)
+   set(E,$02)
+   goto(frc_part7)
+frc_part8b:
+   set(D,$0e)
+   set(E,$05)
+   goto(frc_part9)
+frc_part8c:
+   set(D,$02)
+   set(E,$08)
+   goto(frc_part10)
+
+frc_part9:
+   fadeout(X_FADE)
+   lmap(MAP_FRC_P9, D,E)
+   zone(F)
+   cstep(frc_part9a, $0e,$05)
+   ctres($1e,IT_HPLO, $0e,$03,$3B,SFX_CHEST)
+   fadein(X_FADE)
+   end
+frc_part9a:
+   set(D,$02)
+   set(E,$05)
+   goto(frc_part8)
+
+frc_part10:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+frc_part10_nf:
+   lmap(MAP_FRC_P10, D,E)
+   zone(F)
+   cstep(frc_part10a, $02,$08)
+   cstep(frc_part10b, $0a,$13)
+   fadein(G)
+   end
+frc_part10a:
+   set(D,$06)
+   set(E,$05)
+   goto(frc_part8)
+frc_part10b:
+   set(B,$30)
+   set(C,$41)
+   goto(OVER_WARP)
+
+frc_elya:
+   sleep(16)
+   say(S18_ETXT1)
+   sleep(16)
+   say(S18_ETXT2)
+   sleep(16)
+   say(S18_ETXT3)
+   sleep(16)
+   say(S18_ETXT4)
+   walk(1,RIGHT,1)
+   sync
+   say(S18_ETXT5)
+   face(1,DOWN)
+   sleep(16)
+   say(S18_ETXT6)
+   sleep(16)
+   say(S18_ETXT7)
+   sleep(16)
+   say(S18_ETXT8)
+   face(1,LEFT)
+   sleep(16)
+   say(S18_ETXT9)
+   sleep(16)
+   say(S18_ETXT10)
+   face(0,DOWN)
+   sleep(16)
+   say(S18_ETXT11)
+   sleep(16)
+   say(S18_ETXT12)
+   face(0,RIGHT)
+   sleep(16)
+   say(S18_ETXT13)
+   sleep(16)
+   ;say(S18_ETXT14)
+   walk(1,LEFT,2)
+   sync
+   reform
+   setskl(0,1,11)
+
+   goto(INC_EVT)
+
+
+frc_scene40_setup:
+   lockoff
+   partyarr
+   detach
+   warp(0,$0c,$0a,DOWN)
+   warp(3,$0b,$0b,RIGHT)
+   warp(1,$0d,$0b,LEFT)
+   warp(2,$0c,$0c,UP)
+   end
+
+frc_scene40:
+   call(frc_init)
+   set(G,X_FADE)
+   set(D,$0c)
+   set(E,$0c)
+   call(frc_part1_nf)
+
+   sleep(32)
+   say(S40_ETXT1)
+   sleep(16)
+   say(S40_ETXT2)
+   sleep(16)
+   say(S40_ETXT3)
+   sleep(16)
+   say(S40_ETXT4)
+   sleep(16)
+   say(S40_ETXT5)
+   sleep(16)
+   say(S40_ETXT6)
+   sleep(16)
+   say(S40_ETXT7)
+   sleep(16)
+   say(S40_ETXT8)
+   sleep(16)
+   say(S40_ETXT9)
+
+   walk(0,DOWN,2)
+   walk(1,DOWN,1)
+   walk(3,DOWN,1)
+   sync
+   sleep(9)
+   walk(1,LEFT,1)
+   walk(3,RIGHT,1)
+   sync
+   face(0,UP)
+   reform
+   lockon(0)
+
+   ; turn off scene40, flag no exit, open great wood
+   put(0,VAR_FRC1)
+   put(1,VAR_FRC2)
+   put(3,VAR_RET_TUR)
+   put(1,VAR_RET_GRW)
+   end
+

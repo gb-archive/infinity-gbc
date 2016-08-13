@@ -1,0 +1,933 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+fin_door1:
+   say(FIN_STXT1)
+   end
+fin_door2:
+   say(FIN_STXT2)
+   end
+
+fin_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+fin_part1_nf:
+   lmap(MAP_FIN_P1, D,E)
+   cstep(fin_part1a, $06,$07)
+   cstep(fin_part1b, $1a,$07)
+   csearch(fin_door1,$0f,$11,S_D)
+   csearch(fin_door1,$10,$11,S_D)
+   csearch(fin_door1,$11,$11,S_D)
+   cvstep(fin_scene53,$0a,$06,4)
+   fadein(G)
+   end
+fin_part1a:
+   set(D,$18)
+   set(E,$15)
+   goto(fin_part2)
+fin_part1b:
+   set(D,$1e)
+   set(E,$15)
+   goto(fin_part2)
+
+fin_part2:
+   fadeout(X_FADE)
+   lmap(MAP_FIN_P2, D,E)
+   cstep(fin_part2a, $18,$15)
+   cstep(fin_part2b, $1e,$15)
+   cstep(fin_part2c, $03,$09)
+   cstep(fin_part2d, $24,$03)
+   cstep(fin_part2e, $32,$06)
+   fadein(X_FADE)
+   end
+fin_part2a:
+   set(D,$06)
+   set(E,$07)
+   goto(fin_part1)
+fin_part2b:
+   set(D,$1a)
+   set(E,$07)
+   goto(fin_part1)
+fin_part2c:
+   set(D,$12)
+   set(E,$1b)
+   goto(fin_part3)
+fin_part2d:
+   set(D,$03)
+   set(E,$11)
+   goto(fin_part7)
+fin_part2e:
+   set(D,$04)
+   set(E,$0a)
+   goto(fin_part6)
+
+fin_part3:
+   fadeout(X_FADE)
+fin_part3_nf:
+   lmap(MAP_FIN_P3, D,E)
+   chstep(fin_part3a, $11,$1c,3)
+   cstep(fin_part3b, $05,$15)
+   cstep(fin_part3c, $24,$19)
+   fadein(X_FADE)
+   end
+fin_part3a:
+   set(D,$03)
+   set(E,$09)
+   goto(fin_part2)
+fin_part3b:
+   set(D,$04)
+   set(E,$20)
+   goto(fin_part9)
+fin_part3c:
+   set(D,$0b)
+   set(E,$02)
+   goto(fin_part4)
+
+fin_part4:
+   fadeout(X_FADE)
+   lmap(MAP_FIN_P4, D,E)
+   cstep(fin_part4a, $0b,$02)
+   ctres($71,IT_HPLO, $02,$0a,$69,SFX_CHEST)
+   fadein(X_FADE)
+   end
+fin_part4a:
+   set(D,$24)
+   set(E,$18)
+   goto(fin_part3)
+
+fin_part5:
+   fadeout(X_FADE)
+   lmap(MAP_FIN_P5, D,E)
+   cstep(fin_part5a, $05,$0e)
+   get(A,VAR_FIN1)
+   cif(A,CE,3,fin_scene57_setup)
+   fadein(X_FADE)
+   end
+fin_part5a:
+   set(D,$04)
+   set(E,$02)
+   goto(fin_part9)
+
+fin_part6:
+   fadeout(X_FADE)
+   lmap(MAP_FIN_P6, D,E)
+fin_innjoin:
+   cstep(fin_part6a, $04,$0b)
+   cstep(fin_inn,    $04,$06)
+   fadein(X_FADE)
+   end
+fin_part6a:
+   set(D,$32)
+   set(E,$06)
+   goto(fin_part2)
+fin_inn:
+   align($04,$06)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   lockoff
+   walk(0,LEFT,1)
+   walk(1,RIGHT,1)
+   walk(2,UP,1)
+   walk(3,DOWN,1)
+   sync
+   face(0,RIGHT)
+   face(1,LEFT)
+   face(2,DOWN)
+   face(3,UP)
+   sleep(16)
+   yesno(A)
+   say(INN_FIN)
+   //say(INN_ALU2)
+   if(A,CE,0,fin_innno)
+
+   say(INN_FIN5)
+   song_pause
+   fadeout(X_FADE)
+   healall
+   song(SNG_REST)
+   sleep(240)
+   sleep(60)
+   song_resume
+   face(0,DOWN)
+   lmap(MAP_FIN_P6,      $04,$06)
+   lockon(0)
+   call(fin_innjoin)
+   sleep(30)
+   call(fin_asksave)
+   end
+
+fin_innno:
+   call(fin_asksave)
+   walk(2,DOWN,1)
+   walk(0,RIGHT,1)
+   walk(1,LEFT,1)
+   walk(3,UP,1)
+   sync
+   partynor
+   face(0,DOWN)
+   reform
+   lockon(0)
+   end
+
+fin_asksave:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,RET)
+   set(A,SVL_FIN)
+   savemenu
+   end
+
+fin_innload:
+   lmap(MAP_FIN_P6,      $04,$06)
+   song(SNG_GREATDARK)
+   goto(fin_innjoin)
+
+
+fin_part7:
+   fadeout(X_FADE)
+   lmap(MAP_FIN_P7, D,E)
+   cstep(fin_part7a, $03,$11)
+   cstep(fin_part7b, $04,$06)
+   cstep(fin_part7c, $08,$01)
+
+   get(A,VAR_FIN1)
+   if(A,CGE,2,fin_part7_door1)
+   csearch(fin_door2,$04,$06,S_U)
+   goto(fin_part7_door2)
+fin_part7_door1:
+   tile(4,6,$18)
+fin_part7_door2:
+
+   get(A,VAR_FIN1)
+   cif(A,CE,2,fin_scene55_setup)
+   fadein(X_FADE)
+   get(A,VAR_FIN1)
+   cif(A,CE,2,fin_scene55)
+   end
+fin_part7a:
+   set(D,$24)
+   set(E,$03)
+   goto(fin_part2)
+fin_part7b:
+   set(D,$0a)
+   set(E,$10)
+   goto(fin_part8)
+fin_part7c:
+   set(D,$0f)
+   set(E,$0e)
+   goto(fin_part8)
+
+
+fin_part8:
+   fadeout(X_FADE)
+   lmap(MAP_FIN_P8, D,E)
+   cstep(fin_part8a, $0a,$11)
+   cstep(fin_part8b, $0f,$0f)
+   ctres($72,IT_HPLO, $15,$0a,$69,SFX_CHEST)
+   cvstep(fin_scene54,$0d,$05,3)
+   get(A,VAR_FIN1)
+   cif(A,CE,1,fin_scene54_setup)
+   if(A,CLE,1,fin_notdeadyet)
+   ldude(5,NPC_EXH,     $05,$06,DOWN,STAND)
+   frame(5,1)
+   ctalk(fin_find1, 5)
+   ldude(6,NPC_EXH,     $09,$06,DOWN,STAND)
+   frame(6,3)
+   ctalk(fin_find2, 6)
+fin_notdeadyet:
+   fadein(X_FADE)
+   end
+fin_part8a:
+   set(D,$04)
+   set(E,$06)
+   goto(fin_part7)
+fin_part8b:
+   set(D,$08)
+   set(E,$01)
+   goto(fin_part7)
+fin_find1:
+   get(A,VAR_FINFIND1)
+   if(A,CE,1,RET)
+   put(1,VAR_FINFIND1)
+   give(IT_OFrey)
+   end
+fin_find2:
+   get(A,VAR_FINFIND2)
+   if(A,CE,1,RET)
+   put(1,VAR_FINFIND2)
+   give(IT_EGilus)
+   end
+
+fin_part9:
+   fadeout(X_FADE)
+   lmap(MAP_FIN_P9, D,E)
+   cstep(fin_part9a, $04,$21)
+   cstep(fin_part9b, $04,$02)
+   fadein(X_FADE)
+   end
+fin_part9a:
+   set(D,$05)
+   set(E,$15)
+   goto(fin_part3)
+fin_part9b:
+   set(D,$05)
+   set(E,$0d)
+   goto(fin_part5)
+
+
+fin_scene52:
+   partyset(3,0)
+   partyset(2,0)
+   partyset(2,PARTY_ELYA)
+
+   set(D,$12)
+   set(E,$12)
+   face(0,DOWN)
+   lmap(MAP_FIN_P3, D,E)
+   chstep(fin_part3a, $11,$1c,3)
+   cstep(fin_part3b, $05,$15)
+   cstep(fin_part3c, $24,$19)
+   lockoff
+   partyarr
+   detach
+   dec(D)
+   warp(1,D,E,DOWN)
+   add(D,2)
+   warp(2,D,E,DOWN)
+   song(SNG_GREATDARK)
+   fadein(X_FADE)
+
+   // scene 52
+   sleep(32)
+   say(S52_ETXT1)
+   face(1,LEFT)
+   sleep(16)
+   say(S52_ETXT2)
+   face(2,RIGHT)
+   sleep(16)
+   say(S52_ETXT3)
+   face(0,RIGHT)
+   face(1,RIGHT)
+   sleep(16)
+   say(S52_ETXT4)
+   sleep(16)
+   say(S52_ETXT5)
+   face(2,DOWN)
+   sleep(16)
+   say(S52_ETXT6)
+   sleep(16)
+   say(S52_ETXT7)
+   sleep(16)
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   sync
+   face(0,DOWN)
+   partynor
+   reform
+   lockon(0)
+   end
+
+fin_scene53:
+   get(A,VAR_FIN1)
+   if(A,CNE,0,RET)
+   put(1,VAR_FIN1)
+
+   // do scene 53
+   align($0b,$07)
+   sync
+   face(0,RIGHT)
+   group
+   sync
+   partyarr
+   panspeed(0)
+   lockon(1)
+   walk(1,DOWN,1)
+   walk(2,UP,1)
+   sync
+   face(1,RIGHT)
+   walk(2,RIGHT,1)
+   sleep(16)
+   say(S53_ETXT1)
+   sleep(16)
+   say(S53_ETXT2)
+   face(1,UP)
+   sleep(16)
+   say(S53_ETXT3)
+   face(2,DOWN)
+   sleep(16)
+   say(S53_ETXT4)
+   sleep(16)
+   say(S53_ETXT5)
+   sleep(16)
+   say(S53_ETXT6)
+   face(0,DOWN)
+   sleep(16)
+   say(S53_ETXT7)
+   sleep(16)
+   say(S53_ETXT8)
+   sleep(16)
+   say(S53_ETXT9)
+   sleep(16)
+   say(S53_ETXT10)
+   face(1,RIGHT)
+   sleep(4)
+   face(1,DOWN)
+   sleep(16)
+   say(S53_ETXT11)
+   face(1,RIGHT)
+   sleep(16)
+   say(S53_ETXT12)
+   sleep(16)
+   say(S53_ETXT13)
+   walk(2,DOWN,1)
+   walk(1,UP,1)
+   sync
+   walk(2,LEFT,1)
+   sync
+   face(0,RIGHT)
+   partynor
+   reform
+   lockon(0)
+   sleep(16)
+   panspeed(2)
+   end
+
+
+/*
+  NPC_EXH
+
+    0 = selera hurt
+    1 = selera dead
+    2 = gilus hurt
+    3 = gilus dead
+    4 = gilus cast
+*/
+
+fin_scene54_setup:
+   ldude(5,NPC_EXH,     $06,$06,DOWN,STAND)
+   frame(5,0)
+   ldude(6,NPC_EXH,     $08,$06,DOWN,STAND)
+   frame(6,2)
+   ldude(8,NPC_UNNAMED, $07,$04,DOWN,STAND)
+   end
+
+fin_scene54:
+   get(A,VAR_FIN1)
+   if(A,CNE,1,RET)
+   put(2,VAR_FIN1)
+
+   ldude(3,CH_ALUTHA,   $07,$07,UP,  STAND)
+   partyset(3,PARTY_ALUTHA)
+
+   // do scene 54
+   pan($07,$07)
+   panspeed(0)
+   align($0d,$06)
+   sync
+   face(0,LEFT)
+   group
+   sync
+   partyarr
+
+   walk(1,UP,1)
+   walk(2,DOWN,1)
+   sync
+   face(1,LEFT)
+   face(2,LEFT)
+
+   sleep(96)
+
+   say(S54_ETXT1)
+   ldude(6,NPC_GILUS,     $08,$06,DOWN,  STAND)
+   sleep(16)
+   walk(6,LEFT,1)
+   sync
+   face(6,UP)
+   sleep(16)
+
+   // Cast
+   ldude(6,NPC_EXH,       $07,$06,DOWN,  STAND)
+   frame(6,4)
+
+   sleep(16)
+   say(S54_ETXT2)
+   ldude(6,NPC_GILUS,     $07,$06,UP,    STAND)
+
+   ldude(7,NPC_FIRE,    $07,$06,DOWN,STAND)
+   setz(7,1)
+   frame(7,CEL_DOWN1)
+   sfx(SFX_ENGULF)
+   walk(7,UP,2)
+   sync
+   del(7)
+   ldude(6,NPC_GILUS,     $07,$06,UP,  STAND)
+
+   sleep(16)
+   ldude(7,NPC_FIRE2,   $07,$04,DOWN,STAND)
+   setz(7,1)
+   anim(7)
+   sleep(16)
+   walk(7,DOWN,2)
+   sync
+   del(7)
+   frame(6,CEL_UP1)
+   walk(6,RIGHT,1)
+   sync
+
+   ldude(6,NPC_EXH,       $08,$06,DOWN,  STAND)
+   frame(6,3)
+
+   sleep(32)
+   face(3,RIGHT)
+   sleep(16)
+   face(3,LEFT)
+   sleep(16)
+   face(3,RIGHT)
+   sleep(16)
+   face(3,LEFT)
+   sleep(16)
+   say(S54_ETXT3)
+   face(3,UP)
+   sleep(16)
+   walk(3,UP,2)
+   sync
+   sleep(16)
+   frame(3,CEL_UP1)
+   walk2(3,UP,1)
+   sleep(4)
+   sfx(SFX_SWORD)
+   sync
+   walk2(3,DOWN,1)
+   sync
+   face(4,UP)
+   sleep(8)
+   frame(8,CEL_DOWN1)
+   walk(8,DOWN,1)
+   sleep(4)
+   sfx(SFX_CLAW)
+   sync
+   walk(8,UP,1)
+   frame(3,CEL_UP1)
+   walk(3,DOWN,2)
+   sleep(9)
+   face(8,DOWN)
+   sync
+   frame(3,CEL_SIT1)
+   sleep(32)
+   frame(3,CEL_LOOK1)
+   sleep(16)
+   face(3,DOWN)
+   sleep(32)
+   face(3,LEFT)
+   sleep(4)
+   face(3,UP)
+   sleep(32)
+   say(S54_ETXT4)
+   walk(3,UP,2)
+   sync
+   frame(3,CEL_UP1)
+
+   // strike unnamed 3 times
+   walk2(3,UP,1)
+   sleep(4)
+   sfx(SFX_SWORD)
+   sync
+   walk2(3,DOWN,1)
+   sync
+
+   walk2(3,UP,1)
+   sleep(4)
+   sfx(SFX_SWORD)
+   sync
+   walk2(3,DOWN,1)
+   sync
+
+   walk2(3,UP,1)
+   sleep(4)
+   sfx(SFX_SWORD)
+   sync
+   walk2(3,DOWN,1)
+   sync
+
+   face(3,UP)
+
+   set(A,0)
+fin_scene54_spin:
+   sleep(16)
+   frame(8,LEFT)
+   sleep(8)
+   frame(8,UP)
+   sleep(8)
+   frame(8,RIGHT)
+   sleep(8)
+   frame(8,DOWN)
+   inc(A)
+   if(A,CL,4,fin_scene54_spin)
+
+   sleep(16)
+   del(8)
+   sfx(SFX_POOF)
+
+   sleep(32)
+
+   ldude(5,NPC_SELERA,     $06,$06,UP,  STAND)
+   ldude(6,NPC_GILUS,      $08,$06,UP,  STAND)
+
+   say(S54_ETXT5)
+
+   face(3,RIGHT)
+   sleep(4)
+   face(3,DOWN)
+   sleep(32)
+   face(6,LEFT)
+   sleep(16)
+   say(S54_ETXT6)
+   face(5,RIGHT)
+   sleep(16)
+   say(S54_ETXT7)
+   sleep(16)
+   say(S54_ETXT8)
+   face(6,UP)
+   sleep(16)
+   say(S54_ETXT9)
+   face(3,RIGHT)
+   sleep(16)
+   say(S54_ETXT10)
+
+   sleep(16)
+   say(S54_ETXT11)
+   face(3,DOWN)
+   sleep(16)
+   say(S54_ETXT12)
+   sleep(16)
+   say(S54_ETXT13)
+   face(3,LEFT)
+   sleep(16)
+   say(S54_ETXT14)
+   sleep(16)
+   say(S54_ETXT15)
+   walk(3,DOWN,1)
+   sleep(4)
+   face(6,LEFT)
+   sync
+   face(3,RIGHT)
+   sleep(16)
+   say(S54_ETXT16)
+   sleep(16)
+   say(S54_ETXT17)
+   face(3,LEFT)
+   sleep(16)
+   say(S54_ETXT18)
+   sleep(16)
+   say(S54_ETXT19)
+   sleep(16)
+   say(S54_ETXT20)
+
+   sleep(32)
+   frame(3,CEL_LEFT1)
+   walk2(3,LEFT,1)
+   sleep(4)
+   sfx(SFX_SWORD)
+   sync
+   ldude(5,NPC_EXH,     $06,$06,DOWN,STAND)
+   frame(5,1)   
+   walk(5,LEFT,1)
+   walk2(3,RIGHT,1)
+   sleep(2)
+   setz(5,4)
+   sleep(2)
+   setz(5,6)
+   sleep(2)
+   setz(5,4)
+   sleep(2)
+   setz(5,0)
+   face(3,LEFT)
+   sleep(16)
+   face(3,DOWN)
+   sleep(16)
+   face(3,RIGHT)
+   sleep(16)
+   frame(3,CEL_RIGHT1)
+   walk2(3,RIGHT,1)
+   sleep(4)
+   sfx(SFX_SWORD)
+
+   sync
+   ldude(6,NPC_EXH,     $08,$06,DOWN,STAND)
+   frame(6,3)
+   walk(6,RIGHT,1)
+   walk2(3,LEFT,1)
+   sleep(2)
+   setz(6,4)
+   sleep(2)
+   setz(6,6)
+   sleep(2)
+   setz(6,4)
+   sleep(2)
+   setz(6,0)
+   sleep(32)
+   face(3,DOWN)
+   sleep(8)
+   walk(3,DOWN,1)
+   sleep(16)
+   face(3,LEFT)
+   sleep(8)
+   face(3,RIGHT)
+   sleep(8)
+   face(3,LEFT)
+   sleep(8)
+   face(3,RIGHT)
+   sleep(24)
+   frame(3,CEL_LOOK1)
+   sleep(32)
+   say(S54_ETXT21)
+   sleep(48)
+   frame(3,CEL_DOWN1)
+   sleep(16)
+   walk(3,DOWN,4)
+   sleep(16)
+   pan($0d,$06)
+   sleep(112)
+   del(3)
+   partyset(3,0)
+
+   say(S54_ETXT22)
+   sleep(16)
+   say(S54_ETXT23)
+   face(0,UP)
+   sleep(16)
+   say(S54_ETXT24)
+   walk(1,DOWN,1)
+   walk(2,UP,1)
+   sync
+   face(0,RIGHT)
+   partynor
+   reform
+   panspeed(2)
+   lockon(0)
+   end
+
+
+fin_scene55_setup:
+   ldude(4,CH_ALUTHA,  $04,$07,UP,STAND)
+   ldude(5,NPC_PORTALA,$06,$08,DOWN,STAND)
+   ldude(6,NPC_PORTALB,$06,$09,DOWN,STAND)
+   anim(5)
+   anim(6)
+   end
+
+fin_scene55:
+   get(A,VAR_FIN1)
+   if(A,CE,3,RET)
+   put(3,VAR_FIN1)
+
+   walk(0,DOWN,9)
+   sync
+   walk(0,LEFT,4)
+   sync
+   walk(0,UP,1)
+   sync
+
+   walk(4,DOWN,1)
+   align($04,$09)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   walk(0,DOWN,1)
+   walk(2,DOWN,1)
+   sync
+   lockoff
+   walk(0,LEFT,1)
+   walk(2,RIGHT,1)
+   sync
+   face(0,UP)
+   face(2,UP)
+   sleep(16)
+
+   say(S55_ETXT1)
+   sleep(16)
+   say(S55_ETXT2)
+   sleep(16)
+   say(S55_ETXT3)
+   sleep(16)
+   say(S55_ETXT4)
+   sleep(16)
+   say(S55_ETXT5)
+   sleep(16)
+   say(S55_ETXT6)
+   sleep(16)
+   say(S55_ETXT7)
+   sleep(16)
+   say(S55_ETXT8)
+   sleep(16)
+   say(S55_ETXT9)
+   face(4,LEFT)
+   sleep(4)
+   face(4,UP)
+   sleep(16)
+   say(S55_ETXT10)
+   sleep(16)
+   say(S55_ETXT11)
+   sleep(16)
+   say(S55_ETXT12)
+   face(4,RIGHT)
+   sleep(4)
+   face(4,DOWN)
+   sleep(16)
+   say(S55_ETXT13)
+   sleep(16)
+   say(S55_ETXT14)
+   sleep(16)
+   say(S55_ETXT15)
+   sleep(16)
+   say(S55_ETXT16)
+   sleep(16)
+   say(S55_ETXT17)
+   sleep(16)
+   say(S55_ETXT18)
+   sleep(16)
+   say(S55_ETXT19)
+
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(0,0,1,0,0)
+   song_resume
+   frame(4,CEL_SIT1)
+   del(5)
+   del(6)
+   fadein(X_FADE)
+
+   sleep(16)
+   say(S56_ETXT1)
+   sleep(16)
+   say(S56_ETXT2)
+   face(4,DOWN)
+   sleep(16)
+   say(S56_ETXT3)
+   sleep(16)
+   say(S56_ETXT4)
+   face(2,RIGHT)
+   sleep(16)
+   say(S56_ETXT5)
+   face(0,RIGHT)
+   sleep(4)
+   face(1,RIGHT)
+   face(4,RIGHT)
+   sleep(16)
+   say(S56_ETXT6)
+   sleep(16)
+   say(S56_ETXT7)
+   sleep(16)
+   say(S56_ETXT8)
+   face(2,UP)
+   sleep(16)
+   say(S56_ETXT9)
+   face(4,DOWN)
+   sleep(16)
+   say(S56_ETXT10)
+
+   walk(0,RIGHT,1)
+   walk(2,LEFT,1)
+   walk(1,DOWN,1)
+   sleep(9)
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   walk(4,DOWN,2)
+   sync
+   del(4)
+   partyset(3,PARTY_ALUTHA)
+   partynor
+   reform
+   levelup(3)
+   lockon(0)
+   sleep(4)
+   end
+
+fin_scene57_setup:
+   ldude(4,NPC_PORTALA,$05,$04,DOWN,STAND)
+   ldude(5,NPC_PORTALB,$05,$05,DOWN,STAND)
+   anim(4)
+   anim(5)
+   cstep(fin_scene57,$05,$07)
+   end
+
+fin_scene57:
+   sleep(4)
+   align($05,$07)
+   sync
+   face(0,UP)
+   group
+   sync
+   partyarr
+   detach
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   walk(3,DOWN,1)
+   sync
+   face(1,UP)
+   face(2,UP)
+   face(3,UP)
+   lockoff
+   walk(0,UP,1)
+   sync
+   sleep(32)
+
+   face(0,RIGHT)
+   sleep(4)
+   face(0,DOWN)
+   sleep(16)
+   say(S57_ETXT1)
+   sleep(16)
+   say(S57_ETXT2)
+   sleep(16)
+   say(S57_ETXT3)
+   sleep(16)
+   say(S57_ETXT4)
+
+   face(0,RIGHT)
+   sleep(4)
+   face(0,UP)
+   sleep(32)
+
+   walk(0,UP,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(0)
+   sleep(16)
+   walk(1,RIGHT,1)
+   sync
+   walk(1,UP,2)
+   walk(2,LEFT,1)
+   sleep(9)
+   face(2,UP)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(1)
+   walk(2,UP,2)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(2)
+   walk(3,UP,3)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(3)
+   fadeout(X_FADE)
+   lockon(0)
+   sleep(64)
+   call(joy_setup)
+   goto(joy1_scene58)

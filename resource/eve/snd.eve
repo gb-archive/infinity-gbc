@@ -1,0 +1,578 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_SND:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$0b)
+   set(E,$11)
+   set(G,X_ROLL)
+   song(SNG_MYSTERY)
+   goto(snd_part1_nf)
+
+snd_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+snd_part1_nf:
+   lmap(MAP_SND_P1, D,E)
+   chstep(snd_part1a,$7f,$7f,$19)
+   chstep(snd_part1a,$7f,$12,$19)
+   cvstep(snd_part1a,$7f,$7f,$15)
+   cvstep(snd_part1a,$7f,$17,$15)
+   cstep(snd_part1b, $0b,$0e)
+   fadein(G)
+   end
+snd_part1a:
+   set(B,$17)
+   set(C,$2b)
+   goto(OVER_WARP)
+snd_part1b:
+   set(D,$0d)
+   set(E,$16)
+   goto(snd_part2)
+
+snd_part2:
+   fadeout(X_FADE)
+   lmap(MAP_SND_P2, D,E)
+snd_innjoin:
+   chstep(snd_part2a, $0d,$17,2)
+   cstep(snd_part2b, $04,$06)
+   cstep(snd_part2c, $17,$06)
+   ctres($5d,IT_HPLO, $06,$0d,$19,SFX_CHEST)
+
+   call(snd_townsetup)
+
+   fadein(X_FADE)
+   end
+snd_part2a:
+   set(D,$0b)
+   set(E,$0e)
+   goto(snd_part1)
+snd_part2b:
+   set(D,$02)
+   set(E,$08)
+   goto(snd_part3)
+snd_part2c:
+   set(D,$15)
+   set(E,$08)
+   goto(snd_part3)
+
+snd_part3:
+   fadeout(X_FADE)
+   lmap(MAP_SND_P3, D,E)
+   zone(ZONE_SND)
+   cstep(snd_part3a, $02,$08)
+   cstep(snd_part3b, $15,$08)
+   cstep(snd_part3c, $02,$03)
+   cstep(snd_part3d, $15,$03)
+   ctres($5e,IT_HPLO, $0d,$06,$19,SFX_CHEST)
+   cvstep(snd_part3h1, $11,$15,2)
+   chstep(snd_part3h2, $11,$0d,1)
+   fadein(X_FADE)
+   end
+snd_part3a:
+   set(D,$04)
+   set(E,$06)
+   goto(snd_part2)
+snd_part3b:
+   set(D,$17)
+   set(E,$06)
+   goto(snd_part2)
+snd_part3c:
+   set(D,$02)
+   set(E,$04)
+   goto(snd_part4)
+snd_part3d:
+   set(D,$11)
+   set(E,$04)
+   goto(snd_part4)
+snd_part3h1:
+   tile($11,$15,$1b)
+   set(D,$15)
+   set(E,$11)
+   set(A,0)
+   goto(snd_fall)
+snd_part3h2:
+   tile($11,$0d,$1b)
+   set(D,$15)
+   set(E,$11)
+   set(A,0)
+   goto(snd_fall)
+
+snd_part4:
+   fadeout(X_FADE)
+   lmap(MAP_SND_P4, D,E)
+   zone(ZONE_SND)
+   cstep(snd_part4a, $02,$04)
+   cstep(snd_part4b, $11,$04)
+   cstep(snd_part4c, $07,$0a)
+   cstep(snd_part4d, $0c,$0a)
+   cstep(snd_part4e, $02,$10)
+   cstep(snd_part4f, $11,$10)
+   ctres($5f,IT_HPLO, $06,$04,$19,SFX_CHEST)
+   ctres($60,IT_HPLO, $07,$04,$19,SFX_CHEST)
+   ctres($61,IT_HPLO, $0c,$04,$19,SFX_CHEST)
+   ctres($62,IT_HPLO, $0d,$04,$19,SFX_CHEST)
+   cstep(snd_part4h1, $0f,$04)
+   fadein(X_FADE)
+   end
+snd_part4a:
+   set(D,$02)
+   set(E,$03)
+   goto(snd_part3)
+snd_part4b:
+   set(D,$15)
+   set(E,$03)
+   goto(snd_part3)
+snd_part4c:
+   set(D,$06)
+   set(E,$08)
+   goto(snd_part5)
+snd_part4d:
+   set(D,$09)
+   set(E,$08)
+   goto(snd_part5)
+snd_part4e:
+   set(D,$01)
+   set(E,$0d)
+   goto(snd_part5)
+snd_part4f:
+   set(D,$0e)
+   set(E,$0d)
+   goto(snd_part5)
+snd_part4h1:
+   tile($0f,$04,$5c)
+   set(D,$0f)
+   set(E,$03)
+   set(A,1)
+   goto(snd_fall)
+
+snd_part5:
+   fadeout(X_FADE)
+   lmap(MAP_SND_P5, D,E)
+   zone(ZONE_SND)
+   cstep(snd_part5a, $06,$08)
+   cstep(snd_part5b, $09,$08)
+   cstep(snd_part5c, $01,$0d)
+   cstep(snd_part5d, $0e,$0d)
+   cstep(snd_part5e, $02,$02)
+   cstep(snd_part5f, $0d,$02)
+   cstep(snd_part5g, $05,$07)
+   cstep(snd_part5h, $0a,$07)
+   fadein(X_FADE)
+   end
+snd_part5a:
+   set(D,$07)
+   set(E,$0a)
+   goto(snd_part4)
+snd_part5b:
+   set(D,$0c)
+   set(E,$0a)
+   goto(snd_part4)
+snd_part5c:
+   set(D,$02)
+   set(E,$10)
+   goto(snd_part4)
+snd_part5d:
+   set(D,$11)
+   set(E,$10)
+   goto(snd_part4)
+snd_part5e:
+   set(D,$01)
+   set(E,$02)
+   goto(snd_part6)
+snd_part5f:
+   set(D,$0a)
+   set(E,$02)
+   goto(snd_part6)
+snd_part5g:
+   set(D,$05)
+   set(E,$06)
+   goto(snd_part6)
+snd_part5h:
+   set(D,$07)
+   set(E,$06)
+   goto(snd_part6)
+
+snd_part6:
+   fadeout(X_FADE)
+   lmap(MAP_SND_P6, D,E)
+   zone(ZONE_SND)
+   cstep(snd_part6a, $01,$02)
+   cstep(snd_part6b, $0a,$02)
+   cstep(snd_part6c, $05,$06)
+   cstep(snd_part6d, $07,$06)
+   cstep(snd_part6e, $08,$07)
+   ctres($63,IT_HPLO, $09,$0b,$19,SFX_CHEST)
+   cqstep(snd_part6h1, $06,$02)
+   cqstep(snd_part6h2, $05,$0a)
+   fadein(X_FADE)
+   end
+snd_part6a:
+   set(D,$02)
+   set(E,$02)
+   goto(snd_part5)
+snd_part6b:
+   set(D,$0d)
+   set(E,$02)
+   goto(snd_part5)
+snd_part6c:
+   set(D,$05)
+   set(E,$07)
+   goto(snd_part5)
+snd_part6d:
+   set(D,$0a)
+   set(E,$07)
+   goto(snd_part5)
+snd_part6e:
+   set(D,$04)
+   set(E,$04)
+   goto(snd_part7)
+snd_part6h1:
+   tile($06,$02,$1b)
+   tile($07,$02,$1b)
+   tile($06,$03,$64)
+   tile($07,$03,$64)
+   set(D,$07)
+   set(E,$01)
+   set(A,2)
+   goto(snd_fall)
+snd_part6h2:
+   tile($05,$0a,$1b)
+   tile($06,$0a,$1b)
+   tile($05,$0b,$64)
+   tile($06,$0b,$64)
+   set(D,$07)
+   set(E,$0b)
+   set(A,3)
+   goto(snd_fall)
+
+snd_part7:
+   fadeout(X_FADE)
+   lmap(MAP_SND_P7, D,E)
+   zone(ZONE_SND)
+   call(snd_coffinit)
+   cstep(snd_part7a, $04,$04)
+   csearch(snd_coffin1, $01,$02,S_U | S_L)
+   csearch(snd_coffin2, $06,$02,S_U | S_R)
+   csearch(snd_coffin3, $01,$05,S_U | S_L)
+   csearch(snd_coffin4, $06,$05,S_U | S_R)
+   fadein(X_FADE)
+   end
+snd_part7a:
+   set(D,$08)
+   set(E,$07)
+   goto(snd_part6)
+
+
+snd_fall:
+   call(snd_shake)
+   group
+   sync
+   del(0)
+   del(1)
+   del(2)
+   del(3)
+   sleep(2)
+   face(0,DOWN)
+   if(A,CE,0,snd_part2)
+   if(A,CE,1,snd_part3)
+   goto(snd_farfall)
+snd_shake:
+   sfx(SFX_ENGULF)
+   quake
+   sleep(16)
+   quake
+   end
+
+snd_farfall:
+   call(snd_part5)
+   frame(0,DOWN)
+   frame(1,DOWN)
+   frame(2,DOWN)
+   frame(3,DOWN)
+   walk(0,DOWN,3)
+   sync
+
+   cif(A,CE,2,snd_farfall1)
+   cif(A,CE,3,snd_farfall2)
+   goto(snd_part4)
+
+snd_farfall1:
+   set(D,$0b)
+   set(E,$03)
+   end
+snd_farfall2:
+   set(D,$09)
+   set(E,$10)
+   end
+
+
+snd_coffinit:
+   set(A,0)
+
+   get(B,VAR_SNDC1)
+   set(F,$74)
+   set(D,$01)
+   set(E,$02)
+   cif(B,CNE,0,snd_inca)
+
+   get(B,VAR_SNDC2)
+   set(F,$73)
+   set(D,$06)
+   set(E,$02)
+   cif(B,CNE,0,snd_inca)
+
+   get(B,VAR_SNDC3)
+   set(F,$75)
+   set(D,$01)
+   set(E,$05)
+   cif(B,CNE,0,snd_inca)
+
+   get(B,VAR_SNDC4)
+   set(F,$75)
+   set(D,$06)
+   set(E,$05)
+   cif(B,CNE,0,snd_inca)
+
+   put(A,VAR_SND1)
+   end
+snd_inca:
+   inc(A)
+   tile(D,E,$78)
+   dec(E)
+   tile(D,E,F)
+   end
+
+snd_coffin1:
+   get(A,VAR_SNDC1)
+   if(A,CE,1,RET)
+   put(1,VAR_SNDC1)
+   set(F,$74)
+   set(D,$01)
+   set(E,$02)
+   goto(snd_docoffin)
+snd_coffin2:
+   get(A,VAR_SNDC2)
+   if(A,CE,1,RET)
+   put(1,VAR_SNDC2)
+   set(F,$73)
+   set(D,$06)
+   set(E,$02)
+   goto(snd_docoffin)
+snd_coffin3:
+   get(A,VAR_SNDC3)
+   if(A,CE,1,RET)
+   put(1,VAR_SNDC3)
+   set(F,$75)
+   set(D,$01)
+   set(E,$05)
+   goto(snd_docoffin)
+snd_coffin4:
+   get(A,VAR_SNDC4)
+   if(A,CE,1,RET)
+   put(1,VAR_SNDC4)
+   set(F,$75)
+   set(D,$06)
+   set(E,$05)
+   goto(snd_docoffin)
+
+snd_docoffin:
+   call(snd_animate)
+   get(A,VAR_SND1)
+   cif(A,CE,0,snd_tres1)
+   cif(A,CE,1,snd_tres2)
+   cif(A,CE,2,snd_tres3)
+   cif(A,CE,3,snd_tres4)
+   inc(A)
+   put(A,VAR_SND1)
+   end
+
+snd_animate:
+   tile(D,E,$76)
+   sleep(4)
+   tile(D,E,$77)
+   sleep(4)
+   tile(D,E,$78)
+   dec(E)
+   tile(D,E,F)
+   end
+
+snd_tres1:
+   give(IT_HPLo)
+   end
+snd_tres2:
+   give(IT_HPLo)
+   end
+snd_tres3:
+   give(IT_HPLo)
+   end
+snd_tres4:
+   give(IT_SPLo)
+   end
+
+
+snd_townsetup:
+   ldude(4, NPC_HASSAN,    $0d,$03, DOWN,STAND)
+   ldude(5, NPC_LADY1,     $07,$11, DOWN,STAND)
+   ctalk(snd_shop, 4)
+   ctalk(snd_inn, 5)
+
+   ldude(6,NPC_GIRL1,      $01,$02, RIGHT,STAND)
+   ctalk(snd_girl, 6)
+
+   lguy(NPC_MAN2,          $17,$0a, TOS_DTXT3)
+   lguy(NPC_LADY4,         $10,$05, TOS_DTXT4)
+   lguy(NPC_BOY1,          $19,$14, TOS_DTXT2)
+   lguy(NPC_MAN1,          $0e,$12, TOS_DTXT5)
+   lguy(NPC_LADY2,         $13,$13, TOS_DTXT6)
+
+   ctres($64,IT_HPHi,      $03,$0f, $00,SFX_SEARCH)
+   ctres($65,IT_LFHi,      $02,$03, $00,SFX_SEARCH)
+   ctres($66,IT_HAHi,      $18,$11, $00,SFX_SEARCH)
+
+   chstep(snd_hassan,      $0d,$0b,2)
+   end
+
+snd_girl:
+   say(TOS_DTXT1)
+   end
+
+snd_hassan:
+   get(A,VAR_SND2)
+   if(A,CE,1,RET)
+   put(1,VAR_SND2)
+
+   say(SG_ETXT1A)
+   align($0d,$0b)
+   sync
+   face(0,UP)
+   group
+   sync
+   partyarr
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   walk(3,RIGHT,2)
+   sleep(9)
+   face(1,UP)
+   face(2,UP)
+   sync
+   face(3,UP)
+
+   walk(4,DOWN,6)
+   sync
+
+   sleep(16)
+   say(SG_ETXT1B)
+   sleep(16)
+   say(SG_ETXT2)
+   sleep(16)
+   say(SG_ETXT3)
+   sleep(16)
+   say(SG_ETXT4)
+   sleep(16)
+   say(SG_ETXT5)
+   sleep(16)
+   say(SG_ETXT6)
+   sleep(16)
+   say(SG_ETXT7)
+   sleep(16)
+   say(SG_ETXT8)
+   sleep(16)
+   say(SG_ETXT9)
+   sleep(16)
+   say(SG_ETXT10)
+   sleep(16)
+   say(SG_ETXT11)
+   sleep(16)
+   say(SG_ETXT12)
+   sleep(16)
+   say(SG_ETXT13)
+   walk(4,UP,6)
+   sync
+   face(4,DOWN)
+   face(3,LEFT)
+   sleep(16)
+   say(SG_ETXT14)
+
+   walk(3,LEFT,2)
+   walk(2,LEFT,1)
+   walk(1,RIGHT,1)
+   sync
+   partynor
+   reform
+   end
+
+snd_shop:
+   say(KSM_DTXT10)
+   shop_res
+   shop_add(IT_HPHi)
+   shop_add(IT_SPHi)
+   shop_add(IT_HAHi)
+   shop_add(IT_LFHi)
+   shop_add(IT_CGladius)
+   shop_add(IT_OZweihander)
+   shop
+   end
+
+snd_inn:
+   face(5,DOWN)
+   align($07,$12)
+   sync
+   face(0,UP)
+   group
+   sync
+   face(1,UP)
+   face(2,UP)
+   face(3,UP)
+
+   say(INN_TOS)
+   sleep(4)
+   yesno(A)
+   say(INN_TOS2)
+   if(A,CE,0,snd_innno)
+   cgold(A,200)
+   if(A,CE,1,snd_innok)
+   say(INN_DTXT4)
+   end
+snd_innok:
+   tgold(200)
+   say(INN_DTXT5)
+
+   ; rest
+   walk(0,DOWN,2)
+   sync
+   walk(0,LEFT,2)
+   sync
+   group
+   sync
+   call(INNSPLIT2)
+   walk(0,RIGHT,2)
+   sync
+   face(0,DOWN)
+   group
+   sync
+   reform
+
+snd_innno:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,snd_innns)
+   set(A,SVL_SND)
+   savemenu
+snd_innns:
+   say(INN_DTXT3)
+   end
+snd_innload:
+   lmap(MAP_SND_P2,       $07,$14)
+   song(SNG_MYSTERY)
+   goto(snd_innjoin)

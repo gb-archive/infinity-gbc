@@ -1,0 +1,145 @@
+###################################################
+# Infinity Items          (C) 2001 Affinix Software
+###################################################
+#
+# All lines beginning with '#' are
+# ignored by the program.
+#
+# Format:
+#
+# X:I:Name  Att Def Spd Man Equip Value
+#
+#  X    = item number reference
+#  I    = icon type, see below
+#  Name = name of item
+#
+#  (Item type will be assumed based on
+#  the icon used).
+#
+#  Att,Def,Spd,Man do the same thing
+#  regardless of item type.  They simply
+#  give you their numbered bonus.
+#
+#  Equip = CREVOA
+#  You can put CRA or CR---A.  Both work.
+#
+#  An attribute can be flagged by putting
+#  the corresponding letter (F, W, or A)
+#  after the Att (regardless of type).
+#
+#  Value = cost of item (half will automatically
+#  be used for selling.)
+#
+###################################################
+# Icon types
+#
+#  A - None        B - Gem
+#  C - Sword       D - Arrows
+#  E - Staff       F - Claws
+#  G - Shield      H - Armor
+#  I - Cape        J - Shoes
+#  K - Ring        L - Necklace
+#  M - Helm        N - Bottle
+#  O - Broadsword  P - Robe
+#
+###################################################
+
+# Attribs: F=Fire, W=Water, A=Air
+
+# Longswords     Att  Def  Spd  Man  Equip    Value
+# -------------------------------------------------
+20:C:Conscript     7    0    0    0  C-----      40
+21:C:Iron         12    0    0    0  C-----     150
+22:C:Scimitar     19    0    4    0  C-----     300
+23:C:Crimson      24F   0    0    0  C-----     450
+24:C:Rapier       28    0   -4    0  C-----     500
+25:C:Saber        33    0    0    0  C-----     750
+26:C:Cutlass      36    0    5    0  C-----     850
+27:C:Gladius      41    1   -3    3  C-----    1250
+28:C:Katana       45    0    8    0  C-----    2300
+29:C:Falchion     53    2    2    0  C-----    3600
+30:C:Frozen
+31:C:Crystal
+32:C:Ancestral    85    2    2    0  C-----    3600
+
+# Broadswords    Att  Def  Spd  Man  Equip    Value
+# -------------------------------------------------
+33:O:Bastard      50    0    0    0  ----OA     900
+34:O:Flamberge    43F   0    0    0  ----OA    1200
+35:O:Claymore     55    0   -3    0  ----OA    2000
+36:O:Zweihander   60    0   -3    0  ----OA    2000
+37:O:Ancient
+38:O:Frey         80    0   -3    0  ----OA    2000
+
+# Arrows         Att  Def  Spd  Man  Equip    Value
+# -------------------------------------------------
+40:D:Basic         5   0    1    0  -R----      40
+41:D:Sharp        11   0    1    0  -R----     100
+42:D:Pirate       28   0    1    0  -R---      750
+43:D:Blessed
+
+# Staves         Att  Def  Spd  Man  Equip    Value
+# -------------------------------------------------
+44:E:Oak          15    2    0    0  --E---     300
+45:E:Thorn        20    0    0    0  --E---     500
+46:E:Traveler     24    0    6    0  --E---     700
+47:E:Master       32    0    0    8  --E---     900
+48:E:Cudgel       40    0   -3   -2  --E---    1200
+49:E:War          44    4    0    0  --E---    2000
+50:E:Archmage     48    0    0   12  --E---    3500
+51:E:Sea
+52:E:Gilus        51    0    0   12  --E---    3500
+
+# Claws          Att  Def  Spd  Man  Equip    Value
+# -------------------------------------------------
+53:F:Wolf         30    0    0    0  ---V--       0
+54:F:Iron         41    0    0    2  ---V--     750
+55:F:Yeti         49W   0    0    0  ---V--    1200
+56:F:Omega        55A   3    0    0  ---V--    2300
+57:F:DinoF        0F    0    0    0  ---V--       0
+
+# Armor          Att  Def  Spd  Man  Equip    Value
+# -------------------------------------------------
+60:H:Tunic         0    5    0    0  CR-VO-      20
+61:H:Leather       0    8    0    0  CR-VO-     100
+62:H:Studded       0   13    0    0  CR-VO-     250
+63:P:Apprentice    0   10    0    2  --E---     150
+64:H:Hunter        0   15    7    0  CR-V--     400
+65:P:Hunter        0   14    7    0  --E---     400
+66:H:Wolf          0   15    3   -2  ---V--       0
+67:H:Chain         0   17   -1    0  C--VO-     780
+68:P:Fancy         0   17    1    2  --E--      900
+69:H:Scale         0   22   -5    0  C--VOA     980
+70:P:Master        0   20    1    5  --E---     850
+71:H:Pathfinder    1   19    3    5  ---V--     900
+72:H:Hide          0   23   -1    0  ---V--    1200  
+73:H:Plate         0   27   -5    0  C---OA    1200
+74:P:Maiden        0   25    0    0  --E---    1200 
+75:H:Noble
+76:H:Knight
+77:P:Cleopatra
+78:H:Annubis
+79:P:Valkyrie
+80:H:Thor
+81:H:Atlantian
+82:P:Archmage      
+83:H:Sacred
+84:H:Alutha
+
+# Accessories    Att  Def  Spd  Man  Equip    Value
+# -------------------------------------------------
+85:I:Cloak         0    2   -4    0  CRE-OA      30
+86:G:Round        -1    3    0    0  C---OA      65
+87:J:Traveler      0    1    4    0  CREVOA      90
+88:K:Sirocco       0A   0    9    0  CREVOA     400
+89:K:Wizard        0    0    0    5  CREVOA     160
+90:I:Camoflauge    0    4   -8    0  CRE-OA     250
+91:L:Golden        0    0    0    0  CREVOA     800
+92:G:Iron         -3    6    0    0  C---OA     400
+93:J:Slippers      0    2    6    2  --E---     380
+94:K:Pirate        2    2    3    0  CREVOA     450
+95:I:Fuligin       6    1   -2   -3  CR--OA     700
+96:L:Amulet        0    3    0    6  CREVOA     700
+97:M:Helm          0    8    0   -3  CR-VOA    1000
+98:J:Sailor        0W   5    4    2  CREVOA    1400
+

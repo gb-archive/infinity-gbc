@@ -1,0 +1,121 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_ICE:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$0d)
+   set(E,$0a)
+   set(G,X_ROLL)
+   song(SNG_ICECAVERN)
+   goto(ice_part1_nf)
+
+ice_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+ice_part1_nf:
+   lmap(MAP_ICE_P1, D,E)
+   cvstep(ice_part1a, $05,$00,$0c)
+   cvstep(ice_part1a, $15,$00,$0c)
+   chstep(ice_part1a, $05,$0b,$11)
+
+   cstep(ice_part1b, $0d,$04)
+   ctres($5c,IT_HPLO, $00,$00,$00,SFX_CHEST)
+   fadein(G)
+   end
+ice_part1a:
+   set(B,83)
+   set(C,15)
+   goto(OVER_WARP)
+ice_part1b:
+   set(D,$0f)
+   set(E,$1e)
+   goto(ice_part2)
+
+ice_part2:
+   fadeout(X_FADE)
+   lmap(MAP_ICE_P2, D,E)
+   zone(ZONE_ICE)
+   chstep(ice_part2a,$0f,$1f,$02)
+   cstep(ice_part2b, $07,$0c)
+   fadein(X_FADE)
+   end
+ice_part2a:
+   set(D,$0d)
+   set(E,$04)
+   goto(ice_part1)
+ice_part2b:
+   set(D,$07)
+   set(E,$0c)
+   goto(ice_part3)
+
+ice_part3:
+   fadeout(X_FADE)
+   lmap(MAP_ICE_P3, D,E)
+   zone(ZONE_ICE)
+   cstep(ice_part3a, $07,$0c)
+   cstep(ice_part3b, $10,$18)
+   chstep(ice_part3c,$0f,$1f,$02)
+   fadein(X_FADE)
+   end
+ice_part3a:
+   set(D,$07)
+   set(E,$0c)
+   goto(ice_part2)
+ice_part3b:
+   set(D,$0a)
+   set(E,$11)
+   goto(ice_part5)
+ice_part3c:
+   set(D,$0b)
+   set(E,$04)
+   goto(ice_part4)
+
+ice_part4:
+   fadeout(X_FADE)
+   lmap(MAP_ICE_P4, D,E)
+   cstep(ice_part4a, $0b,$04)
+   fadein(X_FADE)
+   end
+ice_part4a:
+   set(D,$0f)
+   set(E,$1e)
+   goto(ice_part3)
+
+ice_part5:
+   fadeout(X_FADE)
+   lmap(MAP_ICE_P5, D,E)
+   cstep(ice_part5a, $0a,$11)
+   cstep(ice_part5b, $0a,$0f)
+   fadein(X_FADE)
+   end
+ice_part5a:
+   set(D,$10)
+   set(E,$18)
+   goto(ice_part3)
+ice_part5b:
+   set(D,$05)
+   set(E,$0d)
+   goto(ice_part6)
+
+ice_part6:
+   fadeout(X_FADE)
+   lmap(MAP_ICE_P6, D,E)
+   zone(ZONE_ICE)
+   chstep(ice_part6a, $05,$0e,$02)
+   fadein(X_FADE)
+   end
+ice_part6a:
+   set(D,$0a)
+   set(E,$0f)
+   goto(ice_part5)
+

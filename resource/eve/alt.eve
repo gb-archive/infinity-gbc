@@ -1,0 +1,66 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_ALT:
+   call(MAPPOS_SAVE_R)
+   face(0,UP)
+   set(B,$09)
+   set(C,$17)
+   call(L_ALT)
+   fadein(X_ROLL)
+   end
+
+I_ALT:
+   fadeout(X_FADE)
+   call(L_ALT)
+   fadein(X_FADE)
+   end
+
+L_ALT:
+   lmap(MAP_ALT,        B,C)
+   song(SNG_ALUTHA)
+   chstep(OVERWORLD,    $00,$18,$18)
+   cstep(alt_hous1,     $0e,$03)
+   csearch(alt_sign,    $07,$16,S_U)
+   csearch(alt_statue,  $0b,$08,S_U)
+
+   csearch(alt_locked,  $07,$06,S_U)
+   csearch(alt_locked,  $10,$0b,S_U)
+   csearch(alt_locked,  $13,$0c,S_U)
+   csearch(alt_locked,  $0d,$13,S_U)
+   end
+
+alt_locked:
+   say(ALT_STXT3)
+   end
+
+alt_book1:
+   say(ALU_BOOK1A)
+   say(ALU_BOOK1B)
+   end
+
+alt_hous1:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_ALT_HOUS,   $02,$07)
+   cstep(I_ALT,         $02,$08)
+   csearch(alt_book1,   $06,$01,S_U)
+   fadein(X_FADE)
+   end
+
+alt_sign:
+   say(ALT_STXT1)
+   end
+
+alt_statue:
+   say(ALT_STXT2)
+   end

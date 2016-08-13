@@ -1,0 +1,542 @@
+# Heroes
+Hero_Connor	conner.bin
+Hero_Ryan	ryan.bin
+Hero_Elya	elya.bin
+Hero_Victor	victor.bin
+Hero_Roland	roland.bin
+Hero_Alutha	alutha.bin
+Hero_VictorWolf victor2.bin
+
+# Enemies
+Enemy_Yak	e_yak.bin
+Enemy_Grumble	e_grumble.bin
+Enemy_Oaff	e_oaff.bin
+Enemy_Saru	e_saru.bin
+Enemy_Watazka	e_watazk.bin
+Enemy_Golem	e_golem.bin
+Enemy_Flame	e_flame.bin
+Enemy_Gutana	e_gutana.bin
+Enemy_Wulfa	e_wulfa.bin
+Enemy_Tw2	en_tw2.bin
+
+Enemy_Tw3	en_tw3.bin
+Enemy_Roots2	e_roots2.bin
+Enemy_Tree1	e_tree1.bin
+Enemy_Victor	e_victor.bin
+Enemy_Cactrus	e_cactrs.bin
+Enemy_Werdge	e_werdge.bin
+Enemy_Yuk	e_yuk.bin
+Enemy_FireBat	e_fbat.bin
+Enemy_Grossle	e_grossl.bin
+Enemy_Dryathe	e_dryath.bin
+
+Enemy_Durange	e_durang.bin
+Enemy_Watazku	e_wataku.bin
+Enemy_Roots	e_roots.bin
+Enemy_GreenMask e_gmask.bin
+Enemy_Henchman  e_hench.bin
+Enemy_Ragnop	e_ragnop.bin
+Enemy_Oaff2	e_oaff2.bin
+Enemy_Wampy	e_wampy.bin
+Enemy_Yik	e_yik.bin
+Enemy_FireSoldier e_fsold.bin
+
+Enemy_Roland	e_roland.bin
+Enemy_Werdge2	e_werdg2.bin
+Enemy_Rat	e_rat.bin
+Enemy_Bat	e_bat.bin
+Enemy_Mermud	e_mermud.bin
+Enemy_Exanim	e_exanim.bin
+Enemy_Bat2	e_bat2.bin
+Enemy_BSaru	e_bsaru.bin
+Enemy_Folcon	e_folcon.bin
+Enemy_Grumble2	e_grumb2.bin
+
+Enemy_Herrera	e_herrer.bin
+Enemy_Leshiz	e_leshiz.bin
+Enemy_Mushroma	e_mushro.bin
+Enemy_Nitsuj	e_nitsuj.bin
+Enemy_Pirate	e_pirate.bin
+Enemy_SBat	e_sbat.bin
+Enemy_SSaru	e_ssaru.bin
+Enemy_SWampy	e_swampy.bin
+Enemy_SYak	e_syak.bin
+Enemy_Swear	e_swear.bin
+
+Enemy_Spectral	e_spectr.bin
+Enemy_Tasm	e_tasm.bin
+Enemy_Wazzip	e_wazzip.bin
+Enemy_Masket   e_masket.bin
+Enemy_WulfaB e_wulfa.bin
+Enemy_Tw2B   en_tw2.bin
+Enemy_Tw3B   en_tw3.bin
+Enemy_Soldier   e_sold.bin
+Enemy_Archer    e_archer.bin
+Enemy_Wituzki   e_witzki.bin
+ 
+Enemy_Golem2    e_golem2.bin
+Enemy_Golem3    e_golem3.bin
+Enemy_Golem4    e_golem4.bin
+Enemy_Omega2    e_omega.bin
+Enemy_Turmayor  en_tw2.bin
+Enemy_Horf	e_horf.bin
+Enemy_Golem5	e_blank.bin
+Enemy_Ottorak	e_ottor.bin
+Enemy_Zombie	e_zombie.bin
+Enemy_FloatingEye e_eye.bin
+
+Enemy_EvilArmor e_armora.bin
+Enemy_Lich	e_lich.bin
+Enemy_Demon	e_blank.bin
+Enemy_SmallYeti e_blank.bin
+Enemy_Sasquatch e_blank.bin
+Enemy_Snowflake e_blank.bin
+Enemy_FloatingSword e_blank.bin
+Enemy_Mummy	e_mummy.bin
+Enemy_FireWerdge e_fwerdg.bin
+Enemy_Grissle	e_grissl.bin
+
+Enemy_NewEagwa	e_bat3.bin
+Enemy_Icewampy  e_iwamp.bin
+Enemy_Icewampy2 e_iwamp2.bin
+Enemy_Yok	e_yok.bin
+Enemy_Mermod	e_mermod.bin
+Enemy_Yagwo	e_waglo.bin
+Enemy_Sponge	e_sponge.bin
+
+Enemy_Blank12	e_blank.bin
+Enemy_Blank11	e_blank.bin
+Enemy_Blank10	e_blank.bin
+
+Enemy_Blank09	e_blank.bin
+Enemy_Blank08	e_blank.bin
+Enemy_Blank07	e_blank.bin
+Enemy_Blank06	e_blank.bin
+Enemy_Blank05	e_blank.bin
+Enemy_Blank04	e_blank.bin
+Enemy_Blank03	e_blank.bin
+Enemy_Blank02	e_blank.bin
+Enemy_Blank01	e_blank.bin
+Enemy_Blank00	e_blank.bin
+
+
+# Bosses -- start at 100
+Boss_Wolf     ewolfbos.bin
+Boss_Tree     etreebos.bin
+Boss_Exanima  ebexanim.bin
+Boss_Yeti     ewolfbos.bin
+Boss_Omega    bossomeg.bin
+Boss_Omega2   bossomeg.bin
+Boss_Omega3   bossomeg.bin
+
+Boss_Blank03   ewolfbos.bin
+Boss_Blank02   ewolfbos.bin
+Boss_Blank01   ewolfbos.bin
+
+# placehold
+Enemy_Blank97	e_yak.bin
+Enemy_Blank98	e_yak.bin
+Enemy_Blank99	e_yak.bin
+
+
+# NPC
+Npc_Man1	man1.bin
+Npc_Man2	man2.bin
+Npc_Lady1	lady1.bin
+Npc_Lady2	lady2.bin
+Npc_Lady3	lady3.bin
+Npc_Lady4	lady4.bin
+Npc_Lady5	lady5.bin
+Npc_Kid1	kid1.bin
+Npc_Kid2	kid2.bin
+Npc_Kid3	kid3.bin
+
+Npc_Kid4	kid4.bin
+Npc_Soldier	soldier.bin
+Npc_Mayor	mayor.bin
+Npc_Kidragon	kidragon.bin
+Npc_Kidhero	kidhero.bin
+Npc_Golem	golem.bin
+Npc_Aldric	aldric.bin
+Npc_Advisor	advisor.bin
+Npc_Wolf	wolf.bin
+Npc_Kraith	krait.bin
+
+Npc_Dead	deadguy.bin
+Npc_Hassan	hassan.bin
+Npc_Boat	boat.bin
+Npc_Fire	npcfire.bin
+Npc_Oldman	oldman.bin
+Npc_Oldlady	oldlady.bin
+Npc_Geist	geist.bin
+Npc_Archmagi	archmagi.bin
+Npc_Kidmagi	kidmagi.bin
+Npc_Oldmagi	oldmagi.bin
+
+Npc_Woomagi	woomagi.bin
+Npc_Soulgem	soulgem.bin
+Npc_Smoke	smoke.bin
+Npc_Ex1		npcex1.bin
+Npc_Fire2	fire2.bin
+Npc_Barrier     barrier.bin
+Npc_Fire4       fire4.bin
+Npc_Fire5       fire5.bin
+Npc_Fire6       fire6.bin
+Npc_Fire7       fire7.bin
+Npc_Fire8       fire8.bin
+Npc_Wake2a      wake2a.bin
+Npc_Wake2b      wake2b.bin
+Npc_Portala     portala.bin
+Npc_Portalb     portalb.bin
+Npc_Fire3       fire3.bin
+Npc_Kraith2     kraith2.bin
+Npc_Gilus       gilus.bin
+Npc_Selera      nselera.bin
+Npc_Anna        anna.bin
+Npc_Embrace     embrace.bin
+Npc_ExHeroes    npc_exh.bin
+Npc_Unnamed     unnamed.bin
+Npc_Head1	head1.bin
+Npc_Head2	head2.bin
+Npc_Head3	head3.bin
+Npc_Izuar	izuar.bin
+
+
+# Tilesets
+#Tile_Over	over.ats
+#Tile_Village	village.ats
+#Tile_Inside	inside.ats
+#Tile_Castle	castle.ats
+#Tile_Fort	fort.ats
+#Tile_Lab	lab.ats
+#Tile_Hill	hill.ats
+#Tile_Desert	desert.ats
+#Tile_Firecave	firecave.ats
+#Tile_Well	well.ats
+
+#Tile_Forest	forest.ats
+#Tile_WVill	wvill.ats
+#Tile_Sewer	sewer.ats
+#Tile_Geist	geist.ats
+#Tile_Ship	ship.ats
+#Tile_Town	town.ats
+#Tile_Shadow	shadow.ats
+#Tile_Magi	magi.ats
+#Tile_Snow	snow.ats
+#Tile_Icetemple	icetempl.ats
+
+#Tile_Sndtemple	sndtempl.ats
+#Tile_Wavtemple	wavtempl.ats
+#Tile_Snowfort   snowfort.ats
+#Tile_GD         grdark.ats
+#Tile_TheEnd     theend.ats
+#Tile_Cliff      cliff.ats
+
+Tile_Over	over.ats
+Tile_Town	town.ats
+Tile_Sewer	sewer.ats
+
+Tile_Inside	inside.ats
+Tile_Wavtemple	wavtempl.ats
+Tile_Hill	hill.ats
+Tile_TheEnd	theend.ats
+
+Tile_Well	well.ats
+Tile_Ship	ship.ats
+Tile_Cliff	cliff.ats
+Tile_Sndtemple	sndtempl.ats
+
+Tile_Forest	forest.ats
+Tile_Lab	lab.ats
+Tile_Village	village.ats
+Tile_Shadow	shadow.ats
+
+Tile_WVill	wvill.ats
+Tile_Desert	desert.ats
+Tile_Firecave	firecave.ats
+Tile_Icetemple	icetempl.ats
+Tile_Geist	geist.ats
+
+Tile_Castle	castle.ats
+Tile_Snowfort	snowfort.ats
+Tile_GD		grdark.ats
+
+Tile_Fort	fort.ats
+Tile_Snow	snow.ats
+Tile_Magi	magi.ats
+
+
+# MAPS
+Map_World	world.amp,Tile_Over
+Map_Selera	selera.amp,Tile_Village
+Map_SlConnr	sl_connr.amp,Tile_Inside
+Map_SlHous1	sl_hous1.amp,Tile_Inside
+Map_SlHous2	sl_hous2.amp,Tile_Inside
+Map_SlInn	sl_inn.amp,Tile_Inside
+Map_SlWep	sl_weapn.amp,Tile_Inside
+Map_SlItem	sl_item.amp,Tile_Inside
+Map_Tagel	tagel.amp,Tile_Fort
+Map_TgGate	tg_gate.amp,Tile_Castle
+
+Map_TgHall	tg_hall.amp,Tile_Castle
+Map_TgKing	tg_king.amp,Tile_Castle
+Map_TgThrone	tg_thron.amp,Tile_Castle
+Map_TgBase1	tg_base1.amp,Tile_Castle
+Map_TgBase2	tg_base2.amp,Tile_Castle
+Map_TgTow1	tg_tow1.amp,Tile_Castle
+Map_TgTow2	tg_tow2.amp,Tile_Castle
+Map_TgTow3	tg_tow3.amp,Tile_Castle
+Map_Lab		lab.amp,Tile_Lab
+Map_Npass	npass.amp,Tile_Hill
+
+Map_NPass2	npass2.amp,Tile_Hill
+Map_NPass3	npass3.amp,Tile_Hill
+Map_NPass4	npass4.amp,Tile_Hill
+Map_NPass5	npass5.amp,Tile_Hill
+Map_NPass6	npass6.amp,Tile_Lab
+Map_XCave1	xcave1.amp,Tile_Lab
+Map_XCave2	xcave2.amp,Tile_Lab
+Map_XCave3	xcave3.amp,Tile_Lab
+Map_XCave4	xcave4.amp,Tile_Lab
+Map_XCave5	xcave5.amp,Tile_Lab
+
+Map_Kassim	kassim.amp,Tile_Desert
+Map_KsInn	ks_inn.amp,Tile_Inside
+Map_KsHous1	ks_hous1.amp,Tile_Inside
+Map_KsHous2	ks_hous2.amp,Tile_Inside
+Map_KsHous3	ks_hous3.amp,Tile_Inside
+Map_FCave1	fcave1.amp,Tile_Firecave
+Map_FCave2	fcave2.amp,Tile_Firecave
+Map_FCave3	fcave3.amp,Tile_Firecave
+Map_FCave4	fcave4.amp,Tile_Firecave
+Map_FCave5	fcave5.amp,Tile_Firecave
+
+Map_FCave6	fcave6.amp,Tile_Firecave
+Map_FCave7	fcave7.amp,Tile_Firecave
+Map_FCave8	fcave8.amp,Tile_Firecave
+Map_FCave9	fcave9.amp,Tile_Firecave
+Map_FCave10	fcave10.amp,Tile_Firecave
+Map_Turren	turren.amp,Tile_Village
+Map_Cottage	cottage.amp,Tile_Village
+Map_CtInn	ct_inn.amp,Tile_Inside
+Map_Well	well.amp,Tile_Well
+Map_LTurren	lturren.amp,Tile_Well
+
+# 50
+
+Map_LtInn	lt_inn.amp,Tile_Well
+Map_LtShop	lt_shop.amp,Tile_Well
+Map_Forest	forest.amp,Tile_Forest
+Map_LtMayor	lt_mayor.amp,Tile_Well
+Map_Holbrooke	holbrook.amp,Tile_WVill
+Map_HbHous1	hb_hous1.amp,Tile_Inside
+Map_HbHous2	hb_hous2.amp,Tile_Inside
+Map_HbItem	hb_item.amp,Tile_Inside
+Map_HbWep	hb_weapn.amp,Tile_Inside
+Map_Durgardt	durgardt.amp,Tile_Snowfort
+
+Map_Sewer1	sewer1.amp,Tile_Sewer
+Map_Sewer2	sewer2.amp,Tile_Sewer
+Map_Sewer3	sewer3.amp,Tile_Sewer
+Map_SwInn	sw_inn.amp,Tile_Sewer
+Map_Sewer4	sewer4.amp,Tile_Sewer
+Map_DgBarracks	dg_barak.amp,Tile_Castle
+Map_DgTow1	dg_tow1.amp,Tile_Castle
+Map_DgTow2	dg_tow2.amp,Tile_Castle
+Map_Geist	geist.amp,Tile_Geist
+Map_Ship	ship.amp,Tile_Ship
+
+Map_Fairport	fairport.amp,Tile_Town
+Map_FpInn1	fp_inn1.amp,Tile_Inside
+Map_FpInn2	fp_inn2.amp,Tile_Inside
+Map_FpMnsA	fp_mns_a.amp,Tile_Inside
+Map_FpMnsB	fp_mns_b.amp,Tile_Inside
+Map_FpMnsC	fp_mns_c.amp,Tile_Inside
+Map_FpPub	fp_pub.amp,Tile_Inside
+Map_FpShop	fp_shop.amp,Tile_Inside
+Map_FpWep	fp_weap.amp,Tile_Inside
+Map_FpHous1	fp_hous1.amp,Tile_Inside
+
+Map_FpHous2	fp_hous2.amp,Tile_Inside
+Map_FpHous3	fp_hous3.amp,Tile_Inside
+Map_Pirate	pirate.amp,Tile_Lab
+Map_Pirate2	pirate2.amp,Tile_Lab
+Map_Pirate3	pirate3.amp,Tile_Lab
+Map_Pirate4	pirate4.amp,Tile_Lab
+Map_Shadow	shadow.amp,Tile_Shadow
+Map_Shadow2	shadow2.amp,Tile_Shadow
+Map_Shadow3	shadow3.amp,Tile_Shadow
+Map_Magi	magi.amp,Tile_Magi
+
+Map_Magi2	magi2.amp,Tile_Magi
+Map_Magi3	magi3.amp,Tile_Magi
+Map_Mage4	magi4.amp,Tile_Magi
+Map_Magi5	magi5.amp,Tile_Magi
+Map_Magi6	magi6.amp,Tile_Magi
+Map_MgArch	mg_arch.amp,Tile_Magi
+Map_MgShop	mg_shop.amp,Tile_Magi
+Map_MgInn	mg_inn.amp,Tile_Magi
+Map_MgLib	mg_lib.amp,Tile_Magi
+Map_Trial	trial.amp,Tile_Magi
+
+# 100
+
+Map_Trial2	trial2.amp,Tile_Magi
+Map_Trial3	trial3.amp,Tile_Magi
+Map_Snow	snow.amp,Tile_Snow
+Map_Snow2	snow2.amp,Tile_Snow
+Map_Alutha	alutha.amp,Tile_Town
+Map_AlHous	al_hous.amp,Tile_Inside
+Map_CAlutha	calutha.amp,Tile_Snowfort
+Map_AlBase	al_base.amp,Tile_Castle
+Map_AlThrone	al_thron.amp,Tile_Castle
+Map_AlHall	al_hall.amp,Tile_Castle
+
+Map_AlTow1	al_tow1.amp,Tile_Castle
+Map_AlTow2	al_tow2.amp,Tile_Castle
+Map_AlTow3	al_tow3.amp,Tile_Castle
+Map_AlTow4	al_tow4.amp,Tile_Castle
+Map_WMagi	wmagi.amp,Tile_Magi
+Map_WMagi2	wmagi2.amp,Tile_Magi
+Map_WMagi3	wmagi3.amp,Tile_Magi
+Map_WMagi4	wmagi4.amp,Tile_Magi
+Map_WMagi5	wmagi5.amp,Tile_Magi
+Map_WMagi6	wmagi6.amp,Tile_Magi
+
+Map_WMArch	wm_arch.amp,Tile_Magi
+Map_WMShop	wm_shop.amp,Tile_Magi
+Map_WMInn	mg_inn.amp,Tile_Magi
+Map_WMLib	wm_lib.amp,Tile_Magi
+Map_WTagel	wtagel.amp,Tile_Fort
+Map_WSelera	wselera.amp,Tile_Village
+Map_WKassim	wkassim.amp,Tile_Desert
+Map_AlCrypt	al_crypt.amp,Tile_Castle
+Map_Snow3   snow3.amp,Tile_Snow
+Map_Snow4   snow4.amp,Tile_Icetemple
+
+Map_Snow5   snow5.amp,Tile_Snow
+Map_Snow6   bungalow.amp,Tile_Inside
+Map_Icetemple1	icetempl.amp,Tile_Icetemple
+Map_Icetemple2	icetemp2.amp,Tile_Icetemple
+Map_Icetemple3	icetemp3.amp,Tile_Icetemple
+Map_Icetemple4	icetemp4.amp,Tile_Icetemple
+Map_Icetemple5	icetemp5.amp,Tile_Icetemple
+Map_Icetemple6	icetemp6.amp,Tile_Icetemple
+Map_Sndtemple1	sndtempl.amp,Tile_Desert
+Map_Sndtemple2	sndtemp2.amp,Tile_Sndtemple
+
+Map_Sndtemple3	sndtemp3.amp,Tile_Sndtemple
+Map_Sndtemple4	sndtemp4.amp,Tile_Sndtemple
+Map_Sndtemple5	sndtemp5.amp,Tile_Sndtemple
+Map_Sndtemple6	sndtemp6.amp,Tile_Sndtemple
+Map_Sndtemple7  sndtemp7.amp,Tile_Sndtemple
+Map_Wavtemple1	wavtempl.amp,Tile_Wavtemple
+Map_Wavtemple2	wavtemp2.amp,Tile_Wavtemple
+Map_Wavtemple3	wavtemp3.amp,Tile_Wavtemple
+Map_Wavtemple4	wavtemp4.amp,Tile_Wavtemple
+Map_Wavtemple5	wavtemp5.amp,Tile_Wavtemple
+
+# 150
+
+Map_Wavtemple6  wavtemp6.amp,Tile_Wavtemple
+Map_Wavtemple7  wavtemp7.amp,Tile_Wavtemple
+Map_Wavtemple8  wavtemp8.amp,Tile_Wavtemple
+Map_GDIsle      grdkisle.amp,Tile_Hill
+Map_Fin1        grdark1.amp,Tile_GD
+Map_Fin2        grdark2.amp,Tile_GD
+Map_Fin3	grdark3.amp,Tile_GD
+Map_Fin4	grdark4.amp,Tile_GD
+Map_Fin5        grdark5.amp,Tile_GD
+Map_Fin6	grdark6.amp,Tile_GD
+
+Map_Fin7	grdark7.amp,Tile_GD
+Map_Fin8	grdark8.amp,Tile_GD
+Map_Fin9	grdark9.amp,Tile_GD
+Map_JSelera     jselera.amp,Tile_Village
+Map_AlGarden    al_gardn.amp,Tile_Snowfort
+Map_DurTres     dg_tower.amp,Tile_Castle
+Map_Farm        farm.amp,Tile_Village
+Map_TheEnd      theend.amp,Tile_TheEnd
+Map_Cliff       cliff.amp,Tile_Cliff
+
+
+# placehold
+
+Map_Blank10 trial.amp,Tile_Magi
+
+Map_Blank09 trial.amp,Tile_Magi
+Map_Blank08 trial.amp,Tile_Magi
+Map_Blank07 trial.amp,Tile_Magi
+Map_Blank06 trial.amp,Tile_Magi
+Map_Blank05 trial.amp,Tile_Magi
+Map_Blank04 trial.amp,Tile_Magi
+Map_Blank03 trial.amp,Tile_Magi
+Map_Blank02 trial.amp,Tile_Magi
+Map_Blank01 trial.amp,Tile_Magi
+Map_Blank00 trial.amp,Tile_Magi
+
+
+# Battle maps start at 180
+Map_Bplains1	b_plain1.amp,Tile_Village
+Map_Bplains2	b_plain2.amp,Tile_Village
+Map_Bforest1	b_fores1.amp,Tile_Forest
+Map_Bforest2	b_fores2.amp,Tile_Forest
+Map_Bhill1	b_hill1.amp,Tile_Hill
+Map_Bhill2	b_hill2.amp,Tile_Hill
+Map_Elab	e_lab.amp,Tile_Lab
+Map_Ehill	e_hill.amp,Tile_Hill
+Map_Bcave1	b_cave1.amp,Tile_Lab
+Map_Bcave2	b_cave2.amp,Tile_Lab
+
+#190
+Map_Bdesert1	b_desrt1.amp,Tile_Desert
+Map_Bdesert1	b_desrt2.amp,Tile_Desert
+Map_Bfcave1	b_cave1.amp,Tile_Firecave
+Map_Bfcave2	b_cave2.amp,Tile_Firecave
+Map_Efcave	e_fcave.amp,Tile_Firecave
+Map_Eturren	e_turren.amp,Tile_Village
+Map_Elturren	e_lturrn.amp,Tile_Well
+Map_Eforest	e_forest.amp,Tile_Forest
+Map_Bsnow1	b_snow1.amp,Tile_Snow
+Map_Bsnow2	b_snow2.amp,Tile_Snow
+
+#200
+Map_Edurgardt	e_durg.amp,Tile_Snowfort
+Map_Bsewer1	b_sewer1.amp,Tile_Sewer
+Map_Bsewer2	b_sewer2.amp,Tile_Sewer
+Map_Bsewer3	b_sewer3.amp,Tile_Sewer
+Map_Bcave3	b_cave3.amp,Tile_Lab
+Map_Bshadow1	b_shad1.amp,Tile_Shadow
+Map_Bshadow2	b_shad2.amp,Tile_Shadow
+Map_Btrial1	b_trial1.amp,Tile_Magi
+Map_Btrial2	b_trial2.amp,Tile_Magi
+Map_Bice1   b_ice1.amp,Tile_Icetemple
+
+#210
+Map_Bice2	b_ice2.amp,Tile_Icetemple
+Map_Bsnd1	b_snd1.amp,Tile_Sndtemple
+Map_Bsnd2	b_snd2.amp,Tile_Sndtemple
+Map_Bwav1	b_wav1.amp,Tile_Wavtemple
+Map_Bwav2	b_wav2.amp,Tile_Wavtemple
+Map_Epirate	e_pirate.amp,Tile_Lab
+Map_Etrial	e_trial.amp,Tile_Magi
+Map_Eice	e_ice.amp,Tile_Icetemple
+Map_Ewav	e_wav.amp,Tile_Wavtemple
+Map_Eturmayor   e_lturr2.amp,Tile_Well
+
+#220
+Map_Ekassim1	e_kassim.amp,Tile_Desert
+Map_Ekassim2    e_kassi2.amp,Tile_Desert
+Map_Esnow       e_snow.amp,Tile_Snow
+Map_Ealutha1    e_alutha.amp,Tile_Snowfort
+Map_Ealutha2    e_aluth2.amp,Tile_Snowfort
+Map_Ealutha3    e_aluth3.amp,Tile_Castle
+Map_Ealutha4    e_aluth4.amp,Tile_Castle
+Map_Bwmagi1     b_wmagi.amp,Tile_Magi
+Map_Bwmagi2     b_wmagi2.amp,Tile_Magi
+Map_Ewmagi      e_wmagi.amp,Tile_Magi
+
+#230
+Map_Egrdkisle   e_grdkil.amp,Tile_Hill
+Map_Bsnow3      b_snow3.amp,Tile_Icetemple
+

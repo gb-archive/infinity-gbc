@@ -1,0 +1,176 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_MAG:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$08)
+   set(E,$10)
+   set(G,X_ROLL)
+   song(SNG_MYSTIC)
+   goto(mag_part1_nf)
+
+mag_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+mag_part1_nf:
+   lmap(MAP_MAG_P1, D,E)
+   cstep(mag_part1a, $08,$11)
+   cstep(mag_part1b, $03,$0c)
+   cstep(mag_part1c, $0d,$0c)
+   cstep(mag_part1d, $08,$04)
+   fadein(G)
+   end
+mag_part1a:
+   set(B,$12)
+   set(C,$00)
+   goto(OVER_WARP)
+mag_part1b:
+   set(D,$07)
+   set(E,$10)
+   goto(mag_part2)
+mag_part1c:
+   set(D,$02)
+   set(E,$05)
+   goto(mag_part2)
+mag_part1d:
+   set(D,$0c)
+   set(E,$05)
+   goto(mag_part2)
+
+mag_part2:
+   fadeout(X_FADE)
+   lmap(MAP_MAG_P2, D,E)
+   cstep(mag_part2a, $07,$10)
+   cstep(mag_part2b, $02,$05)
+   cstep(mag_part2c, $0c,$05)
+   cstep(mag_part2d, $04,$02)
+   cstep(mag_part2e, $0a,$02)
+   cstep(mag_part2f, $08,$08)
+   fadein(X_FADE)
+   end
+mag_part2a:
+   set(D,$03)
+   set(E,$0c)
+   goto(mag_part1)
+mag_part2b:
+   set(D,$0d)
+   set(E,$0c)
+   goto(mag_part1)
+mag_part2c:
+   set(D,$08)
+   set(E,$04)
+   goto(mag_part1)
+mag_part2d:
+   set(D,$03)
+   set(E,$07)
+   goto(mag_part7)
+mag_part2e:
+   set(D,$07)
+   set(E,$07)
+   goto(mag_part6)
+mag_part2f:
+   set(D,$08)
+   set(E,$06)
+   goto(mag_part3)
+
+mag_part3:
+   fadeout(X_FADE)
+   lmap(MAP_MAG_P3, D,E)
+   cstep(mag_part3a, $08,$06)
+   cstep(mag_part3b, $04,$02)
+   cstep(mag_part3c, $0a,$02)
+   cstep(mag_part3d, $06,$06)
+   fadein(X_FADE)
+   end
+mag_part3a:
+   set(D,$08)
+   set(E,$08)
+   goto(mag_part2)
+mag_part3b:
+   set(D,$03)
+   set(E,$08)
+   goto(mag_part8)
+mag_part3c:
+   set(D,$0b)
+   set(E,$08)
+   goto(mag_part8)
+mag_part3d:
+   set(D,$06)
+   set(E,$05)
+   goto(mag_part4)
+
+mag_part4:
+   fadeout(X_FADE)
+   lmap(MAP_MAG_P4, D,E)
+   cstep(mag_part4a, $06,$05)
+   cstep(mag_part4b, $06,$02)
+   fadein(X_FADE)
+   end
+mag_part4a:
+   set(D,$06)
+   set(E,$06)
+   goto(mag_part3)
+mag_part4b:
+   set(D,$05)
+   set(E,$09)
+   goto(mag_part5)
+
+mag_part5:
+   fadeout(X_FADE)
+   lmap(MAP_MAG_P5, D,E)
+   cstep(mag_part5a, $05,$09)
+   fadein(X_FADE)
+   end
+mag_part5a:
+   set(D,$06)
+   set(E,$02)
+   goto(mag_part4)
+
+mag_part6:
+   fadeout(X_FADE)
+   lmap(MAP_MAG_P6, D,E)
+   cstep(mag_part6a, $07,$07)
+   fadein(X_FADE)
+   end
+mag_part6a:
+   set(D,$0a)
+   set(E,$02)
+   goto(mag_part2)
+
+mag_part7:
+   fadeout(X_FADE)
+   lmap(MAP_MAG_P7, D,E)
+   cstep(mag_part7a, $03,$07)
+   fadein(X_FADE)
+   end
+mag_part7a:
+   set(D,$04)
+   set(E,$02)
+   goto(mag_part2)
+
+mag_part8:
+   fadeout(X_FADE)
+   lmap(MAP_MAG_P8, D,E)
+   cstep(mag_part8a, $03,$08)
+   cstep(mag_part8b, $0b,$08)
+   fadein(X_FADE)
+   end
+mag_part8a:
+   set(D,$04)
+   set(E,$02)
+   goto(mag_part3)
+mag_part8b:
+   set(D,$0a)
+   set(E,$02)
+   goto(mag_part3)
+

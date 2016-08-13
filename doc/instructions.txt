@@ -1,0 +1,191 @@
+Infinity DEMO Instructions
+(C) 2001 Affinix Software
+-----------------------------------------------------------------
+
+Date:    March 22, 2001
+
+Contact: Justin Karneges
+         justin@affinix.com
+
+-----------------------------------------------------------------
+
+Description:
+
+  Infinity is a role-playing game that is heavily based on story,
+much like the classic Super Nintendo RPGs.  This type of game
+hasn't existed on the Game Boy until now.  The demo consists of
+about one fourth of what the entire game will be, and should
+take roughly 1-2 hours to complete.  The player assumes the role
+of Connor, a knight of Selera.  What starts out as a simple
+mission turns into a huge adventure with the fate of the world
+at hand.  Along the way, Connor meets up with other characters
+to aid him in his quest.
+
+
+How to play:
+
+  After the logo and background fade in, the words "PRESS START"
+will appear.  Press the START button and 4 menu bars will slide
+in.  The top bar is for choosing a "New game" and the other 3
+are for saved games.  There should be no saved games the first
+time the game is played (the word "empty" will appear in each
+bar), so choose "New game".  Move the cursor with the UP and DOWN
+arrows on the Control Pad, and press the A button to make a
+selection.
+
+----
+Note:
+   If we sent you a cartridge, then there may be saved games in
+   the save RAM.  Feel free to play from the saved games if you
+   want.  The saved games will likely have more items and party
+   members, so if you want to get a better overall feel of the
+   game, you may want to start from a saved game.  Then maybe
+   play from the beginning later.
+----
+
+  The game begins with Connor in his bedroom.  This is a story
+event sequence, and there will be many more after this one.
+During these event sequences, the game takes active control over
+the characters in order to unfold the story to the player in a
+movie/play like fashion.  Simply press the A button to advance
+the text.  When the event sequence is finished, Connor can be
+controlled.
+
+  Control Pad:          - Move Connor
+  A Button:             - Talk to a character
+                        - Search the map (chests, pots, etc)
+  Start Button:         - Enter the main subscreen
+  Select Button:        - Enter the options subscreen
+
+  At this point, you need to visit the King, as the guard told
+you to do.  This should be straight forward.  When you reach
+the King, another event sequence will begin.  Good luck!  The
+Evil Tree Boss marks the end of the demo.
+
+
+Using the Subscreen:
+
+  Use the Control Pad Left and Right to switch between the 4
+tabbed menus at the top of the subscreen: Ability, Backpack,
+Equipment, and Gems.  Use the Control Pad Up and Down to move
+within one of the menus.  To cancel, press B.  To get out of
+the menu completely, press Start (or just B at a base menu).
+
+ * Ability menu:
+     - Select a character by pressing A.  This takes you to
+       the Status menu.
+     - Reorganize the party by pressing and holding A to drag
+       party members around.
+
+ * Backpack menu:
+     - Select an item by pressing A
+     - Reorganize the items by pressing and holding A to drag
+       items around.
+
+ * Equip menu:
+     - Select a party member with A.  Choose a slot of equipment
+       to change.  If there is nothing available to equip in
+       that slot, then an error will sound.  Otherwise, a list
+       of equip-able items will appear.  Choose one with A.
+
+ * Gems menu:
+     - Enter the menu by pressing A.  Use Up/Down/Left/Right to
+       select a gem.  Press B to release the cursor from the gem
+       menu.
+
+ * Status menu:
+     - Displays the status of a party member.  Press Up/Down/Left
+       or Right to select one of the member's skills.  Press A
+       to use it (if it can be used from the menu).  Most skills
+       are for battle only.
+
+ * Options menu:
+     - Press Up/Down to choose an option, and Left/Right to modify
+       it.
+
+        "Wait" mode:       Enemies don't move when you have a turn
+                           in battle.
+        "Action" mode:     Enemies move whenever they are ready,
+                           much like a chess game where no one is
+                           waiting for their turn to move.
+
+     - The menu colors can be adjusted.  This looks VERY NEAT and
+       it is highly recommended that you choose a nice menu color
+       that fits your preference.
+
+Battle:
+
+  Battle takes place on an invisible hex-grid.  It takes a bit
+getting used to, but is a lot of fun.  After you get the hang of
+battle, it is recommended that you go to the options menu and
+switch to "Action" mode.
+
+  When it is somebody's turn, the cursor will highlight them.
+
+  Press and hold one of 6 directions: Up, Up/Left, Up/Right, Down,
+                                      Down/Left, Down/Right.
+
+  An icon will appear on the space that you are selecting.  If
+  it is a circle, then it means you can move there.  If it is a
+  sword, it means there is an enemy on that space and you can
+  attack it.  Simply press A while holding the Control Pad to
+  make the selection.
+
+  That is all that is required to move and attack.  To access the
+  rest of the moves, press the A button to bring out the battle
+  menu.  Navigate the battle menu by pressing Up/Down/Left or
+  Right.  If an option is unavailable, an error will sound.
+
+     []
+   []  []   <---- Battle menu
+     []
+
+  The top square is for skills, left is gem, right is items, down
+  is run.  Skills and items will bring up another submenu so you
+  can select one of 4 skills or items.  Make a selection the very
+  same way.  Press B to cancel.  Once you have made a selection,
+  an icon will jump to the top right.  Some actions require targets,
+  and so you must select one.  Others do not, and it will flash
+  the lower right portion of the menu to indicate this.  Press
+  A to confirm the move.
+
+  In "Action" battle, the move goes into a queue, so you may not
+  perform your turn right away.
+
+Gems:
+
+  This demo contains two gems.  The Ruby and Crystal.  You start
+with no gems, but you will gain these two by the end of the demo.
+They are both battle gems, so they must be equipped to use.  They
+are also both activation type, which means they give you some
+sort of bonus as long as it remains activated.  The gems only
+have a certain amount of charge though, so de-activate the gem
+if you don't need it.  To charge a gem, you must ensure nobody has
+the gem equipped and then win a battle.
+
+  Gems always start de-activated in battle.  To activate a
+character's gem, make sure it is already equipped before battle,
+and press A to reach the battle menu and left to choose the gem.
+It will appear in the corner of the screen and count down.  To
+de-activate, simply press A and choose the gem again.
+
+  The Ruby gem increases the power of fire skills.  This is mainly
+useful for Connor, since he has Engulf.
+
+  The Crystal gem makes it so the character cannot die.  As long
+as it is activated, you will revive to 12 HP if you go down to 0.
+
+
+Skills:
+
+  Engulf:    Throw a ball of fire at an enemy.
+  Sacrifice: Lose half of your HP to heal your party members.
+  Longshot:  Shoot an arrow from far away.
+  Tidal:     Cast a wave of water on an enemy.
+  Embrace:   Give HP to a party member.
+  Wake:      Revive a dead party member.
+  Leap:      Perform a long range attack.
+  Soulslurp: Drain HP from an enemy.
+
+
+Have fun!

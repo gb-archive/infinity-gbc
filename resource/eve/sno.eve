@@ -1,0 +1,217 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_SNO:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$08)
+   set(E,$2f)
+   set(G,X_ROLL)
+   song(SNG_MOUNTAIN)
+   goto(sno_part1_nf)
+O_SNO2:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$20)
+   set(E,$34)
+   set(G,X_ROLL)
+   song(SNG_MOUNTAIN)
+   goto(sno_part5_nf)
+
+
+sno_sign:
+   say(SNO_STXT2)
+   end
+
+sno_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+sno_part1_nf:
+   lmap(MAP_SNOW, D,E)
+   zone(ZONE_SNO)
+   chstep(sno_part1a, $08,$30,$01)
+   cvstep(sno_part1b, $18,$00,$2f)
+   cstep( sno_part1c, $08,$0f)
+   csearch(sno_sign,  $0a,$12,S_U)
+   fadein(G)
+   end
+sno_part1a:
+   set(B,100)
+   set(C, 22)
+   goto(OVER_WARP)
+sno_part1b:
+   getxy(D,E)
+   set(D,$00)
+   goto(sno_part2)
+sno_part1c:
+   set(D,$04)
+   set(E,$07)
+   goto(sno_part6)
+
+sno_part2:
+   fadeout(X_FADE)
+   lmap(MAP_SNOW2, D,E)
+   zone(ZONE_SNO)
+   cvstep(sno_part2a, $7f,$00,$2f)
+   cvstep(sno_part2b, $18,$29,$03)
+   ctres($59,IT_HHide, $14,$17,$02,SFX_CHEST)
+   fadein(X_FADE)
+   end
+sno_part2a:
+   getxy(D,E)
+   set(D,$17)
+   goto(sno_part1)
+sno_part2b:
+   set(D,$00)
+   set(E,$2d)
+   goto(sno_part3)
+
+sno_part3:
+   fadeout(X_FADE)
+   lmap(MAP_SNOW3, D,E)
+   zone(ZONE_SNO)
+   cvstep(sno_part3a, $7f,$00,$30)
+   cstep(sno_part3b,  $0c,$05)
+   fadein(X_FADE)
+   end
+sno_part3a:
+   set(D,$17)
+   set(E,$2a)
+   goto(sno_part2)
+sno_part3b:
+   set(D,$06)
+   set(E,$1a)
+   goto(sno_part4)
+
+sno_part4:
+   fadeout(X_FADE)
+   lmap(MAP_SNOW4, D,E)
+   zone(ZONE_SNO2)
+   cstep(sno_part4a,  $06,$1b)
+   cstep(sno_part4b,  $32,$1c)
+//   ctres($5a,IT_OClaymore,$23,$1b,$19,SFX_SEARCH)
+   ctres($5b,IT_OClaymore,$03,$06,$19,SFX_SEARCH)
+   fadein(X_FADE)
+   end
+sno_part4a:
+   set(D,$0c)
+   set(E,$05)
+   goto(sno_part3)
+sno_part4b:
+   set(D,$06)
+   set(E,$06)
+   goto(sno_part5)
+
+sno_part5:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+sno_part5_nf:
+   lmap(MAP_SNOW5, D,E)
+   zone(ZONE_SNO)
+   cstep(sno_part5a,  $06,$06)
+   chstep(sno_part5b, $1F,$35,$03)
+
+   ; load boss
+   get(A,VAR_SNO1)
+   if(A,CE,1,sno_part5_noboss)
+   ldude(4,NPC_YETI,  $23,$19, UP,STAND)
+   ctalk(sno_boss, 4);
+sno_part5_noboss:
+
+   fadein(G)
+   end
+sno_part5a:
+   set(D,$32)
+   set(E,$1b)
+   goto(sno_part4)
+sno_part5b:
+   set(B,101)
+   set(C, 25)
+   goto(OVER_WARP)
+
+sno_boss:
+   put(1,VAR_SNO1)
+   say(SNO_STXT1)
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special2_MountainBoss, 0,1,0,0);
+   song_resume
+   del(4)
+   fadein(X_FADE)
+   sfx(SFX_SEARCH)
+   give(IT_FYeti)
+   end
+
+
+sno_book1:
+   say(SNO_BOOK1A)
+   say(SNO_BOOK1B)
+   say(SNO_BOOK1C)
+   end
+sno_book2:
+   say(SNO_BOOK2A)
+   say(SNO_BOOK2B)
+   end
+
+sno_part6:
+   fadeout(X_FADE)
+   lmap(MAP_SNOW6, D,E)
+sno_innjoin:
+   cstep(sno_part6a,  $04,$08)
+   csearch(sno_book1, $06,$01,S_U)
+   csearch(sno_book2, $07,$01,S_U)
+   ldude(5,NPC_FIRE3, $03,$01,DOWN,STAND)
+   set(A,0)
+   sub(A,4)
+   setz(5,A)
+   anim(5)
+   ldude(4,NPC_MAYOR, $06,$05,UP,STAND)
+   ctalk(sno_guy, 4)
+   fadein(X_FADE)
+   end
+sno_part6a:
+   set(D,$08)
+   set(E,$0f)
+   goto(sno_part1)
+
+sno_guy:
+   say(INN_SNO)
+   yesno(A)
+   say(INN_ALU2)
+   if(A,CE,0,sno_innno)
+
+   say(INN_DTXT5)
+   song_pause
+   fadeout(X_FADE)
+   healall
+   song(SNG_REST)
+   sleep(240)
+   sleep(60)
+   song_resume
+   face(0,DOWN)
+   lmap(MAP_SNOW6,      $04,$04)
+   call(sno_innjoin)
+   sleep(30)
+
+sno_innno:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,sno_innns)
+   set(A,SVL_SNO)
+   savemenu
+sno_innns:
+   say(INN_DTXT3)
+   end
+sno_innload:
+   lmap(MAP_SNOW6,      $04,$04)
+   song(SNG_MOUNTAIN)
+   goto(sno_innjoin)

@@ -1,0 +1,253 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_COS:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$10)
+   set(E,$1f)
+   set(G,X_ROLL)
+   song(SNG_CAVE1)
+   goto(cos_part1_nf)
+O_COS2:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$16)
+   set(E,$1f)
+   set(G,X_ROLL)
+   song(SNG_CAVE1)
+   goto(cos_part3_nf)
+
+cos_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+cos_part1_nf:
+   lmap(MAP_COS_P1, D,E)
+   zone(ZONE_COS)
+   cstep(cos_part1a, $10,$20)
+   cstep(cos_part1b, $11,$0a)
+   cstep(cos_part1c, $1a,$0d)
+   ctres($57,IT_IFuligin, $1b,$05,$3b,SFX_CHEST)
+
+; pull this out for final release
+   ldude(4,CH_RYAN,$11,$1A,DOWN,STAND)
+   ctalk(cos_music,4)
+   set(A,0)
+
+   fadein(G)
+   end
+cos_music:
+   song(A)
+   cif(A,CE,0,cos_sng0)
+   cif(A,CE,1,cos_sng1)
+   cif(A,CE,2,cos_sng2)
+   cif(A,CE,3,cos_sng3)
+   cif(A,CE,4,cos_sng4)
+   cif(A,CE,5,cos_sng5)
+   cif(A,CE,6,cos_sng6)
+   cif(A,CE,7,cos_sng7)
+   cif(A,CE,8,cos_sng8)
+   cif(A,CE,9,cos_sng9)
+   cif(A,CE,10,cos_sng10)
+   cif(A,CE,11,cos_sng11)
+   cif(A,CE,12,cos_sng12)
+   cif(A,CE,13,cos_sng13)
+   cif(A,CE,14,cos_sng14)
+   cif(A,CE,15,cos_sng15)
+   cif(A,CE,16,cos_sng16)
+   cif(A,CE,17,cos_sng17)
+   cif(A,CE,18,cos_sng18)
+   cif(A,CE,19,cos_sng19)
+   cif(A,CE,20,cos_sng20)
+   cif(A,CE,21,cos_sng21)
+   cif(A,CE,22,cos_sng22)
+   cif(A,CE,23,cos_sng23)
+   cif(A,CE,24,cos_sng24)
+   cif(A,CE,25,cos_sng25)
+   cif(A,CE,26,cos_sng26)
+   cif(A,CE,27,cos_sng27)
+   inc(A)
+   if(A,CNE,28,cos_sngzeroskip)
+   set(A,0)
+cos_sngzeroskip:
+   end
+cos_sng0:
+   say(SNG_TXT0)
+   end
+cos_sng1:
+   say(SNG_TXT1)
+   end
+cos_sng2:
+   say(SNG_TXT2)
+   end
+cos_sng3:
+   say(SNG_TXT3)
+   end
+cos_sng4:
+   say(SNG_TXT4)
+   end
+cos_sng5: 
+   say(SNG_TXT5)
+   end
+cos_sng6:
+   say(SNG_TXT6)
+   end
+cos_sng7:
+   say(SNG_TXT7)
+   end
+cos_sng8:
+   say(SNG_TXT8)
+   end
+cos_sng9:
+   say(SNG_TXT9)
+   end
+cos_sng10:
+   say(SNG_TXT10)
+   end
+cos_sng11:
+   say(SNG_TXT11)
+   end
+cos_sng12:
+   say(SNG_TXT12)
+   end
+cos_sng13:
+   say(SNG_TXT13)
+   end
+cos_sng14:
+   say(SNG_TXT14)
+   end
+cos_sng15:
+   say(SNG_TXT15)
+   end
+cos_sng16:
+   say(SNG_TXT16)
+   end
+cos_sng17:
+   say(SNG_TXT17)
+   end
+cos_sng18:
+   say(SNG_TXT18)
+   end
+cos_sng19:
+   say(SNG_TXT19)
+   end
+cos_sng20:
+   say(SNG_TXT20)
+   end
+cos_sng21:
+   say(SNG_TXT21)
+   end
+cos_sng22:
+   say(SNG_TXT22)
+   end
+cos_sng23:
+   say(SNG_TXT23)
+   end
+cos_sng24:
+   say(SNG_TXT24)
+   end
+cos_sng25:
+   say(SNG_TXT25)
+   end
+cos_sng26:
+   say(SNG_TXT26)
+   end
+cos_sng27:
+   say(SNG_TXT27)
+   end
+
+
+cos_part1a:
+   set(B,$20)
+   set(C,$11)
+   goto(OVER_WARP)
+cos_part1b:
+   set(D,$07)
+   set(E,$10)
+   goto(cos_part2)
+cos_part1c:
+   set(D,$0c)
+   set(E,$14)
+   goto(cos_part2)
+
+cos_part2:
+   fadeout(X_FADE)
+   lmap(MAP_COS_P2, D,E)
+   zone(ZONE_COS)
+   cstep(cos_part2a, $07,$10)
+   cstep(cos_part2b, $0c,$14)
+   cstep(cos_part2c, $02,$0c)
+   cstep(cos_part2d, $10,$02)
+   cstep(cos_part2e, $11,$0a)
+   cstep(cos_part2f, $15,$0a)
+   ctres($58,IT_HScale, $0f,$0d,$3b,SFX_CHEST)
+   fadein(X_FADE)
+   end
+cos_part2a:
+   set(D,$11)
+   set(E,$0a)
+   goto(cos_part1)
+cos_part2b:
+   set(D,$1a)
+   set(E,$0d)
+   goto(cos_part1)
+cos_part2c:
+   set(D,$0a)
+   set(E,$0a)
+   goto(cos_part3)
+cos_part2d:
+   set(D,$19)
+   set(E,$06)
+   goto(cos_part3)
+cos_part2e:
+   set(D,$17)
+   set(E,$0f)
+   goto(cos_part3)
+cos_part2f:
+   set(D,$1a)
+   set(E,$0c)
+   goto(cos_part3)
+
+cos_part3:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+cos_part3_nf:
+   lmap(MAP_COS_P3, D,E)
+   zone(ZONE_COS)
+   cstep(cos_part3a, $0a,$0a)
+   cstep(cos_part3b, $19,$06)
+   cstep(cos_part3c, $17,$0f)
+   cstep(cos_part3d, $1a,$0c)
+   cstep(cos_part3e, $16,$20)
+   fadein(G)
+   end
+cos_part3a:
+   set(D,$02)
+   set(E,$0c)
+   goto(cos_part2)
+cos_part3b:
+   set(D,$10)
+   set(E,$02)
+   goto(cos_part2)
+cos_part3c:
+   set(D,$11)
+   set(E,$0a)
+   goto(cos_part2)
+cos_part3d:
+   set(D,$15)
+   set(E,$0a)
+   goto(cos_part2)
+cos_part3e:
+   set(B,$1f)
+   set(C,$0e)
+   goto(OVER_WARP)
+

@@ -1,0 +1,754 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+#define XTRES 0
+
+O_PIR:
+   fadeout(X_ROLL)
+   put(0,VAR_PIROPEN)   ; not behind the doors
+
+   ; random the second room
+   rand(A,3)
+   put(A,VAR_PIRTRAP1)
+   rand(A,3)
+   put(A,VAR_PIRTRAP2)
+
+   face(0,UP)
+   set(D,$11)
+   set(E,$2c)
+   set(F,0)
+   set(G,X_ROLL)
+   song(SNG_CAVE1)
+   goto(pir_part1_nf)
+
+pir_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+pir_part1_nf:
+   lmap(MAP_PIR_P1, D,E)
+   if(F,CE,1,pir_noenemy)
+   zone(ZONE_PIR)
+pir_noenemy:
+   set(F,0)
+
+   call(pir_clear)
+   cstep(pir_part1a, $11,$2d)
+   cstep(pir_part1b, $1a,$03)
+   cstep(pir_part1c, $19,$15)
+   cstep(pir_part1d, $23,$03)
+   ctres($4f,IT_PFancy, $14,$0a,$3B,SFX_CHEST)
+   ctres($50,IT_SPLo,   $1d,$0b,$3B,SFX_CHEST)
+   ctres($51,IT_AU_500, $17,$10,$3B,SFX_CHEST)
+   ctres($52,IT_KPirate,$03,$11,$3B,SFX_CHEST)
+   call(pir_tasm_init)
+   ;ctres($53,IT_CCutlass,$2c,$1f,$3B,SFX_CHEST)
+
+   csearch(pir_switch1, $27,$13, S_U)
+   csearch(pir_switch2, $28,$13, S_U)
+   csearch(pir_switch3, $29,$13, S_U)
+   csearch(pir_switch4, $2a,$13, S_U)
+   csearch(pir_switch5, $2b,$13, S_U)
+   csearch(pir_switch6, $2c,$13, S_U)
+   fadein(G)
+   end
+pir_part1a:
+   set(B,$57)
+   set(C,$6b)
+   goto(OVER_WARP)
+pir_part1b:
+   set(D,$05)
+   set(E,$03)
+   goto(pir_part2)
+pir_part1c:
+   set(D,$04)
+   set(E,$1f)
+   goto(pir_part2)
+pir_part1d:
+   get(A,VAR_PIRDONE)
+   if(A,CE,1,pir_part1e)
+   set(D,$06)
+   set(E,$0d)
+   goto(pir_part3)
+pir_part1e:
+   set(D,$0b)
+   set(E,$08)
+   goto(pir_part4)
+pir_tasm:
+   get(A,VAR_PIR_CHEST1)
+   if(A,CE,1,RET)
+   put(1,VAR_PIR_CHEST1)
+   song_pause
+   bsong(SNG_FIGHT1)
+   battle(Special_Tasm,0,1,0,0)
+   song_resume
+   call(pir_tasm_init1) ; open the chest
+   fadein(X_FADE)
+   give(IT_CCutlass)
+   end
+pir_tasm_init:
+   get(A,VAR_PIR_CHEST1)
+   if(A,CE,1,pir_tasm_init1)
+   csearch(pir_tasm,    $2c,$1f,S_ALL)  ; set search
+   end
+pir_tasm_init1:
+   tile($2c,$1f,$3b)  ; open chest
+   end
+
+pir_part2:
+   fadeout(X_FADE)
+   lmap(MAP_PIR_P2, D,E)
+   zone(ZONE_PIR)
+
+   call(pir_layholes)
+   cstep(pir_part2a, $05,$03)
+   cstep(pir_part2b, $04,$1f)
+   fadein(X_FADE)
+   end
+pir_part2a:
+   set(D,$1a)
+   set(E,$03)
+   goto(pir_part1)
+pir_part2b:
+   set(F,1)
+   set(D,$19)
+   set(E,$15)
+   goto(pir_part1)
+
+pir_part3:
+   fadeout(X_FADE)
+   lmap(MAP_PIR_P3, D,E)
+   goto(pir_scene31)
+
+pir_part4:
+   fadeout(X_FADE)
+   lmap(MAP_PIR_P4, D,E)
+   zone(ZONE_PIR)
+   cstep(pir_part4a, $0b,$09)
+   ctres($54,IT_CCutlass, $13,$05,$3B,SFX_CHEST)
+   ctres($55,IT_HALo, $15,$06,$3B,SFX_CHEST)
+   ctres($56,IT_PFancy, $1d,$06,$3B,SFX_CHEST)
+   fadein(X_FADE)
+   end
+pir_part4a:
+   set(F,1)
+   set(D,$23)
+   set(E,$03)
+   goto(pir_part1)
+
+
+pir_clear:
+   get(A,VAR_PIROPEN)
+   if(A,CE,1,pir_solved)
+   put(0,VAR_PIRSW1)
+   put(0,VAR_PIRSW2)
+   put(0,VAR_PIRSW3)
+   put(0,VAR_PIRSW4)
+   put(0,VAR_PIRSW5)
+   put(0,VAR_PIRSW6)
+   put(0,VAR_PIRDOOR1)
+   put(0,VAR_PIRDOOR2)
+   put(0,VAR_PIRDOOR3)
+   put(0,VAR_PIRDOOR4)
+   put(0,VAR_PIRDOOR5)
+   put(0,VAR_PIRDOOR6)
+   end
+pir_solved:
+   put(1,VAR_PIRSW1)
+   put(0,VAR_PIRSW2)
+   put(1,VAR_PIRSW3)
+   put(0,VAR_PIRSW4)
+   put(0,VAR_PIRSW5)
+   put(1,VAR_PIRSW6)
+   put(1,VAR_PIRDOOR1)
+   put(1,VAR_PIRDOOR2)
+   put(1,VAR_PIRDOOR3)
+   put(1,VAR_PIRDOOR4)
+   put(1,VAR_PIRDOOR5)
+   put(1,VAR_PIRDOOR6)
+
+   ; flag switches
+   tile($27,$13,$91)
+   tile($29,$13,$91)
+   tile($2c,$13,$91)
+
+   ; turn off doors
+   tile($23,$09,$09)
+   tile($23,$0a,$09)
+   tile($23,$0b,$09)
+   tile($23,$0c,$09)
+   tile($23,$0d,$09)
+   tile($23,$0e,$09)
+   tile($23,$0f,$09)
+   end
+
+pir_showA:
+   pan($23,$0c)
+   sleep(64)
+   end
+pir_showB:
+   call(pir_shake)
+   sleep(16)
+   lockon(0)
+   sleep(24)
+   call(pir_check)
+   end
+pir_shake:
+   sfx(SFX_ENGULF)
+   quake
+   sleep(16)
+   quake
+   end
+
+pir_switch1:
+   call(pir_switch1b)
+   call(pir_showA)
+   call(pir_door1)
+   call(pir_door2)
+   call(pir_door5)
+   call(pir_showB)
+   end
+pir_switch1b:
+   get(A,VAR_PIRSW1)
+   if(A,CE,1,pir_switch1a)
+   tile($27,$13,$91)
+   put(1,VAR_PIRSW1)
+   end
+pir_switch1a:
+   tile($27,$13,$90)
+   put(0,VAR_PIRSW1)
+   end
+
+pir_switch2:
+   call(pir_switch2b)
+   call(pir_showA)
+   call(pir_door1)
+   call(pir_door3)
+   call(pir_door7)
+   call(pir_showB)
+   end
+pir_switch2b:
+   get(A,VAR_PIRSW2)
+   if(A,CE,1,pir_switch2a)
+   tile($28,$13,$91)
+   put(1,VAR_PIRSW2)
+   end
+pir_switch2a:
+   tile($28,$13,$90)
+   put(0,VAR_PIRSW2)
+   end
+
+pir_switch3:
+   call(pir_switch3b)
+   call(pir_showA)
+   call(pir_door2)
+   call(pir_door3)
+   call(pir_door7)
+   call(pir_showB)
+   end
+pir_switch3b:
+   get(A,VAR_PIRSW3)
+   if(A,CE,1,pir_switch3a)
+   tile($29,$13,$91)
+   put(1,VAR_PIRSW3)
+   end
+pir_switch3a:
+   tile($29,$13,$90)
+   put(0,VAR_PIRSW3)
+   end
+
+pir_switch4:
+   call(pir_switch4b)
+   call(pir_showA)
+   call(pir_door3)
+   call(pir_door5)
+   call(pir_door6)
+   call(pir_showB)
+   end
+pir_switch4b:
+   get(A,VAR_PIRSW4)
+   if(A,CE,1,pir_switch4a)
+   tile($2a,$13,$91)
+   put(1,VAR_PIRSW4)
+   end
+pir_switch4a:
+   tile($2a,$13,$90)
+   put(0,VAR_PIRSW4)
+   end
+
+pir_switch5:
+   call(pir_switch5b)
+   call(pir_showA)
+   call(pir_door1)
+   call(pir_door4)
+   call(pir_door7)
+   call(pir_showB)
+   end
+pir_switch5b:
+   get(A,VAR_PIRSW5)
+   if(A,CE,1,pir_switch5a)
+   tile($2b,$13,$91)
+   put(1,VAR_PIRSW5)
+   end
+pir_switch5a:
+   tile($2b,$13,$90)
+   put(0,VAR_PIRSW5)
+   end
+
+pir_switch6:
+   call(pir_switch6b)
+   call(pir_showA)
+   call(pir_door2)
+   call(pir_door4)
+   call(pir_door6)
+   call(pir_showB)
+   end
+pir_switch6b:
+   get(A,VAR_PIRSW6)
+   if(A,CE,1,pir_switch6a)
+   tile($2c,$13,$91)
+   put(1,VAR_PIRSW6)
+   end
+pir_switch6a:
+   tile($2c,$13,$90)
+   put(0,VAR_PIRSW6)
+   end
+
+
+pir_door1:
+   get(A,VAR_PIRDOOR1)
+   if(A,CE,1,pir_door1a)
+   tile($23,$09,$09)
+   put(1,VAR_PIRDOOR1)
+   end
+pir_door1a:
+   tile($23,$09,$97)
+   put(0,VAR_PIRDOOR1)
+   end
+
+pir_door2:
+   get(A,VAR_PIRDOOR2)
+   if(A,CE,1,pir_door2a)
+   tile($23,$0a,$09)
+   put(1,VAR_PIRDOOR2)
+   end
+pir_door2a:
+   tile($23,$0a,$97)
+   put(0,VAR_PIRDOOR2)
+   end
+
+pir_door3:
+   get(A,VAR_PIRDOOR3)
+   if(A,CE,1,pir_door3a)
+   tile($23,$0b,$09)
+   put(1,VAR_PIRDOOR3)
+   end
+pir_door3a:
+   tile($23,$0b,$97)
+   put(0,VAR_PIRDOOR3)
+   end
+
+pir_door4:
+   get(A,VAR_PIRDOOR4)
+   if(A,CE,1,pir_door4a)
+   tile($23,$0c,$09)
+   put(1,VAR_PIRDOOR4)
+   end
+pir_door4a:
+   tile($23,$0c,$97)
+   put(0,VAR_PIRDOOR4)
+   end
+
+pir_door5:
+   get(A,VAR_PIRDOOR5)
+   if(A,CE,1,pir_door5a)
+   tile($23,$0d,$09)
+   put(1,VAR_PIRDOOR5)
+   end
+pir_door5a:
+   tile($23,$0d,$97)
+   put(0,VAR_PIRDOOR5)
+   end
+
+pir_door6:
+   get(A,VAR_PIRDOOR6)
+   if(A,CE,1,pir_door6a)
+   tile($23,$0e,$09)
+   put(1,VAR_PIRDOOR6)
+   end
+pir_door6a:
+   tile($23,$0e,$97)
+   put(0,VAR_PIRDOOR6)
+   end
+
+pir_door7:
+   get(A,VAR_PIRDOOR7)
+   if(A,CE,1,pir_door7a)
+   tile($23,$0f,$09)
+   put(1,VAR_PIRDOOR7)
+   end
+pir_door7a:
+   tile($23,$0f,$97)
+   put(0,VAR_PIRDOOR7)
+   end
+
+
+pir_check:
+   put(0,VAR_PIROPEN)
+   get(A,VAR_PIRDOOR1)
+   if(A,CE,0,RET)
+   get(A,VAR_PIRDOOR2)
+   if(A,CE,0,RET)
+   get(A,VAR_PIRDOOR3)
+   if(A,CE,0,RET)
+   get(A,VAR_PIRDOOR4)
+   if(A,CE,0,RET)
+   get(A,VAR_PIRDOOR5)
+   if(A,CE,0,RET)
+   get(A,VAR_PIRDOOR6)
+   if(A,CE,0,RET)
+
+   put(1,VAR_PIROPEN)
+   end
+
+
+pir_layholes:
+   get(A,VAR_PIRTRAP1)
+   set(C,$18)
+   set(B,$01)
+   cif(A,CNE,0,pir_layholes1)
+   set(B,$04)
+   cif(A,CNE,1,pir_layholes1)
+   set(B,$07)
+   cif(A,CNE,2,pir_layholes1)
+
+   get(A,VAR_PIRTRAP2)
+   set(C,$0a)
+   set(B,$01)
+   cif(A,CNE,0,pir_layholes1)
+   set(B,$04)
+   cif(A,CNE,1,pir_layholes1)
+   set(B,$07)
+   cif(A,CNE,2,pir_layholes1)
+   end
+pir_layholes1:
+   chstep(pir_hole, B,C,2)
+   end
+
+pir_hole:
+   getxy(B,C)
+   call(pir_adjust)
+   tile(B,C,$bf)
+   inc(B)
+   tile(B,C,$bf)
+   dec(B)
+   call(pir_shake)
+   pan(B,C)
+   add(C,4)
+   group
+   sync
+   del(0)
+   del(1)
+   del(2)
+   del(3)
+   pan(B,C)
+   sleep(2)
+   fadeout(X_FADE)
+   lockon(0)
+   set(D,$19)
+   set(E,$0d)
+   set(G,X_FADE)
+   goto(pir_part1_nf)
+
+pir_adjust:
+   if(B,CE,1,RET)
+   if(B,CE,4,RET)
+   if(B,CE,7,RET)
+   dec(B)
+   end
+
+pir_scene31:
+   put(1,VAR_PIRDONE)
+   ldude(4,EN_GARROW,   $06,$05,DOWN,STAND)
+
+   ldude(5,EN_HENCH,    $00,$0b,DOWN,STAND)
+   ldude(6,EN_PIRATE,   $00,$0b,DOWN,STAND)
+   ldude(7,EN_PIRATE,   $0c,$0a,DOWN,STAND)
+   ldude(8,EN_HENCH,    $0c,$0b,DOWN,STAND)
+   fadein(X_FADE)
+
+   walk(0,UP,2)
+   sync
+   group
+   sync
+   partyarr
+   detach
+
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+
+   walk(5,RIGHT,3)
+   walk(6,RIGHT,3)
+   walk(7,LEFT,3)
+   walk(8,LEFT,3)
+
+   walk(4,DOWN,3)
+   sync
+   face(1,UP)
+   face(2,UP)
+   sync
+   walk(5,UP,1)
+   sync
+   walk(5,RIGHT,1)
+   sync
+   sleep(16)
+
+   say(S31_ETXT1)
+   walk(0,UP,1)
+   sync
+   sleep(16)
+   say(S31_ETXT2)
+   sleep(16)
+   say(S31_ETXT3)
+   sleep(16)
+   say(S31_ETXT4)
+   walk(2,LEFT,1)
+   sync
+   walk(2,UP,2)
+   sync
+
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special_BossRyan,0,1,5,1)
+   setwolfp(3)
+   song_resume
+
+   warp(0,$06,$0b,UP)
+   warp(1,$05,$0b,LEFT)
+   warp(2,$07,$0b,RIGHT)
+
+   ldude(4,EN_GARROW,   $06,$09,DOWN,STAND)
+   ;ldude(4,CH_RYAN,     $06,$09,DOWN,STAND)
+   ;frame(4,CEL_ASLEEP)
+   sleep(16)
+   fadein(X_FADE)
+
+   sleep(32)
+   say(S32_ETXT1)
+   ldude(4,EN_GARROW,   $06,$09,DOWN,STAND)
+   sleep(32)
+   face(4,RIGHT)
+   sleep(4)
+   face(4,UP)
+   sleep(4)
+   ldude(4,CH_RYAN,     $06,$09,LEFT,STAND)
+   sleep(4)
+   face(4,DOWN)
+   sleep(16)
+
+   say(S32_ETXT2)
+   face(1,UP)
+   face(2,UP)
+   sleep(16)
+   say(S32_ETXT3)
+   sleep(16)
+   say(S32_ETXT4)
+   sleep(16)
+   say(S32_ETXT5)
+   walk(1,UP,1)
+   sync
+   sleep(16)
+   say(S32_ETXT6)
+   sleep(16)
+   say(S32_ETXT7)
+   sleep(16)
+   say(S32_ETXT8)
+   sleep(16)
+   face(4,RIGHT)
+   sleep(4)
+   face(4,UP)
+   sleep(16)
+   say(S32_ETXT9)
+   sleep(32)
+
+   fadeout(X_FADE)
+
+   partyset(3,PARTY_RYAN)
+
+   ; set his stuff
+   give2(IT_DPirate)
+   equip(3,IT_DPirate)
+   give2(IT_ICamoflauge)
+   equip(3,IT_ICamoflauge)
+   give2(IT_HHunter)
+   equip(3,IT_HHunter)
+   setskl2(3,1,17)
+   levelup(3)
+   sleep(32)
+
+   lmap(MAP_SHIP, 5,6)
+   partyarr
+   lockoff
+   warp(0, 1,4,UP)
+   warp(2, 2,4,UP)
+   warp(1, 3,4,UP)
+   warp(3,11,7,UP)
+   fadein(X_FADE)
+   sleep(96)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,DOWN)
+   sleep(32)
+   frame(0,CEL_SIT1)
+   sleep(32)
+   face(2,LEFT)
+   sleep(32)
+   face(2,UP)
+   sleep(64)
+   ;face(0,RIGHT)
+   ;sleep(64)
+   ;face(0,UP)
+   frame(0,CEL_LOOK1)
+   sleep(16)
+   face(0,DOWN)
+   sleep(32)
+   face(0,UP)
+   sleep(96)
+
+   fadeout(X_FADE)
+   lockon(0)
+   sleep(32)
+
+   lmap(MAP_OVERWORLD,     16,15)
+   boat_on
+   fadein2(X_FADE)
+   walk(0,RIGHT,7)
+   sync
+   sleep(32)
+   fadeout(X_FADE)
+   lockon(0)
+   boat_on
+
+   lmap(MAP_SHIP, 53,6)
+   lockoff
+   partyarr
+   detach
+   warp(0,53,4,UP)
+   warp(2,50,6,UP)
+   frame(2,CEL_ASLEEP)
+   warp(1,51,8,DOWN)
+   warp(3,59,7,LEFT)
+   fadein(X_FADE)
+
+   sleep(32)
+   walk(3,LEFT,4)
+   sync
+   sleep(32)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   face(0,DOWN)
+   sleep(32)
+
+   face(1,UP)
+   face(2,UP)
+   face(3,UP)
+   sleep(32)
+   frame(0,CEL_LOOK1)
+   sleep(8)
+   face(0,DOWN)
+   sleep(32)
+
+   walk(0,DOWN,6)
+   sleep(16)
+   lockon(0)
+   sleep(8)
+
+   walk(1,RIGHT,2)
+   walk(3,LEFT,2)
+   sleep(8)
+   walk(2,RIGHT,3)
+   sleep(10)
+   face(1,DOWN)
+   face(3,DOWN)
+   sleep(20)
+   face(2,DOWN)
+   sync
+
+   face(0,UP)
+   sleep(16)
+   walk(1,DOWN,1)
+   walk(2,DOWN,1)
+   walk(3,DOWN,1)
+   sync
+   sleep(16)
+   face(0,DOWN)
+   sleep(16)
+   walk(0,DOWN,7)
+   walk(1,DOWN,8)
+   walk(2,DOWN,10)
+   walk(3,DOWN,9)
+   sync
+   walk(0,DOWN,1)
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   walk(3,UP,1)
+   sync
+   lockoff
+   face(0,UP)
+   face(1,RIGHT)
+   face(2,LEFT)
+   face(3,DOWN)
+   sleep(32)
+   say(S33_ETXT1)
+   face(1,DOWN)
+   face(0,LEFT)
+   sleep(16)
+   say(S33_ETXT2)
+   walk(3,LEFT,1)
+   sync
+   face(3,DOWN)
+   sleep(16)
+   say(S33_ETXT3)
+   face(1,UP)
+   sleep(16)
+   say(S33_ETXT4)
+   sleep(16)
+   say(S33_ETXT5)
+   face(3,RIGHT)
+   face(1,RIGHT)
+   face(0,RIGHT)
+   face(2,DOWN)
+   sleep(16)
+   say(S33_ETXT6)
+   walk(3,RIGHT,1)
+   sync
+   face(3,DOWN)
+   sleep(16)
+   walk(0,UP,1)
+   walk(2,LEFT,1)
+   walk(1,RIGHT,1)
+   walk(3,DOWN,1)
+   sync
+   face(0,DOWN)
+   reform
+   sleep(16)
+   healall
+   call(mag_scene33_save)
+   sleep(16)
+   walk(0,DOWN,10)
+   sync
+
+   put(1,VAR_MAGVISIT)
+   sleep(16)
+   set(B,24)
+   set(C,15)
+   lockon(0)
+   goto(OVER_WARP)

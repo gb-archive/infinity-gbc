@@ -1,0 +1,380 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_HOL:
+   call(MAPPOS_SAVE_R)
+   face(0,UP)
+   set(B,  9)
+   set(C, 23)
+   call(L_HOL)
+   fadein(X_ROLL)
+
+   get(A,VAR_HOL1)
+   if(A,CE,1,RET)
+
+   put(1,VAR_HOL1)
+   walk(0,UP,2)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   sleep(4)
+   say(S24_ETXT1)
+   walk(1,RIGHT,1)
+   walk(2,DOWN,1)
+   sync
+   face(1,UP)
+   face(2,UP)
+   sleep(32)
+   say(S24_ETXT2)
+   face(1,DOWN)
+   sleep(16)
+   say(S24_ETXT3)
+   sleep(16)
+   say(S24_ETXT4)
+   face(1,UP)
+   sleep(16)
+   say(S24_ETXT5)
+   walk(1,UP,1)
+   sync
+   walk(1,LEFT,1)
+   sync
+   walk(1,UP,1)
+   sync
+   face(1,RIGHT)
+   sleep(16)
+   say(S24_ETXT6)
+   walk(2,RIGHT,1)
+   sync
+   walk(2,UP,1)
+   sync
+   sleep(16)
+   say(S24_ETXT7)
+   face(1,DOWN)
+   sleep(16)
+   say(S24_ETXT8)
+   frame(1,CEL_WIPE1)
+   sleep(32)
+   say(S24_ETXT9)
+   walk(2,UP,1)
+   sync
+   walk(2,LEFT,1)
+   sync
+   face(2,UP)
+   sleep(16)
+   say(S24_ETXT10)
+   face(1,RIGHT)
+   sleep(32)
+   say(S24_ETXT11)
+   walk(0,RIGHT,1)
+   sync
+   walk(0,UP,1)
+   sync
+   sleep(16)
+   say(S24_ETXT12)
+   face(1,DOWN)
+   sleep(16)
+   say(S24_ETXT13)
+   sleep(16)
+   say(S24_ETXT14)
+   sleep(16)
+   say(S24_ETXT15)
+   sleep(16)
+   say(S24_ETXT16)
+   frame(1,CEL_DOWN1)
+   walk(1,UP,1)
+   walk(2,UP,1)
+   sync
+   face(1,DOWN)
+   sleep(16)
+   say(S24_ETXT17)
+   sleep(32)
+   face(2,DOWN)
+   sleep(32)
+   face(2,UP)
+   sleep(24)
+   walk(2,DOWN,1)
+   sync
+   face(0,LEFT)
+   walk(2,RIGHT,1)
+   sync
+   walk(1,DOWN,1)
+   sync
+   sleep(16)
+   face(1,RIGHT)
+   sleep(32)
+   walk(1,DOWN,1)
+   sync
+   walk(1,RIGHT,1)
+   sync
+   reform
+   end
+
+I_HOL:
+   fadeout(X_FADE)
+   call(L_HOL)
+   fadein(X_FADE)
+   end
+
+; sign - 7,22
+; hous1 - 6,16
+; hous2 - 20, 16
+; inn - 12, 17
+; shop - 16, 9
+; wep - 6, 5
+; tres - 4,5
+; tres - 1,13
+; well - 21,11 - up   (its all dried up)
+; well - 21,12 - down
+
+; skel: 7,10 - 10,19 - 1,2 - 4,1 - 14,12 - 21,20
+
+; start:
+; hous1 - 3,6 - exit 3,7
+;   dead guy at: 1,2
+;
+; hous2 - 4,7 - exit 4,8
+;   dead guy at: 2,3
+;
+; item - 5,6 - exit 5,7
+;   dead guy at: 4,2
+;
+; wep - 2,7 - exit 2,8
+;   dead guy at: 5,4
+;   dead guy at: 3,4
+
+L_HOL:
+   lmap(MAP_HOL,           B,C)
+   song(SNG_SADNESS)
+   chstep(OVERWORLD,       $7f,$7f, 27)
+   chstep(OVERWORLD,       $7f, 24, 27)
+   cvstep(OVERWORLD,       $7f,$7f, 26)
+   cvstep(OVERWORLD,        25,$7F, 26)
+
+   cstep(hol_inn,           12, 17)
+   cstep(hol_hous1,          6, 16)
+   cstep(hol_hous2,         20, 16)
+   cstep(hol_itemshop,      16,  9)
+   cstep(hol_webshop,        6,  5)
+   ctres($26,IT_HPLO,        4,  5,$00,SFX_SEARCH)
+   ctres($27,IT_HPLO,        1, 13,$00,SFX_SEARCH)
+   csearch(hol_sign,         7, 22, S_U)
+   csearch(hol_well,        21, 11, S_U)
+   csearch(hol_well,        21, 12, S_D)
+   csearch(hol_grave,       22,  0, S_U)
+
+   ldude( 4,NPC_DEAD,      $07,$0a,DOWN,STAND)
+   frame( 4,CEL_SKEL1)
+   ldude( 5,NPC_DEAD,      $0a,$13,DOWN,STAND)
+   frame( 5,CEL_SKEL2)
+   ldude( 6,NPC_DEAD,      $01,$02,DOWN,STAND)
+   frame( 6,CEL_SKEL1)
+   ldude( 7,NPC_DEAD,      $04,$01,DOWN,STAND)
+   frame( 7,CEL_SKEL2)
+   ldude( 8,NPC_DEAD,      $0e,$0c,DOWN,STAND)
+   frame( 8,CEL_SKEL1)
+   ldude( 9,NPC_DEAD,      $15,$14,DOWN,STAND)
+   frame( 9,CEL_SKEL2)
+   ldude(10,NPC_DEAD,      $09,$11,DOWN,STAND)
+   frame(10,CEL_SKEL1)
+   ldude(11,NPC_DEAD,      $06,$12,DOWN,STAND)
+   frame(11,CEL_SKEL2)
+
+   ctalk(hol_dead,4)
+   ctalk(hol_dead,5)
+   ctalk(hol_dead,6)
+   ctalk(hol_dead,7)
+   ctalk(hol_dead,8)
+   ctalk(hol_dead,9)
+   ctalk(hol_dead,10)
+   ctalk(hol_dead,11)
+
+   end
+
+hol_book1:
+   say(HOL_BOOK1A)
+   say(HOL_BOOK1B)
+   end
+hol_sign:
+   say(HOL_STXT1)
+   end
+
+hol_well:
+   say(HOL_STXT2)
+   end
+hol_grave:
+   say(HOL_STXT4)
+   end
+
+hol_hous1:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_HOL_HOUS1,     $03,$06)
+   colshift(C_BROWN)
+   cstep(I_HOL,            $03,$07)
+   ldude(4,NPC_DEAD,       $01,$02,DOWN,STAND)
+   frame(4,CEL_SKEL1)
+   ctalk(hol_dead,4)
+   fadein(X_FADE)
+   end
+
+hol_hous2:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_HOL_HOUS2,     $04,$07)
+   colshift(C_BROWN)
+   cstep(I_HOL,            $04,$08)
+   ctres($28,IT_ETraveler, $01,$04,$C4,SFX_CHEST)
+   ldude(4,NPC_DEAD,       $02,$03,DOWN,STAND)
+   frame(4,CEL_SKEL2)
+   ctalk(hol_dead,4)
+   fadein(X_FADE)
+   end
+
+hol_itemshop:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_HOL_ITEM,      $05,$06)
+   colshift(C_BROWN)
+   cstep(I_HOL,            $05,$07)
+   ldude(4,NPC_DEAD,       $04,$02,DOWN,STAND)
+   frame(4,CEL_SKEL1)
+   ctalk(hol_dead,4)
+   csearch(hol_dead,       $04,$03,S_U)
+   fadein(X_FADE)
+   end
+
+hol_webshop:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_HOL_WEP,       $02,$07)
+   colshift(C_BROWN)
+   cstep(I_HOL,            $02,$08)
+   ldude(4,NPC_DEAD,       $05,$04,DOWN,STAND)
+   frame(4,CEL_SKEL2)
+   ldude(5,NPC_DEAD,       $03,$04,DOWN,STAND)
+   frame(5,CEL_SKEL1)
+   ctalk(hol_dead,4)
+   ctalk(hol_dead,5)
+   csearch(hol_dead,       $05,$05,S_U)
+   csearch(hol_book1,      $02,$01,S_U)
+   fadein(X_FADE)
+   end
+
+hol_dead:
+   say(HOL_STXT3)
+   ;fadeout(X_FADE)
+   ;goto(O_DUR)
+   ;goto(sew_scene29)
+   ;goto(dur_scene25b)
+   ;goto(tgl_scene26)
+   ;goto(sew_enter1)
+   end
+
+hol_inn:
+   getxy(B,C)
+   fadeout(X_FADE)
+   lmap(MAP_HOL_INN,       $02,$07)
+hol_innjoin:
+   colshift(C_BROWN)
+   put(0,VAR_A)
+   chstep(I_HOL,           $02,$08,$01)
+   cvstep(hol_innroom,     $04,$06,$02)
+   ;csearch(hol_innroom,    $02,$05,S_U)
+   fadein(X_FADE)
+   end
+hol_innroom:
+   get(A,VAR_A)
+   if(A,CE,1,RET)
+   put(1,VAR_A)
+
+   sleep(2)
+   yesno(A)
+   say(HOL_ETXT1)
+   if(A,CE,0,hol_innno)
+
+   align($05,$06)
+   sync
+   walk(0,UP,2)
+   sync
+   walk(0,RIGHT,2)
+   sync
+   group
+   sync
+
+   // if EVEPROG isn't 16 or we've already done this scene
+   // then skip
+   get(A,VAR_EVEPROG)
+   if(A,CNE,16,hol_skiptalk)
+   get(A,VAR_HOL2)
+   if(A,CE,1,hol_skiptalk)
+
+   put(1,VAR_HOL2)
+   partyarr
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   sync
+   face(0,DOWN)
+   face(1,LEFT)
+   face(2,RIGHT)
+   sleep(48)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,UP)
+   sleep(48)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,DOWN)
+   sleep(32)
+
+   say(HOL_ETXT2)
+   sleep(16)
+   say(HOL_ETXT3)
+   face(0,RIGHT)
+   sleep(16)
+   say(HOL_ETXT4)
+   sleep(16)
+   say(HOL_ETXT5)
+   face(0,DOWN)
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   sync
+   reform
+
+hol_skiptalk:
+   call(INNSPLIT)
+   walk(0,LEFT,2)
+   sync
+   walk(0,DOWN,2)
+   sync
+   walk(0,LEFT,3)
+   sync
+   face(0,DOWN)
+   group
+   sync
+
+hol_innno:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,hol_innns)
+   set(A,SVL_HOL)
+   savemenu
+hol_innns:
+   end
+hol_innload:
+   lmap(MAP_HOL_INN,       $02,$06)
+   song(SNG_SADNESS)
+   set(B,$0c)
+   set(C,$11)
+   goto(hol_innjoin)
+

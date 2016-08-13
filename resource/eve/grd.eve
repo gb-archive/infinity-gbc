@@ -1,0 +1,849 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_GRD:
+   fadeout(X_FADE)
+
+   get(A,VAR_GRDREADY)
+   if(A,CE,0,grd_notready)
+   goto(grd_ready)
+
+grd_notready:
+   lmap(MAP_SHIP, 5,6)
+   lockoff
+   partyarr
+   warp(0, 5,4, UP)
+   warp(1, 4,4, UP)
+   warp(2, 2,5, UP)
+   warp(3, 6,4, UP)
+   frame(2,CEL_ASLEEP)
+   ldude(4,CH_RYAN, 11,6, DOWN,STAND)
+   fadein(X_FADE)
+   sleep(32)
+   walk(4,LEFT,4)
+   sync
+   get(A,VAR_GRD1)
+   if(A,CE,1,grd_notready2)
+   put(1,VAR_GRD1)
+   walk(4,UP,2)
+   sync
+   sleep(16)
+   say(SJ_ETXT1A)
+   sleep(16)
+
+   call(grd_fireball)
+
+   quake
+   frame(0,CEL_ATTEN)
+   frame(1,CEL_ATTEN)
+   frame(2,CEL_ATTEN)
+   frame(3,CEL_ATTEN)
+   frame(4,CEL_ATTEN)
+   sleep(16)
+   quake
+   sleep(16)
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   face(3,DOWN)
+   face(4,DOWN)
+   sleep(32)
+   pan(5,6)
+   sleep(32)
+   say(SJ_ETXT1)
+   sleep(16)
+   say(SJ_ETXT2)
+   face(1,RIGHT)
+   sleep(16)
+   say(SJ_ETXT3)
+   face(2,RIGHT)
+   sleep(16)
+   say(SJ_ETXT4)
+   face(4,LEFT)
+   sleep(16)
+   say(SJ_ETXT5)
+   sleep(16)
+   say(SJ_ETXT6)
+   sleep(16)
+   say(SJ_ETXT7)
+   sleep(16)
+   say(SJ_ETXT8)
+   sleep(16)
+
+grd_notready3:
+   fadeout(X_ROLL)
+   partynor
+   lockon(0)
+   set(B,22)
+   set(C,119)
+   goto(OVER_WARP_NF2)
+
+grd_fireball:
+   sfx(SFX_ENGULF)
+   ldude(5,NPC_FIRE2,   2,13,DOWN,STAND)
+   setz(5,160)
+   anim(5)
+   walk(5,RIGHT,4)
+   set(A,160)
+   set(B,0)
+grd_zloop:
+   setz(5,A)
+   sub(A,5)
+   inc(B)
+   cif(B,CE,16,grd_fireball_lock)
+   sleep(2)
+   if(B,CL,32,grd_zloop)
+   sync
+   del(5)
+   end
+grd_fireball_lock:
+   pan(5,8)
+   face(0,DOWN)
+   face(1,DOWN)
+   face(3,DOWN)
+   face(4,DOWN)
+   end
+
+grd_notready2:
+   face(0,DOWN)
+   face(1,DOWN)
+   face(3,DOWN)
+   face(4,UP)
+   sleep(16)
+   say(SJ_ETXT9)
+   sleep(16)
+   goto(grd_notready3)
+
+
+grd_ready:
+   lmap(MAP_SHIP, 5,5)
+   lockoff
+   partyarr
+   warp(0, 5,4, UP)
+   warp(1, 4,4, UP)
+   warp(2, 3,4, UP)
+   warp(3, 6,4, UP)
+   ldude(4,CH_RYAN, 11,6, UP,STAND)
+   fadein(X_FADE)
+   sleep(32)
+   walk(4,LEFT,5)
+   sync
+   face(4,UP)
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   face(3,DOWN)
+   sleep(16)
+   yesno(A)
+   say(S49_ASK1)
+   sleep(16)
+   if(A,CE,0,grd_notready3)
+   sleep(16)
+   walk(4,RIGHT,5)
+   sleep(16)
+   face(0,RIGHT)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   face(3,RIGHT)
+   sync
+   fadeout(X_FADE)
+
+   // disable boat mode
+   boat_on
+
+   // approach island
+   lmap(MAP_OVERWORLD, 22, 118)
+   lockoff
+   del(0)
+   del(1)
+   del(2)
+   del(3)
+   ldude(1,NPC_BOAT,  22, 119, UP, STAND)
+   fadein(X_FADE)
+   sleep(48)
+   walk(1,UP,1)
+   sync
+   sleep(16)
+   fadeout(X_FADE)
+   sleep(32)
+
+   lmap(MAP_SHIP, 5,5)
+   lockoff
+   partyarr
+   warp(0, 5,4, UP)
+   warp(1, 4,4, UP)
+   warp(2, 3,4, UP)
+   warp(3, 6,4, UP)
+   ldude(4,CH_RYAN, 7,4, UP,STAND)
+   fadein(X_FADE)
+   sleep(32)
+   say(S49_ETXT1)
+   walk(4,DOWN,2)
+   sync
+   walk(4,RIGHT,4)
+   sleep(16)
+   face(0,RIGHT)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   face(3,RIGHT)
+   sync
+   fadeout(X_FADE)
+
+   face(0,UP)
+   lmap(MAP_OVERWORLD, 22, 118)
+   del(0)
+   del(1)
+   del(2)
+   del(3)
+   ldude(1,NPC_BOAT,  22, 118, UP, STAND)
+   fadein(X_FADE)
+
+   sfx(SFX_ENGULF)
+   sleep(4)
+   ldude(4,NPC_FIRE2,  22, 114, DOWN, STAND)
+   anim(4)
+   walk(4,DOWN,3)
+   sleep(16)
+   ldude(3,NPC_BARRIER,22, 118, DOWN, STAND)
+   anim(3)
+   setz(3,11)
+   sync
+   call(grd_clank)
+   del(4)
+   sleep(48)
+   fadeout(X_FADE)
+
+   lmap(MAP_SHIP, 5,5)
+   lockoff
+   partyarr
+   warp(0, 5,4, UP)
+   warp(1, 4,4, UP)
+   warp(2, 3,4, UP)
+   warp(3, 6,4, UP)
+   ldude(4,CH_RYAN, 11,5, UP,STAND)
+   fadein(X_FADE)
+
+   say(S49_ETXT2)
+   sleep(32)
+   sfx(SFX_ENGULF)
+   sleep(16)
+   say(S49_ETXT3)
+   face(0,RIGHT)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   face(3,RIGHT)
+   sleep(32)
+   call(grd_clank)
+   sleep(16)
+   walk(4,LEFT,2)
+   sync
+   sleep(16)
+   say(S49_ETXT4)
+   sleep(16)
+   say(S49_ETXT5)
+   sleep(16)
+   say(S49_ETXT6)
+   walk(4,RIGHT,2)
+   sync
+   sleep(16)
+   sfx(SFX_ENGULF)
+   sleep(16)
+   say(S49_ETXT7)
+   sleep(32)
+   call(grd_clank)
+   sleep(16)
+   say(S49_ETXT8)
+   walk(4,LEFT,2)
+   sync
+   say(S49_ETXT9)
+   sleep(16)
+   say(S49_ETXT10)
+   sleep(16)
+   fadeout(X_FADE)
+
+   sleep(64)
+
+   lmap(MAP_SHIP, 37,4)
+   partyarr
+   detach
+   lockon(0)
+   warp(0, 37,4, UP)
+   warp(1, 36,4, UP)
+   warp(2, 35,4, UP)
+   warp(3, 38,4, UP)
+   ldude(4,CH_RYAN, 43,6, UP,STAND)
+   fadein(X_FADE)
+
+   sleep(32)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   face(3,LEFT)
+   sleep(32)
+   face(0,DOWN)
+   sleep(32)
+   face(0,LEFT)
+   sleep(16)
+   face(0,RIGHT)
+   sleep(16)
+   face(0,DOWN)
+   sleep(16)
+   frame(0,CEL_LOOK1)
+   sleep(8)
+   face(0,DOWN)
+   sleep(16)
+   walk(1,RIGHT,1)
+   walk(2,RIGHT,2)
+   walk(3,LEFT,1)
+   sync
+   reform
+   partyarr
+   sleep(16)
+   walk(0,DOWN,11)
+   sync
+   warp(4,37,10,DOWN)
+   say(S49_ETXT11)
+   group
+   sync
+   face(0,UP)
+   walk(2,LEFT,2)
+   walk(1,LEFT,1)
+   walk(3,RIGHT,1)
+   sleep(9)
+   face(1,UP)
+   face(3,UP)
+   sync
+   face(2,UP)
+   walk(4,DOWN,2)
+   sync
+   sleep(16)
+   say(S49_ETXT12)
+   sleep(16)
+   frame(4,CEL_HRAISE)
+   sleep(16)
+   say(S49_ETXT13)
+   face(4,DOWN)
+   sleep(16)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,DOWN)
+   sleep(8)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   face(3,LEFT)
+   frame(0,CEL_HRAISE)
+   sleep(16)
+   say(S49_ETXT14)
+   sleep(32)
+   fadeout(X_FADESLOW)
+   sleep(64)
+   goto(grd_isle)
+
+grd_clank:
+   quake
+   sfx(SFX_STAFF)
+   sleep(4)
+   sfx(SFX_STAFF)
+   sleep(4)
+   sfx(SFX_STAFF)
+   sleep(4)
+   sfx(SFX_STAFF)
+   sleep(4)
+   sfx(SFX_STAFF)
+   sleep(8)
+   quake
+   end
+
+
+// --------------------------------------
+// Great Dark Isle
+// --------------------------------------
+grd_isle:
+   lmap(MAP_GRDKISLE, $07,$1a)
+   ldude(4,NPC_GOLEM, $0a,$06,DOWN,STAND)
+   ldude(5,NPC_GOLEM, $0e,$06,DOWN,STAND)
+   ldude(6,NPC_GOLEM, $0a,$08,DOWN,STAND)
+   ldude(7,NPC_GOLEM, $0d,$08,DOWN,STAND)
+   ldude(8,NPC_GOLEM, $0e,$08,DOWN,STAND)
+   ldude(9,NPC_GOLEM, $08,$0a,DOWN,STAND)
+   ldude(10,NPC_KRAIT, $0b,$07,DOWN,STAND)
+   ldude(11,CH_ALUTHA, $0c,$09,DOWN,STAND)
+   warp2(11,24,20,DOWN)
+   setz(11,8)
+   frame(11,CEL_TIRED)
+   song(SNG_CREATOREVIL)
+   fadein(X_FADESLOW)
+   sleep(32)
+   call(grd_loadgeist)
+
+   walk(0,UP,13)
+   sync
+   walk(0,RIGHT,5)
+   sync
+   face(0,UP)
+   group
+   sync
+   partyarr
+   detach
+   face(2,UP)
+   walk(0,UP,1)
+   walk(1,LEFT,1)
+   walk(3,RIGHT,1)
+   sync
+   face(1,UP)
+   face(3,UP)
+   sleep(32)
+   panspeed(0)
+   pan($0c,$08)
+   sleep(48)
+   sleep(32)
+   pan($0c,$0c)
+   walk(10,DOWN,3)
+   sleep(48)
+   sleep(32)
+   say(S50_ETXT1)
+   walk(6,DOWN,5)
+   walk(7,DOWN,3)
+   walk(8,DOWN,5)
+   sleep(25)
+   walk(7,LEFT,1)
+   sleep(9)
+   face(7,DOWN)
+   sync
+   face(6,RIGHT)
+   face(8,LEFT)
+
+   face(1,LEFT)
+   face(3,RIGHT)
+   sleep(8)
+   song_pause
+   bsong(SNG_FIGHT1)
+   battle(0,0,1,0,0)
+   song_resume
+   del(6)
+   del(7)
+   del(8)
+   face(1,UP)
+   face(3,UP)
+   fadein(X_FADE)
+   sleep(32)
+   say(S50_ETXT2)
+   walk(1,UP,1)
+   sync
+   sleep(16)
+   say(S50_ETXT3)
+   sleep(16)
+   say(S50_ETXT4)
+   walk(2,LEFT,2)
+   sync
+   walk(2,UP,1)
+   sleep(16)
+   say(S50_ETXT5)
+   sleep(16)
+   say(S50_ETXT6)
+   walk(3,UP,1)
+   sync
+   sleep(16)
+   say(S50_ETXT7)
+   sleep(16)
+   say(S50_ETXT8)
+   sleep(16)
+   say(S50_ETXT9)
+   sleep(16)
+   say(S50_ETXT10)
+   sleep(16)
+   say(S50_ETXT11)
+   sync
+   sleep(8)
+   song_pause
+   bsong(SNG_FIGHT1)
+   battle(0,0,1,0,0)
+   song_resume
+   ldude(10,NPC_KRAIT2, $0b,$0a,DOWN,STAND)
+   frame(10,1)
+   fadein(X_FADE)
+   call(grd_loadgeist) // reload cannon
+   sleep(16)
+
+   // scene 51, unnamed shows up
+   say(S51_ETXT1)
+   sleep(16)
+   //face(10,RIGHT)
+   song(SNG_TROUBLE)
+   darken
+   sleep(32)
+   sfx(SFX_REVIVE)
+   call(grd_effect1)
+
+   ldude(10,NPC_KRAIT, $0b,$0a,RIGHT,STAND)
+
+   // align alutha
+   setz(11,0)
+   warp(11,12,9,DOWN)
+   frame(11,CEL_TIRED)
+
+   sleep(16)
+   say(S51_ETXT2)
+   sleep(16)
+   say(S51_ETXT3)
+   sleep(16)
+   frame(11,CEL_DOWN1)
+   face(11,DOWN)
+   sleep(16)
+   walk(11,LEFT,1)
+   sleep(4)
+   face(10,UP)
+   sync
+   frame(11,CEL_DOWN1)
+   sleep(16)
+
+   // alutha turns into unnamed
+   set(A,0)
+grd_morphloop:
+   sfx(SFX_ENEMYCAST)
+   ldude(11,CH_ALUTHA,   $0b,$09,DOWN,STAND)
+   frame(11,CEL_DOWN1)
+   sleep(4)
+   ldude(11,NPC_UNNAMED, $0b,$09,DOWN,STAND)
+   frame(11,CEL_DOWN1)
+   sleep(4)
+   inc(A)
+   if(A,CL,8,grd_morphloop)
+   face(11,DOWN)
+
+   sleep(16)
+   say(S51_ETXT4)
+   sleep(16)
+   say(S51_ETXT5)
+   sleep(16)
+   say(S51_ETXT6)
+   sleep(16)
+   say(S51_ETXT7A)
+   sleep(16)
+   say(S51_ETXT7B)
+   face(11,LEFT)
+   sleep(4)
+   face(11,UP)
+   sleep(16)
+
+   pan($0c,$0a)
+   set(A,1)
+   set(B,0)
+grd_flylp:
+   add(B,A)
+   setz(11,B)
+   inc(A)
+   sleep(2)
+   if(A,CL,11,grd_flylp)
+   del(11)
+   sleep(32)
+
+   song_off
+
+   say(S51_ETXT8)
+   sleep(16)
+   pan($0c,$0c)
+   sleep(48)
+   
+   song(SNG_FOREST)
+
+   say(S51_ETXT9)
+   sleep(16)
+   say(S51_ETXT10)
+   walk(1,UP,1)
+   sync
+   sleep(16)
+   say(S51_ETXT11)
+   sleep(16)
+   say(S51_ETXT12)
+   face(10,RIGHT)
+   sleep(4)
+   face(10,DOWN)
+   sleep(16)
+   say(S51_ETXT13)
+   sleep(16)
+   say(S51_ETXT14)
+   sleep(16)
+   say(S51_ETXT15)
+   sleep(16)
+   say(S51_ETXT16)
+   face(10,RIGHT)
+   sleep(16)
+   say(S51_ETXT17)
+   sleep(16)
+   say(S51_ETXT18)
+   face(10,UP)
+   sleep(16)
+   say(S51_ETXT19)
+   ldude(10,NPC_KRAIT2, $0b,$0a,DOWN,STAND)
+   frame(10,2)
+
+   sleep(16)
+   pan($0b,$09)
+   sleep(16)
+
+   // generate portal
+   sfx(SFX_PORTALOPEN)
+   ldude(6,NPC_PORTALA, $0b,$07, DOWN,STAND)
+   ldude(7,NPC_PORTALB, $0b,$08, DOWN,STAND)
+   anim(6)
+   anim(7)
+
+   sleep(32)
+   ldude(10,NPC_KRAIT, $0b,$0a,UP,STAND)
+
+   walk(0,UP,1)
+   walk(2,UP,4)
+   walk(3,RIGHT,1)
+   sleep(9)
+   walk(3,UP,4)
+   sync
+   face(2,RIGHT)
+   walk(3,LEFT,2)
+   sync
+
+   sleep(32)
+   face(10,DOWN)
+   sleep(16)
+   say(S51_ETXT20)
+   pan($0b,$0b)
+   sleep(32)
+   sleep(16)
+   say(S51_ETXT21)
+   face(3,DOWN)
+   sleep(16)
+   say(S51_ETXT22)
+   sleep(16)
+   say(S51_ETXT23)
+   sleep(16)
+   say(S51_ETXT24)
+   sleep(16)
+   say(S51_ETXT25)
+   sleep(16)
+   say(S51_ETXT26)
+   face(0,LEFT)
+   sleep(16)
+   say(S51_ETXT27)
+   face(1,RIGHT)
+   sleep(16)
+   say(S51_ETXT28)
+   sleep(16)
+   say(S51_ETXT29)
+   pan($0b,$09)
+   sleep(32)
+   face(2,DOWN)
+   sleep(16)
+   say(S51_ETXT30)
+   walk(1,LEFT,1)
+   sync
+   walk(1,UP,2)
+   sync
+   sleep(16)
+   say(S51_ETXT31)
+   face(10,UP)
+   sleep(16)
+   say(S51_ETXT32)
+   walk(1,RIGHT,1)
+   sleep(4)
+   face(2,RIGHT)
+   sync
+   face(1,UP)
+   sleep(16)
+   say(S51_ETXT33)
+   walk(0,LEFT,2)
+   sync
+   walk(0,UP,2)
+   sync
+   face(0,RIGHT)
+   face(3,LEFT)
+   sleep(16)
+   say(S51_ETXT34)
+   sleep(16)
+   say(S51_ETXT35)
+   sleep(16)
+   face(1,LEFT)
+   sleep(16)
+   face(1,RIGHT)
+   sleep(16)
+   face(1,UP)
+   sleep(32)
+   walk(1,UP,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(1)
+   sleep(16)
+   walk(3,LEFT,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(3)
+   sleep(16)
+   walk(0,RIGHT,1)
+   sync
+   face(0,UP)
+   sleep(48)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,DOWN)
+   sleep(16)
+   frame(0,CEL_LOOK1)
+   sleep(32)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,UP)
+   sleep(32)
+   walk(0,UP,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(0)
+   sleep(32)
+   fadeout(X_FADESLOW)
+   sleep(64)
+   panspeed(2)
+   lockon(0)
+   goto(fin_scene52)
+
+grd_loadgeist:
+   ldudehi(12,NPC_GEIST, $0b,$04,0)
+   ldudehi(13,NPC_GEIST, $0c,$04,1)
+   ldudehi(14,NPC_GEIST, $0d,$04,2)
+   ldudehi(15,NPC_GEIST, $0b,$05,3)
+   ldudehi(16,NPC_GEIST, $0c,$05,4)
+   ldudehi(17,NPC_GEIST, $0d,$05,5)
+   end
+
+grd_effect1:
+   del(9)
+   set(A,0)
+   set(C,0)
+   set(D,8)
+grd_effect1lp:
+
+   if(A,CL,64,grd_effect1_a)
+   if(A,CGE,96,grd_effect1_a)
+   inc(C)
+   call(grd_c4incd)
+grd_effect1_a:
+
+   setz(11,D)
+   cif(A,CL,4,grd_ldba)
+   cif(A,CGE,4,grd_bflop)
+   call(grd_wake)
+   sleep(3)
+   inc(A)
+   if(A,CL,112,grd_effect1lp)
+   del(6)
+   del(7)
+   del(8)
+   del(9)
+   sleep(32)
+   end
+
+grd_c4incd:
+   if(C,CNE,4,RET)
+   inc(D)
+   set(C,0)
+   end
+
+grd_ldba:
+   set(B,A)
+   end
+grd_bflop:
+   if(B,CE,4,grd_bflop1)
+   set(B,4)
+   end
+grd_bflop1:
+   set(B,5)
+   end
+
+grd_wake:
+   if(B,CE,0,grd_wake1)
+   if(B,CE,1,grd_wake2)
+   if(B,CE,2,grd_wake3)
+   if(B,CE,3,grd_wake4)
+   if(B,CE,4,grd_wake5)
+   if(B,CE,5,grd_wake6)
+   end
+grd_wake1:
+   ldude(8,NPC_WAKE2A,$00,$00,DOWN,STAND)
+   warp2(8,$17,$14,DOWN)
+   setz(8,4)
+   frame(8,0)
+   ldude(9,NPC_WAKE2A,$00,$00,DOWN,STAND)
+   warp2(9,$19,$14,DOWN)
+   setz(9,4)
+   frame(9,1)
+   end
+grd_wake2:
+   ldude(8,NPC_WAKE2A,$00,$00,DOWN,STAND)
+   warp2(8,$17,$14,DOWN)
+   setz(8,4)
+   frame(8,2)
+   ldude(9,NPC_WAKE2A,$00,$00,DOWN,STAND)
+   warp2(9,$19,$14,DOWN)
+   setz(9,4)
+   frame(9,3)
+   end
+grd_wake3:
+   ldude(8,NPC_WAKE2A,$00,$00,DOWN,STAND)
+   warp2(8,$17,$14,DOWN)
+   setz(8,4)
+   frame(8,4)
+   ldude(9,NPC_WAKE2A,$00,$00,DOWN,STAND)
+   warp2(9,$19,$14,DOWN)
+   setz(9,4)
+   frame(9,5)
+   end
+grd_wake4:
+   ldude(8,NPC_WAKE2A,$00,$00,DOWN,STAND)
+   warp2(8,$17,$14,DOWN)
+   setz(8,4)
+   frame(8,6)
+   ldude(9,NPC_WAKE2A,$00,$00,DOWN,STAND)
+   warp2(9,$19,$14,DOWN)
+   setz(9,4)
+   frame(9,7)
+   end
+grd_wake5:
+   ldude(6,NPC_WAKE2B,$00,$00,DOWN,STAND)
+   warp2(6,$17,$13,DOWN)
+   setz(6,4)
+   frame(6,0)
+   ldude(7,NPC_WAKE2B,$00,$00,DOWN,STAND)
+   warp2(7,$19,$13,DOWN)
+   setz(7,4)
+   frame(7,1)
+   ldude(8,NPC_WAKE2B,$00,$00,DOWN,STAND)
+   warp2(8,$17,$14,DOWN)
+   setz(8,4)
+   frame(8,2)
+   ldude(9,NPC_WAKE2B,$00,$00,DOWN,STAND)
+   warp2(9,$19,$14,DOWN)
+   setz(9,4)
+   frame(9,3)
+   end
+grd_wake6:
+   ldude(6,NPC_WAKE2B,$00,$00,DOWN,STAND)
+   warp2(6,$17,$13,DOWN)
+   setz(6,4)
+   frame(6,4)
+   ldude(7,NPC_WAKE2B,$00,$00,DOWN,STAND)
+   warp2(7,$19,$13,DOWN)
+   setz(7,4)
+   frame(7,5)
+   ldude(8,NPC_WAKE2B,$00,$00,DOWN,STAND)
+   warp2(8,$17,$14,DOWN)
+   setz(8,4)
+   frame(8,6)
+   ldude(9,NPC_WAKE2B,$00,$00,DOWN,STAND)
+   warp2(9,$19,$14,DOWN)
+   setz(9,4)
+   frame(9,7)
+   end

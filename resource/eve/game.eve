@@ -1,0 +1,3483 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+#include"easm.h"
+#include"edefs.h"
+#include"etxt.h"
+#include"itemdefs.h"
+
+; Game begins here
+
+   goto(INIT)                    ; $0000 Initialization
+   goto(OVERWORLD)               ; $0003 Warp
+
+   goto(BOAT_UP)                 ; $0006 Step on the Boat going up
+   goto(BOAT_DOWN)               ; $0009 Step on the Boat going down
+   goto(BOAT_LEFT)               ; $000C Step on the Boat going left
+   goto(BOAT_RIGHT)              ; $000F Step on the Boat going right
+
+   goto(BOAT_UP)                 ; $0012
+   goto(BOAT_DOWN)               ; $0015
+   goto(BOAT2_LEFT)              ; $0018
+   goto(BOAT2_RIGHT)             ; $001b
+
+   goto(OVERSAVE)                ; $001e
+   goto(ICE_SLIDE)               ; $0021
+   goto(WORLD_EDGE)              ; $0024
+   goto(end_press)               ; $0027
+   goto(rescue)                  ; $002a
+
+TOGGLE_BOAT:
+   get(A,VAR_BOATMODE)
+   if(A,CE,0,BOAT_SONG)
+   put(0,VAR_BOATMODE)
+   song(SNG_OVERWORLD)
+   end
+BOAT_SONG:
+   put(1,VAR_BOATMODE)
+   song(SNG_SAILING)
+   end
+
+BOAT_UP:
+   walk2(0,UP,1)
+   sync
+   group
+   sync
+   boat_on
+   walk2(0,UP,1)
+   sync
+   group
+   sync
+   call(TOGGLE_BOAT)
+   end
+
+BOAT_DOWN:
+   walk2(0,DOWN,1)
+   sync
+   group
+   sync
+   boat_on
+   walk2(0,DOWN,1)
+   sync
+   group
+   sync
+   call(TOGGLE_BOAT)
+   end
+
+BOAT_LEFT:
+   walk(0,LEFT,1)
+   sync
+   group
+   sync
+
+   ; if at the magi visit, then do rest scene.
+   get(A,VAR_MAGVISIT)
+   if(A,CE,1,mag_scene33_rest)
+
+   boat_on
+   walk2(0,LEFT,1)
+   sync
+   group
+   sync
+   call(TOGGLE_BOAT)
+   end
+
+BOAT_RIGHT:
+   walk(0,RIGHT,1)
+   sync
+   group
+   sync
+   boat_on
+   walk2(0,RIGHT,1)
+   sync
+   group
+   sync
+   call(TOGGLE_BOAT)
+   end
+
+BOAT2_LEFT:
+   walk2(0,LEFT,1)
+   sync
+   group
+   sync
+   boat_on
+   walk(0,LEFT,1)
+   sync
+   group
+   sync
+   call(TOGGLE_BOAT)
+   end
+
+BOAT2_RIGHT:
+   walk2(0,RIGHT,1)
+   sync
+   group
+   sync
+   boat_on
+   walk(0,RIGHT,1)
+   sync
+   group
+   sync
+   call(TOGGLE_BOAT)
+   end
+
+ICE_SLIDE:
+   frame(0,C)
+   frame(1,C)
+   frame(2,C)
+   frame(3,C)
+   walk2(0,A,B)
+   sync
+   group
+   sync
+   face(0,A)
+   face(1,A)
+   face(2,A)
+   face(3,A)
+   end
+
+WORLD_EDGE:
+   getxy(B,C)
+   fadeout(X_FADE)
+
+   lmap(MAP_SHIP, 5,6)
+   lockoff
+   partyarr
+   warp2(0, 15,8, RIGHT)
+   warp(1, 5,9, DOWN)
+   warp(2, 2,5, DOWN)
+   warp2(3, 14,17, DOWN)
+   frame(2,CEL_ASLEEP)
+   setz(3,4)
+   ldude(4,CH_RYAN, 11,6, DOWN,STAND)
+   fadein(X_FADE)
+   sleep(32)
+   walk(4,LEFT,3)
+   sync
+   face(0,DOWN)
+   face(1,UP)
+   face(3,UP)
+   sleep(16)
+   say(MSG_EDGE)
+   sleep(16)
+   fadeout(X_FADE)
+   partynor
+
+   lockon(0)
+
+   set(D,0)
+   set(E,0)
+   cif(C,CL,43,WORLD_EDGE_YP)
+   cif(C,CG,86,WORLD_EDGE_YN)
+   cif(B,CL,43,WORLD_EDGE_XP)
+   cif(B,CG,86,WORLD_EDGE_XN)
+   add(B,D)
+   add(C,E)
+
+   goto(OVER_WARP_NFACE)
+WORLD_EDGE_XP:
+   add(D,4)
+   face(0,RIGHT)
+   end
+WORLD_EDGE_XN:
+   sub(D,4)
+   face(0,LEFT)
+   end
+WORLD_EDGE_YP:
+   add(E,4)
+   face(0,DOWN)
+   end
+WORLD_EDGE_YN:
+   sub(E,4)
+   face(0,UP)
+   end
+world_edge_ryan:
+
+
+OVERSAVE:
+   call(MAPPOS_SAVE)
+   fadeout(X_FADE)
+   set(A,SVL_OVER)
+   savemenu
+   fadein(X_FADE)
+   end
+
+over_innload:
+   get(B,VAR_WORLDX)
+   get(C,VAR_WORLDY)
+   goto(OVER_WARP_NF2)
+   end
+
+
+end_press:
+   get(A,VAR_A)
+   if(A,CE,0,end_press2)
+   endnext
+   end
+end_press2:
+   put(1,VAR_A)
+   endinit
+   end
+
+kassim_warp:
+   partyset(0,0)
+   partyset(1,0)
+   partyset(2,0)
+   partyset(3,0)
+
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   //partyset(3,PARTY_RYAN)
+
+   setwolf(0)
+   goto(mag_scene37)
+
+
+demo_warp:
+   sayauto(1)
+   get(A,VAR_ATDEMO)
+   if(A,CE,18,demo_reset)
+   palset(1)
+   call(demo_init)
+   palnorm
+   get(A,VAR_ATDEMO)
+   inc(A)
+   put(A,VAR_ATDEMO)
+   call(demo_init2)
+   end
+
+demo_reset:
+   reset
+   end
+
+demo_next:
+   panspeed(2)
+   lockon(0)
+   goto(demo_warp)
+
+
+demo_init:
+   partyset(0,0)
+   partyset(1,0)
+   partyset(2,0)
+   partyset(3,0)
+
+   get(A,VAR_ATDEMO)
+   if(A,CE,0,demo_part1)
+   if(A,CE,1,demo_part2)
+   if(A,CE,2,demo_part3)
+   if(A,CE,3,demo_part4)
+   if(A,CE,4,demo_part5)
+   if(A,CE,5,demo_part6)
+   if(A,CE,6,demo_part7a)
+   if(A,CE,7,demo_part8)
+   if(A,CE,8,demo_part9)
+   if(A,CE,9,demo_part10)
+   if(A,CE,10,demo_part11)
+   if(A,CE,11,demo_part12a)
+   if(A,CE,12,demo_part13a)
+   if(A,CE,13,demo_part14)
+   if(A,CE,14,demo_part15a)
+   if(A,CE,15,demo_part16)
+   if(A,CE,16,demo_part17)
+   if(A,CE,17,demo_part18)
+   end
+
+demo_init2:
+   get(A,VAR_ATDEMO)
+   if(A,CE,7,demo_part7b)
+   if(A,CE,12,demo_part12b)
+   if(A,CE,13,demo_part13b)
+   if(A,CE,15,demo_part15b)
+   end
+
+demo_part1:
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   setwolf(1)
+   set(B,112)
+   set(C,100)
+   face(0,DOWN)
+   lmap(MAP_OVERWORLD,     B,C)
+   call(OVER_LOAD)
+   warp(1,112,99,DOWN)
+   warp(2,112,98,DOWN)
+   lastmoves(DOWN,DOWN,DOWN)
+   end
+demo_part2:
+   put(0,VAR_NONLINEAR)
+   partyset(0,PARTY_CONNOR)
+   set(B,$12)
+   set(C,$0f)
+   face(0,LEFT)
+   call(L_SELERA)
+   end
+demo_part3:
+   partyset(0,PARTY_ELYA)
+   set(D,$05)
+   set(E,$14)
+   face(0,UP)
+   lmap(MAP_TRIAL1, D,E)
+   cstep(mag_trial1a, $05,$03)
+   ctres($00,IT_PMaster,$08,$22, $31,SFX_CHEST)
+   ctres($01,IT_EMaster,$04,$0a, $31,SFX_CHEST)
+   end
+demo_part4:
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_RYAN)
+   set(D,$0b)
+   set(E,$16)
+   face(0,UP)
+   lmap(MAP_NPS_P3,     D,E)
+   zone(ZONE_NPS)
+   call(nps_bridge2)
+   //cif(D,CE,0,nps_bridge1)
+   //cif(D,CE,11,nps_bridge1)
+   chstep(nps_part3a,   $06,$22,1)
+   cstep(nps_part3b,    $7F,$0C)
+   cvstep(nps_part3c,   $0E,$0B,2)
+   cstep(nps_bridge1,   $1E,$17)
+   cstep(nps_bridge2,   $1E,$13)
+   csearch(nps_part3d,  $1B,$0B,S_ALL)
+   cstep(nps_part3e,    11,8);
+   warp(1,$0b,$17,UP)
+   lastmoves(UP,DOWN,DOWN)
+   end
+demo_part5:
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ROLAND)
+   partyset(2,PARTY_ELYA)
+   put(0,VAR_FIN1)
+   set(D,$09)
+   set(E,$07)
+   face(0,RIGHT)
+   lmap(MAP_FIN_P1, D,E)
+   cstep(fin_part1a, $06,$07)
+   cstep(fin_part1b, $1a,$07)
+   csearch(fin_door1,$0f,$11,S_D)
+   csearch(fin_door1,$10,$11,S_D)
+   csearch(fin_door1,$11,$11,S_D)
+   cvstep(fin_scene53,$0a,$06,4)
+   warp(1,$08,$07,RIGHT)
+   warp(2,$07,$07,RIGHT)
+   lastmoves(RIGHT,RIGHT,DOWN)
+   end
+demo_part6:
+   lockon(0)
+   panspeed(2)
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   set(D,$0d)
+   set(E,$06)
+   face(0,LEFT)
+   lmap(MAP_FRC_P6, D,E)
+   cstep(frc_part6a, $07,$06)
+   cstep(frc_part6b, $0f,$06)
+   warp(1,$0e,$06,LEFT)
+   lastmoves(LEFT,DOWN,DOWN)
+   end
+demo_part7a:
+   partyset(0,PARTY_CONNOR)
+   lmap(MAP_TGL_TOW3,      $06,$07)
+   face(0,UP)
+   ldude(4,NPC_KING,       $03,$07,UP,STAND)
+   camera($05,$07)
+   end
+demo_part7b:
+   sleep(30)
+   walk(4,DOWN,2)
+   sync
+   walk(4,RIGHT,2)
+   sleep(8)
+   face(0,DOWN)
+   sync
+   face(4,UP)
+   sleep(16)
+   say(S10_ETXT32)
+   sleep(30)
+   del(4)
+   sleep(30)
+   face(0,UP)
+   sleep(60)
+   say(S10_ETXT33)
+   walk(0,DOWN,2)
+   sync
+   walk(0,LEFT,1)
+   sync
+   del(0)
+   sleep(30)
+   panspeed(0)
+   pan($05,$04)
+   sleep(180)
+   panspeed(2)
+   prophecy
+   goto(demo_next)
+demo_part8:
+   lockon(0)
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   setwolf(1)
+   set(D,$02)
+   set(E,$05)
+   face(0,UP)
+   lmap(MAP_SEW_P2, D,E)
+   zone(ZONE_SEW)
+   call(sew_fix)
+   cstep(sew_part2a,   2,  6)
+   cstep(sew_part2b,  19,  2)
+   cstep(sew_hithi,    8,  4)
+   cstep(sew_hitlo,    8,  6)
+   cstep(sew_hithi,   17,  4)
+   cstep(sew_hitlo,   17,  6)
+   csearch(sew_garg,  13,  6, S_ALL)
+   ctres($02,IT_HALo,119,  5,$3b,SFX_CHEST)
+   end
+demo_part9:
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   setwolf(1)
+   set(D,$14)
+   set(E,$0f)
+   face(0,UP)
+   lmap(MAP_GRW,        D,E)
+   ctres($03,IT_PHunter,$04,$04,$49,SFX_CHEST)
+   ctres($04,IT_EThorn, $0b,$1d,$49,SFX_CHEST)
+   ctres($05,IT_LGolden,$1c,$2b,$49,SFX_CHEST)
+   warp(1,$15,$0f,UP)
+   warp(2,$15,$10,UP)
+   lastmoves(LEFT,UP,DOWN)
+   end
+demo_part10:
+   put(1,VAR_NONLINEAR)
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ROLAND)
+   partyset(2,PARTY_VICTOR)
+   partyset(3,PARTY_ELYA)
+   setwolf(0)
+   set(B,55)
+   set(C,29)
+   face(0,LEFT)
+   boat_on
+   lmap(MAP_OVERWORLD,     B,C)
+   call(OVER_LOAD)
+   end
+demo_part11:
+   partyset(0,PARTY_CONNOR)
+   put(67,VAR_WORLDX)
+   put(79,VAR_WORLDY)
+   set(B,$11)
+   set(C,$16)
+   face(0,RIGHT)
+   put(0,VAR_NONLINEAR)
+   put(4,VAR_EVEPROG)
+   call(L_TAGEL)
+   end
+demo_part12a:
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_RYAN)
+   put(0,VAR_EVEPROG)
+   set(D,$09)
+   set(E,$08)
+   face(0,UP)
+   lmap(MAP_NPS_P4,     D,E)
+   end
+demo_part12b:
+   goto(nps_boss)
+demo_part13a:
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   partyset(3,PARTY_RYAN)
+   set(D,$05)
+   set(E,$09)
+   lmap(MAP_MAG_ARCH, D,E)
+   ldude(4,NPC_ARCHMAGI,$05,$04,DOWN,STAND)
+   ctalk(mag_arch1b, 4)
+   end
+demo_part13b:
+   goto(mag_scene34)
+demo_part14:
+   lockon(0)
+   put(0,VAR_NONLINEAR)
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   set(B,$16)
+   set(C,$16)
+   face(0,LEFT)
+   call(L_KASSIM)
+   warp(1,$17,$16,LEFT)
+   lastmoves(LEFT,DOWN,DOWN)
+   end
+demo_part15a:
+   partyset(0,PARTY_CONNOR)
+   face(0,UP)
+   lmap(MAP_DUR_P4, 6,9)
+   panspeed(0)
+   lockoff
+   warp(0,4,9,UP)
+   ldude( 4,CH_ROLAND,     5, 7,DOWN,STAND)
+   ldude( 5,NPC_SOLDIER,   6, 7,DOWN,STAND)
+   ldude( 9,NPC_MAN2,      6, 6,DOWN,STAND)
+   end
+demo_part15b:
+   goto(demo_cannon)
+demo_part16:
+   lockon(0)
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ROLAND)
+   partyset(2,PARTY_VICTOR)
+   partyset(3,PARTY_ELYA)
+   face(0,RIGHT)
+   set(D,$12)
+   set(E,$0e)
+   lmap(MAP_ICE_P2, D,E)
+   chstep(ice_part2a,$0f,$1f,$02)
+   cstep(ice_part2b, $07,$0c)
+   warp(1,$11,$0e,RIGHT)
+   warp(2,$10,$0e,RIGHT)
+   warp(3,$0f,$0e,RIGHT)
+   lastmoves(RIGHT,RIGHT,RIGHT)
+   end
+demo_part17:
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   set(D,$19)
+   set(E,$15)
+   face(0,DOWN)
+
+   lmap(MAP_PIR_P1, D,E)
+   call(pir_clear)
+   cstep(pir_part1a, $11,$2d)
+   cstep(pir_part1b, $1a,$03)
+   cstep(pir_part1c, $19,$15)
+   cstep(pir_part1d, $23,$03)
+   ctres($06,IT_PFancy, $14,$0a,$3B,SFX_CHEST)
+   ctres($07,IT_SPLo,   $1d,$0b,$3B,SFX_CHEST)
+   ctres($08,IT_AU_500, $17,$10,$3B,SFX_CHEST)
+   ctres($09,IT_KPirate,$03,$11,$3B,SFX_CHEST)
+   call(pir_tasm_init)
+
+   csearch(pir_switch1, $27,$13, S_U)
+   csearch(pir_switch2, $28,$13, S_U)
+   csearch(pir_switch3, $29,$13, S_U)
+   csearch(pir_switch4, $2a,$13, S_U)
+   csearch(pir_switch5, $2b,$13, S_U)
+   csearch(pir_switch6, $2c,$13, S_U)
+   end
+demo_part18:
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   partyset(3,PARTY_RYAN)
+   set(D,$03)
+   set(E,$07)
+   face(0,UP)
+   lmap(MAP_MAG_INN, D,E)
+   ldude(4,NPC_WOOMAGI, $03,$04,DOWN,STAND)
+   csearch(mag_innroom, $03,$05,S_U)
+   end
+
+
+/*demo scenes:
+    fairport island:
+      - walk around the island
+      - go into fairport
+        - go to the mansion and talk to the guy
+    selera:
+      - talk to people
+    trials:
+      - elya walking around in the trials
+      - get a treasure chest
+      - go to menu and equip it
+    north pass:
+      - walk around, fight a battle
+    great dark:
+      - show the scene by the entrance
+    fire caves:
+      - show them walking around
+    prophecy:
+      - show a few lines of dialogue with the king
+      - show prophecy (some? all?)
+    sewers:
+      - show lowering of the sewers
+      - show a battle
+    forest:
+      - walk around
+    nonlinear:
+      - fight in the desert
+      - briefly talk to hassan
+    night:
+      - walk around with connor at night.  no battle
+    north pass:
+      - wolf boss drops, boss fight begins
+    magi tower:
+      - show the first scene with the archmage
+    kassim:
+      - walk around
+      - change color of menu
+    geist cannon:
+      - shot fires, and blows up the forest
+    ice temple:
+      - walk around
+    pirate's lair:
+      - walk around
+      - show the puzzle
+    magi tower inn:
+      - show the party go to bed
+
+    - end demo -
+*/
+
+INIT:
+   ;goto(alu_scene43a)
+   ;set(B,1)
+   ;put(B,VAR_GRDREADY)
+   ;set(A,SVL_SEW)
+
+   if(A,CE,SVL_SELERA,SLR_INNLOAD)
+   if(A,CE,SVL_KASSIM,ksm_innload)
+   if(A,CE,SVL_COTTAGE,cot_innload)
+   if(A,CE,SVL_TURREN,tur_innload)
+   if(A,CE,SVL_HOL,hol_innload)
+   if(A,CE,SVL_SEW,sew_innload)
+   if(A,CE,SVL_FAR,far_innload)
+   if(A,CE,SVL_SHIP,mag_scene33_innload)
+   if(A,CE,SVL_MAG,mag_innload)
+   if(A,CE,SVL_OVER,over_innload)
+   if(A,CE,SVL_CALUTHA,alu_innload)
+   if(A,CE,SVL_SNO,sno_innload)
+   if(A,CE,SVL_SND,snd_innload)
+   if(A,CE,SVL_FIN,fin_innload)
+
+   set(B,74)
+   set(C,83)
+   put(B,VAR_WORLDX)
+   put(C,VAR_WORLDY)
+
+NEW_GAME:
+   partyset(0,0)
+   partyset(1,0)
+   partyset(2,0)
+   partyset(3,0)
+   
+   //goto(end_scene72)
+   //goto(tgl_scene26) ;kings room before hitting the sewers
+   //goto(dur_scene25b) ;durgardt geist cannon scene
+   //goto(mag_scene47b) ; magi tower rise of the temples scene
+   //goto(fin_scene52)
+   //goto(grd_isle)
+   //goto(end_scene67)
+   //goto(end_scene72)
+   //goto(credits)
+   //goto(kassim_warp)
+   //put(0,VAR_A)
+   //put(0,VAR_GRDREADY)
+   //put(1,VAR_RET_GRW)
+   //call(joy_setup)
+   //goto(joy1_scene58)
+
+   call(intro_scene0A)
+   put(0,VAR_EVEPROG)
+   partyset(0,PARTY_CONNOR)
+   goto(EVT_START_S1)
+
+warpspot:
+   set(B,$00)
+   set(C,$0A)
+   call(L_SELERA)
+   fadein(X_FADE)
+   end
+
+rescue:
+   // take player to tagel castle
+   healall
+   set(B,67)
+   set(C,79)
+   put(B,VAR_WORLDX)
+   put(C,VAR_WORLDY)
+   face(0,UP)
+   get(F,VAR_EVEPROG)
+   if(F,CE,4,rescue_ep4)     ; EP4 = nighttime
+   song(SNG_CASTLE)
+   goto(rescue_loadmap)
+rescue_ep4:
+   song(SNG_NIGHTTIME)
+rescue_loadmap:
+   set(D,$07)
+   set(E,$04)
+   call(l_tgl_gate)
+   say(TGL_STXT4)
+   end
+
+EVT_START_SA:
+
+OVERWORLD:
+   get(B,VAR_WORLDX)
+   get(C,VAR_WORLDY)
+OVER_WARP:
+   fadeout(X_ROLL)
+OVER_WARP_NF2:
+   face(0,DOWN)
+OVER_WARP_NFACE:
+   lmap(MAP_OVERWORLD,     B,C)
+   
+   put(0,VAR_BOATMODE)
+
+   call(OVER_LOAD)
+
+   get(F,VAR_EVEPROG)
+   if(F,CE,4,OVER_EP4)     ; EP4 = nighttime
+   song(SNG_OVERWORLD)
+   fadein(X_ROLL)
+   end
+OVER_EP4:
+   song(SNG_NIGHTTIME)
+   colshift(C_DBLUE)
+   fadein(X_ROLL)
+   end
+
+OVER_WARP_NF:
+   fadeout(X_ROLL)
+   face(0,DOWN)
+   lmap(MAP_OVERWORLD,     B,C)
+   song(SNG_OVERWORLD)
+   call(OVER_LOAD)
+   end
+
+OVER_LOAD:
+   cstep( O_SELERA,        74, 83)
+   cstep( O_NPASS,         50, 73)
+   cstep( O_NPASS2,        41, 60)
+   cqstep(O_TAGEL,         67, 78)
+   cstep( O_KASSIM,        30, 48)
+   cstep( O_XCV,           22, 62)
+   cstep( O_FRC,           45, 54)
+   cstep( O_FRC2,          48, 65)
+   cstep( O_TUR,           70, 61)
+   cstep( O_COT,           54, 60)
+   cstep( O_GRW,           73, 61)
+   cstep( O_GRW2,          78, 57)
+   cstep( O_HOL,           86, 47)
+   cstep( O_DUR,           95, 26)
+   cstep( O_FAR,          108, 95)
+   cstep( O_PIR,           87,107)
+   cstep( O_COS,           32, 17)
+   cstep( O_COS2,          31, 14)
+   cstep( O_MAG,           34, 14)
+   chstep(O_MAG,           34, 13,1)
+   cstep( O_SNO,          100, 22)
+   cstep( O_SNO2,         101, 25)
+   cstep( O_ALT,           93, 10)
+   cqstep(O_ALU,           90, 10)
+
+   cstep(sew_enter2,       78, 76)
+
+   cvstep(over_turwood_off, 69, 60, 3)
+   cvstep(over_turwood_on,  71, 61, 1)
+
+   cstep(over_durtop_off,   94, 27)
+   cstep(over_durtop_on,    96, 25)
+
+   get(A,VAR_BURNED)
+   cif(A,CE,1,burn_forest)
+
+   get(A,VAR_NONLINEAR)
+   cif(A,CE,1,over_loadnonlinear)
+   get(A,VAR_NONLINEAR)
+   cif(A,CE,1,drink_oasis)
+
+   end
+
+over_loadnonlinear:
+   call(mag_sandtemple)
+   call(mag_icetemple)
+   call(mag_wavetemple)
+   cstep( O_SND,          23,43)
+   cstep( O_ICE,          83,15)
+   cstep( O_WAV,          88,99)
+
+   cvstep(O_GRD,          19,116,3)
+   cvstep(O_GRD,          25,116,3)
+   chstep(O_GRD,          19,118,7)
+   end
+
+drink_oasis:
+   tile($1e,$2d,$b3)
+   tile($1f,$2d,$b3)
+   tile($20,$2d,$b3)
+
+   tile($1d,$2e,$bd)
+   tile($1e,$2e,$b0)
+   tile($1f,$2e,$b1)
+   tile($20,$2e,$b2)
+   tile($21,$2e,$bc)
+
+   tile($1e,$2f,$b5)
+   tile($1f,$2f,$b8)
+   tile($20,$2f,$b9)
+   tile($21,$2f,$b2)
+   tile($22,$2f,$b4)
+
+   tile($1f,$30,$b5)
+   tile($20,$30,$b8)
+   tile($21,$30,$ba)
+   tile($22,$30,$b4)
+
+   tile($20,$31,$bb)
+   tile($21,$31,$bb)
+   end
+
+over_turwood_on:
+   put(1, VAR_TURWOODS)
+   end
+over_turwood_off:
+   put(0, VAR_TURWOODS)
+   end
+over_durtop_on:
+   put(1, VAR_DURTOP)
+   end
+over_durtop_off:
+   put(0, VAR_DURTOP)
+   end
+
+EVT_START_S2:
+   set(B,$17)
+   set(C,$07)
+   set(A,1)
+   put(A,VAR_EVEPROG)
+   goto(I_SELERA)
+EVT_START_S4:
+   set(A,1)
+   put(A,VAR_EVEPROG)
+   goto(EVT_SCENE4)
+
+
+EVT_START_S1:
+   set(B,$17)
+   set(C,$07)
+;   fadeout(X_FADE)
+   call(SLR_CONNRE0)
+
+   ;fadein(X_FADE)
+   ;end
+
+EVT_SCENE1:
+   ldude(4,NPC_SOLDIER,    $04,$08,  UP,  STAND)      ; guard1
+   warp(0,$01,$02,DOWN)
+   frame(0,CEL_TIRED)
+   panspeed(0)
+   camera($04,$07)
+   fadein(X_FADE)
+
+   sleep(32)
+   lockon(0)
+   sleep(32)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   sfx(SFX_KNOCK)
+   sleep(80)
+   say(S1_ETXT1)
+   sleep(8)
+   sfx(SFX_KNOCK)
+   sleep(8)
+   sfx(SFX_KNOCK)
+   sleep(8)
+   sfx(SFX_KNOCK)
+   frame(0,CEL_DOWN1)
+   sleep(8)
+   say(S1_ETXT2)
+   sleep(10)
+   face(0,  DOWN)
+   sleep(10)
+   walk(0,  RIGHT,1)
+   sync
+   walk(0,  DOWN, 2)
+   sync
+   walk(0,  RIGHT,2)
+   sync
+   walk(0,  DOWN, 2)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   say(S1_ETXT3)
+   sleep(16)
+   say(S1_ETXT4)
+   sleep(16)
+   say(S1_ETXT5)
+   sleep(32)
+   sfx(SFX_DOOROPEN)
+   lockon(4)
+   walk(4,  UP,   1)
+   sync
+   sleep(16)
+   say(S1_ETXT6)
+   sleep(16)
+   say(S1_ETXT7)
+   sleep(16)
+   say(S1_ETXT8)
+   sleep(8)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,UP)
+   sleep(4)
+   walk(0,  UP,   1)
+   sync
+   sleep(16)
+   say(S1_ETXT9)
+   sleep(16)
+   say(S1_ETXT10)
+   sleep(16)
+   face(0,LEFT)
+   sleep(4)
+   face(0,  DOWN)
+   sleep(16)
+   say(S1_ETXT11)
+   walk(4,UP,1)
+   sync
+   sleep(16)
+   say(S1_ETXT12)
+   sleep(4)
+   sfx(SFX_SEARCH)
+   give(IT_CConscript)
+   equip(0,IT_CConscript)
+   sleep(20)
+   face(4,  RIGHT)
+   sleep(4)
+   face(4,  DOWN)
+   sleep(16)
+   walk(4,  DOWN, 2)
+   lockon(0)
+   sync
+   sleep(32)
+   del(4)
+   panspeed(2)
+   sleep(16)
+   say(S1_ETXT13)
+INC_EVT:
+   get(A,VAR_EVEPROG)
+   inc(A)
+   put(A,VAR_EVEPROG)
+   end
+
+
+EVT_SCENE4:
+   walk(0,  UP,2)
+   sync
+   sleep(32)
+   face(5,  DOWN)
+   sleep(24)
+   face(4,  DOWN)
+   sleep(16)
+   say(S4_ETXT1)
+   sleep(16)
+   say(S4_ETXT2)
+   sleep(16)
+   walk(4,  DOWN, 1)
+   sleep(16)
+   say(S4_ETXT3)
+   sleep(16)
+   say(S4_ETXT4)
+   sleep(16)
+   face(0, LEFT)
+   sleep(4)
+   face(0, DOWN)
+   sleep(16)
+   say(S4_ETXT5)
+   sleep(16)
+   say(S4_ETXT6)
+   sleep(16)
+   face(0, RIGHT)
+   sleep(4)
+   face(0, UP)
+   sleep(16)
+   say(S4_ETXT7)
+   sleep(16)
+   face(4, RIGHT)
+   sleep(4)
+   face(4, UP)
+   sleep(16)
+   say(S4_ETXT8)
+   sleep(16)
+   say(S4_ETXT9)
+   sleep(16)
+   face(4, LEFT)
+   sleep(2)
+   face(4, DOWN)
+   sleep(16)
+   say(S4_ETXT10)
+   sleep(16)
+   walk(4, LEFT, 1)
+   sync
+   face(4, DOWN)
+   sleep(16)
+   say(S4_ETXT11)
+   sleep(16)
+   face(4, LEFT)
+   sleep(4)
+   face(4, UP)
+   sleep(32)
+   say(S4_ETXT12)
+   sleep(16)
+   walk(0, UP, 1)
+   sync
+   sleep(16)
+   say(S4_ETXT13)
+   sleep(16)
+   face(4, RIGHT)
+   sleep(2)
+   face(4, DOWN)
+   sleep(16)
+   say(S4_ETXT14)
+   sleep(16)
+   walk(4, RIGHT, 1)
+   sync
+   face(4, DOWN)
+   sleep(16)
+   say(S4_ETXT15)
+   sleep(16)
+   face(0, RIGHT)
+   sleep(4)
+   face(0, DOWN)
+   sleep(16)
+   say(S4_ETXT16)
+   sleep(16)
+   walk(0, DOWN, 2)
+   sync
+   sleep(8)
+   say(S4_ETXT17)
+   sleep(16)
+   sfx(SFX_GOLEM)
+   sleep(32)
+   face(6,  RIGHT)
+   walk(6,  RIGHT,1)
+   face(7,  LEFT)
+   walk(7,  LEFT,1)
+   sleep(16)
+   face(0,  LEFT)
+   sleep(16)
+   face(0,  DOWN)
+   sleep(4)
+   face(0,  RIGHT)
+   sleep(16)
+   face(0,  DOWN)
+   sleep(4)
+   face(0,  LEFT)
+   sleep(32)
+   face(0,  UP)
+   sleep(32)
+   say(S4_ETXT18)
+   sleep(16)
+   walk(4, DOWN, 1)
+   sync
+   sleep(16)
+   say(S4_ETXT19)
+   sleep(16)
+   face(4, RIGHT)
+   sleep(4)
+   face(4, UP)
+   sleep(32)
+   say(S4_ETXT20)
+   sleep(16)
+   face(4, LEFT)
+   sleep(4)
+   walk(4, DOWN, 1)
+   sync
+   sleep(16)
+   say(S4_ETXT21)
+   sleep(16)
+   say(S4_ETXT22)
+   sleep(16)
+   walk(4, UP, 3)
+   sleep(8)
+   face(0, LEFT)
+   sleep(4)
+   face(0, DOWN)
+   sync
+   face(4, DOWN)
+   say(S4_ETXT23)
+   goto(INC_EVT)
+
+EVT_SCENE5:
+   panspeed(0)
+   song(SNG_CREATOR)
+   pan($15,$0A)
+   sleep(80)
+   face(4,LEFT)
+   say(S5_ETXT1)
+   walk(4,LEFT,2)
+   sync
+   sleep(4)
+   say(S5_ETXT2)
+   sleep(16)
+   say(S5_ETXT3)
+   face(4,DOWN)
+   sleep(16)
+   say(S5_ETXT4)
+   sleep(16)
+   say(S5_ETXT5)
+   face(4,RIGHT)
+   sleep(16)
+   say(S5_ETXT6)
+   walk(0,RIGHT,3)
+   sync
+   face(0,UP)
+   sleep(16)
+   say(S5_ETXT7)
+   face(4,DOWN)
+   sleep(16)
+   say(S5_ETXT8)
+   face(4,LEFT)
+   sleep(4)
+   face(4,UP)
+   sleep(16)
+   say(S5_ETXT9)
+   walk(4,LEFT,3)
+   sync
+   face(4,RIGHT)
+   say(S5_ETXT10)
+   face(0,LEFT)
+   sleep(16)
+   say(S5_ETXT11)
+   walk(4,DOWN,2)
+   sync
+   face(4,RIGHT)
+   sleep(16)
+   say(S5_ETXT12)
+   goto(INC_EVT)
+
+EVT_SCENE10:
+   sleep(15)
+   say(S10_ETXT1)
+   sleep(30)
+   say(S10_ETXT2)
+   walk(0,RIGHT,1)
+   sync
+   walk(0,UP,2)
+   sync
+   sleep(60)
+   say(S10_ETXT3)
+   sleep(16)
+   say(S10_ETXT4)
+   sleep(16)
+   say(S10_ETXT5)
+   face(0,LEFT)
+   sleep(16)
+   say(S10_ETXT6)
+   sleep(30)
+   say(S10_ETXT7)
+   sleep(16)
+   face(0,UP)
+   sleep(16)
+   say(S10_ETXT8)
+   sleep(16)
+   say(S10_ETXT9)
+   sleep(16)
+   say(S10_ETXT10)
+   sleep(16)
+   say(S10_ETXT11)
+   sleep(16)
+   say(S10_ETXT12)
+   walk(4,LEFT,1)
+   sync
+   say(S10_ETXT13)
+   sleep(8)
+   say(S10_ETXT14)
+   sleep(8)
+   say(S10_ETXT15)
+   sleep(8)
+   say(S10_ETXT16)
+   face(0,LEFT)
+   sleep(16)
+   say(S10_ETXT17)
+   sleep(16)
+   say(S10_ETXT18)
+   sleep(8)
+   say(S10_ETXT19)
+   sleep(16)
+   face(4,RIGHT)
+   sleep(8)
+   say(S10_ETXT20)
+   sleep(8)
+   say(S10_ETXT21)
+   sleep(8)
+   say(S10_ETXT22)
+   sleep(8)
+   say(S10_ETXT23)
+   sleep(8)
+   say(S10_ETXT24)
+   sleep(8)
+   face(0,UP)
+   sleep(16)
+   say(S10_ETXT25)
+   sleep(16)
+   say(S10_ETXT26)
+   sleep(8)
+   say(S10_ETXT27)
+   sleep(8)
+   say(S10_ETXT28)
+   sleep(8)
+   say(S10_ETXT29)
+   sleep(16)
+   face(0,LEFT)
+   sleep(8)
+   say(S10_ETXT30)
+   sleep(16)
+   say(S10_ETXT31)
+   sleep(30)
+   walk(4,DOWN,2)
+   sync
+   walk(4,RIGHT,2)
+   sleep(8)
+   face(0,DOWN)
+   sync
+   face(4,UP)
+   sleep(16)
+   say(S10_ETXT32)
+   sleep(30)
+   del(4)
+   sleep(30)
+   face(0,UP)
+   sleep(60)
+   say(S10_ETXT33)
+   walk(0,DOWN,2)
+   sync
+   walk(0,LEFT,1)
+   sync
+   del(0)
+   sleep(30)
+   panspeed(0)
+   pan($05,$04)
+   sleep(180)
+   panspeed(2)
+   prophecy
+
+   fadeout(X_FADE)
+   lockon(0)
+   sleep(30)
+   call(INC_EVT)
+
+   set(B,74)
+   set(C,83)
+   call(mappos_save_bc)
+   healall
+
+   set(B,$17)
+   set(C,$08)
+   call(L_SELERA)
+   face(0,UP)
+   fadein(X_FADE)
+   sleep(30)
+   say(S11_ETXT1)
+   face(0,DOWN)
+   end
+
+EVT_SCENE13:
+   align($03,$02)
+   sync
+   face(0,LEFT)
+   say(S13_ETXT1)
+   sleep(15)
+   say(S13_ETXT2)
+   sleep(30)
+   say(S13_ETXT3)
+   sleep(15)
+   say(S13_ETXT4)
+   sleep(15)
+   say(S13_ETXT5)
+   sleep(8)
+   say(S13_ETXT6)
+   walk(0,RIGHT,1)
+   sync
+   say(S13_ETXT7)
+   sleep(8)
+   say(S13_ETXT8)
+   sleep(8)
+   say(S13_ETXT9)
+   sleep(8)
+   say(S13_ETXT10)
+   sleep(15)
+   face(0,LEFT)
+   say(S13_ETXT11)
+   sleep(15)
+   say(S13_ETXT12)
+   walk(0,LEFT,1)
+   sync
+   say(S13_ETXT13)
+   sleep(15)
+   say(S13_ETXT14)
+   sleep(8)
+   face(0,RIGHT)
+   say(S13_ETXT15)
+   goto(INC_EVT)
+
+EVT_SCENE13_2:
+   align($03,$02)
+   sync
+   face(0,LEFT)
+   say(S13_ETXT16)
+   sleep(16)
+   say(S13_ETXT17)
+   sleep(16)
+   say(S13_ETXT18)
+   sleep(16)
+   say(S13_ETXT19)
+   sleep(8)
+   say(S13_ETXT20)
+   sleep(8)
+   say(S13_ETXT21)
+   sleep(16)
+   say(S13_ETXT22)
+   sleep(16)
+   say(S13_ETXT23)
+   sleep(16)
+   say(S13_ETXT24)
+   walk(6,RIGHT,1)
+   sync
+   del(6)
+   partyset(1, PARTY_RYAN)
+   levelup(1)
+   reform
+   take(IT_CONTRACT)
+   goto(INC_EVT)
+
+SLR_BOOKCASE1:
+   say(SLR_BOOK1)
+   end
+SLR_BOOKCASE2:
+   say(SLR_BOOK2)
+   end
+SLR_BOOKCASE3:
+   say(SLR_BOOK3A)
+   say(SLR_BOOK3B)
+   end
+SLR_BOOKCASE4:
+   say(SLR_BOOK4)
+   end
+SLR_SIGN:
+   say(SLR_DTXT7)
+   end
+SLR_TOMB1:
+   say(SLR_DTXT8)
+   end
+SLR_TOMB2:
+   say(SLR_DTXT9)
+   end
+SLR_TOMB3:
+   say(SLR_DTXT10)
+   end
+SLR_TOMB4:
+   say(SLR_DTXT11)
+   end
+SLR_TOMB5:
+   say(SLR_DTXT12)
+   end
+SLR_TOMB6:
+   say(SLR_DTXT13)
+   end
+SLR_CONNR:
+   fadeout(X_FADE)
+   getxy(B,C)
+   call(SLR_CONNRE0)
+   fadein(X_FADE)
+   end
+
+SLR_CONNRE0:
+   lmap(MAP_SLR_CONNR,   $04,$07)
+   cstep(I_SELERA,       $04,$08)
+   csearch(SLR_BOOKCASE1,$07,$01,S_U)
+   csearch(SLR_CBED,     $01,$02,S_L)
+   ctres($0a,IT_AU_50,      $03,$01,0,SFX_SEARCH)
+   ctres($0b,IT_HPLO,      $06,$01,0,SFX_SEARCH)
+   get(F,VAR_EVEPROG)
+   if(F,CE,4,SLR_CONEP4)
+   end
+SLR_CONEP4:
+   song_off
+   colshift(C_DBLUE)
+   end
+
+SLR_CBED:
+   get(F,VAR_EVEPROG)
+   if(F,CL,2,SLR_CBED1) ; <2: meet king
+   if(F,CE,2,SLR_CBED2) ; 2: meet creator
+   if(F,CE,4,RET)       ; 4: night time, cant use
+   if(F,CL,8,SLR_CBED3)
+   end
+SLR_CBED1:
+   say(S4_ETXTA)
+   end
+SLR_CBED2:
+   say(S7_ETXT1)
+   end
+SLR_CBED3:
+   align($02,$02)
+   sync
+   walk(0,LEFT,1)
+   sync
+   face(0,DOWN)
+   sleep(60)
+   frame(0,CEL_TIRED)
+   sleep(30)
+   fadeout(X_FADE)
+   song_pause
+   healall
+   song(SNG_REST)
+   sleep(240)
+   sleep(60)
+   song_resume
+   if(F,CE,3,SLR_NIGHT)
+SLR_CBEDUP:
+   fadein( X_FADE)
+   sleep(30)
+   face(0,DOWN)
+   walk(0,RIGHT,1)
+   sync
+   face(0,DOWN)
+   end
+
+SLR_NIGHT:
+   song(SNG_NIGHTTIME)
+   colshift(C_DBLUE)
+   call(INC_EVT)
+   goto(SLR_CBEDUP)
+
+
+SLR_HOUS1:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_SLR_HOUS1,   $05,$07)
+   cstep(I_SELERA,       $05,$08)
+   lguy(NPC_LADY2,       $03,$03, SLR_DTXT3)
+   lguy(NPC_BOY1,        $08,$04, SLR_DTXT4)
+   csearch(SLR_BOOKCASE3,$08,$01, S_U)
+   ctres($0c,IT_AU_100,  $03,$01,0,SFX_SEARCH)
+   fadein(X_FADE)
+   end
+SLR_HOUS2:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_SLR_HOUS2,     $09,$08)
+;   set(B,$15)
+;   set(C,$12)
+   cstep(I_SELERA,         $09,$09)
+   csearch(SLR_BOOKCASE4,  $03,$01, S_U)
+   lguy(NPC_MAN2,          $07,$04, SLR_DTXT5)
+   fadein(X_FADE)
+   end
+
+SLR_INN:
+   fadeout(X_FADE)
+   lmap(MAP_SLR_INN,       $07,$07)
+SLR_INN_JOIN:
+   set(B,$08)
+   set(C,$05)
+   chstep(I_SELERA,       $07,$08,$01)
+   ldude(4, NPC_MAN2,     $07,$04, DOWN, STAND)
+   ldude(5, NPC_LADY4,    $04,$05, DOWN, WALK)
+   ctres($0d, IT_HPLO,    $06,$01,0,SFX_SEARCH)
+   ctalk(SLR_INNTALK, 4)
+   ctalk(SLR_INNLADY, 5)
+   csearch(SLR_INNROOM,   $07,$05,S_U)
+
+   ; Ryan?
+   get(F,VAR_EVEPROG)
+   cif(F,CE,5,SLR_RYAN)
+   cif(F,CE,6,SLR_RYAN)
+   cif(F,CE,7,SLR_RYAN)
+
+   fadein(X_FADE)
+   end
+
+SLR_INNTALK:
+   say(SLR_DTXT14)
+   end
+
+SLR_INNROOM:
+   face(4, DOWN)
+   say(INN_SLR)
+   get(F,VAR_EVEPROG)
+   if(F,CE,2,SLR_INNFULL)
+   if(F,CE,3,SLR_INNFULL)
+   yesno(A)
+   say(INN_DTXT2)
+   if(A,CE,0,SLR_INNNO)
+   cgold(A,15)
+   if(A,CE,1,SLR_INNOK)
+   say(INN_DTXT4)
+   end
+SLR_INNOK:
+   tgold(15)
+   say(INN_DTXT5)
+   align($08,$06)
+   sync
+   call(INNREST)
+
+SLR_INNNO:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,SLR_INNNS)
+   set(A,SVL_SELERA)
+   savemenu
+SLR_INNNS:
+   say(INN_DTXT3)
+   end
+
+SLR_INNFULL:
+   say(INN_DTXT7)
+   goto(SLR_INNNO)
+
+
+SLR_INNLADY:
+   ;call(SFX_TEST)
+   ;song_off
+   ;call(SFX_TEST)
+   get(F,VAR_EVEPROG)
+   if(F,CE,5,SLR_INNLADY2)
+   say(SLR_STXT1)
+   end
+SLR_INNLADY2:
+   say(SLR_STXT2)
+   end
+
+SLR_RYAN:
+   ldude(6,CH_RYAN,        $02,$02,DOWN,STAND)
+   ldude(7,NPC_MAYOR,      $01,$03,RIGHT,STAND)
+   ctalk(SLR_RYAN1, 6)
+   ctalk(SLR_MERCHANT, 7)
+   end
+SLR_MERCHANT:
+   get(F,VAR_EVEPROG)
+   if(F,CE,6,SLR_MERCHANT2)
+   if(F,CG,6,SLR_MERCHANT3)
+   say(S12_ETXT1)
+   end
+SLR_MERCHANT2:
+   say(S12_ETXT2)
+   cgold(A,200)
+   if(A,CE,0,RET)
+   tgold(200)
+   say(S12_ETXT3)
+   sfx(SFX_SEARCH)
+   give(IT_CONTRACT)
+   goto(INC_EVT)
+SLR_MERCHANT3:
+   say(S12_ETXT4)
+   end
+SLR_RYAN1:
+   get(F,VAR_EVEPROG)
+   if(F,CE,5,EVT_SCENE13)
+   if(F,CE,7,EVT_SCENE13_2)
+   say(S13_ETXT14)
+   end
+
+SLR_INNLOAD:
+   ;set(D,9)
+   ;set(E,9)
+   ;call(INC_EVT)
+   ;goto(nps_part4)
+   lmap(MAP_SLR_INN,       $07,$06)
+   song(SNG_TOWN1)
+   goto(SLR_INN_JOIN)
+
+SLR_WEAPN:
+   fadeout(X_FADE)
+   lmap(MAP_SLR_WEAPN,     $06,$08)
+   set(B,$0F)
+   set(C,$08)
+   cstep(I_SELERA,         $06,$09)
+   ldude(4, NPC_MAN1,      $03,$04, RIGHT, STAND)
+   ctres($0e,IT_HALo,        $02,$07, $C4, SFX_CHEST)
+   csearch(SLR_WEAPBUY,    $04,$04, S_L)
+   fadein(X_FADE)
+   end
+SLR_WEAPBUY:
+   say(SLR_DTXT6)
+   shop_res
+   shop_add(IT_ICloak)
+   shop_add(IT_GRound)
+   shop_add(IT_DSharp)
+   shop_add(IT_HTunic)
+   shop_add(IT_HLeather)
+   shop
+   end
+
+SLR_ITEM:
+   fadeout(X_FADE)
+   lmap(MAP_SLR_ITEM,      $04,$07)
+   set(B,$13)
+   set(C,$0D)
+   cstep(I_SELERA,         $04,$08)
+   csearch(SLR_ITEMBUY,    $04,$03, S_U)
+   csearch(SLR_BOOKCASE2,  $07,$01, S_U)
+   ldude(4, NPC_MAN2,      $04,$02, DOWN, STAND)
+   fadein(X_FADE)
+   end
+SLR_ITEMBUY:
+   say(SLR_DTXT15)
+   shop_res
+   shop_add(IT_HPLO)
+   shop
+   end
+
+OPMENU:
+   options
+   end
+
+MAPPOS_SAVE_R:
+   fadeout(X_ROLL)
+MAPPOS_SAVE:
+   getxy(B,C)
+mappos_save_bc:
+   put(B,VAR_WORLDX)
+   put(C,VAR_WORLDY)
+   end
+
+;----------------------------------------------------------------------------
+; O_PLACE - from overworld/init
+;----------------------------------------------------------------------------
+O_SELERA:
+   call(MAPPOS_SAVE_R)
+   face(0,RIGHT)
+   set(B,$00)
+   set(C,$08)
+   call(L_SELERA)
+   fadein( X_ROLL)
+
+   get(A,VAR_NONLINEAR)
+   cif(A,CE,1,slr_sceneA)
+   end
+
+O_TAGEL:
+   call(MAPPOS_SAVE_R)
+   face(0,UP)
+   set(B,$15)
+   set(C,$23)
+   call(L_TAGEL)
+   fadein( X_ROLL)
+   end
+
+O_NPASS:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(B,$04)
+   set(C,$08)
+   goto(L_NPASS)
+
+O_NPASS2:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(B,$05)
+   set(C,$08)
+   goto(L_NPASS2)
+
+#include"xcave.eve"
+#include"kassim.eve"
+#include"firecave.eve"
+#include"turren.eve"
+#include"cottage.eve"
+#include"grw.eve"
+#include"hol.eve"
+#include"dur.eve"
+#include"sew.eve"
+#include"mag.eve"
+#include"far.eve"
+#include"pir.eve"
+#include"cos.eve"
+#include"sno.eve"
+#include"alt.eve"
+#include"alu.eve"
+#include"end.eve"
+#include"ice.eve"
+#include"snd.eve"
+#include"wav.eve"
+#include"grd.eve"
+#include"fin.eve"
+#include"joy.eve"
+#include"credits.eve"
+#include"intro.eve"
+
+;----------------------------------------------------------------------------
+; I_PLACE - from inside
+;----------------------------------------------------------------------------
+I_SELERA:
+   fadeout(X_FADE)
+   call(L_SELERA)
+   fadein(X_FADE)
+   end
+
+I_TAGEL:
+   fadeout(X_FADE)
+   call(L_TAGEL)
+   fadein( X_FADE)
+   end
+
+;----------------------------------------------------------------------------
+; L_PLACE - load level 1 subs, (B,C) = location
+;----------------------------------------------------------------------------
+L_NPASS:
+   set(D,B)
+   set(E,C)
+   set(G,X_ROLL)
+   goto(nps_part1_nf)
+
+L_NPASS2:
+   set(D,B)
+   set(E,C)
+   set(G,X_ROLL)
+   song(SNG_MOUNTAIN)
+   goto(nps_part5_nf)
+
+nps_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+nps_part1_nf:
+   lmap(MAP_NPS_P1,     D,E)
+   chstep(nps_part1b,   $7F,$09,12)
+   cvstep(nps_part1b,   $7F,$7F,11)
+   cvstep(nps_part1b,   $0B,$7F,11)
+   cstep(nps_part1a,    $05,$7F)
+   cstep(nps_guide,     $05,$02)
+   csearch(nps_sign1,   $06,$05,S_U)
+   get(F,VAR_EVEPROG)
+   if(F,CE,4,nps_ep4)
+   song(SNG_MOUNTAIN)
+   fadein(G)
+   end
+nps_part1a:
+   set(D,$05)
+   set(E,$1C)
+   goto(nps_part2)
+nps_part1b:
+   set(B,50)
+   set(C,73)
+   goto(OVER_WARP)
+nps_ep4:
+   song(SNG_NIGHTTIME)
+   colshift(C_DBLUE)
+   fadein(G)
+   end
+nps_guide:
+   get(F,VAR_EVEPROG)
+   if(F,CGE,8,RET)
+   sleep(4)
+   say(NPS_STXT1)
+   sleep(16)
+   face(0,RIGHT)
+   sleep(4)
+   walk(0,DOWN,1)
+   sync
+   end
+
+nps_part2:
+   fadeout(X_FADE)
+   lmap(MAP_NPS_P2,     D,E)
+   zone(ZONE_NPS)
+   chstep(nps_part2a,   $05,$1D,1)
+   cstep(nps_part2b,    $1E,$7F)
+   fadein(X_FADE)
+   end
+nps_part2a:
+   set(D,$05)
+   set(E,$00)
+   goto(nps_part1)
+nps_part2b:
+   set(D,$06)
+   set(E,$21)
+   goto(nps_part3)
+
+nps_part3:
+   fadeout(X_FADE)
+   lmap(MAP_NPS_P3,     D,E)
+   zone(ZONE_NPS)
+   cif(D,CE,0,nps_bridge1)
+   cif(D,CE,11,nps_bridge1)
+   chstep(nps_part3a,   $06,$22,1)
+   cstep(nps_part3b,    $7F,$0C)
+   cvstep(nps_part3c,   $0E,$0B,2)
+   cstep(nps_bridge1,   $1E,$17)
+   cstep(nps_bridge2,   $1E,$13)
+   csearch(nps_part3d,  $1B,$0B,S_ALL)
+   cstep(nps_part3e,    11,8);
+   fadein(X_FADE)
+   end
+nps_part3a:
+   set(D,$1E)
+   set(E,$00)
+   goto(nps_part2)
+nps_part3b:
+   set(D,$19)
+   set(E,$18)
+   goto(nps_part4)
+nps_part3c:
+   get(F,VAR_EVEPROG)
+   if(F,CG,8,RET)
+   panspeed(0)
+   align($0E,$0C)
+   pan($0B,$08)
+   sync
+   group
+   sync
+   partyarr
+   walk(1,UP,1)
+   sync
+   sleep(48)
+   face(0,LEFT)
+   face(1,LEFT)
+   sleep(8)
+   say(S14_ETXT1)
+   face(1,DOWN)
+   sleep(16)
+   say(S14_ETXT2)
+   face(1,LEFT)
+   sleep(16)
+   say(S14_ETXT3)
+   lockon(0)
+   sleep(80)
+   panspeed(2)
+   say(S14_ETXT4)
+   face(1,DOWN)
+   sleep(30)
+   say(S14_ETXT5)
+   face(0,UP)
+   sleep(16)
+   say(S14_ETXT6)
+   sleep(16)
+   say(S14_ETXT7)
+   sleep(16)
+   say(S14_ETXT8)
+   face(1,RIGHT)
+   sleep(16)
+   say(S14_ETXT9)
+   face(0,DOWN)
+   sleep(16)
+   say(S14_ETXT10)
+   walk(1,DOWN,1)
+   sync
+   reform
+   goto(INC_EVT)
+nps_part3d:
+   say(S14_ETXT11)
+   end
+nps_part3e:
+   set(D,7)
+   set(E,12)
+   goto(nps_part6)
+
+nps_part4:
+   fadeout(X_FADE)
+   lmap(MAP_NPS_P4,     D,E)
+   zone(ZONE_NPS)
+   cstep(nps_part4a,    $1A,$18)
+   cstep(nps_part4b,    $7F,$05)
+   cstep(nps_boss,      $09,$08)
+   fadein(X_FADE)
+   end
+nps_part4a:
+   set(D,$00)
+   set(E,$0C)
+   goto(nps_part3)
+nps_part4b:
+   set(D,$0A)
+   set(E,$03)
+   goto(nps_part5)
+nps_boss:
+   get(F,VAR_EVEPROG)
+   if(F,CG,9,RET)
+   align($09,$08)
+   sync
+   ldude(4,NPC_WOLF,    $09,$02,DOWN,STAND)
+   group
+   frame(4,CEL_DOWN1)
+   walk(4,DOWN,5)
+   sfx(SFX_FALL)
+   sync
+   sfx(SFX_LAND)
+   face(4,DOWN)
+   face(0,UP)
+   sleep(32)
+   sfx(SFX_ROAR)
+   say(S15_ETXT1)
+   sleep(16)
+   say(S15_ETXT2)
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special_BossWolf,0,1,0,0)
+   revive
+   song_resume
+   del(4)
+   fadein(X_FADE)
+   partyarr
+   face(0,DOWN)
+   walk(1,DOWN,1)
+   sync
+   face(1,UP)
+   sleep(16)
+   say(S15_ETXT3)
+   walk(1,DOWN,5)
+   sync
+   del(1)
+   partyset(1, 0)
+   reform
+   say(S15_ETXT4)
+   face(0,UP)
+   goto(INC_EVT)
+
+nps_part5:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+nps_part5_nf:
+   lmap(MAP_NPS_P5,     D,E)
+   zone(ZONE_NPS)
+   cstep(nps_part5a,    $0B,$03)
+   chstep(nps_part5b,   $00,$09,11)
+   csearch(nps_sign1,   $04,$06,S_U)
+   fadein(G)
+   get(A,VAR_NPSBLOCK)
+   if(A,CE,1,nps_part5_blocked)
+   end
+nps_part5a:
+   set(D,$00)
+   set(E,$05)
+   goto(nps_part4)
+nps_part5b:
+;   fadeout(X_FADE)
+;   say(MSG_MIL1DONE)
+;loop:
+;   goto(loop)
+   set(B,41)
+   set(C,60)
+   goto(OVER_WARP)
+nps_part5_blocked:
+   partyarr
+   face(0,UP)
+   walk(2,LEFT,1)
+   walk(1,RIGHT,1)
+   sync
+   face(1,UP)
+   face(2,UP)
+   sleep(16)
+   say(NPS_STXT2)
+   face(1,LEFT)
+   sleep(16)
+   say(NPS_STXT3)
+   face(0,RIGHT)
+   sleep(16)
+   say(NPS_STXT4)
+   walk(0,DOWN,1)
+   sleep(4)
+   face(1,DOWN)
+   face(2,DOWN)
+   sync
+   partynor
+   goto(nps_part5b)
+
+nps_part6:
+   fadeout(X_FADE)
+   lmap(MAP_NPS_P6,     D,E)
+   ldude(4,NPC_DEAD,    $02,$06,DOWN,STAND)
+   ldude(5,NPC_DEAD,    $07,$04,DOWN,STAND)
+   ldude(6,NPC_DEAD,    $0D,$06,DOWN,STAND)
+   frame(4,0)
+   frame(5,1)
+   frame(6,2)
+   cstep(nps_part6a,    7,13)
+   ctres($74,IT_HPLO,     $08,$03,$3B,SFX_CHEST)
+   ctres($75,IT_HPLO,     $09,$03,$3B,SFX_CHEST)
+   ctalk(nps_part6_guy1, 4)
+   ctalk(nps_part6_guy2, 5)
+   ctalk(nps_part6_guy3, 6)
+   fadein(X_FADE)
+   end
+nps_part6a:
+   set(D,11)
+   set(E,8)
+   goto(nps_part3)
+nps_part6_guy1:
+   get(A,VAR_NPS6_G1)
+   if(A,CE,1,RET)
+   put(1,VAR_NPS6_G1)
+   sfx(SFX_SEARCH)
+   give(IT_CIron)
+   end
+nps_part6_guy2:
+   get(A,VAR_NPS6_G2)
+   if(A,CE,1,RET)
+   put(1,VAR_NPS6_G2)
+   sfx(SFX_SEARCH)
+   give(IT_HLeather)
+   end
+nps_part6_guy3:
+   get(A,VAR_NPS6_G3)
+   if(A,CE,1,RET)
+   put(1,VAR_NPS6_G3)
+   sfx(SFX_SEARCH)
+   give(IT_AU_50)
+   end
+
+nps_bridge1:
+   tile(10,16,$43)
+   tile(10,17,$00)
+   tile(11,16,$33)
+   tile(12,16,$33)
+   tile(11,17,$14)
+   tile(12,17,$14)
+   tile(11,18,$33)
+   tile(12,18,$33)
+   tile(13,17,$00)
+   end
+
+nps_bridge2:
+   tile(10,16,$47)
+   tile(10,17,$33)
+   tile(11,16,$00)
+   tile(12,16,$00)
+   tile(11,17,$3F)
+   tile(12,17,$3F)
+   tile(11,18,$00)
+   tile(12,18,$00)
+   tile(13,17,$33)
+   end
+nps_sign1:
+   say(S14_STXT1)
+   end
+
+L_SELERA:
+   set(F,MAP_SELERA)
+   get(A,VAR_NONLINEAR)
+   if(A,CE,0,l_selera_normal)
+   set(F,MAP_WSELERA)
+l_selera_normal:
+
+   lmap(F,      B,C)
+   cvstep(OVERWORLD,     127,$05,8)
+   cstep(SLR_CONNR,      $17,$07)
+   cstep(SLR_HOUS1,      $0B,$0F)
+   cstep(SLR_HOUS2,      $15,$12)
+   cstep(SLR_INN,        $08,$05)
+   cstep(SLR_WEAPN,      $0F,$08)
+   cstep(SLR_ITEM,       $13,$0D)
+   csearch(SLR_SIGN,     $0F,$18, S_U)              ; sign
+   csearch(SLR_TOMB2,    $06,$19, S_U)              ; tomb
+   csearch(SLR_TOMB3,    $08,$19, S_U)              ; tomb
+   csearch(SLR_TOMB4,    $05,$1B, S_U)              ; tomb
+   csearch(SLR_TOMB5,    $07,$1B, S_U)              ; tomb
+   csearch(SLR_TOMB6,    $09,$1B, S_U)              ; sign
+   ctres($77,IT_AU_50,   $0A,$04,0,SFX_SEARCH)      ; crate
+   ctres($78,IT_HPLO,      $11,$0C,0,SFX_SEARCH)      ; pot
+   csearch(SLR_ANNA,$04,$19,S_U)
+
+   get(A,VAR_NONLINEAR)
+   if(A,CE,1,SLR_WRECKED)
+
+   get(F,VAR_EVEPROG)
+   if(F,CNE,4,SLR_NORM)
+   if(F,CE,4,SLR_EP4)
+   end
+
+SLR_NORM:
+   song(SNG_TOWN1)
+   lguy(NPC_LADY1,         $05,$08, SLR_DTXT1)        ; welcome lady
+   lguy(NPC_LADY4,         $0C,$09, SLR_DTXT2)        ; peace lady
+   ldude(10, NPC_MAN1,     $08,$1A, UP,     STAND)    ; old man in graveyard
+   ldude(11, NPC_LADY3,    $17,$19, RIGHT,  STAND)    ; lady in patch
+   lguy(NPC_BOY2,          $11,$16, SLR_DTXT16)         ; boy
+   ctalk(S2_OLDMAN, 10)
+   ctalk(S2_LADY, 11)
+   frame(11, CEL_RIGHT1)
+
+   set(A,0)
+   cif(F,CGE,5,SET_A1)
+   tbase(SLR_DTXT1,SLR_DTSIZE,A)
+   end
+SLR_EP4:
+   song(SNG_NIGHTTIME)
+   colshift(C_DBLUE)
+   ldude(10, NPC_LADY3,    $17,$19, RIGHT,  STAND)    ; lady in patch
+   ctalk(S8_LADY, 10)
+   frame(10, CEL_RIGHT1)
+
+   csearch(SLR_LOCKED, $0b,$0f,S_U)
+   csearch(SLR_LOCKED, $15,$12,S_U)
+   csearch(SLR_LOCKED, $08,$05,S_U)
+   csearch(SLR_LOCKED, $0f,$08,S_U)
+   csearch(SLR_LOCKED, $13,$0d,S_U)
+
+   ; lock the doors
+   tile($0B,$0F,$33)
+   tile($15,$12,$33)
+   tile($08,$05,$33)
+   tile($0F,$08,$33)
+   tile($13,$0D,$33)
+SLR_WRECKED:
+   end
+
+SLR_LOCKED:
+   say(SLR_STXT3)
+   end
+
+SLR_ANNA:
+   get(A,VAR_ANNATOMB)
+   if(A,CE,1,SLR_TOMB1)
+   song_pause
+   call(SLR_TOMB1)
+   say(S2_ETXT1)
+   face(0, RIGHT)
+   sleep(4)
+   face(0, DOWN)
+   sleep(24)
+   frame(0, CEL_LOOK1)
+   song(SNG_SADNESS)
+   sleep(200)
+   sleep(150)
+   song_off
+   sleep(16)
+   face(0, DOWN)   
+   song_resume
+   put(1,VAR_ANNATOMB)
+   end
+
+S2_OLDMAN:
+   say(S2_ETXT2)
+   face(10, UP)
+   end
+
+S2_LADY:
+   say(S2_ETXT3)
+   end
+
+S8_LADY:
+   say(S8_ETXT1)
+   end
+
+slr_sceneA:
+   get(A,VAR_RET_SLR)
+   if(A,CE,1,RET)
+   put(1,VAR_RET_SLR)
+
+   sleep(16)
+   say(SA_ETXT1)
+   walk(0,RIGHT,10)
+   sync
+   group
+   sync
+   detach
+   partyarr
+   face(1,DOWN)
+   walk(0,DOWN,2)
+   walk(2,LEFT,1)
+   walk(3,RIGHT,1)
+   sleep(9)
+   face(2,DOWN)
+   face(3,DOWN)
+   sync
+   sleep(32)
+   face(0,LEFT)
+   sleep(32)
+   face(0,DOWN)
+   sleep(16)
+   face(0,RIGHT)
+   sleep(32)
+   frame(0,CEL_LOOK1)
+   sleep(16)
+   say(SA_ETXT2)
+   sleep(16)
+   say(SA_ETXT3)
+   walk(1,DOWN,1)
+   sync
+   sleep(16)
+   say(SA_ETXT4)
+   sleep(32)
+   frame(0,CEL_DOWN1)
+   sleep(16)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,UP)
+   sleep(16)
+   walk(0,UP,1)
+   walk(2,DOWN,1)
+   walk(3,DOWN,1)
+   sync
+   walk(2,RIGHT,1)
+   walk(3,LEFT,1)
+   sync
+   face(0,DOWN)
+   reform
+   end
+
+
+tgl_set_out:
+   get(A,VAR_EVEPROG)
+   if(A,CL,2,RET)
+   tile(16, 8,$03)
+   tile(27, 8,$03)
+   tile(18,12,$03)
+   tile(25,12,$03)
+   end
+tgl_set_hall:
+   get(A,VAR_EVEPROG)
+   if(A,CL,2,RET)
+   tile(12,16,$be)
+   tile(12,18,$be)
+   tile(12,20,$be)
+   tile(20,16,$be)
+   tile(20,18,$be)
+   tile(20,20,$be)
+   tile( 6,26,$be)
+   tile(26,26,$be)
+   end
+tgl_set_base1:
+   get(A,VAR_EVEPROG)
+   if(A,CL,2,RET)
+   tile( 2, 5,$be)
+   end
+tgl_set_base2:
+   get(A,VAR_EVEPROG)
+   if(A,CL,2,RET)
+   tile( 1, 4,$be)
+   tile(15, 4,$be)
+   end
+tgl_set_gate:
+   get(A,VAR_EVEPROG)
+   if(A,CL,2,RET)
+   tile( 5, 3,$be)
+   tile(12, 3,$be)
+   end
+
+tgl_book1:
+   say(TGL_BOOK1A)
+   say(TGL_BOOK1B)
+   end
+tgl_desk1:
+   say(TGL_DESK1)
+   end
+tgl_desk2:
+   say(TGL_DESK2)
+   end
+
+tgl_scene26:
+   put(1,VAR_TGLESC)
+   lmap(MAP_TGL_THRON,     7,9)
+   lockoff
+   ldude(4,NPC_KING,       $07,$05,  DOWN,  STAND)
+   partyarr
+   detach
+   warp(0,   7,  7,UP)
+   warp(1,   8,  8,UP)
+   warp(2,   6,  8,UP)
+   fadein(X_FADE)
+
+   sleep(32)
+   say(S26_ETXT1)
+   sleep(16)
+   walk(4,LEFT,2)
+   sync
+   sleep(16)
+   say(S26_ETXT2)
+   face(0,LEFT)
+   face(1,LEFT)
+   sleep(16)
+   say(S26_ETXT3)
+   face(4,DOWN)
+   sleep(16)
+   say(S26_ETXT4)
+   sleep(32)
+   sfx(SFX_ENGULF)
+   quake
+   frame(0,CEL_ATTEN)
+   frame(1,CEL_ATTEN)
+   frame(2,CEL_ATTEN)
+   sleep(16)
+   quake
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   walk(4,DOWN,1)
+   sync
+
+   ldude(5,NPC_SOLDIER,    $07,$0d, DOWN, STAND)
+   walk(5,UP,1)
+   sleep(32)
+   walk(5,UP,1)
+   sleep(32)
+   walk(5,UP,1)
+   sleep(32)
+   walk(5,UP,1)
+   sleep(32)
+   say(S26_ETXT5)
+   walk(4,DOWN,2)
+   sleep(8)
+   face(5,LEFT)
+   sync
+   face(4,RIGHT)
+   sleep(8)
+   say(S26_ETXT6)
+   sleep(16)
+   say(S26_ETXT7)
+   walk(4,DOWN,1)
+   sync
+   face(4,RIGHT)
+   sleep(8)
+   say(S26_ETXT8)
+   sleep(16)
+   say(S26_ETXT9)
+   ldude(5,NPC_DEAD,       $07,$09, DOWN, STAND)
+   frame(5,3)
+   sleep(16)
+   frame(5,2)
+   sfx(SFX_LAND)
+   sleep(16)
+   face(0,LEFT)
+   face(1,LEFT)
+   sleep(4)
+   say(S26_ETXT10)
+
+   face(4,DOWN)
+   sleep(16)
+   say(S26_ETXT11)
+   sleep(16)
+   say(S26_ETXT12)
+   face(4,RIGHT)
+   sleep(16)
+   say(S26_ETXT13)
+   sleep(16)
+   say(S26_ETXT14)
+   sleep(16)
+   walk(4,UP,2)
+   sync
+   face(4,RIGHT)
+   sleep(8)
+   say(S26_ETXT15)
+
+   face(1,UP)
+   face(2,UP)
+   sleep(32)
+   walk(1,DOWN,2)
+   walk(2,DOWN,2)
+   sleep(16)
+   walk(1,LEFT,6)
+   walk(2,LEFT,4)
+   sleep(8)
+   walk(0,LEFT,1)
+   sleep(32)
+   del(2)
+   walk(0,DOWN,3)
+   sleep(16)
+   del(1)
+   sleep(8)
+   walk(0,LEFT,4)
+   sleep(16)
+   face(4,DOWN)
+   sync
+   face(0,UP)
+   del(0)
+   sleep(32)
+
+;  fadeout(X_FADE)
+
+   call(TGL_HALLD)
+   tile($06,$0d,$08)
+   csearch(tgl_scene27_a,  $06,$0d,S_D)
+   lockon(0)
+   end
+
+tgl_scene27_a:
+   say(TGL_STXT1)
+   end
+
+tgl_scene27_b:
+   ; taken the gem yet?
+   get(A,VAR_TGLGEM)
+   if(A,CE,0,tgl_book1)
+
+   ; done the sewers part?
+   get(A,VAR_SEW1)
+   if(A,CE,1,tgl_scene27_b_skip)
+
+   say(TGL_STXT3)
+   fadeout(X_FADE)
+
+   sleep(32)
+   lmap(MAP_TGL_THRON,     7,10)
+   lockoff
+   warp(0,17,10,DOWN)
+   del(1)
+   del(2)
+   del(3)
+   ldude(4,NPC_KING,       $06,$06,  DOWN, STAND)
+   ldude(6,NPC_SOLDIER,    $08,$06,  DOWN, STAND)
+   ldude(7,NPC_DEAD,       $07,$09,  DOWN, STAND)
+   frame(7,2)
+   ldude(8,NPC_KRAIT,      $06,$0d,  DOWN, STAND)
+
+   fadein(X_FADE)
+
+   sleep(32)
+   walk(8,UP,3)
+   sync
+
+   walk(6,DOWN,1)
+   sync
+   walk(6,LEFT,2)
+   sync
+   walk(6,DOWN,2)
+
+   sfx(SFX_ENGULF)
+   ldude(5,NPC_FIRE,       $06,$0a,  DOWN, STAND)
+   frame(5,2)
+   sleep(8)
+   frame(5,3)
+   sleep(8)
+   frame(5,4)
+   sleep(8)
+   frame(5,0)
+   sleep(4)
+   walk(5,UP,1)
+   sync
+   sfx(SFX_ENGULF)
+   ldude(6,NPC_DEAD,       $06,$09,  DOWN, STAND)
+   frame(6,3)
+   frame(5,5)
+   sleep(8)
+   del(5)
+
+   walk(6,RIGHT,2)
+   sync
+   sleep(4)
+   frame(6,2)
+   sfx(SFX_LAND)
+   sleep(32)
+
+   say(S26_ETXT16)
+
+   sfx(SFX_ENGULF)
+   quake
+   sleep(16)
+   quake
+
+   sleep(4)
+   say(S26_ETXT17)
+   walk(4,DOWN,1)
+   sync
+   sleep(4)
+   say(S26_ETXT18)
+   sleep(16)
+   say(S26_ETXT19)
+   sleep(16)
+
+   panspeed(1)
+   sfx(SFX_ENGULF)
+   ldude(5,NPC_FIRE,       $06,$08,  DOWN, STAND)
+   ldude(9,NPC_FIRE,       $06,$09,  DOWN, STAND)
+   frame(5,2)
+   frame(9,2)
+   sleep(8)
+   lockon(0)
+   frame(5,3)
+   frame(9,3)
+   sleep(8)
+   frame(5,4)
+   frame(9,4)
+   sleep(8)
+   frame(5,0)
+   frame(9,0)
+   sleep(8)
+   face(5,DOWN)
+   face(9,DOWN)
+
+   sleep(16)
+   fadeout(X_FADE)
+   panspeed(2)
+   sleep(32)
+   goto(sew_enter1)
+
+tgl_scene27_b_skip:
+   fadeout(X_FADE)
+   sleep(16)
+   goto(sew_enter1)
+
+tgl_showgem:
+   get(A,VAR_TGLGEM)
+   if(A,CE,1,RET)
+   tile($06,$03,$95)
+   end
+
+tgl_soulgem:
+   get(A,VAR_TGLGEM)
+   if(A,CE,1,RET)
+   get(A,VAR_TGLESC)
+   if(A,CE,1,tgl_soulgem1)
+   say(TGL_STXT2)
+   end
+tgl_soulgem1:
+   align($06,$04)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   lockoff
+   face(1,UP)
+   walk(0,RIGHT,1)
+   walk(2,LEFT,1)
+   sync
+   face(0,UP)
+   face(2,UP)
+   sleep(16)
+
+   say(S27_ETXT1)
+   face(2,RIGHT)
+   sleep(16)
+   say(S27_ETXT2)
+   face(1,LEFT)
+   sleep(16)
+   say(S27_ETXT3)
+   sleep(16)
+   say(S27_ETXT4)
+
+   face(1,UP)
+   sleep(16)
+   sfx(SFX_SEARCH)
+   tile($06,$03,$96)
+   sleep(32)
+   walk(2,RIGHT,1)
+   walk(0,LEFT,1)
+   sync
+   reform
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   lockon(0)
+
+   put(1,VAR_TGLGEM)
+   end
+
+
+L_TAGEL:
+   set(F,MAP_TAGEL)
+   get(A,VAR_TGL1)
+   if(A,CE,0,tgl_normal)
+   set(F,MAP_WTAGEL)
+tgl_normal:
+
+   lmap(F,         B,C)
+   call(tgl_set_out)
+   chstep(OVERWORLD,       $00,$00,$2C)
+   chstep(OVERWORLD,       $00,$24,$2C)
+   cvstep(OVERWORLD,       $00,$00,$25)
+   cvstep(OVERWORLD,       $2B,$00,$25)
+   chstep(TGL_GATEE,       $14,$1C,$04)
+   chstep(TGL_GATEX,       $15,$17,$02)
+   chstep(TGL_HALL,        $15,$14,$02)
+   chstep(TGL_THRONEB,     $15,$08,$02)
+   cstep(TGL_TOWA,         $0E,$15)       ; lowerleft
+   cstep(TGL_TOWB,         $1D,$15)       ; lowerright
+   cstep(TGL_TOWC,         $0E,$02)       ; topleft    3
+   cstep(TGL_TOWD,         $1D,$02)       ; topright   3
+   cstep(TGL_TOWE,         $0E,$0D)       ; lowerleft  3
+   cstep(TGL_TOWF,         $1D,$0D)       ; lowerright 3
+   csearch(TGL_GOLEM,      $10,$08,S_ALL)
+   csearch(TGL_GOLEM,      $12,$0C,S_ALL)
+   csearch(TGL_GOLEM,      $19,$0C,S_ALL)
+   csearch(TGL_GOLEM,      $1B,$08,S_ALL)
+
+   get(F,VAR_EVEPROG)
+   if(F,CE,4,TGL_EP4)   ; EP4? nighttime
+
+   song(SNG_CASTLE)
+
+   get(A,VAR_TGL1)
+   if(A,CE,1,tgl_wreck)
+
+   ldude(4,NPC_SOLDIER,    $15,$0E,DOWN,WALK)
+   ctalk(TGL_G2,4)
+   ldude(5,NPC_SOLDIER,    $0D,$01,DOWN,STAND)
+   ctalk(TGL_G3,5)
+   ldude(6,NPC_SOLDIER,    $1E,$0C,DOWN,STAND)
+   ctalk(TGL_G4,6)
+   ldude(7,NPC_SOLDIER,    $01,$01,UP,STAND)
+   frame(7, CEL_UP1)
+   ctalk(TGL_G6,7)
+   lguy(NPC_MAN2,          $21,$0F,TGL_DTXT2)
+   end
+TGL_EP4:
+   song(SNG_NIGHTTIME)
+   colshift(C_DBLUE)
+   ldude(4,NPC_SOLDIER,    $0E,$16,DOWN,STAND)
+   ctalk(TGL_GATE_G1,4)
+   ldude(5,NPC_SOLDIER,    $15,$15,DOWN,STAND)
+   ctalk(TGL_GATE_G1,5)
+   ldude(6,NPC_SOLDIER,    $16,$15,DOWN,STAND)
+   ctalk(TGL_GATE_G1,6)
+   ldude(7,NPC_KING,       $1D,$0C,UP,STAND)
+   end
+tgl_wreck:
+   end
+
+
+TGL_GATEX:
+   set(D,$08)
+   set(E,$02)
+TGL_GATEJOIN:
+   fadeout(X_FADE)
+l_tgl_gate:
+   lmap(MAP_TGL_GATE,      D,E)
+   call(tgl_set_gate)
+   chstep(TGL_ENTER,       $08,$01,$02)
+   chstep(TGL_EXIT,        $07,$06,$04)
+   ldude(4,NPC_SOLDIER,    $07,$03, DOWN,  STAND)
+   ldude(5,NPC_SOLDIER,    $0A,$03, DOWN,  STAND)
+   ctalk(TGL_GATE_G1, 4)
+   ctalk(TGL_GATE_G1, 5)
+   csearch(TGL_GOLEM,      $05,$03,S_ALL)
+   csearch(TGL_GOLEM,      $0C,$03,S_ALL)
+
+   get(A,VAR_EVEPROG)
+   cif(A,CE,4,tgl_gatejoin_night)     ; EP4 = nighttime
+
+   fadein( X_FADE)
+   end
+tgl_gatejoin_night:
+   tile($08,$01,$b2)
+   tile($09,$01,$b2)
+   end
+
+TGL_GATEE:
+   set(D,$08)
+   set(E,$05)
+   goto(TGL_GATEJOIN)
+
+TGL_ENTER:
+   set(B,$15)
+   set(C,$17)
+   goto(I_TAGEL)
+
+TGL_EXIT:
+   set(B,$15)
+   set(C,$1D)
+   goto(I_TAGEL)
+
+TGL_HALL:
+   set(D,$10)
+   set(E,$1B)
+TGL_HALLJOIN:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_HALL,      D,E)
+   call(tgl_set_hall)
+   chstep(TGL_HALLA,       $0F,$1C,$03)   ; front door
+   cstep(TGL_HALLB,        $0C,$0E)       ; left throne
+   cstep(TGL_HALLC,        $14,$0E)       ; right throne
+   cstep(TGL_HALLD,        $10,$0D)       ; kings room
+   cstep(TGL_HALLE,        $02,$05)       ; left tower
+   cstep(TGL_HALLF,        $1E,$05)       ; right tower
+   cstep(TGL_HALLG,        $06,$05)       ; left basement
+   cstep(TGL_HALLH,        $1A,$05)       ; right basement
+   csearch(TGL_GOLEM,      $0C,$10,S_ALL)
+   csearch(TGL_GOLEM,      $14,$10,S_ALL)
+   csearch(TGL_GOLEM,      $0C,$12,S_ALL)
+   csearch(TGL_GOLEM,      $14,$12,S_ALL)
+   csearch(TGL_GOLEM,      $0C,$14,S_ALL)
+   csearch(TGL_GOLEM,      $14,$14,S_ALL)
+   ldude(4,NPC_SOLDIER,    $10,$13,DOWN,WALK)
+   ctalk(TGL_G1,4)
+
+   get(F,VAR_EVEPROG)
+   if(F,CNE,3,TGL_HALL_E0) ; not Scene 7?
+   ldude(5,NPC_SOLDIER,    $10,$0E,DOWN,STAND)
+   ctalk(TGL_G5,5)
+TGL_HALL_E0:
+   fadein( X_FADE)
+   end
+
+TGL_HALLA:
+   set(B, $15)
+   set(C, $15)
+   goto(I_TAGEL)
+TGL_HALLB:
+   set(D, $02)
+   set(E, $0A)
+TGL_HALLBJOIN:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_THRON,     D,E)
+   cstep(TGL_THRONA,       $02,$0A)
+   cstep(TGL_THRONB,       $0C,$0A)
+   chstep(TGL_THRONC,      $06,$0C,$03)
+   chstep(TGL_EVE1,        $05,$09,$05)
+   get(F,VAR_EVEPROG)
+   if(F,CL,3,TGL_THRON_E1)
+   ;if(F,CGE,3,TGL_THRON_E2)
+   goto(TGL_THRON_E2)
+TGL_THRON_ED:
+   fadein( X_FADE)
+   end
+TGL_THRON_E1:
+   ldude(4,NPC_KING,       $07,$04, RIGHT,  STAND)    ; king
+   ldude(5,NPC_ADVISOR,    $08,$04,  LEFT,  STAND)    ; advisor
+   ldude(6,NPC_GOLEM,      $04,$08, RIGHT,  STAND)    ; golem
+   ldude(7,NPC_GOLEM,      $0A,$08,  LEFT,  STAND)    ; golem
+   get(A,VAR_EVEPROG)
+   if(A,CGE,2,tgl_nofreeze1)
+   frame(6,CEL_RIGHT1)
+   frame(7,CEL_LEFT1)
+tgl_nofreeze1:
+   ctalk(TGL_TKING, 4)
+   ctalk(TGL_TADV, 5)
+   ctalk(TGL_GOLEM, 6)
+   ctalk(TGL_GOLEM, 7)
+   goto(TGL_THRON_ED)
+TGL_THRON_E2:
+   ldude(6,NPC_GOLEM,      $04,$08, RIGHT,  STAND)    ; golem
+   ldude(7,NPC_GOLEM,      $0A,$08,  LEFT,  STAND)    ; golem
+//   frame(6,CEL_RIGHT1)
+//   frame(7,CEL_LEFT1)
+   ctalk(TGL_GOLEM, 6)
+   ctalk(TGL_GOLEM, 7)
+   goto(TGL_THRON_ED)
+
+TGL_EVE1:
+   get(F,VAR_EVEPROG)
+   if(F,CNE,1,RET)
+   align($07,$09)
+   sync
+   face(0,UP)
+   goto(EVT_SCENE4)
+
+TGL_HALLC:
+   set(D, $0C)
+   set(E, $0A)
+   goto(TGL_HALLBJOIN)
+TGL_HALLD:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_KING,      $06,$0C)
+tgl_halld_sew:
+   call(tgl_showgem)
+   cstep(TGL_KING,         $06,$0D)
+   csearch(tgl_soulgem,    $06,$03,S_ALL)
+   csearch(tgl_desk1,      $02,$03,S_ALL)
+   csearch(tgl_desk1,      $03,$03,S_ALL)
+   csearch(tgl_scene27_b,  $0a,$02,S_U)
+   ctres($79,IT_SPLo,      $08,$07,$70,SFX_CHEST)
+   ctres($7a,IT_HPLo,      $09,$07,$70,SFX_CHEST)
+   fadein( X_FADE)
+   end
+TGL_HALLE:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_TOWUL2)
+TGL_HALLF:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_TOWUR2)
+TGL_HALLG:
+   goto(TGL_BASE1)
+TGL_HALLH:
+   set(D, $02)
+   set(E, $04)
+   goto(TGL_BASE2)
+
+
+TGL_THRONEB:
+   set(D, $07)
+   set(E, $0B)
+   goto(TGL_HALLBJOIN)
+TGL_TOWA:
+   set(D, $04)
+   set(E, $1D)
+   goto(TGL_TOWLL)
+TGL_TOWB:
+   set(D, $1C)
+   set(E, $1D)
+   goto(TGL_TOWLR)
+TGL_TOWC:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_TOWUL3)
+TGL_TOWD:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_TOWUR3)
+TGL_TOWE:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_TOWLL3)
+TGL_TOWF:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_TOWLR3)
+
+
+TGL_TOWLL:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_HALL,      D,E)
+   call(tgl_set_hall)
+   cstep(TGL_TOWLLA,       $04,$1E)
+   cstep(TGL_TOWLLB,       $02,$1A)
+   csearch(TGL_GOLEM,      $06,$1A,S_ALL)
+   fadein( X_FADE)
+   end
+TGL_TOWLLA:
+   set(B, $0E)
+   set(C, $16)
+   goto(I_TAGEL)
+TGL_TOWLLB:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_TOWLL2)
+
+TGL_TOWLL2:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW1,      D,E)
+   cstep(TGL_TOWLL2A,      $02,$05)
+   cstep(TGL_TOWLL2B,      $06,$05)
+   fadein( X_FADE)
+   end
+TGL_TOWLL2A:
+   set(D, $02)
+   set(E, $1A)
+   goto(TGL_TOWLL)
+TGL_TOWLL2B:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_TOWLL3)
+
+TGL_TOWLL3:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW2,      D,E)
+   cstep(TGL_TOWLL3A,      $02,$05)
+   cstep(TGL_TOWLL3B,      $06,$05)
+   fadein( X_FADE)
+   end
+TGL_TOWLL3A:
+   set(B, $0E)
+   set(C, $0D)
+   goto(I_TAGEL)
+TGL_TOWLL3B:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_TOWLL2)
+
+
+TGL_TOWLR:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_HALL,      D,E)
+   call(tgl_set_hall)
+   cstep(TGL_TOWLRA,       $1C,$1E)
+   cstep(TGL_TOWLRB,       $1E,$1A)
+   csearch(TGL_GOLEM,      $1A,$1A,S_ALL)
+   fadein( X_FADE)
+   end
+TGL_TOWLRA:
+   set(B, $1D)
+   set(C, $16)
+   goto(I_TAGEL)
+TGL_TOWLRB:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_TOWLR2)
+
+TGL_TOWLR2:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW2,      D,E)
+   cstep(TGL_TOWLR2A,      $02,$05)
+   cstep(TGL_TOWLR2B,      $06,$05)
+   fadein( X_FADE)
+   end
+TGL_TOWLR2A:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_TOWLR3)
+TGL_TOWLR2B:
+   set(D, $1E)
+   set(E, $1A)
+   goto(TGL_TOWLR)
+
+TGL_TOWLR3:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW1,      D,E)
+   cstep(TGL_TOWLR3A,      $02,$05)
+   cstep(TGL_TOWLR3B,      $06,$05)
+   fadein( X_FADE)
+   end
+TGL_TOWLR3A:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_TOWLR2)
+TGL_TOWLR3B:
+   get(F,VAR_EVEPROG)
+   if(F,CE,4,TGL_TOWMEET)
+   set(B, $1D)
+   set(C, $0D)
+   goto(I_TAGEL)
+TGL_TOWMEET:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW3,      $05,$09)
+   song(SNG_PROPHECY)
+   face(0,UP)
+   ldude(4,NPC_KING,       $04,$07,UP,STAND)
+   camera($05,$07)
+   fadein( X_FADE)
+   goto(EVT_SCENE10)
+
+
+TGL_TOWUL2:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW1,      D,E)
+   cstep(TGL_TOWUL2A,      $02,$05)
+   cstep(TGL_TOWUL2B,      $06,$05)
+   fadein( X_FADE)
+   end
+TGL_TOWUL2A:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_HALLJOIN)
+TGL_TOWUL2B:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_TOWUL3)
+
+TGL_TOWUL3:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW2,      D,E)
+   cstep(TGL_TOWUL3A,      $02,$05)
+   cstep(TGL_TOWUL3B,      $06,$05)
+   fadein( X_FADE)
+   end
+TGL_TOWUL3A:
+   set(B, $0E)
+   set(C, $02)
+   goto(I_TAGEL)
+TGL_TOWUL3B:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_TOWUL2)
+
+
+TGL_TOWUR2:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW2,      D,E)
+   cstep(TGL_TOWUR2A,      $02,$05)
+   cstep(TGL_TOWUR2B,      $06,$05)
+   fadein( X_FADE)
+   end
+TGL_TOWUR2A:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_TOWUR3)
+TGL_TOWUR2B:
+   set(D, $1E)
+   set(E, $05)
+   goto(TGL_HALLJOIN)
+
+TGL_TOWUR3:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_TOW1,      D,E)
+   cstep(TGL_TOWUR3A,      $02,$05)
+   cstep(TGL_TOWUR3B,      $06,$05)
+   fadein( X_FADE)
+   end
+TGL_TOWUR3A:
+   set(D, $02)
+   set(E, $05)
+   goto(TGL_TOWUR2)
+TGL_TOWUR3B:
+   set(B, $1D)
+   set(C, $02)
+   goto(I_TAGEL)
+
+
+TGL_THRONA:
+   set(D, $0C)
+   set(E, $0E)
+   goto(TGL_HALLJOIN)
+TGL_THRONB:
+   set(D, $14)
+   set(E, $0E)
+   goto(TGL_HALLJOIN)
+TGL_THRONC:
+   set(B, $15)
+   set(C, $09)
+   goto(I_TAGEL)
+
+TGL_KING:
+   set(D, $10)
+   set(E, $0D)
+   goto(TGL_HALLJOIN)
+
+TGL_BASE1:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_BASE1,     $06,$05)
+   call(tgl_set_base1)
+   cstep(TGL_BASE1A,       $06,$05)
+   csearch(TGL_GOLEM,      $02,$05,S_ALL)
+
+   ldude(4,NPC_SOLDIER,    $08,$0b,LEFT,STAND)
+   ctalk(tgl_base1b,4)
+   ctres($7b,IT_HPLO,      $0a,$0a,$70,SFX_CHEST)
+   ctres($7c,IT_HPLO,      $0b,$0a,$70,SFX_CHEST)
+   ctres($7d,IT_HPLO,      $0c,$0a,$70,SFX_CHEST)
+
+   fadein( X_FADE)
+   end
+TGL_BASE1A:
+   set(D, $06)
+   set(E, $05)
+   goto(TGL_HALLJOIN)
+tgl_base1b:
+   say(TGL_DTXT12)
+   end
+
+TGL_BASE2:
+   fadeout(X_FADE)
+   lmap(MAP_TGL_BASE2,     D,E)
+   call(tgl_set_base2)
+   cstep(TGL_BASE2A,       $02,$04)
+   cstep(TGL_BASE2B,       $0E,$04)
+   csearch(TGL_GOLEM,      $01,$04,S_ALL)
+   csearch(TGL_GOLEM,      $0F,$04,S_ALL)
+   fadein( X_FADE)
+   end
+TGL_BASE2A:
+   set(D, $1A)
+   set(E, $05)
+   goto(TGL_HALLJOIN)
+TGL_BASE2B:
+   set(D, $07)
+   set(E, $05)
+   goto(TGL_BASE3)
+
+TGL_BASE3:
+   get(F,VAR_EVEPROG)
+   fadeout(X_FADE)
+   lmap(MAP_LAB,           D,E)
+   cstep(tgl_base3a,       $07,$05)
+   cvstep(tgl_base3b,      $11,$0A,3)
+   csearch(tgl_desk2,      $16,$08,S_ALL)
+   csearch(tgl_desk2,      $17,$08,S_ALL)
+   ctres($7e,IT_HPLO,       $12,$07,$3B,SFX_CHEST)
+   ctres($7f,IT_HPLO,       $14,$07,$3B,SFX_CHEST)
+   if(F,CL,2,lab_blank)
+   cif(F,CLE,8,lab_scene5)
+lab_blank:
+   fadein(X_FADE)
+   end
+   
+lab_scene5:
+   ldude(4,NPC_KRAIT,      $16,$09,UP,STAND)
+   ldude(5,NPC_GOLEM,      $15,$0A,DOWN,STAND)
+   ldude(6,NPC_GOLEM,      $17,$0A,DOWN,STAND)
+   ldude(7,NPC_GOLEM,      $15,$0C,DOWN,STAND)
+   ldude(8,NPC_GOLEM,      $17,$0C,DOWN,STAND)
+   ctalk(lab_krait,4)
+   ctalk(lab_g1,5)
+   ctalk(lab_g2,6)
+   ctalk(lab_g3,7)
+   ctalk(lab_g4,8)
+   end
+tgl_base3a:
+   set(D, $0E)
+   set(E, $04)
+   goto(TGL_BASE2)
+tgl_base3b:
+   get(F,VAR_EVEPROG)
+   if(F,CNE,2,RET)
+   align($11,$0B)
+   sync
+   face(0,RIGHT)
+   goto(EVT_SCENE5)
+lab_krait:
+   get(A,VAR_LAB)
+   if(A,CE,1,lab_krait2)
+   say(S5_ETXT12)
+   end
+lab_krait2:
+   say(S5_ETXT18)
+   end
+lab_g1:
+   sfx(SFX_GOLEM)
+   say(S5_ETXT13)
+   end
+lab_g2:
+   sfx(SFX_GOLEM)
+   say(S5_ETXT14)
+   end
+lab_g3:
+   sfx(SFX_GOLEM)
+   say(S5_ETXT15)
+   set(A,0)
+lab_g3_spinlp:
+   sfx(SFX_GOLEM)
+   face(7,LEFT)
+   sleep(6)
+   face(7,UP)
+   sleep(6)
+   face(7,RIGHT)
+   sleep(6)
+   face(7,DOWN)
+   sleep(6)
+   inc(A)
+   if(A,CE,2,lab_g3_spindone)
+   goto(lab_g3_spinlp)
+lab_g3_spindone:
+   sfx(SFX_LIGHTNING)
+   end
+lab_g4:
+   get(A,VAR_LAB)
+   if(A,CE,1,lab_g4_2)
+
+   sfx(SFX_GOLEM)
+   say(S5_ETXT16)
+   panspeed(2)
+   lockon(0)
+   sleep(36)
+   song_pause
+   bsong(SNG_FIGHT1)
+   battle(Special_LabGolem,0,0,0,0)
+   song_resume
+   fadein(X_FADE)
+   sleep(32)
+   say(S6_ETXT1)
+   walk(4,RIGHT,3)
+   sync
+   say(S6_ETXT2)
+   sleep(16)
+   say(S6_ETXT3)
+   sleep(16)
+   say(S6_ETXT4)
+   face(0,LEFT)
+   sleep(16)
+   say(S6_ETXT5)
+   sleep(16)
+   say(S6_ETXT6)
+   walk(4,UP,2)
+   sync
+   face(0,UP)
+   walk(4,RIGHT,2)
+   sync
+   face(4,UP)
+   sleep(30)
+   song(SNG_CASTLE)
+   put(1,VAR_LAB)
+   end
+lab_g4_2:
+   say(S5_ETXT17)
+   end
+
+TGL_GATE_G1:
+   get(F,VAR_EVEPROG)
+   if(F,CE,1,TGL_GATE_G1_1)
+   if(F,CE,4,TGL_GATE_G1_2) ; night
+   say(TGL_DTXT8)
+   end
+TGL_GATE_G1_1:
+   say(TGL_DTXT1)
+   end
+TGL_GATE_G1_2:
+   say(S9_ETXT1)
+   end
+
+TGL_G1:
+   get(F,VAR_EVEPROG)
+   if(F,CE,1,TGL_G1_1)
+   say(TGL_DTXT6)
+   end
+TGL_G1_1:
+   say(TGL_DTXT1)
+   end
+
+TGL_G2:
+   say(TGL_DTXT7)
+   end
+
+TGL_G3:
+   get(F,VAR_EVEPROG)
+   if(F,CE,1,TGL_G3_1)
+   say(TGL_DTXT9)
+   end
+TGL_G3_1:
+   say(TGL_DTXT1)
+   end
+
+TGL_G4:
+   get(F,VAR_EVEPROG)
+   if(F,CE,1,TGL_G4_1)
+   say(TGL_DTXT10)
+   end
+TGL_G4_1:
+   say(TGL_DTXT1)
+   end
+
+TGL_G5:
+   say(TGL_DTXT11)
+   end
+
+TGL_G6:
+   unframe(7)
+   say(TGL_DTXT13)
+   end
+
+TGL_TKING:
+   say(TGL_DTXT3)
+   end
+TGL_TADV:
+   say(TGL_DTXT4)
+   end
+
+TGL_GOLEM:
+   get(F,VAR_EVEPROG)
+   if(F,CE,1,TGL_GOLEM1)
+   sfx(SFX_GOLEM)
+   say(TGL_DTXT5)
+   end
+TGL_GOLEM1:
+   say(S3_ETXT1)
+   end
+
+SET_A1:
+   set(A,1)
+   end
+SET_A2:
+   set(A,2)
+   end
+SET_A3:
+   set(A,3)
+   end
+
+RET:
+   end
+
+LOCK:
+   goto(LOCK)
+
+
+SFX_TEST:
+   set(A,0)
+SFX_LOOP:
+   sleep(40)
+   sfx(A)
+   inc(A)
+   if(A,CG,23,SFX_DONE)
+   goto(SFX_LOOP)
+SFX_DONE:
+   end
+
+INNREST:
+   walk(0,RIGHT,2)
+   sync
+   walk(0,UP,2)
+   sync
+   walk(0,RIGHT,2)
+   sync
+   group
+   sync
+   call(INNSPLIT)
+
+   walk(0,LEFT,2)
+   sync
+   walk(0,DOWN,2)
+   sync
+   walk(0,LEFT,3)
+   sync
+   face(0,DOWN)
+   group
+   sync
+   end
+
+INNSPLIT:
+   lockoff
+   partyarr
+   detach
+   walk(0,UP,2)
+   walk(1,UP,2)
+   walk(2,DOWN,2)
+   walk(3,DOWN,2)
+   sync
+
+   call(innsplit_a)
+
+   walk(0,DOWN,2)
+   walk(1,DOWN,2)
+   walk(2,UP,2)
+   walk(3,UP,2)
+   sync
+   reform
+   lockon(0)
+   end
+
+INNSPLIT2:
+   lockoff
+   partyarr
+   detach
+   walk(0,UP,1)
+   walk(1,UP,1)
+   walk(2,DOWN,1)
+   walk(3,DOWN,1)
+   sync
+
+   call(innsplit_a)
+
+   walk(0,DOWN,1)
+   walk(1,DOWN,1)
+   walk(2,UP,1)
+   walk(3,UP,1)
+   sync
+   reform
+   lockon(0)
+   end
+
+innsplit_a:
+   walk(0,LEFT,1)
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   walk(3,RIGHT,1)
+   sync
+   sleep(15)
+   frame(0,CEL_TIRED)
+   frame(1,CEL_TIRED)
+   frame(2,CEL_TIRED)
+   frame(3,CEL_TIRED)
+   sleep(30)
+
+   ; DEMO ONLY
+   get(A,VAR_ATDEMO)
+   if(A,CNE,0,demo_next)
+
+   song_pause
+   fadeout(X_FADE)
+   healall
+   ; set again so revived chars show correctly
+   frame(0,CEL_TIRED)
+   frame(1,CEL_TIRED)
+   frame(2,CEL_TIRED)
+   frame(3,CEL_TIRED)
+
+   song(SNG_REST)
+   sleep(240)
+   sleep(60)
+   song_resume
+   fadein(X_FADE)
+   sleep(30)
+   frame(0,CEL_DOWN1)
+   frame(1,CEL_DOWN1)
+   frame(2,CEL_DOWN1)
+   frame(3,CEL_DOWN1)
+   sleep(15)
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   face(3,DOWN)
+   sleep(2)
+   walk(0,RIGHT,1)
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   walk(3,LEFT,1)
+   sync
+   end
+
+
+scenek:
+   partyarr
+   face(3,DOWN)
+   walk(0,DOWN,1)
+   walk(2,LEFT,1)
+   walk(1,RIGHT,1)
+   sync
+   face(0,UP)
+   face(2,DOWN)
+   face(1,DOWN)
+   sleep(16)
+   say(SK_ETXT1)
+   sleep(16)
+   say(SK_ETXT2)
+   sleep(16)
+   say(SK_ETXT3)
+   face(1,LEFT)
+   sleep(16)
+   say(SK_ETXT4)
+   sleep(16)
+   say(SK_ETXT5)
+   face(1,DOWN)
+   sleep(16)
+   say(SK_ETXT6)
+   face(3,RIGHT)
+   sleep(16)
+   say(SK_ETXT7)
+   face(2,RIGHT)
+   sleep(16)
+   say(SK_ETXT8)
+   sleep(16)
+   walk(0,UP,1)
+   walk(2,RIGHT,1)
+   walk(1,LEFT,1)
+   sync
+   partynor
+   face(0,DOWN)
+   reform
+   put(1,VAR_GRDREADY)
+   end
+
+burn_forest:
+   tile(78,62,$2c)
+   tile(79,62,$2a)
+   tile(80,62,$29)
+
+   tile(77,63,$2c)
+   tile(78,63,$62)
+   tile(79,63,$3c)
+   tile(80,63,$1d)
+   tile(81,63,$3d)
+
+   tile(77,64,$2b)
+   tile(78,64,$3c)
+   tile(79,64,$1d)
+   tile(80,64,$1d)
+   tile(81,64,$1d)
+   tile(82,64,$3d)
+
+   tile(77,65,$29)
+   tile(78,65,$1d)
+   tile(79,65,$1d)
+   tile(80,65,$1d)
+   tile(81,65,$1d)
+   tile(82,65,$3f)
+   tile(83,65,$20)
+
+   tile(78,66,$3e)
+   tile(79,66,$1d)
+   tile(80,66,$1d)
+   tile(81,66,$3f)
+   tile(82,66,$63)
+   end
+
+;;;;;;;;;;;;;;;;;;;
+   lmap(MAP_TGL_THRON,     $06,$09)
+   ldude(4,NPC_KING,       $07,$03, RIGHT,  STAND)    ; king
+   ldude(5,NPC_MAN2,       $08,$03,  LEFT,  STAND)    ; advisor
+   ldude(6,NPC_GOLEM,      $04,$07, RIGHT,  STAND)    ; golem
+   ldude(7,NPC_GOLEM,      $0A,$07,  LEFT,  STAND)    ; golem
+   frame(6,CEL_RIGHT1)
+   frame(7,CEL_LEFT1)
+   chstep(OVERWORLD,       $06,$0A,2)
+   get(A,VAR_EVEPROG)
+   if(A,CE,2,NO_EVT4)
+   chstep(EVT_SCENE4,      $06,$08,2)
+NO_EVT4:
+   end
+

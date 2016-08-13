@@ -1,0 +1,791 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+sew_enter1:
+   put(0,VAR_SEWWATER)
+   put(0,VAR_SEWHIT)
+   set(D,  4)
+   set(E, 18)
+   call(sew_part1_nf)
+   song(SNG_CAVE1)
+
+   ; if VAR_SEW1 == 0, run Scene 28
+   get(A,VAR_SEW1)
+   if(A,CE,1,RET)
+   put(1,VAR_SEW1)
+   goto(sew_scene28)
+
+sew_enter2:
+   put(0,VAR_SEWWATER)
+   put(0,VAR_SEWHIT)
+   set(D,  2)
+   set(E, 18)
+
+   set(G,X_ROLL)
+   fadeout(G)
+   goto(sew_part4_nf)
+
+
+sew_part1:
+   fadeout(X_FADE)
+sew_part1_nf:
+   lmap(MAP_SEW_P1, D,E)
+   zone(ZONE_SEW)
+
+   cstep(sew_part1a,   4, 18)
+   cstep(sew_part1b,   6,  4)
+   cstep(sew_part1c,  40,  6)
+
+   ctres($3b,IT_HPLo,   4,  5,$00,SFX_SEARCH)
+   ctres($3c,IT_LFLo,  19, 21,$3b,SFX_CHEST)
+   ctres($3d,IT_HPLo,  42, 10,$3b,SFX_CHEST)
+
+   fadein(X_FADE)
+   end
+sew_part1a:
+   get(A,VAR_SEW2)
+   if(A,CE,0,sew_bounceback)
+   fadeout(X_FADE)
+   face(0,DOWN)
+   lmap(MAP_TGL_KING,$0a,$03)
+   goto(tgl_halld_sew)
+sew_part1b:
+   set(D,$02)
+   set(E,$07)
+   goto(sew_inn)
+sew_part1c:
+   set(D,$02)
+   set(E,$05)
+   goto(sew_part2)
+
+
+sew_part2:
+   fadeout(X_FADE)
+   lmap(MAP_SEW_P2, D,E)
+   zone(ZONE_SEW)
+   call(sew_fix)
+
+   cstep(sew_part2a,   2,  6)
+   cstep(sew_part2b,  19,  2)
+
+   cstep(sew_hithi,    8,  4)
+   cstep(sew_hitlo,    8,  6)
+   cstep(sew_hithi,   17,  4)
+   cstep(sew_hitlo,   17,  6)
+
+   csearch(sew_garg,  13,  6, S_ALL)
+   ctres($3e,IT_HALo,119,  5,$3b,SFX_CHEST)
+
+   fadein(X_FADE)
+   end
+sew_part2a:
+   set(D, 40)
+   set(E,  6)
+   goto(sew_part1)
+sew_part2b:
+   set(D,  2)
+   set(E, 14)
+   goto(sew_part3)
+
+
+sew_part3:
+   fadeout(X_FADE)
+   lmap(MAP_SEW_P3, D,E)
+   zone(ZONE_SEW)
+   call(sew_fix)
+
+   cstep(sew_part3a,   2, 15)
+   cstep(sew_part3b,  16, 30)
+
+   cstep(sew_hithi,   13,  4)
+   cstep(sew_hitlo,   13,  6)
+   cstep(sew_hithi,   18,  4)
+   cstep(sew_hitlo,   18,  6)
+   cstep(sew_hithi,   22, 10)
+   cstep(sew_hitlo,   22, 12)
+   cstep(sew_hithi,   23, 24)
+   cstep(sew_hitlo,   23, 26)
+
+   csearch(sew_garg,   2,  6, S_ALL)
+   csearch(sew_garg,  10,  7, S_ALL)
+   csearch(sew_garg,  23,  3, S_ALL)
+   csearch(sew_garg,  11, 16, S_ALL)
+   csearch(sew_garg,  18, 17, S_ALL)
+
+   ctres($3f,IT_HChain,107, 21,$3b,SFX_CHEST)
+   ctres($40,IT_HPLo,123,  5,$3b,SFX_CHEST)
+
+   fadein(X_FADE)
+   end
+sew_part3a:
+   set(D, 19)
+   set(E,  2)
+   goto(sew_part2)
+sew_part3b:
+   set(D,  4)
+   set(E,  6)
+   goto(sew_part4)
+
+
+sew_part4:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+sew_part4_nf:
+   lmap(MAP_SEW_P4, D,E)
+   zone(ZONE_SEW)
+   call(sew_fix)
+
+   cstep(sew_part4a,   4,  6)
+   cstep(sew_part4b,   2, 19)
+
+   cstep(sew_hithi,   14,  4)
+   cstep(sew_hitlo,   14,  6)
+
+   cstep(sew_hithi,   20, 14)
+   cstep(sew_hitlo,   20, 16)
+
+   chstep(sew_boss,    1, 16, 3)
+
+   csearch(sew_garg,   4,  3, S_ALL)
+
+   ctres($41,IT_GIron,103, 16,$3b,SFX_CHEST)
+
+   fadein(G)
+   end
+sew_part4a:
+   set(D, 16)
+   set(E, 29)
+   goto(sew_part3)
+sew_part4b:
+   set(B, 78)
+   set(C, 76)
+   call(OVER_WARP)
+   get(A,VAR_SEW2)
+   if(A,CE,1,RET)
+   put(1,VAR_SEW2)
+   goto(sew_scene29)
+
+sew_boss:
+   get(A,VAR_SEW3)
+   if(A,CE,1,RET)
+   put(1,VAR_SEW3)
+
+   lockoff
+   align(2,15)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   face(2,DOWN)
+   walk(0,LEFT,1)
+   walk(1,RIGHT,1)
+   sync
+   face(0,RIGHT)
+   face(1,LEFT)
+   sleep(32)
+   face(2,LEFT)
+   sleep(16)
+   face(2,RIGHT)
+   sleep(16)
+   ldude(4,EN_RAGNOP, 2,10, DOWN,STAND)
+
+   face(2,DOWN)
+   sleep(16)
+   face(0,DOWN)
+   face(1,DOWN)
+   sleep(16)
+   say(SEW_STXT8)
+   panspeed(0)
+   lockon(4)
+   walk(4,DOWN,4)
+   sleep(16)
+   face(1,UP)
+   sleep(16)
+   say(SEW_STXT9)
+   sync
+
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special_BossRagnops, 0, 1, 0, 0)
+   del(4)
+   song_resume
+   setwolfp(2)
+   face(0,UP)
+   face(2,UP)
+   fadein(X_FADE)
+
+   sleep(16)
+
+   walk(0,RIGHT,1)
+   walk(1,LEFT,1)
+   sync
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   reform
+   lockon(0)
+   sleep(32)
+   panspeed(2)
+   end
+
+
+sew_garg:
+   say(SEW_STXT2)
+   get(A,VAR_SEWWATER)
+   if(A,CE,0,sew_lower)
+   goto(sew_raise)
+
+sew_lower:
+   set(A,1)
+sew_lower1:
+   quake
+   sleep(8)
+   mapstate(A)
+   sleep(8)
+   quake
+   sleep(16)
+   inc(A)
+   if(A,CL,4,sew_lower1)
+   hitstate(2)
+   put(1,VAR_SEWWATER)
+   end
+
+sew_raise:
+   set(A,1)
+   set(B,2)
+sew_raise1:
+   quake
+   sleep(8)
+   mapstate(B)
+   sleep(8)
+   quake
+   sleep(16)
+   inc(A)
+   dec(B)
+   if(A,CL,4,sew_raise1)
+   hitstate(0)
+   put(0,VAR_SEWWATER)
+   end
+
+sew_hitlo:
+   hitstate(4)
+   put(1,VAR_SEWHIT)
+   end
+sew_hithi:
+   put(0,VAR_SEWHIT)
+   get(A,VAR_SEWWATER)
+   if(A,CE,0,sew_hithi2)
+   hitstate(2)
+   end
+sew_hithi2:
+   hitstate(0)
+   end
+
+sew_fix:
+   get(A,VAR_SEWHIT)
+   if(A,CE,1,sew_fix1)
+   get(A,VAR_SEWWATER)
+   if(A,CE,0,RET)
+   mapstate(3)
+   hitstate(2)
+   end
+sew_fix1:
+   mapstate(3)
+   hitstate(4)
+   end
+
+sew_scene28:
+   walk(0,UP,3)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   lockoff
+
+   walk(0,RIGHT,1)
+   walk(1,LEFT,1)
+   walk(2,UP,1)
+   sync
+   face(0,LEFT)
+   face(1,RIGHT)
+   face(2,DOWN)
+   sleep(16)
+   frame(2,CEL_SIT1)
+
+   sleep(32)
+   say(S28_ETXT1)
+   sleep(16)
+   walk(1,RIGHT,1)
+   sync
+   sleep(8)
+   say(S28_ETXT2)
+   sleep(16)
+   say(S28_ETXT3)
+   sleep(16)
+   say(S28_ETXT4)
+   sleep(8)
+   frame(0,CEL_LEFT1)
+   walk(0,RIGHT,1)
+   walk(1,RIGHT,1)
+   sync
+   face(0,LEFT)
+   sleep(8)
+   say(S28_ETXT5)
+   sleep(16)
+   face(0,DOWN)
+   sleep(8)
+   say(S28_ETXT6)
+   sleep(16)
+   say(S28_ETXT7)
+   face(0,LEFT)
+   sleep(16)
+   say(S28_ETXT8)
+   sleep(16)
+   say(S28_ETXT9)
+   sleep(16)
+   say(S28_ETXT10)
+   face(1,DOWN)
+   sleep(16)
+   say(S28_ETXT11)
+   walk(0,UP,1)
+   sync
+   sleep(8)
+   say(S28_ETXT12)
+   sleep(16)
+   say(S28_ETXT13)
+   sleep(16)
+   say(S28_ETXT14)
+   face(1,UP)
+   sleep(16)
+   say(S28_ETXT15)
+   face(0,LEFT)
+   sleep(4)
+   face(0,DOWN)
+   sleep(16)
+   say(S28_ETXT16)
+   sleep(16)
+   say(S28_ETXT17)
+   face(1,RIGHT)
+   sleep(16)
+   say(S28_ETXT18)
+
+   face(2,DOWN)
+   sleep(32)
+   face(1,UP)
+   sleep(8)
+   say(S28_ETXT19)
+   frame(0,CEL_LOOK1)
+   sleep(16)
+   say(S28_ETXT20)
+   sleep(16)
+   face(2,RIGHT)
+   sleep(8)
+   face(2,DOWN)
+   sleep(8)
+   face(2,RIGHT)
+   sleep(8)
+   face(2,DOWN)
+   sleep(8)
+   say(S28_ETXT21)
+   face(0,LEFT)
+   sleep(32)
+   walk(0,LEFT,2)
+   walk(1,LEFT,1)
+   walk(2,DOWN,1)
+   sync
+   walk(0,DOWN,1)
+   sync
+   face(0,UP)
+   face(1,UP)
+   face(2,UP)
+   reform
+   lockon(0)
+   end
+
+sew_bounceback:
+   align(  4,17)
+   sync
+   group
+   sync
+   sleep(4)
+   say(SEW_STXT1)
+   end
+
+
+sew_note1:
+   say(SEW_STXT4)
+   say(SEW_STXT5)
+   end
+sew_note2:
+   say(SEW_STXT3)
+   say(SEW_STXT6)
+   end
+sew_note3:
+   say(SEW_STXT3)
+   say(SEW_STXT7)
+   end
+
+sew_inn:
+   fadeout(X_FADE)
+   lmap(MAP_SEW_INN, D,E)
+sew_innjoin:
+   chstep(sew_inn_a,  2,8,1)
+   cvstep(sew_innroom,7,4,2)
+
+   ctres($42,IT_SPLo,    6,  3,$00,SFX_SEARCH)
+   ctres($43,IT_CSaber,  1,  2,$3b,SFX_CHEST)
+
+   csearch(sew_note1,    5,  3, S_ALL)
+   csearch(sew_note2,    3,  2, S_ALL)
+   csearch(sew_note3,    6,  6, S_ALL)
+
+   fadein(X_FADE)
+   end
+sew_inn_a:
+   set(D,  6)
+   set(E,  4)
+   goto(sew_part1)
+sew_innroom:
+   align($07,$04)
+   sync
+   face(0,RIGHT)
+   group
+   sync
+
+   yesno(A)
+   say(HOL_ETXT1)
+   if(A,CE,0,sew_innno)
+   walk(0,RIGHT,2)
+   sync
+   group
+   sync
+   call(INNSPLIT)
+   walk(0,LEFT,7)
+   sync
+   walk(0,DOWN,1)
+   sync
+   group
+   sync
+   goto(sew_innsave)
+sew_innno:
+   walk(0,LEFT,1)
+   sync
+   group
+   sync
+   goto(sew_innsave)
+
+sew_innsave:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,sew_innns)
+   set(A,SVL_SEW)
+   savemenu
+sew_innns:
+   end
+sew_innload:
+   lmap(MAP_SEW_INN,$02,$05)
+   song(SNG_CAVE1)
+   goto(sew_innjoin)
+
+
+sew_scene29:
+   walk(0,DOWN,1)
+   sync
+   sleep(16)
+   face(0,LEFT)
+   sleep(32)
+   face(0,RIGHT)
+   sleep(32)
+   face(0,DOWN)
+   sleep(32)
+   walk(0,RIGHT,2)
+   sync
+   walk(0,UP,1)
+   sync
+   walk(0,RIGHT,1)
+   sync
+   fadeout(X_FADE)
+   face(0,UP)
+   sleep(16)
+
+   lmap(MAP_SHIP, 5,18)
+   lockoff
+   partyarr
+   detach
+   fadein(X_FADE)
+
+   sleep(16)
+
+   walk(0,UP,1)
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   sync
+   face(0,DOWN)
+   face(1,RIGHT)
+   face(2,LEFT)
+
+   sleep(32)
+   say(S29_ETXT1)
+   sleep(16)
+   fadeout(X_FADE)
+
+   lmap(MAP_OVERWORLD,  83,76)
+   lockoff
+   del(0)
+   del(1)
+   del(2)
+   fadein(X_FADE)
+   ldude(1,NPC_BOAT,    89,76,LEFT,STAND)
+   walk(1,LEFT,7)
+   sync
+   fadeout(X_FADE)
+
+   lmap(MAP_SHIP, 21,14)
+   lockoff
+   partyarr
+   detach
+   warp(1,20,15,UP)
+   warp(2,22,15,UP)
+   face(0,UP)
+   ldude(4,CH_RYAN,     21,7,DOWN,STAND)
+   fadein(X_FADE)
+
+   sleep(32)
+   pan(21,12)
+   walk(4,DOWN,4)
+   sync
+   sleep(8)
+   say(S29_ETXT2)
+   pan(21,15)
+   sleep(16)
+   walk(0,UP,1)
+   sync
+   say(S29_ETXT3)
+   walk(4,DOWN,1)
+   sync
+   sleep(16)
+   say(S29_ETXT4)
+   walk(2,UP,1)
+   sync
+   sleep(16)
+   say(S29_ETXT5)
+   face(4,RIGHT)
+   sleep(16)
+   say(S29_ETXT6)
+   sleep(16)
+   say(S29_ETXT7)
+   face(4,DOWN)
+   sleep(16)
+   say(S29_ETXT8)
+   face(4,RIGHT)
+   sleep(16)
+   say(S29_ETXT9)
+   sleep(16)
+   face(4,UP)
+   sleep(4)
+   walk(4,UP,1)
+   sync
+   say(S29_ETXT10)
+   face(4,DOWN)
+   sleep(16)
+   say(S29_ETXT11)
+   walk(4,UP,5)
+   sleep(16)
+   face(0,DOWN)
+   sleep(9)
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   sleep(9)
+   walk(0,UP,6)
+   walk(2,UP,6)
+   walk(1,UP,6)
+   sleep(8)
+   lockon(0)
+   sync
+   walk(4,RIGHT,2)
+   sync
+   face(4,LEFT)
+   walk(0,UP,2)
+   walk(1,UP,2)
+   walk(2,UP,2)
+   sync
+   walk(2,LEFT,1)
+   sync
+   face(0,RIGHT)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   sleep(16)
+   walk(4,RIGHT,4)
+   sync
+   sleep(16)
+   face(0,DOWN)
+   face(1,UP)
+   face(2,RIGHT)
+   sleep(32)
+   fadeout(X_FADE)
+
+   lmap(MAP_OVERWORLD,  82,76)
+   lockoff
+   del(0)
+   del(1)
+   del(2)
+   ldude(1,NPC_BOAT,    82,76,LEFT,STAND)
+   lockon(1)
+   fadein(X_FADE)
+
+   sleep(16)
+;   walk(1,RIGHT,6)
+;   sync
+;   fadeout(X_FADE)
+;   song_off
+;   end
+
+   walk(1,RIGHT,22)
+   sync
+   walk(1,DOWN,27)
+   sync
+   sleep(32)
+   fadeout(X_FADE)
+
+   lmap(MAP_SHIP, 53,6)
+   lockoff
+   partyarr
+   detach
+   warp(0,53,4,UP)
+   warp(2,50,6,UP)
+   frame(2,CEL_ASLEEP)
+   warp(1,51,8,DOWN)
+   ldude(4,CH_RYAN,     59,7,DOWN,STAND)
+   fadein(X_FADE)
+
+   sleep(32)
+   walk(4,LEFT,4)
+   sync
+   sleep(32)
+   say(S30_ETXT1)
+
+   face(4,DOWN)
+   sleep(8)
+   face(4,LEFT)
+   sleep(8)
+   face(4,DOWN)
+   sleep(8)
+   face(4,LEFT)
+   sleep(8)
+   face(4,DOWN)
+   face(0,DOWN)
+   face(1,UP)
+   frame(2,CEL_LOOK1)
+   sleep(16)
+   face(2,DOWN)
+   sleep(16)
+   face(2,RIGHT)
+   sleep(32)
+
+   say(S30_ETXT2)
+   face(4,UP)
+   sleep(16)
+   say(S30_ETXT3)
+
+   face(4,LEFT)
+   sleep(8)
+   face(4,DOWN)
+   sleep(8)
+   face(4,LEFT)
+   sleep(8)
+   face(4,DOWN)
+   sleep(16)
+
+   walk(1,RIGHT,2)
+   walk(2,RIGHT,3)
+   sleep(18)
+   walk(1,DOWN,9)
+   sleep(9)
+   walk(0,DOWN,7)
+   walk(2,DOWN,10)
+   sleep(18)
+   lockon(0)
+   sync
+   walk(4,LEFT,2)
+   sync
+   face(4,DOWN)
+   sleep(16)
+   face(0,UP)
+   sleep(16)
+   say(S30_ETXT4)
+   walk(4,RIGHT,7)
+   sleep(18)
+   walk(1,RIGHT,1)
+   walk(2,DOWN,1)
+   walk(0,DOWN,4)
+   sleep(9)
+   face(1,UP)
+   sync
+   walk(2,LEFT,1)
+   walk(0,DOWN,2)
+   sleep(9)
+   face(2,RIGHT)
+   face(1,LEFT)
+   sync
+   lockoff
+
+   say(S30_ETXT5)
+   sleep(16)
+   say(S30_ETXT6)
+   face(2,DOWN)
+   sleep(16)
+   say(S30_ETXT7)
+   face(0,RIGHT)
+   sleep(16)
+   say(S30_ETXT8)
+   face(2,RIGHT)
+   sleep(16)
+   face(0,DOWN)
+
+   sleep(32)
+   face(0,LEFT)
+   sleep(16)
+   face(0,RIGHT)
+   sleep(16)
+   face(0,DOWN)
+   sleep(32)
+   walk(0,DOWN,6)
+   sleep(9)
+   face(1,DOWN)
+   face(2,DOWN)
+   sync
+   sleep(32)
+   face(1,LEFT)
+   face(2,RIGHT)
+   sleep(16)
+   walk(2,DOWN,5)
+   walk(1,DOWN,5)
+   sync
+   reform
+   healall
+   tgold(0)
+
+   set(B,104)
+   set(C,104)
+   lockon(0)
+
+   call(OVER_WARP_NF)
+   ldude(4,NPC_BOAT,    104,103,DOWN,STAND)
+   fadein(X_ROLL)
+   walk(4,UP,10)
+   control(1)
+   sync
+   del(4)
+   end
+

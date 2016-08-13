@@ -1,0 +1,862 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_DUR:
+   call(MAPPOS_SAVE_R)
+   ; exit to the bottom always
+   get(A,VAR_WORLDX)
+   sub(A,1)
+   put(A,VAR_WORLDX)
+
+   get(A,VAR_DURTOP)
+   cif(A,CE,0,dur_frombottom)
+   cif(A,CE,1,dur_fromtop)
+
+   get(A,VAR_RET_DUR)
+   cif(A,CG,0,l_dur2)
+   get(A,VAR_RET_DUR)
+   cif(A,CE,0,L_DUR)
+
+   fadein(X_ROLL)
+   put(0,VAR_DURTOP)
+   end
+
+dur_frombottom:
+   face(0,UP)
+   set(B,$10)
+   set(C,$1b)
+   end
+dur_fromtop:
+   face(0,DOWN)
+   set(B,$10)
+   set(C,$05)
+   end
+
+I_DUR:
+   fadeout(X_FADE)
+   get(A,VAR_RET_DUR)
+   cif(A,CG,0,l_dur2)
+   get(A,VAR_RET_DUR)
+   cif(A,CE,0,L_DUR)
+   fadein(X_FADE)
+   end
+
+L_DUR:
+   lmap(MAP_DUR,           B,C)
+   song(SNG_ALUTHA)
+
+   chstep(OVERWORLD,    $00,$1c,$1c)
+   chstep(dur_topexit,  $0f,$02,$03)
+
+   cstep(dur_part1a,      5,  7)
+   chstep(dur_capture,    3, 17,$06)
+
+   get(A,VAR_DUR1)
+   cif(A,CE,1,dur_guards)
+
+   get(A,VAR_DURBLOCK)
+   cif(A,CE,1,dur_blockguard)
+
+   ldude(8,NPC_SOLDIER,   2, 22, DOWN, WALK)
+   ldude(9,NPC_SOLDIER,  25,  2, DOWN, WALK)
+   call(dur_locktreasury)
+
+   get(A,VAR_HOL1)
+   cif(A,CE,0,dur_frontguard)
+
+   call(dur_backguard)
+   end
+dur_part1a:
+   set(D, 10)
+   set(E, 10)
+   goto(dur_part2)
+dur_topexit:
+   get(A,VAR_WORLDX)
+   add(A,2)
+   put(A,VAR_WORLDX)
+   put(1,VAR_DURTOP)
+   goto(OVERWORLD)
+dur_part1b:
+   set(D,$03)
+   set(E,$07)
+   goto(dur_part5)
+dur_part1c:
+   set(D,$0d)
+   set(E,$07)
+   goto(dur_part5)
+dur_part1d:
+   set(D,$02)
+   set(E,$05)
+   goto(dur_part5)
+dur_part1e:
+   set(D,$0e)
+   set(E,$05)
+   goto(dur_part5)
+
+dur_unlock:
+   // open the doors
+   tile($0d,$10,$16)
+   tile($0d,$11,$0b)
+   tile($12,$10,$16)
+   tile($12,$11,$0b)
+   end
+
+
+l_dur2:
+   lmap(MAP_DUR,           B,C)
+   song(SNG_ALUTHA)
+   chstep(OVERWORLD,    $00,$1c,$1c)
+   chstep(dur_topexit,  $0f,$02,$03)
+   chstep(dur_scene42,  $0f,$15,$03)
+
+   cstep(dur_part1b, $0d,$11)
+   cstep(dur_part1c, $12,$11)
+   cstep(dur_part1d, $0c,$0b)
+   cstep(dur_part1e, $13,$0b)
+
+   call(dur_unlock)
+
+   ldude( 4,NPC_DEAD,   $0d,$1b, DOWN,STAND)
+   frame( 4,2)
+   ctalk(dur_dead,4)
+   ldude( 5,NPC_DEAD,   $0e,$13, DOWN,STAND)
+   frame( 5,2)
+   ctalk(dur_dead,5)
+   ldude( 6,NPC_DEAD,   $07,$0f, DOWN,STAND)
+   frame( 6,2)
+   ctalk(dur_dead,6)
+   ldude( 7,NPC_DEAD,   $05,$08, DOWN,STAND)
+   frame( 7,2)
+   ctalk(dur_dead,7)
+   ldude( 8,NPC_DEAD,   $11,$06, DOWN,STAND)
+   frame( 8,2)
+   ctalk(dur_dead,8)
+   ldude( 9,NPC_DEAD,   $03,$15, DOWN,STAND)
+   frame( 9,2)
+   ctalk(dur_dead,9)
+   ldude(10,NPC_DEAD,   $1a,$03, DOWN,STAND)
+   frame(10,2)
+   ctalk(dur_dead,10)
+   end
+dur_dead:
+   say(MSG_DEAD)
+   end
+
+dur_guards:
+   lguy(NPC_SOLDIER,     19, 19, DUR_DTXT1)
+   lguy(NPC_SOLDIER,      4, 12, DUR_DTXT2)
+   lguy(NPC_SOLDIER,     21,  8, DUR_DTXT3)
+   end
+
+dur_backguard:
+   ldude(10,NPC_SOLDIER,     16, 5, DOWN,STAND)
+   ctalk(dur_nopass1,10)
+   end
+
+dur_frontguard:
+   ldude(11,NPC_SOLDIER,     16,26, DOWN,STAND)
+   ctalk(dur_nopass2,11)
+   end
+
+dur_nopass1:
+   align(16,6)
+   face(10,DOWN)
+   goto(dur_nopass)
+dur_nopass2:
+   align(16,27)
+   face(11,DOWN)
+   goto(dur_nopass)
+
+dur_nopass:
+   sync
+   group
+   sync
+   partyarr
+   face(0,UP)
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   walk(3,DOWN,1)
+   sync
+   face(1,UP)
+   face(2,UP)
+   face(3,UP)
+
+   say(DUR_STXT1)
+   sleep(16)
+   say(DUR_STXT2)
+   sleep(16)
+   say(DUR_STXT3)
+
+   face(0,DOWN)
+   sleep(8)
+   say(DUR_STXT4)
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   walk(3,UP,1)
+   sync
+   reform
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   face(3,DOWN)
+   end
+
+dur_blockguard:
+   ldude(11,NPC_SOLDIER,16,26,UP,STAND)
+   ctalk(dur_blocked,11)
+   end
+
+dur_part2:
+   fadeout(X_FADE)
+   lmap(MAP_DUR_P1,         D, E)
+
+   cstep(dur_part2a,       10,11)
+   cstep(dur_part2b,       10, 8)
+   ldude(4, NPC_DEAD,       1, 3, DOWN, STAND)
+   frame(4, 3)
+   ctalk(dur_guardsleep, 4)
+   lguy(NPC_SOLDIER,       18, 7,DUR_DTXT4)
+
+   fadein(X_FADE)
+   end
+dur_part2a:
+   set(B,  5)
+   set(C,  7)
+   goto(I_DUR)
+dur_part2b:
+   set(D,  5)
+   set(E,  8)
+   goto(dur_part3)
+
+dur_guardsleep:
+   say(DUR_DTXT5)
+   end
+
+
+dur_part3:
+   fadeout(X_FADE)
+   lmap(MAP_DUR_P2,         D, E)
+
+   cstep(dur_part3a,        5, 9)
+   cstep(dur_part3b,        6, 4)
+   lguy(NPC_SOLDIER,        4, 5,DUR_DTXT6)
+
+   fadein(X_FADE)
+   end
+dur_part3a:
+   set(D, 10)
+   set(E,  8)
+   goto(dur_part2)
+dur_part3b:
+   set(D,  6)
+   set(E,  4)
+   goto(dur_part4)
+
+
+dur_part4:
+   fadeout(X_FADE)
+   lmap(MAP_DUR_P3,         D, E)
+
+   cstep(dur_part4a,        6, 4)
+   cstep(dur_part4b,        4, 6)
+   lguy(NPC_SOLDIER,        7, 6,DUR_DTXT7)
+
+   fadein(X_FADE)
+   end
+dur_part4a:
+   set(D,  6)
+   set(E,  4)
+   goto(dur_part3)
+dur_part4b:
+   goto(dur_scene25b)
+
+
+dur_locktreasury:
+   tile($0d,$10,$16)
+   tile($0d,$11,$0b)
+   tile($12,$10,$16)
+   tile($12,$11,$0b)
+   end
+
+dur_part5:
+   fadeout(X_FADE)
+   lmap(MAP_DUR_P5,   D,  E)
+
+   cstep(dur_part5a,$03,$08)
+   cstep(dur_part5b,$0d,$08)
+   cstep(dur_part5c,$02,$05)
+   cstep(dur_part5d,$0e,$05)
+
+   ctres($29,IT_HPMd,$04,$04,$70,SFX_CHEST)
+   ctres($2a,IT_HPMd,$05,$04,$70,SFX_CHEST)
+   ctres($2b,IT_HPlate,$06,$04,$70,SFX_CHEST)
+   ctres($2c,IT_HPMd,$07,$04,$70,SFX_CHEST)
+   ctres($2d,IT_HPMd,$08,$04,$70,SFX_CHEST)
+   ctres($2e,IT_SPMd,$09,$04,$70,SFX_CHEST)
+   ctres($2f,IT_SPMd,$0a,$04,$70,SFX_CHEST)
+   ctres($30,IT_SPMd,$0b,$04,$70,SFX_CHEST)
+   ctres($31,IT_LFLo,$0c,$04,$70,SFX_CHEST)
+
+   ctres($32,IT_LFMd,$04,$05,$70,SFX_CHEST)
+   ctres($33,IT_HPMd,$05,$05,$70,SFX_CHEST)
+   ctres($34,IT_HPMd,$06,$05,$70,SFX_CHEST)
+   ctres($35,IT_HPMd,$07,$05,$70,SFX_CHEST)
+   ctres($36,IT_HPMd,$08,$05,$70,SFX_CHEST)
+   ctres($37,IT_ECudgel,$09,$05,$70,SFX_CHEST)
+   ctres($38,IT_SPMd,$0a,$05,$70,SFX_CHEST)
+   ctres($39,IT_HPMd,$0b,$05,$70,SFX_CHEST)
+   ctres($3a,IT_HPMd,$0c,$05,$70,SFX_CHEST)
+
+   fadein(X_FADE)
+   end
+dur_part5a:
+   set(B,$0d)
+   set(C,$11)
+   goto(I_DUR)
+dur_part5b:
+   set(B,$12)
+   set(C,$11)
+   goto(I_DUR)
+dur_part5c:
+   set(B,$0c)
+   set(C,$0b)
+   goto(I_DUR)
+dur_part5d:
+   set(B,$13)
+   set(C,$0b)
+   goto(I_DUR)
+
+//  4,4 -> 9 across
+//  4,5 -> 9 across
+
+
+dur_capture:
+   get(A,VAR_DUR1)
+   if(A,CE,1,RET)
+   put(1,VAR_DUR1)
+   goto(dur_scene25)
+
+dur_scene25:
+   say(S25_ETXT1)
+   face(0,LEFT)
+   sleep(16)
+   face(0,RIGHT)
+   sleep(16)
+   face(0,UP)
+   sleep(16)
+   align(6,17)
+   sync
+   face(0,UP)
+   group
+   sync
+   partyarr
+   detach
+   sleep(2)
+   lockoff
+
+   ldude( 4,NPC_SOLDIER,   5,12,DOWN,STAND)
+   ldude( 5,NPC_SOLDIER,   7,12,DOWN,STAND)
+   ldude( 6,CH_ROLAND,     6,12,DOWN,STAND)
+   walk( 4,DOWN,3)
+   walk( 5,DOWN,3)
+
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   sleep(9)
+   face(1,UP)
+   face(2,UP)
+   song(SNG_FIGHT1)
+   sync
+
+   sleep(32)
+   say(S25_ETXT2)
+   face(4,UP)
+   face(5,UP)
+
+   sleep(32)
+   walk(4,UP,1)
+   walk(5,UP,1)
+   walk(6,DOWN,3)
+   sleep(9)
+   face(4,DOWN)
+   face(5,DOWN)
+   sync
+   sleep(16)
+   face(6,LEFT)
+   sleep(4)
+   face(6,UP)
+   sleep(16)
+   say(S25_ETXT3)
+   sleep(16)
+   walk(4,UP,3)
+   walk(5,UP,3)
+   face(6,LEFT)
+   sleep(4)
+   face(6,DOWN)
+   sync
+   del(4)
+   del(5)
+
+   say(S25_ETXT4)
+   walk(0,UP,1)
+   sync
+   sfx(SFX_SWORD)
+   frame(0,CEL_UP1)
+   walk(0,DOWN,1)
+   sync
+   face(0,UP)
+   sleep(16)
+   say(S25_ETXT5)
+
+   sleep(16)
+   say(S25_ETXT6)
+   sleep(16)
+   say(S25_ETXT7)
+   sleep(16)
+   say(S25_ETXT8)
+   face(6,LEFT)
+   sleep(16)
+   say(S25_ETXT9)
+   face(6,DOWN)
+   sleep(4)
+   face(6,RIGHT)
+   sleep(16)
+   say(S25_ETXT10)
+   face(6,DOWN)
+   sleep(32)
+   say(S25_ETXT11)
+   face(0,RIGHT)
+   sleep(4)
+   face(0,DOWN)
+   sleep(16)
+   say(S25_ETXT12)
+   sleep(16)
+   say(S25_ETXT13)
+   sleep(16)
+   say(S25_ETXT14)
+   face(0,UP)
+   sleep(16)
+   say(S25_ETXT15)
+   face(6,LEFT)
+   sleep(4)
+   face(6,UP)
+   sleep(16)
+   say(S25_ETXT16)
+   sleep(32)
+   walk(0,UP,1)
+   sync
+   sleep(16)
+   say(S25_ETXT17)
+   face(6,RIGHT)
+   sleep(4)
+   face(6,DOWN)
+   sleep(16)
+   say(S25_ETXT18)
+
+   ; remove elya and victor
+   healall
+   partyset(1,0)
+   partyset(2,0)
+
+   ; roland fight
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special_Duel,0,0,0,0)
+   song_resume
+   frame(0,CEL_SIT1)
+   del(1)
+   del(2)
+   ldude( 4,CH_ELYA,       7,17,UP,STAND)
+   ldude( 5,CH_VICTORWOLF, 5,17,UP,STAND)
+   ctalk(dur_elya, 4)
+   ctalk(dur_victor, 5)
+   call(dur_blockguard)
+   lockon(0)
+   sleep(16)
+   fadein(X_FADE)
+
+   sleep(32)
+   say(S25_ETXT19)
+   sleep(16)
+   say(S25_ETXT20)
+   sleep(16)
+   say(S25_ETXT21)
+   sleep(32)
+   frame(0,CEL_LOOK1)
+   sleep(32)
+   face(0,DOWN)
+   sleep(32)
+   face(0,UP)
+   sleep(32)
+   say(S25_ETXT22)
+   walk(6,UP,4)
+   sync
+   del(6)
+
+   put(1,VAR_DURBLOCK)
+   end
+
+dur_elya:
+   say(DUR_STXT5)
+   end
+dur_victor:
+   say(DUR_STXT6)
+   end
+dur_blocked:
+   say(DUR_STXT1)
+   end
+
+dur_scene25b:
+   fadeout(X_FADE)
+   lmap(MAP_DUR_P4, 6,0)
+
+   panspeed(0)
+   lockoff
+   warp(0,5,9,UP)
+   ldude( 4,CH_ROLAND,     5, 7,DOWN,STAND)
+   ldude( 5,NPC_SOLDIER,   7, 7,DOWN,STAND)
+
+   ; offscreen
+   ldude( 7,NPC_SOLDIER,   5,14,DOWN,STAND)
+   ldude( 8,NPC_SOLDIER,   7,14,DOWN,STAND)
+   ldude( 9,NPC_MAN2,      6,14,DOWN,STAND)
+   fadein(X_FADE)
+
+   sleep(96)
+   pan(6,9)
+
+   sleep(96)
+   face(4,RIGHT)
+   sleep(4)
+   face(4,UP)
+   sleep(32)
+   say(S25_ETXT23)
+   sleep(16)
+   say(S25_ETXT24)
+   sleep(16)
+   say(S25_ETXT25)
+
+   face(4,RIGHT)
+   sleep(4)
+   face(4,DOWN)
+   sleep(16)
+   say(S25_ETXT26)
+   sleep(32)
+   face(0,DOWN)
+
+   walk(7,UP,3)
+   walk(8,UP,3)
+   walk(9,UP,3)
+   sync
+   walk(0,LEFT,1)
+   walk(7,UP,3)
+   walk(8,UP,3)
+   walk(9,UP,3)
+   sleep(9)
+   face(0,RIGHT)
+   sync
+   face(0,UP)
+
+   sleep(16)
+   face(7,RIGHT)
+   face(8,LEFT)
+   sleep(16)
+   frame(9,CEL_UP1)
+   walk(7,RIGHT,1)
+   walk(9,UP,1)
+   sync
+   walk(7,UP,1)
+   walk(9,UP,1)
+   sync
+   face(9,DOWN)
+   sleep(32)
+   walk(5,LEFT,1)
+   walk(7,DOWN,1)
+   sync
+   face(5,UP)
+   face(7,UP)
+   face(8,UP)
+   face(4,RIGHT)
+   sleep(32)
+
+demo_cannon:
+   face(7,LEFT)
+   face(8,LEFT)
+   sleep(32)
+   frame(4,CEL_HRAISE)
+   sleep(32)
+   face(4,DOWN)
+   walk(7,DOWN,6)
+   walk(8,DOWN,6)
+   sleep(9)
+   walk(5,RIGHT,1)
+   sleep(9)
+   face(5,DOWN)
+   sleep(32)
+   pan(6,7)
+   walk(0,UP,2)
+   sync
+   face(0,RIGHT)
+   face(4,LEFT)
+   sleep(32)
+   face(4,RIGHT)
+   face(5,LEFT)
+   sleep(32)
+   say(S25_ETXT27)
+   face(4,UP)
+   face(5,UP)
+   sleep(16)
+
+   sfx(SFX_ENGULF)
+   ldude( 9,NPC_DEAD,      6, 6,DOWN,STAND)
+   frame( 9,5)
+   sleep(16)
+   sfx(SFX_LAND)
+   frame( 9,4)
+   sleep(16)
+
+   sfx(SFX_ENGULF)
+   quake
+   sleep(16)
+   ldude(10,NPC_FIRE2,      6, 5,DOWN,STAND)
+   anim(10)
+   ;frame(10,CEL_DOWN1)
+   walk(10,UP,4)
+   quake
+   sync
+   del(10)
+   panspeed(2)
+   pan(6,0)
+   sleep(2)
+
+   fadeout(X_FADE)
+   sleep(32)
+
+   lmap(MAP_OVERWORLD, 95,26) //102,22
+   lockoff
+   del(0)
+   fadein(X_FADE)
+   sleep(32)
+
+   sfx(SFX_ENGULF)
+   ldude(1,NPC_FIRE2,    95,26,DOWN,STAND)
+   ;frame(1,CEL_DOWN1)
+   anim(1)
+   set(A,0)
+   set(B,0)
+dur_zloop:
+   setz(1,A)
+   ;frame(1,B)
+   add(A,2)
+   sleep(2)
+   call(dur_invb)
+   if(A,CL,80,dur_zloop)
+   del(1)
+   sleep(32)
+   panspeed(1)
+   pan(80,64)
+   sleep(160)
+
+   sfx(SFX_ENGULF)
+   ldude(1,NPC_FIRE2,     80,58,DOWN,STAND)
+   anim(1)
+   walk(1,DOWN,6)
+   sync
+   lockoff
+   quake
+   sleep(16)
+   del(1)
+   panspeed(2)
+
+   // goes here
+   set(A,0)
+dur_loop1:
+   call(dur_explode)
+   inc(A)
+   sleep(8)
+   if(A,CL,10,dur_loop1)
+
+   quake
+
+   ; DEMO ONLY
+   get(A,VAR_ATDEMO)
+   if(A,CNE,0,demo_next)
+
+   fadeout(X_FADEWHITE)
+   sleep(16)
+   call(burn_forest)
+   del(0)
+   del(1)
+   del(2)
+   del(3)
+   del(4)
+   
+   fadein(X_FADEWHITE)
+   sleep(100)
+   
+   fadeout(X_FADE)
+   lmap(MAP_DUR_P4, 6,7)
+   lockoff
+   warp(0,4,7,UP)
+   ldude( 4,CH_ROLAND,     5, 7,UP,STAND)
+   ldude( 5,NPC_SOLDIER,   7, 7,UP,STAND)
+   fadein(X_FADE)
+
+   sleep(32)
+   face(0,RIGHT)
+   face(4,LEFT)
+   sleep(16)
+   say(S25_ETXT28)
+   sleep(64)
+   fadeout(X_FADE)
+
+   put(1,VAR_BURNED)
+
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   sleep(64)
+   goto(tgl_scene26)
+
+dur_invb:
+   if(B,CE,0,dur_setb1)
+   set(B,0)
+   end
+dur_setb1:
+   set(B,1)
+   end
+
+
+dur_scene42:
+   get(A,VAR_RET_DUR)
+   if(A,CE,2,RET)
+
+   align($10,$14)
+   sync
+   group
+   sync
+   partyarr
+   detach
+
+   walk(3,LEFT,1)
+   walk(2,RIGHT,1)
+   walk(1,UP,1)
+   sync
+   face(2,LEFT)
+   face(3,LEFT)
+   face(0,LEFT)
+   walk(1,LEFT,1)
+   sync
+   sleep(16)
+   say(S42_ETXT1)
+   sleep(16)
+   face(3,UP)
+   sleep(16)
+   say(S42_ETXT2)
+   sleep(16)
+   face(1,DOWN)
+   sleep(32)
+   face(1,LEFT)
+   sleep(32)
+
+   walk(3,UP,1)
+   walk(0,LEFT,1)
+   walk(2,UP,1)
+   sync
+   walk(0,UP,1)
+   walk(2,LEFT,2)
+   sync
+   partynor
+   face(0,LEFT)
+   reform
+
+   put(2,VAR_RET_DUR)
+   end
+
+
+dur_explode:
+   if(A,CE,0,fire_frame1)
+   if(A,CE,1,fire_frame2)
+   if(A,CE,2,fire_frame3)
+   if(A,CE,3,fire_frame4)
+   if(A,CE,4,fire_frame5)
+   if(A,CE,5,fire_frame6)
+   if(A,CE,6,fire_frame7)
+   if(A,CE,7,fire_frame8)
+   if(A,CE,8,fire_frame9)
+   if(A,CE,9,fire_frame10)
+   end
+fire_frame1:
+   ldude(0,NPC_FIRE4,     80,64,DOWN,STAND)
+   frame(0,0)
+   end
+fire_frame2:
+   frame(0,1)
+   end
+fire_frame3:
+   del(0)
+   ldude(1,NPC_FIRE5,     80,64,DOWN,STAND)
+   frame(0,0)
+   end
+fire_frame4:
+   frame(0,1)
+   end
+fire_frame5:
+   ldude(0,NPC_FIRE4,     79,64,DOWN,STAND)
+   frame(0,2)
+   ldude(1,NPC_FIRE5,     80,64,DOWN,STAND)
+   frame(1,2)
+   ldude(2,NPC_FIRE6,     81,64,DOWN,STAND)
+   frame(2,2)
+   ldude(3,NPC_FIRE7,     80,64,DOWN,STAND)
+   warp2(3,159,128,DOWN)
+   setz(3,16)
+   frame(3,2)
+   ldude(4,NPC_FIRE8,     80,64,DOWN,STAND)
+   warp2(4,161,128,DOWN)
+   setz(4,16)
+   frame(4,2)
+   end
+fire_frame6:
+   frame(0,3)
+   frame(1,3)
+   frame(2,3)
+   frame(3,3)
+   frame(4,3)
+   end
+fire_frame7:
+   frame(0,4)
+   frame(1,4)
+   frame(2,4)
+   frame(3,4)
+   frame(4,4)
+   end
+fire_frame8:
+   frame(0,5)
+   frame(1,5)
+   frame(2,5)
+   frame(3,5)
+   frame(4,5)
+   end
+fire_frame9:
+   frame(0,6)
+   frame(1,6)
+   frame(2,6)
+   frame(3,6)
+   frame(4,6)
+   end
+fire_frame10:
+   frame(0,7)
+   frame(1,7)
+   frame(2,7)
+   frame(3,7)
+   frame(4,7)
+   end

@@ -1,0 +1,1101 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+joy_setup:
+   partyset(0,0)
+   partyset(1,0)
+   partyset(2,0)
+   partyset(3,0)
+
+   partyset(0,PARTY_CONNOR)
+   end
+
+joy3_setup:
+   partyset(0,0)
+   partyset(1,0)
+   partyset(2,0)
+   partyset(3,0)
+
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ROLAND)
+   end
+
+joy1_selera_nf:
+   set(B,8)
+   set(C,7)
+   call(L_jselera)
+   song(SNG_TOWN1)
+   fadein(X_FADE)
+   end
+
+joy1_scene58:
+   song_off
+   set(B,$17)
+   set(C,$07)
+
+   set(D,1)
+   set(E,2)
+   call(joy1_connor_set)
+   // load in anna
+   ldude(4,NPC_ANNA,  $04,$08,UP,STAND)
+   frame(0,CEL_TIRED)
+   fadein(X_FADE)
+   sleep(128)
+   frame(0,CEL_DOWN1)
+   sleep(64)
+   face(0,DOWN)
+   walk(0,RIGHT,3)
+   sync
+   walk(0,DOWN,3)
+   sync
+   sfx(SFX_DOOROPEN)
+   walk(4,UP,1)
+   sync
+   sleep(16)
+   say(S58_ETXT1)
+   frame(0,CEL_ATTEN)
+   sleep(8)
+   face(0,DOWN)
+   sleep(16)
+   say(S58_ETXT2)
+   panspeed(0)
+   lockon(4)
+   walk(4,UP,1)
+   sync
+   sleep(16)
+   lockoff
+   say(S58_ETXT3)
+   sleep(16)
+   say(S58_ETXT4)
+   sleep(16)
+   say(S58_ETXT5)
+   face(0,LEFT)
+   sleep(8)
+   face(0,RIGHT)
+   sleep(8)
+   face(0,LEFT)
+   sleep(8)
+   face(0,RIGHT)
+   sleep(8)
+   face(0,DOWN)
+   sleep(16)
+   say(S58_ETXT6)
+   sleep(16)
+   say(S58_ETXT7)
+   frame(0,CEL_ATTEN)
+   sleep(8)
+   say(S58_ETXT8)
+   face(0,DOWN)
+   sleep(16)
+   say(S58_ETXT9)
+   sleep(16)
+   say(S58_ETXT10)
+   sleep(16)
+   say(S58_ETXT11)
+   sleep(16)
+   say(S58_ETXT12)
+   walk(4,LEFT,1)
+   sync
+   lockon(0)
+   walk(4,UP,1)
+   sleep(4)
+   face(0,LEFT)
+   sync
+   face(4,RIGHT)
+   sleep(16)
+   say(S58_ETXT13)
+   sleep(16)
+   say(S58_ETXT14)
+   sleep(16)
+   say(S58_ETXT15)
+   panspeed(2)
+   face(0,DOWN)
+
+   ctalk(joy1_anna1,4)
+   end
+
+joy1_settalk1:
+   tbase(JOY1_DTXT1, JOY1_DTSIZE, 1)
+   end
+joy1_connor:
+   fadeout(X_FADE)
+   getxy(B,C)
+   set(D,$04)
+   set(E,$07)
+   call(joy1_connor_set)
+   // load in anna
+   ldude(4,NPC_ANNA,  $04,$05,DOWN,STAND)
+   ctalk(joy1_anna1,4)
+   fadein(X_FADE)
+   end
+joy1_connor_set:
+   lmap(MAP_SLR_CONNR,   D,E)
+   get(A,VAR_JOY1A)
+   cif(A,CE,1,jselera_dark)
+   cstep(I_jselera,      $04,$08)
+   csearch(joy1_book1,   $07,$01,S_U)
+   end
+joy1_book1:
+   say(JOY1_BOOK1)
+   end
+
+joy1_house1:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_SLR_HOUS1,     $05,$07)
+   get(A,VAR_JOY1A)
+   cif(A,CE,1,jselera_dark)
+   cstep(I_jselera,        $05,$08)
+   lguy(NPC_LADY2,         $03,$03, JOY1_DTXT10)
+   lguy(NPC_BOY1,          $08,$04, JOY1_DTXT9)
+   csearch(SLR_BOOKCASE3,  $08,$01, S_U)
+   fadein(X_FADE)
+   end
+joy1_house2:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_SLR_HOUS2,     $09,$08)
+   get(A,VAR_JOY1A)
+   cif(A,CE,1,jselera_dark)
+   cstep(I_jselera,        $09,$09)
+   csearch(SLR_BOOKCASE4,  $03,$01, S_U)
+   lguy(NPC_MAN2,          $07,$04, JOY1_DTXT11)
+   fadein(X_FADE)
+   end
+
+joy1_weapon:
+   fadeout(X_FADE)
+   getxy(B,C)
+   lmap(MAP_SLR_WEAPN,     $06,$08)
+   get(A,VAR_JOY1A)
+   cif(A,CE,1,jselera_dark)
+   cstep(I_jselera,        $06,$09)
+   ldude(4, NPC_MAN1,      $03,$04, RIGHT, STAND)
+   ctres($73,IT_HAHi,      $02,$07, $C4, SFX_CHEST)
+   csearch(joy1_weapbuy,   $04,$04, S_L)
+   fadein(X_FADE)
+   end
+joy1_weapbuy:
+   say(JOY1_DTXT8)
+   end
+
+I_jselera:
+   fadeout(X_FADE)
+   call(L_jselera)
+   get(A,VAR_JOY1A)
+   if(A,CE,1,jselera_dark_nosongmodify)
+   song(SNG_TOWN1)
+jselera_dark_nosongmodify:
+   fadein(X_FADE)
+   end
+
+L_jselera:
+   lmap(MAP_JSELERA,     B,C)
+   get(A,VAR_JOY1A)
+   cif(A,CE,1,jselera_dark)
+
+   cstep(joy1_connor,    $17,$07)
+   cstep(joy1_house1,    $0B,$0F)
+   cstep(joy1_house2,    $15,$12)
+   cstep(joy1_weapon,    $0F,$08)
+
+   ldude(4,NPC_LADY2,      8,  6, DOWN,STAND)
+   ldude(5,NPC_LADY3,     22, 25, LEFT,STAND)
+   ldude(6,NPC_MAN2,      21, 25,RIGHT,STAND)
+   ldude(7,NPC_BOY1,       8, 26, DOWN,STAND)
+   ctalk(joy1_innlady, 4)
+   ctalk(joy1_lady1, 5)
+   ctalk(joy1_man1, 6)
+   ctalk(joy1_boy1, 7)
+
+   lguy(NPC_LADY1,        19,  5, JOY1_DTXT2)
+   lguy(NPC_MAN1,         20, 13, JOY1_DTXT3)
+   lguy(NPC_GIRL2,         6, 27, JOY1_DTXT5)
+   lguy(NPC_BOY2,          6, 15, JOY1_DTXT4)
+   end
+jselera_dark:
+   colshift(C_BLACK)
+   end
+
+joy1_innlady:
+   say(JOY1_DTXT1)
+   end
+joy1_lady1:
+   say(JOY1_DTXT6)
+   end
+joy1_man1:
+   say(JOY1_DTXT7)
+   end
+
+joy1_boy1:
+   get(A,VAR_JOY1A)
+   if(A,CNE,0,joy1_boy1a)
+   put(1,VAR_JOY1A)
+   say(S59_ETXT1)
+   sleep(16)
+   say(S59_ETXT2)
+   sleep(16)
+   say(S59_ETXT3)
+   sleep(16)
+   say(S59_ETXT4)
+   sleep(16)
+   say(S59_ETXT5)
+   sleep(16)
+   say(S59_ETXT6)
+   sleep(16)
+   song(SNG_MYSTERY)
+   colshift2(C_BLACK)
+   sleep(32)
+   say(S59_ETXT7)
+   sleep(16)
+   say(S59_ETXT8)
+   sleep(16)
+   call(joy1_settalk1)
+joy1_boy1a:
+   say(S59_ETXT9)
+   end
+
+joy1_anna1:
+   get(A,VAR_JOY1A)
+   if(A,CE,1,joy1_scene60)
+   say(S58_ETXT15)
+   end
+
+joy1_scene60:
+   face(4,DOWN)
+   align($04,$06)
+   sync
+   face(0,UP)
+   say(S60_ETXT1)
+   sleep(16)
+   say(S60_ETXT2)
+   sleep(16)
+   say(S60_ETXT3)
+   sleep(16)
+   say(S60_ETXT4)
+   sleep(16)
+   
+   sfx(SFX_PORTALOPEN)
+   ldude(5,NPC_PORTALA,  $03,$03,DOWN,STAND)
+   ldude(6,NPC_PORTALB,  $03,$04,DOWN,STAND)
+   anim(5)
+   anim(6)
+
+   sleep(32)
+
+   walk(0,LEFT,1)
+   sync
+   walk(0,UP,1)
+   sleep(4)
+   face(4,LEFT)
+   sync
+   sleep(16)
+   say(S60_ETXT5)
+   sleep(16)
+   say(S60_ETXT6)
+   face(0,RIGHT)
+   sleep(16)
+   say(S60_ETXT7)
+   sleep(16)
+   say(S60_ETXT8)
+   sleep(16)
+   say(S60_ETXT9)
+   sleep(16)
+   say(S60_ETXT10)
+   sleep(16)
+   say(S60_ETXT11)
+   sleep(16)
+   say(S60_ETXT12)
+   sleep(16)
+   say(S60_ETXT13)
+   sleep(16)
+   say(S60_ETXT14)
+   face(0,UP)
+   sleep(32)
+   face(0,RIGHT)
+   sleep(32)
+   face(0,UP)
+   sleep(8)
+   lockoff
+   walk(0,UP,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(0)
+   fadeout(X_FADE)
+   lockon(0)
+   sleep(64)
+   goto(joy2_scene61)
+   end
+
+joy2_scene61:
+   //partyset(1,PARTY_ROLAND)
+   face(0,DOWN)
+   set(D,$04)
+   set(E,$05)
+   call(jalu_part3_nf)
+   sleep(16)
+   say(S61_ETXT1)
+   end
+
+jalu_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+jalu_part1_nf:
+   lmap(MAP_ALU, D,E)
+   colshift(C_BLACK)
+   song(SNG_ALUTHA)
+
+   chstep(jalu_part1a,$00,$18,$1E)
+   chstep(jalu_part1b,$0e,$0d,$02)
+   chstep(jalu_part1c,$0e,$07,$02)
+   cstep(jalu_part1d, $07,$02)
+   cstep(jalu_part1e, $16,$02)
+   cstep(jalu_part1f, $07,$11)
+   cstep(jalu_part1g, $16,$11)
+   cstep(jalu_part1h, $07,$06)
+   cstep(jalu_part1i, $16,$06)
+
+   ldude(4,NPC_DEAD, $0d,$0e,DOWN,STAND)
+   frame(4,DEAD_GUARD)
+   ctalk(jalu_guard1,4)
+   ldude(5,NPC_DEAD, $10,$0e,DOWN,STAND)
+   frame(5,DEAD_GUARD)
+   ctalk(jalu_guard1,5)
+
+   ldude(6,NPC_DEAD, $0d,$08,DOWN,STAND)
+   frame(6,DEAD_GUARD)
+   ctalk(jalu_guard2,6)
+
+   ldude(7,NPC_DEAD, $08,$02,DOWN,STAND)
+   frame(7,DEAD_GUARD)
+   ctalk(jalu_guard2,7)
+   ldude(8,NPC_DEAD, $16,$12,DOWN,STAND)
+   frame(8,DEAD_GUARD)
+   ctalk(jalu_guard2,8)
+   ldude(9,NPC_DEAD, $12,$08,DOWN,STAND)
+   frame(9,DEAD_GUARD)
+   ctalk(jalu_guard2,9)
+
+   cif(F,CE,1,jalu_patch)
+   cif(F,CNE,1,jalu_patch2)
+   fadein(G)
+   end
+jalu_part1a:
+   end
+jalu_part1b:
+   set(D,$0f)
+   set(E,$0e)
+   goto(jalu_part2)
+jalu_part1c:
+   set(D,$05)
+   set(E,$09)
+   goto(jalu_part7)
+jalu_part1d:
+   set(D,$06)
+   set(E,$05)
+   goto(jalu_part3)
+jalu_part1e:
+   set(D,$02)
+   set(E,$05)
+   goto(jalu_part4)
+jalu_part1f:
+   set(D,$06)
+   set(E,$05)
+   goto(jalu_part5)
+jalu_part1g:
+   set(D,$02)
+   set(E,$05)
+   goto(jalu_part6)
+jalu_part1h:
+   set(D,$04)
+   set(E,$08)
+   goto(jalu_part3)
+jalu_part1i:
+   set(D,$04)
+   set(E,$08)
+   goto(jalu_part4)
+jalu_part1j:
+   set(D,$04)
+   set(E,$02)
+   goto(jalu_part5)
+jalu_part1k:
+   set(D,$04)
+   set(E,$02)
+   goto(jalu_part6)
+jalu_patch:
+   tile($07,$0f,$c1)
+   tile($07,$10,$1a)
+   tile($16,$0f,$c1)
+   tile($16,$10,$1a)
+   end
+jalu_patch2:
+   cstep(jalu_part1j, $07,$10)
+   cstep(jalu_part1k, $16,$10)
+   end
+jalu_guard1:
+   say(JOY2_DTXT1)
+   end
+jalu_guard2:
+   say(JOY2_DTXT1)
+   end
+
+jalu_part2:
+   fadeout(X_FADE)
+   lmap(MAP_ALU_HALL, D,E)
+   colshift(C_BLACK)
+   // kill staircase
+   tile($06,$05,$04)
+   // block exit
+   tile($0e,$0f,$12)
+   tile($0f,$0f,$12)
+   tile($10,$0f,$12)
+   chstep(jalu_part2a,$0e,$0f,$03)
+   cstep(jalu_part2b, $02,$05)
+   cstep(jalu_part2c, $1c,$05)
+   cstep(jalu_part2d, $02,$16)
+   cstep(jalu_part2e, $1c,$16)
+   cstep(jalu_part2f, $0f,$09)
+
+   cstep(jalu_part2g, $18,$05)
+   cstep(jalu_part2h, $0f,$09)
+
+   ldude(4,NPC_DEAD, $0e,$0b, DOWN,STAND)
+   frame(4,DEAD_GUARD)
+   ctalk(jalu_guard1, 4)
+   ldude(5,NPC_DEAD, $05,$16, DOWN,STAND)
+   frame(5,DEAD_GUARD)
+   ctalk(jalu_guard1, 5)
+
+   fadein(X_FADE)
+   end
+jalu_part2a:
+   set(D,$0e)
+   set(E,$0d)
+   goto(jalu_part1)
+jalu_part2b:
+   set(D,$02)
+   set(E,$05)
+   goto(jalu_part3)
+jalu_part2c:
+   set(D,$06)
+   set(E,$05)
+   goto(jalu_part4)
+jalu_part2d:
+   set(D,$02)
+   set(E,$05)
+   goto(jalu_part5)
+jalu_part2e:
+   set(D,$06)
+   set(E,$05)
+   goto(jalu_part6)
+jalu_part2f:
+   set(D,$07)
+   set(E,$06)
+   goto(jalu_part8)
+jalu_part2g:
+   set(D,$09)
+   set(E,$04)
+   goto(jalu_crypt)
+jalu_part2h:
+   set(D,$0a)
+   set(E,$0a)
+   goto(jalu_garden)
+
+jalu_part3:
+   fadeout(X_FADE)
+jalu_part3_nf:
+   lmap(MAP_ALU_TOW1, D,E)
+   colshift(C_BLACK)
+
+   cstep(jalu_part3a, $06,$05)
+   cstep(jalu_part3b, $04,$09)
+   cstep(jalu_part3c, $02,$05)
+   fadein(X_FADE)
+   end
+jalu_part3a:
+   set(D,$07)
+   set(E,$02)
+   goto(jalu_part1)
+jalu_part3b:
+   set(D,$07)
+   set(E,$06)
+   goto(jalu_part1)
+jalu_part3c:
+   set(D,$02)
+   set(E,$05)
+   goto(jalu_part2)
+
+jalu_part4:
+   fadeout(X_FADE)
+   lmap(MAP_ALU_TOW2, D,E)
+   colshift(C_BLACK)
+
+   cstep(jalu_part4a, $02,$05)
+   cstep(jalu_part4b, $04,$09)
+   cstep(jalu_part4c, $06,$05)
+
+   ldude(4,NPC_DEAD, $04,$04, DOWN,STAND)
+   frame(4,DEAD_GUARD)
+   ctalk(jalu_guard1, 4)
+
+   fadein(X_FADE)
+   end
+jalu_part4a:
+   set(D,$16)
+   set(E,$02)
+   goto(jalu_part1)
+jalu_part4b:
+   set(D,$16)
+   set(E,$06)
+   goto(jalu_part1)
+jalu_part4c:
+   set(D,$1c)
+   set(E,$05)
+   goto(jalu_part2)
+
+jalu_part5:
+   set(F,0)
+   fadeout(X_FADE)
+   lmap(MAP_ALU_TOW3, D,E)
+   colshift(C_BLACK)
+
+   cstep(jalu_part5a, $06,$05)
+   cstep(jalu_part5b, $04,$02)
+   cstep(jalu_part5c, $02,$05)
+   fadein(X_FADE)
+   end
+jalu_part5a:
+   set(D,$07)
+   set(E,$11)
+   set(F,1)
+   goto(jalu_part1)
+jalu_part5b:
+   set(D,$07)
+   set(E,$0f)
+   goto(jalu_part1)
+jalu_part5c:
+   set(D,$02)
+   set(E,$16)
+   goto(jalu_part2)
+
+jalu_part6:
+   set(F,0)
+   fadeout(X_FADE)
+   lmap(MAP_ALU_TOW4, D,E)
+   colshift(C_BLACK)
+
+   cstep(jalu_part6a, $02,$05)
+   cstep(jalu_part6b, $04,$02)
+   cstep(jalu_part6c, $06,$05)
+   fadein(X_FADE)
+   end
+jalu_part6a:
+   set(D,$16)
+   set(E,$11)
+   set(F,1)
+   goto(jalu_part1)
+jalu_part6b:
+   set(D,$16)
+   set(E,$0f)
+   goto(jalu_part1)
+jalu_part6c:
+   set(D,$1c)
+   set(E,$16)
+   goto(jalu_part2)
+
+jalu_part7:
+   fadeout(X_FADE)
+   lmap(MAP_ALU_THRON, D,E)
+   colshift(C_BLACK)
+   chstep(jalu_part7a,$04,$0a,$03)
+
+   ldude(4,NPC_AKING,   $05,$04,DOWN,STAND)
+   ctalk(jalu_king, 4)
+
+   fadein(X_FADE)
+   end
+jalu_part7a:
+   set(D,$0e)
+   set(E,$07)
+   goto(jalu_part1)
+
+jalu_part8:
+   fadeout(X_FADE)
+   lmap(MAP_ALU_BASE, D,E)
+   colshift(C_BLACK)
+   cstep(jalu_part8a, $07,$06)
+   fadein(X_FADE)
+   end
+jalu_part8a:
+   set(D,$06)
+   set(E,$05)
+   goto(jalu_part2)
+
+jalu_crypt:
+   fadeout(X_FADE)
+   lmap(MAP_ALU_CRYPT, D,E)
+   colshift(C_BLACK)
+   cstep(jalu_crypt1a, $09,$04)
+
+   csearch(jalu_crypt1b, $02,$03,S_ALL)
+   csearch(jalu_crypt1b, $04,$03,S_ALL)
+   csearch(jalu_crypt1b, $06,$03,S_ALL)
+   csearch(jalu_crypt1b, $02,$06,S_ALL)
+   csearch(jalu_crypt1b, $04,$06,S_ALL)
+   csearch(jalu_crypt1b, $06,$06,S_ALL)
+   csearch(jalu_crypt1b, $02,$09,S_ALL)
+   csearch(jalu_crypt1b, $04,$09,S_ALL)
+   csearch(jalu_crypt1b, $06,$09,S_ALL)
+
+   // repair the crypt
+   tile(4,5,$af)
+   tile(4,6,$b7)
+
+   get(A,VAR_JOY2A)
+   cif(A,CE,1,joy2_loadportal)
+   fadein(X_FADE)
+   end
+jalu_crypt1a:
+   set(D,$18)
+   set(E,$05)
+   goto(jalu_part2)
+jalu_crypt1b:
+   say(ALU_STXT1)
+   end
+
+jalu_king:
+   say(JOY2_DTXT2)
+   end
+
+jalu_garden:
+   fadeout(X_FADE)
+   lmap(MAP_ALU_GARDEN,    D,E)
+   colshift(C_BLACK)
+   cstep(jalu_garden1a,    $0a,$0b)
+   ldude(4, NPC_GIRL1,     $09,$07, DOWN, STAND)
+   ctalk(jalu_gardenAnna, 4)
+
+   get(A,VAR_JOY2A)
+   cif(A,CE,0,jalu_scene62_setup)
+
+   fadein(X_FADE)
+
+   get(A,VAR_JOY2A)
+   cif(A,CE,0,jalu_scene62)
+   end
+jalu_garden1a:
+   set(D,$0f)
+   set(E,$09)
+   goto(jalu_part2)
+jalu_gardenguy:
+   say(ALU_DTXT16)
+   end
+
+jalu_scene62_setup:
+   face(4,RIGHT)
+   ldude(5, NPC_BOY2,      $0a,$07, LEFT, STAND)
+   end
+
+jalu_scene62:
+   panspeed(0)
+   pan($0a,$08)
+   sleep(64)
+   say(S62_ETXT1)
+   sleep(16)
+   say(S62_ETXT2)
+   sleep(16)
+   say(S62_ETXT3)
+   walk(0,UP,2)
+   sync
+   sleep(8)
+   say(S62_ETXT4)
+   face(5,DOWN)
+   sleep(16)
+   say(S62_ETXT5)
+   sleep(16)
+   say(S62_ETXT6)
+   sleep(16)
+   say(S62_ETXT7)
+   sleep(16)
+   say(S62_ETXT8)
+
+   sleep(32)
+   set(A,8)
+jalu_scene62_loop1:
+   ldude(5, NPC_BOY2,      $0a,$07, DOWN, STAND)
+   sleep(4)
+   ldude(5, CH_ROLAND,     $0a,$07, DOWN, STAND)
+   sleep(4)
+   dec(A)
+   if(A,CG,0,jalu_scene62_loop1)
+
+   sleep(32)
+   say(S62_ETXT9)
+   sleep(16)
+   say(S62_ETXT10)
+   face(5,LEFT)
+   sleep(16)
+   say(S62_ETXT11)
+   sleep(16)
+   say(S62_ETXT12)
+   sleep(16)
+   say(S62_ETXT13)
+   sleep(16)
+   face(5,DOWN)
+   sleep(16)
+   walk(5,RIGHT,1)
+   sync
+   walk(5,DOWN,1)
+   sync
+   face(0,RIGHT)
+   face(5,LEFT)
+   sleep(8)
+   say(S62_ETXT14)
+   walk(5,LEFT,1)
+   sync
+   del(5)
+   partyset(1, PARTY_ROLAND)
+   face(0,DOWN)
+   reform
+   panspeed(2)
+   lockon(0)
+
+   put(1,VAR_JOY2A)
+   end
+
+jalu_gardenAnna:
+   say(S62_STXT1)
+   end
+
+
+joy2_loadportal:
+   // load the portal
+   ldude(4,NPC_PORTALA,$03,$01,DOWN,STAND)
+   ldude(5,NPC_PORTALB,$03,$02,DOWN,STAND)
+   anim(4)
+   anim(5)
+   cstep(joy2_portal, $03,$03)
+   end
+joy2_portal:
+   align($03,$03)
+   sync
+   group
+   sync
+   detach
+   partyarr
+   panspeed(0)
+   lockon(1)
+   face(0,UP)
+   walk(1,DOWN,1)
+   sync
+   face(1,UP)
+   sleep(32)
+   lockoff
+   say(S63_ETXT1)
+   face(0,DOWN)
+   sleep(16)
+   say(S63_ETXT2)
+   sleep(16)
+   say(S63_ETXT3)
+   sleep(16)
+   say(S63_ETXT4)
+   sleep(16)
+   say(S63_ETXT5)
+   sleep(16)
+   face(0,UP)
+   sleep(16)
+   walk(0,UP,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(0)
+   sleep(16)
+   walk(1,UP,2)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(1)
+   fadeout(X_FADE)
+   lockon(0)
+   panspeed(2)
+   sleep(64)
+   goto(joy3_scene64)
+
+
+joy3_scene64:
+   face(0,UP)
+   reform
+   lmap(MAP_TRIAL3, $04,$07)
+   partyarr
+   detach
+   warp(1,$05,$07,UP)
+   ldude(4,CH_ELYA,  $04,$05,DOWN,STAND)
+   ldude(5,CH_ALUTHA,$05,$05,DOWN,STAND)
+   song(SNG_MYSTIC)
+   fadein(X_FADE)
+
+   sleep(32)
+   say(S64_ETXT1)
+   sleep(16)
+   say(S64_ETXT2)
+   sleep(16)
+   say(S64_ETXT3)
+   sleep(16)
+   say(S64_ETXT4)
+   sleep(16)
+   say(S64_ETXT5)
+   face(4,LEFT)
+   sleep(16)
+   say(S64_ETXT6)
+   lockoff
+   walk(0,UP,1)
+   sync
+   sleep(16)
+   say(S64_ETXT7)
+   face(4,DOWN)
+   sleep(16)
+   say(S64_ETXT8)
+   sleep(16)
+   say(S64_ETXT9)
+   sleep(16)
+   say(S64_ETXT10)
+   sleep(16)
+   say(S64_ETXT11)
+   sleep(16)
+   say(S64_ETXT12)
+   sleep(16)
+   say(S64_ETXT13)
+
+   sleep(16)
+   walk(1,UP,1)
+   walk(4,UP,1)
+   walk(5,LEFT,1)
+   sync
+   walk(4,UP,1)
+   walk(5,UP,1)
+   walk(0,UP,1)
+   walk(1,UP,1)
+   sync
+   del(4)
+   walk(5,UP,1)
+   walk(0,UP,1)
+   walk(1,LEFT,1)
+   sync
+   del(5)
+   walk(0,UP,1)
+   walk(1,UP,2)
+   sleep(9)
+   del(0)
+   sync
+   del(1)
+   fadeout(X_FADE)
+
+   partyset(2,PARTY_ELYA)
+   partyset(3,PARTY_ALUTHA)
+   partynor
+   face(0,DOWN)
+   lockon(0)
+
+   set(D,$08)
+   set(E,$04)
+   goto(jmag_part1_nf)
+
+jmag_part1:
+   fadeout(X_FADE)
+jmag_part1_nf:
+   lmap(MAP_WMAG_P1, D,E)
+   tile($08,$09,$48)
+   tile($08,$12,$50)
+   cstep(jmag_part1b, $03,$0c)
+   cstep(jmag_part1c, $0d,$0c)
+   fadein(X_FADE)
+   end
+jmag_part1b:
+   set(D,$02)
+   set(E,$05)
+   goto(jmag_part2)
+jmag_part1c:
+   set(D,$0c)
+   set(E,$05)
+   goto(jmag_part2)
+
+jmag_part2:
+   fadeout(X_FADE)
+   lmap(MAP_WMAG_P2, D,E)
+   cstep(jmag_part2a, $02,$05)
+   cstep(jmag_part2b, $0c,$05)
+   cstep(jmag_part2c, $05,$02)
+   cstep(jmag_part2d, $09,$02)
+   cstep(jmag_part2e, $08,$08)
+   fadein(X_FADE)
+   end
+jmag_part2a:
+   set(D,$03)
+   set(E,$0c)
+   goto(jmag_part1)
+jmag_part2b:
+   set(D,$0d)
+   set(E,$0c)
+   goto(jmag_part1)
+jmag_part2c:
+   set(D,$07)
+   set(E,$07)
+   goto(jmag_shop1)
+jmag_part2d:
+   end
+jmag_part2e:
+   set(D,$08)
+   set(E,$0c)
+   goto(jmag_part3)
+jmag_shop1:
+   fadeout(X_FADE)
+   lmap(MAP_WMAG_SHOP, D,E)
+   cstep(jmag_shop1a, $07,$08)
+   fadein(X_FADE)
+   end
+jmag_shop1a:
+   set(D,$05)
+   set(E,$02)
+   goto(jmag_part2)
+
+jmag_part3:
+   fadeout(X_FADE)
+   lmap(MAP_WMAG_P3, D,E)
+   cstep(jmag_part3a,  $08,$0c)
+   chstep(jmag_scene65,$0b,$09,3)
+   ldude(5,NPC_PORTALA,$0c,$07,DOWN,STAND)
+   ldude(6,NPC_PORTALB,$0c,$08,DOWN,STAND)
+   anim(5)
+   anim(6)
+   fadein(X_FADE)
+   end
+jmag_part3a:
+   set(D,$08)
+   set(E,$08)
+   goto(jmag_part2)
+
+
+jmag_scene65:
+   align($0c,$09)
+   sync
+   face(0,UP)
+   group
+   sync
+   partyarr
+   detach
+   lockoff
+   face(2,UP)
+   walk(0,LEFT,1)
+   walk(1,RIGHT,1)
+   walk(3,DOWN,1)
+   sync
+   face(0,UP)
+   face(1,UP)
+   face(2,UP)
+   face(3,UP)
+   sleep(16)
+
+   say(S65_ETXT1)
+   face(1,LEFT)
+   sleep(16)
+   say(S65_ETXT2)
+   face(0,RIGHT)
+   sleep(16)
+   say(S65_ETXT3)
+   sleep(16)
+   say(S65_ETXT4)
+   sleep(16)
+   say(S65_ETXT5)
+   sleep(16)
+   walk(2,UP,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(2)
+   walk(1,LEFT,1)
+   sync
+   walk(1,UP,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(1)
+   walk(0,RIGHT,1)
+   sync
+   walk(0,UP,1)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(0)
+   walk(3,UP,2)
+   sync
+   sfx(SFX_PORTALOPEN)
+   del(3)
+   fadeout(X_FADE)
+   lockon(0)
+   sleep(64)
+   goto(joy_scene66)
+
+
+// final boss
+joy_scene66:
+   song_off
+   sleep(32)
+   say(S66_ETXT1)
+   sleep(16)
+   say(S66_ETXT2)
+   sleep(16)
+   say(S66_ETXT3)
+   sleep(16)
+   say(S66_ETXT4)
+   sleep(16)
+   say(S66_ETXT5)
+   sleep(16)
+   say(S66_ETXT6)
+   sleep(16)
+   say(S66_ETXT7)
+   sleep(16)
+   say(S66_ETXT8)
+   sleep(16)
+   say(S66_ETXT9)
+   sleep(16)
+   say(S66_ETXT10)
+   sleep(16)
+   say(S66_ETXT11)
+   sleep(16)
+   say(S66_ETXT12)
+   sleep(16)
+   say(S66_ETXT13)
+   sleep(16)
+   say(S66_ETXT14)
+   sleep(16)
+   say(S66_ETXT15)
+   sleep(16)
+   say(S66_ETXT16)
+   sleep(16)
+   say(S66_ETXT17)
+   sleep(16)
+   say(S66_ETXT18)
+   sleep(16)
+   say(S66_ETXT19)
+   sleep(16)
+   say(S66_ETXT20)
+   sleep(16)
+   say(S66_ETXT21)
+   sleep(16)
+   say(S66_ETXT22)
+   sleep(16)
+   say(S66_ETXT23)
+   sleep(16)
+   say(S66_ETXT24)
+   sleep(16)
+   say(S66_ETXT25)
+
+   song_off
+   bsong(SNG_BOSS1)
+   battle(0,0,1,0,0)
+   song_off
+   goto(end_scene67)

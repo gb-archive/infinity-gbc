@@ -1,0 +1,1854 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_MAG:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$08)
+   set(E,$11)
+   set(G,X_ROLL)
+   song(SNG_MYSTIC)
+
+   ; force init
+   ;put(0,VAR_MAG1)
+   ;put(0,VAR_RET_MAG)
+
+   get(A,VAR_RET_MAG)
+   if(A,CE,0,mag_init1)
+   goto(mag_init2)
+
+mag_init1:
+   song(SNG_MYSTIC)
+   set(F,0)
+   goto(mag_part1_nf)
+
+mag_init2:
+   song(SNG_SADNESS)
+   set(F,25) ; skip to WMAG maps
+   call(mag_part1_nf)
+   get(A,VAR_RET_MAG)
+   if(A,CE,1,mag_scene46)
+   end
+
+
+mag_dead:
+   say(MSG_DEAD)
+   end
+
+mag_book1:
+   say(MAG_BOOK1)
+   end
+
+mag_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+mag_part1_nf:
+   call(mag_settalk)
+
+   set(A,MAP_MAG_P1)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   get(A,VAR_MAG1)
+   cif(A,CNE,0,mag_part1_patch)
+
+   cstep(mag_part1a, $08,$12)
+   cstep(mag_part1b, $03,$0c)
+   cstep(mag_part1c, $0d,$0c)
+   cstep(mag_part1d, $08,$04)
+
+   ctres($44,IT_FIron,$03,$06,$31,SFX_CHEST)
+   ctres($45,IT_CGladius,$04,$06,$31,SFX_CHEST)
+   ctres($46,IT_HChain,$05,$06,$31,SFX_CHEST)
+   ctres($47,IT_CFalchion,$0b,$06,$31,SFX_CHEST)
+   ctres($48,IT_HAMd,$0c,$06,$31,SFX_CHEST)
+   ctres($49,IT_AU_2000,$0d,$06,$31,SFX_CHEST)
+
+   if(F,CNE,0,mag_part1_cskip)
+   get(A,VAR_MAG1)
+   if(A,CNE,0,mag_part1_noleftguard)
+   ldude(4,NPC_WOOMAGI, $04,$09, DOWN,STAND)
+mag_part1_noleftguard:
+   ldude(5,NPC_WOOMAGI, $0c,$09, DOWN,STAND)
+   ctalk(mag_guard1,4)
+   ctalk(mag_guard1,5)
+   lguy(NPC_KIDMAGI, $05,$0c, MAG_DTXT5)
+   lguy(NPC_OLDMAGI, $0c,$0e, MAG_DTXT2)
+
+   fadein(G)
+   end
+mag_part1_cskip:
+   ldude(4,NPC_DEAD,    $0b,$0a,DOWN,STAND)
+   frame(4,DEAD_MAGI)
+   ctalk(mag_dead, 4)
+   ldude(5,NPC_DEAD,    $07,$0b,DOWN,STAND)
+   frame(5,DEAD_MAGI2)
+   ctalk(mag_dead, 5)
+   ldude(6,NPC_DEAD,    $05,$0d,DOWN,STAND)
+   frame(6,DEAD_MAGI)
+   ctalk(mag_dead, 6)
+   fadein(G)
+   end
+mag_part1a:
+   set(B,$22)
+   set(C,$0e)
+   goto(OVER_WARP)
+mag_part1b:
+   set(D,$02)
+   set(E,$05)
+   goto(mag_part2)
+mag_part1c:
+   set(D,$0c)
+   set(E,$05)
+   goto(mag_part2)
+mag_part1d:
+   ; no trials if won already
+   get(A,VAR_MAG1)
+   if(A,CGE,2,RET)
+   goto(mag_trials)
+
+mag_part1_patch:
+   tile($08,$09,$48)
+   end
+
+mag_guard1:
+   say(MAG_STXT1)
+   end
+
+mag_part2:
+   fadeout(X_FADE)
+   set(A,MAP_MAG_P2)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   cstep(mag_part2a, $02,$05)
+   cstep(mag_part2b, $0c,$05)
+   cstep(mag_part2c, $05,$02)
+   cstep(mag_part2d, $09,$02)
+   cstep(mag_part2e, $08,$08)
+
+   if(F,CNE,0,mag_part2_cskip)
+   lguy(NPC_WOOMAGI, $08,$05, MAG_DTXT3)
+   get(A,VAR_MAG1)
+   cif(A,CE,1,mag_load_victor)
+
+   fadein(X_FADE)
+   end
+mag_part2_cskip:
+   ldude(4,NPC_DEAD,    $06,$04,DOWN,STAND)
+   frame(4,DEAD_MAGI2)
+   ctalk(mag_dead, 4)
+   fadein(X_FADE)
+   end
+mag_part2a:
+   set(D,$03)
+   set(E,$0c)
+   goto(mag_part1)
+mag_part2b:
+   set(D,$0d)
+   set(E,$0c)
+   goto(mag_part1)
+mag_part2c:
+   set(D,$07)
+   set(E,$07)
+   goto(mag_shop1)
+mag_part2d:
+   set(D,$03)
+   set(E,$07)
+   goto(mag_inn1)
+mag_part2e:
+   set(D,$08)
+   set(E,$0c)
+   goto(mag_part3)
+mag_load_victor:
+   ldude(5,CH_VICTORWOLF, $05,$04,DOWN,WALK)
+   ctalk(mag_victor, 5)
+   end
+mag_victor:
+   say(MAG_STXT4)
+   end
+
+
+mag_part3:
+   fadeout(X_FADE)
+   set(A,MAP_MAG_P3)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   cstep(mag_part3a, $08,$0c)
+   cstep(mag_part3b, $06,$0c)
+   fadein(X_FADE)
+   end
+mag_part3a:
+   set(D,$08)
+   set(E,$08)
+   goto(mag_part2)
+mag_part3b:
+   set(D,$06)
+   set(E,$06)
+   goto(mag_part4)
+
+mag_part4:
+   fadeout(X_FADE)
+   set(A,MAP_MAG_P4)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   cstep(mag_part4a, $06,$06)
+   cstep(mag_part4b, $04,$02)
+   cstep(mag_part4c, $0a,$02)
+   cstep(mag_part4d, $08,$06)
+
+   if(F,CNE,0,mag_part4_cskip)
+   lguy(NPC_WOOMAGI, $03,$04, MAG_DTXT4)
+
+   fadein(X_FADE)
+   end
+mag_part4_cskip:
+   ldude(4,NPC_DEAD,    $03,$04,DOWN,STAND)
+   frame(4,DEAD_MAGI)
+   ctalk(mag_dead, 4)
+   fadein(X_FADE)
+   end
+mag_part4a:
+   set(D,$06)
+   set(E,$0c)
+   goto(mag_part3)
+mag_part4b:
+   set(D,$03)
+   set(E,$08)
+   goto(mag_lib1)
+mag_part4c:
+   set(D,$0b)
+   set(E,$08)
+   goto(mag_lib1)
+mag_part4d:
+   set(D,$07)
+   set(E,$0a)
+   goto(mag_part5)
+
+mag_part5:
+   fadeout(X_FADE)
+   set(A,MAP_MAG_P5)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   cstep(mag_part5a, $07,$0a)
+   cstep(mag_part5b, $05,$0a)
+
+   if(F,CNE,0,mag_part5_cskip)
+   ldude(4,NPC_OLDMAGI, $05,$03,UP,STAND)
+   ctalk(mag_part5_guy,4)
+   get(A,VAR_MAG1)
+   cif(A,CE,1,mag_load_ryan)
+
+   fadein(X_FADE)
+   end
+mag_part5_cskip:
+   fadein(X_FADE)
+   end
+mag_part5a:
+   set(D,$08)
+   set(E,$06)
+   goto(mag_part4)
+mag_part5b:
+   set(D,$06)
+   set(E,$05)
+   goto(mag_part6)
+mag_part5_guy:
+   say(MAG_DTXT1)
+   face(4,UP)
+   end
+mag_load_ryan:
+   ldude(5,CH_RYAN, $07,$03,UP,STAND)
+   ctalk(mag_ryan, 5)
+   end
+mag_ryan
+   say(MAG_STXT3)
+   face(5,UP)
+   end
+
+
+mag_part6:
+   fadeout(X_FADE)
+mag_part6_nf:
+   set(A,MAP_MAG_P6)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   cstep(mag_part6a, $06,$05)
+   cstep(mag_part6b, $06,$02)
+   fadein(X_FADE)
+   end
+mag_part6a:
+   set(D,$05)
+   set(E,$0a)
+   goto(mag_part5)
+mag_part6b:
+   set(D,$05)
+   set(E,$09)
+   goto(mag_arch1)
+
+
+mag_arch1:
+   fadeout(X_FADE)
+   set(A,MAP_MAG_ARCH)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   cstep(mag_arch1a, $05,$0a)
+
+   if(F,CNE,0,mag_arch1_cskip)
+   csearch(mag_book1,$09,$02,S_U)
+   ldude(4,NPC_ARCHMAGI,$05,$04,DOWN,STAND)
+   ctalk(mag_arch1b, 4)
+mag_arch1_cskip:
+
+   ; setup the party waiting for elya
+   get(A,VAR_MAG1)
+   cif(A,CE,2,mag_scene36_setup)
+   get(A,VAR_RET_MAG)
+   cif(A,CE,2,mag_scene47_setup)
+
+   fadein(X_FADE)
+
+   get(A,VAR_MAG1)
+   cif(A,CE,0,mag_scene34)
+   get(A,VAR_MAG1)
+   cif(A,CE,2,mag_scene36)
+   get(A,VAR_RET_MAG)
+   cif(A,CE,2,mag_scene47)
+   end
+mag_arch1a:
+   set(D,$06)
+   set(E,$02)
+   goto(mag_part6)
+mag_arch1b:
+   say(S34_ETXT24)
+   end
+mag_scene36_setup:
+   ldude(5,CH_CONNOR,     $03,$06,DOWN,STAND)
+   ldude(6,CH_RYAN,       $07,$05,DOWN,STAND)
+   ldude(7,CH_VICTORWOLF, $07,$06,DOWN,STAND)
+   end
+
+
+mag_shop1:
+   fadeout(X_FADE)
+   set(A,MAP_MAG_SHOP)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   cstep(mag_shop1a, $07,$08)
+
+   if(F,CNE,0,mag_shop1_cskip)
+   ldude(4,NPC_OLDMAGI,$03,$04,RIGHT,STAND)
+   csearch(mag_shop1_buy, $04,$04,S_L)
+
+   fadein(X_FADE)
+   end
+mag_shop1_cskip:
+   ldude(4,NPC_DEAD,    $03,$04,DOWN,STAND)
+   frame(4,DEAD_MAGI2)
+   ctalk(mag_dead, 4)
+   fadein(X_FADE)
+   end
+mag_shop1a:
+   set(D,$05)
+   set(E,$02)
+   goto(mag_part2)
+mag_shop1_buy:
+   shop_res
+   shop_add(IT_HPMd)
+   shop_add(IT_SPLo)
+   shop_add(IT_SPMd)
+   shop_add(IT_LFLo)
+   shop_add(IT_HAMd)
+   shop_add(IT_HScale)
+   shop_add(IT_LAmulet)
+   shop
+   end
+
+mag_inn1:
+   fadeout(X_FADE)
+   set(A,MAP_MAG_INN)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+mag_innjoin:
+   chstep(mag_inn1a,    $03,$08,1)
+
+   if(F,CNE,0,mag_inn1_cskip)
+   ldude(4,NPC_WOOMAGI, $03,$04,DOWN,STAND)
+   csearch(mag_innroom, $03,$05,S_U)
+mag_inn1_cskip:
+
+   fadein(X_FADE)
+   end
+mag_inn1a:
+   set(D,$09)
+   set(E,$02)
+   goto(mag_part2)
+mag_innroom:
+   say(INN_MAG)
+   yesno(A)
+   say(INN_DTXT2)
+   if(A,CE,0,mag_innno)
+   cgold(A,15)
+   if(A,CE,1,mag_innok)
+   say(INN_DTXT4)
+   end
+mag_innok:
+   tgold(15)
+   say(INN_DTXT5)
+   align($04,$06)
+   sync
+   walk(0,RIGHT,3)
+   sync
+   walk(0,UP,2)
+   sync
+   walk(0,RIGHT,2)
+   sync
+   group
+   sync
+   call(INNSPLIT)
+   walk(0,LEFT,2)
+   sync
+   walk(0,DOWN,2)
+   sync
+   walk(0,LEFT,4)
+   sync
+   face(0,DOWN)
+   group
+   sync
+mag_innno:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,mag_innns)
+   set(A,SVL_MAG)
+   savemenu
+mag_innns:
+   say(INN_DTXT3)
+   end
+mag_innload:
+   lmap(MAP_MAG_INN, $03,$06)
+   set(B,34)
+   set(C,14)
+   song(SNG_TOWN1)
+   goto(mag_innjoin)
+
+
+mag_libbook1:
+   say(MAG_LIB1A)
+   say(MAG_LIB1B)
+   end
+mag_libbook2:
+   say(MAG_LIB2A)
+   say(MAG_LIB2B)
+   end
+mag_libbook3:
+   say(MAG_LIB3)
+   end
+mag_libbook4:
+   say(MAG_LIB4A)
+   say(MAG_LIB4B)
+   end
+mag_libbook5:
+   say(MAG_LIB5A)
+   say(MAG_LIB5B)
+   end
+mag_libbook6:
+   say(MAG_LIB6A)
+   say(MAG_LIB6B)
+   end
+mag_libbook7:
+   say(MAG_LIB7A)
+   say(MAG_LIB7B)
+   end
+mag_libbook8:
+   say(MAG_LIB8A)
+   say(MAG_LIB8B)
+   end
+mag_libbook9:
+   say(MAG_LIB9A)
+   say(MAG_LIB9B)
+   end
+mag_libbook10:
+   say(MAG_LIB10A)
+   say(MAG_LIB10B)
+   end
+mag_libbook11:
+   say(MAG_LIB11A)
+   say(MAG_LIB11B)
+   end
+mag_libbook12:
+   say(MAG_LIB12A)
+   say(MAG_LIB12B)
+   end
+mag_libbook13:
+   say(MAG_LIB13A)
+   say(MAG_LIB13B)
+   end
+mag_libbook14:
+   say(MAG_LIB14A)
+   say(MAG_LIB14B)
+   end
+mag_libbook15:
+   say(MAG_LIB15A)
+   say(MAG_LIB15B)
+   end
+mag_libbook16:
+   say(MAG_LIB16A)
+   say(MAG_LIB16B)
+   end
+mag_libbook17:
+   say(MAG_LIB17A)
+   say(MAG_LIB17B)
+   end
+mag_libbook18:
+   say(MAG_LIB18A)
+   say(MAG_LIB18B)
+   end
+mag_libbook19:
+   say(MAG_LIB19A)
+   say(MAG_LIB19B)
+   end
+mag_libbook20:
+   say(MAG_LIB20A)
+   say(MAG_LIB20B)
+   end
+mag_libbook21:
+   say(MAG_LIB21A)
+   say(MAG_LIB21B)
+   end
+
+mag_lib1:
+   fadeout(X_FADE)
+   set(A,MAP_MAG_LIB)
+   add(A,F)
+   lmap(A, D,E)
+   cif(F,CNE,0,mag_setzone)
+
+   cstep(mag_lib1a, $03,$09)
+   cstep(mag_lib1b, $0b,$09)
+
+   if(F,CNE,0,mag_lib1_cskip)
+   ldude(4,NPC_KIDMAGI, $09,$04,LEFT,STAND)
+   ldude(5,NPC_WOOMAGI, $0d,$02,UP,STAND)
+   ctalk(mag_lib1_guy1,4)
+   ctalk(mag_lib1_guy2,5)
+   get(A,VAR_MAG1)
+   cif(A,CE,1,mag_load_connor)
+   lguy(NPC_OLDMAGI,    $05,$03,MAG_DTXT8)
+
+   csearch(mag_libbook1,  $01,$01,S_U)
+   csearch(mag_libbook2,  $02,$01,S_U)
+   csearch(mag_libbook3,  $03,$01,S_U)
+   csearch(mag_libbook4,  $01,$03,S_U)
+   csearch(mag_libbook5,  $02,$03,S_U)
+   csearch(mag_libbook6,  $03,$03,S_U)
+   csearch(mag_libbook7,  $01,$05,S_U)
+   csearch(mag_libbook8,  $02,$05,S_U)
+   csearch(mag_libbook9,  $03,$05,S_U)
+   csearch(mag_libbook10, $06,$01,S_U)
+   csearch(mag_libbook11, $07,$01,S_U)
+   csearch(mag_libbook12, $08,$01,S_U)
+   csearch(mag_libbook13, $0B,$01,S_U)
+   csearch(mag_libbook14, $0C,$01,S_U)
+   csearch(mag_libbook15, $0D,$01,S_U)
+   csearch(mag_libbook16, $0B,$03,S_U)
+   csearch(mag_libbook17, $0C,$03,S_U)
+   csearch(mag_libbook18, $0D,$03,S_U)
+   csearch(mag_libbook19, $0B,$05,S_U)
+   csearch(mag_libbook20, $0C,$05,S_U)
+   csearch(mag_libbook21, $0D,$05,S_U)
+
+   fadein(X_FADE)
+   end
+mag_lib1_cskip:
+   ldude(4,NPC_DEAD,    $02,$05,DOWN,STAND)
+   frame(4,DEAD_MAGI2)
+   ctalk(mag_dead, 4)
+   ldude(5,NPC_DEAD,    $09,$04,DOWN,STAND)
+   frame(5,DEAD_MAGI)
+   ctalk(mag_dead, 5)
+
+   csearch(mag_libbook7,  $01,$05,S_U)
+   csearch(mag_libbook9,  $03,$05,S_U)
+   csearch(mag_libbook12, $08,$01,S_U)
+   csearch(mag_libbook13, $0B,$01,S_U)
+   csearch(mag_libbook15, $0D,$01,S_U)
+
+   fadein(X_FADE)
+   end
+mag_lib1a:
+   set(D,$04)
+   set(E,$02)
+   goto(mag_part4)
+mag_lib1b:
+   set(D,$0a)
+   set(E,$02)
+   goto(mag_part4)
+mag_lib1_guy1:
+   say(MAG_DTXT6)
+   end
+mag_lib1_guy2:
+   say(MAG_DTXT7)
+   end
+mag_load_connor:
+   ldude(6,CH_CONNOR, $05,$05,RIGHT,STAND)
+   ctalk(mag_connor, 6)
+   end
+mag_connor:
+   say(MAG_STXT2)
+   end
+
+
+; resting on ship during the visit to the tower
+mag_scene33_rest:
+   del(0)
+   del(1)
+   del(2)
+   del(3)
+   sleep(2)
+   fadeout(X_ROLL)
+   lmap(MAP_SHIP, 53,16)
+   lockoff
+   warp(0,53,21,UP)
+   reform
+   fadein(X_ROLL)
+
+   sleep(32)
+   walk(0,UP,5)
+   sync
+   group
+   sync
+   detach
+   walk(0,DOWN,1)
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   walk(3,UP,1)
+   sync
+
+   get(A,VAR_NONLINEAR)
+   if(A,CE,1,mag_boat_nonlinear)
+
+   face(0,UP)
+   face(1,RIGHT)
+   face(2,LEFT)
+   face(3,DOWN)
+   sleep(16)
+   yesno(A)
+   say(MSG_REST)
+   if(A,CE,0,mag_scene33_restno)
+   walk(0,UP,1)
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   walk(3,DOWN,1)
+   sync
+   reform
+   walk(0,UP,8)
+   sync
+
+   song_pause
+   fadeout(X_FADE)
+   healall
+   song(SNG_REST)
+   sleep(240)
+   sleep(60)
+   song_resume
+
+   lmap(MAP_SHIP, 53,16)
+   lockoff
+   warp(0,53,17,UP)
+   warp(1,52,16,RIGHT)
+   warp(2,54,16,LEFT)
+   warp(3,53,15,DOWN)
+   fadein(X_FADE)
+   sleep(16)
+mag_scene33_restno:
+   call(mag_scene33_save)
+
+   sleep(16)
+   set(B,24)
+   set(C,15)
+   lockon(0)
+   goto(OVER_WARP)
+mag_scene33_innload:
+   set(B,24)
+   set(C,15)
+   goto(OVER_WARP_NF2)
+mag_scene33_save:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,mag_scene33_saveno)
+   set(A,SVL_SHIP)
+   savemenu
+mag_scene33_saveno:
+   end
+
+
+; talking to the archmage
+mag_scene34:
+   align($05,$07)
+   sync
+   face(0,UP)
+   panrel(0,-1)
+   group
+   sync
+   partyarr
+   detach
+   walk(0,LEFT,1)
+   walk(1,UP,1)
+   walk(2,RIGHT,1)
+   sync
+   face(0,UP)
+   face(1,UP)
+   face(2,UP)
+   face(3,UP)
+   sleep(16)
+   say(S34_ETXT1)
+   sleep(16)
+   say(S34_ETXT2)
+   sleep(16)
+
+   face(1,RIGHT)
+   sleep(4)
+   face(1,DOWN)
+   sleep(16)
+   say(S34_ETXT3)
+   sleep(16)
+   say(S34_ETXT4)
+   sleep(16)
+   say(S34_ETXT5)
+   face(1,RIGHT)
+   sleep(4)
+   face(1,UP)
+   sleep(16)
+   say(S34_ETXT6)
+   face(4,RIGHT)
+   sleep(16)
+   say(S34_ETXT7)
+   sleep(16)
+   say(S34_ETXT8)
+   walk(0,UP,1)
+   sync
+   sleep(8)
+   say(S34_ETXT9)
+   face(4,DOWN)
+   sleep(16)
+   say(S34_ETXT10)
+   walk(3,DOWN,1)
+   sync
+   walk(3,RIGHT,2)
+   sync
+   walk(3,UP,1)
+   sync
+   sleep(8)
+   say(S34_ETXT11)
+   face(4,LEFT)
+   sleep(4)
+   face(4,UP)
+   walk(4,UP,1)
+   sync
+   sleep(16)
+   say(S34_ETXT12)
+   walk(1,UP,1)
+   sync
+   sleep(16)
+   say(S34_ETXT13)
+   ldude(5,NPC_SOULGEM, $05,$05,DOWN,STAND)
+   walk(5,UP,1)
+   sync
+   face(4,RIGHT)
+   sleep(4)
+   face(4,DOWN)
+   sleep(8)
+   say(S34_ETXT14)
+   sleep(16)
+   say(S34_ETXT15)
+   sleep(16)
+   say(S34_ETXT16)
+   sleep(16)
+   say(S34_ETXT17)
+   sleep(16)
+   say(S34_ETXT18)
+   walk(1,UP,1)
+   walk(5,LEFT,1)
+   sync
+   sleep(8)
+   say(S34_ETXT19)
+   sleep(16)
+   say(S34_ETXT20)
+   walk(1,DOWN,1)
+   sync
+   sleep(16)
+   say(S34_ETXT21)
+   sleep(16)
+   say(S34_ETXT22)
+   face(1,RIGHT)
+   sleep(4)
+   face(1,UP)
+   sleep(16)
+   say(S34_ETXT23)
+   sleep(16)
+   say(S34_ETXT24)
+   walk(0,UP,1)
+   sync
+   face(0,RIGHT)
+   sleep(16)
+   say(S34_ETXT25)
+   face(1,LEFT)
+   sleep(16)
+   say(S34_ETXT26)
+   face(3,LEFT)
+   sleep(16)
+   say(S34_ETXT27)
+   face(2,LEFT)
+   sleep(8)
+   face(2,RIGHT)
+   sleep(8)
+   face(2,LEFT)
+   sleep(8)
+   face(2,UP)
+   sleep(16)
+   say(S34_ETXT28)
+   walk(4,DOWN,1)
+   sync
+   sleep(16)
+   say(S34_ETXT29)
+   walk(1,DOWN,2)
+   sync
+   face(1,UP)
+
+   face(0,DOWN)
+   face(2,LEFT)
+
+   sleep(16)
+   say(S34_ETXT30)
+   walk(1,DOWN,3)
+   sync
+
+   ; DEMO ONLY
+   get(A,VAR_ATDEMO)
+   if(A,CNE,0,demo_next)
+
+   fadeout(X_FADE)
+   partynor
+
+   ; heal everyone
+   healall
+
+   partyset(0,0)
+   partyset(1,0)
+   partyset(2,0)
+   partyset(3,0)
+   partyset(0,PARTY_ELYA)
+
+   put(1,VAR_MAG1)
+   ; move the boat so elya cannot use it
+   setboat(45,30)
+
+   face(0,DOWN)
+   lockon(0)
+
+   sleep(32)
+   set(D,$06)
+   set(E,$02)
+   set(G,X_FADE)
+   goto(mag_part6_nf)
+
+
+; trials dungeon
+mag_trials:
+   fadeout(X_FADE)
+   set(D,$07)
+   set(E,$30)
+   goto(mag_trial1_nf)
+
+mag_trial1:
+   fadeout(X_FADE)
+mag_trial1_nf:
+   lmap(MAP_TRIAL1, D,E)
+   zone(ZONE_TRI)
+   cstep(mag_trial1a, $05,$03)
+   ctres($4a,IT_PMaster,$08,$22, $31,SFX_CHEST)
+   ctres($4b,IT_EMaster,$04,$0a, $31,SFX_CHEST)
+   fadein(X_FADE)
+   end
+mag_trial1a:
+   set(D,$09)
+   set(E,$24)
+   goto(mag_trial2)
+
+mag_trial2:
+   fadeout(X_FADE)
+   lmap(MAP_TRIAL2, D,E)
+   zone(ZONE_TRI)
+   cstep(mag_trial2a, $09,$24)
+   cstep(mag_trial2b, $09,$04)
+   fadein(X_FADE)
+   end
+mag_trial2a:
+   set(D,$05)
+   set(E,$03)
+   goto(mag_trial1)
+mag_trial2b:
+   set(D,$04)
+   set(E,$08)
+   goto(mag_trial3)
+
+mag_trial3:
+   fadeout(X_FADE)
+   lmap(MAP_TRIAL3, D,E)
+   zone(ZONE_TRI)
+   cstep(mag_trial3a, $04,$09)
+   cstep(mag_trial3b, $04,$03)
+
+   ; exanima already defeated
+   get(A,VAR_MAG1)
+   if(A,CE,2,skip_exanima)
+   ldude(4,EN_EXANIMA, $04,$04,DOWN,STAND)
+   ctalk(mag_exanima, 4)
+skip_exanima:
+
+   fadein(X_FADE)
+   end
+mag_trial3a:
+   set(D,$09)
+   set(E,$04)
+   goto(mag_trial2)
+mag_trial3b:
+   set(D,$08)
+   set(E,$04)
+   goto(mag_part1)
+
+mag_exanima:
+   say(S35_ETXT1)
+   sleep(16)
+   say(S35_ETXT2)
+   sleep(16)
+   say(S35_ETXT3)
+   sleep(16)
+   say(S35_ETXT4)
+   sleep(16)
+   say(S35_ETXT5)
+   sleep(16)
+   say(S35_ETXT6)
+   sleep(16)
+   say(S35_ETXT7)
+   sleep(16)
+   say(S35_ETXT8)
+
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special_BossExanima,0,1,0,0)
+   song_resume
+   del(4)
+   sleep(16)
+   fadein(X_FADE)
+   put(2,VAR_MAG1)
+   setskl(0,2,12)
+   end
+
+
+; return from the trials
+mag_scene36:
+   put(3,VAR_MAG1)
+
+   partyarr
+   walk(0,UP,3)
+   sync
+   lockoff
+   face(5,RIGHT)
+   face(6,LEFT)
+   face(7,LEFT)
+   sleep(16)
+   say(S36_ETXT1)
+   sleep(16)
+   say(S36_ETXT2)
+   sleep(16)
+   say(S36_ETXT3)
+   sleep(16)
+   say(S36_ETXT4)
+   sleep(8)
+   say(S36_ETXT5)
+   sleep(24)
+   say(S36_ETXT6)
+   sleep(16)
+   say(S36_ETXT7)
+   face(4,RIGHT)
+   face(0,RIGHT)
+   sleep(16)
+   say(S36_ETXT8)
+
+   walk(4,LEFT,1)
+   walk(0,UP,1)
+   sync
+   face(0,DOWN)
+   walk(4,DOWN,1)
+   sync
+   face(4,DOWN)
+   walk(7,LEFT,2)
+   walk(5,LEFT,1)
+   sync
+   face(5,RIGHT)
+   face(7,UP)
+   sleep(32)
+
+   face(4,RIGHT)
+   face(0,LEFT)
+   sleep(16)
+   face(4,DOWN)
+   face(0,DOWN)
+
+   sleep(16)
+   frame(0,CEL_HRAISE)
+   frame(4,CEL_DOWN1)
+   sleep(16)
+   call(whiteflash)
+   sleep(4)
+   call(whiteflash)
+   face(0,DOWN)
+   face(1,DOWN)
+   sleep(4)
+
+   set(A,8)
+mag_loop1:
+   ldude(7,CH_VICTORWOLF, $05,$06,UP,STAND)
+   sleep(4)
+   ldude(7,CH_VICTOR,     $05,$06,UP,STAND)
+   sleep(4)
+   dec(A)
+   if(A,CG,0,mag_loop1)
+   call(whiteflash)
+
+   //dequip
+
+   sleep(16)
+   setwolf(0)
+   face(7,RIGHT)
+   sleep(4)
+   face(7,DOWN)
+   say(S36_ETXT8B)
+   sleep(2)
+
+   partyset(1,PARTY_VICTOR)
+   setskl(1,2,7)
+   partyset(1,0)
+
+   say(S36_ETXT9)
+   sleep(16)
+   say(S36_ETXT10)
+   face(7,RIGHT)
+   sleep(16)
+   walk(5,RIGHT,1)
+   sync
+   sleep(16)
+   say(S36_ETXT11)
+   sleep(16)
+   say(S36_ETXT12)
+   face(7,UP)
+   sleep(16)
+   say(S36_ETXT13)
+   face(5,DOWN)
+   sleep(16)
+   say(S36_ETXT14)
+   sleep(16)
+   say(S36_ETXT15)
+   face(4,RIGHT)
+   sleep(16)
+   say(S36_ETXT16)
+   sleep(8)
+
+   palset(1)
+   partyset(0,0)
+   partyset(0,PARTY_CONNOR)
+   partyset(1,PARTY_ELYA)
+   partyset(2,PARTY_VICTOR)
+   partyset(3,PARTY_RYAN)
+
+   lmap(MAP_SHIP, 53,15)
+   lockoff
+   partyarr
+   detach
+   warp(0,53,13,DOWN)
+   warp(1,52,14,RIGHT)
+   warp(2,54,14,LEFT)
+   warp(3,53,15,UP)
+   palnorm
+
+   sleep(16)
+   say(S36_ETXT17)
+   sleep(16)
+   walk(0,DOWN,1)
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   walk(3,UP,1)
+   sync
+   face(0,UP)
+   reform
+   partyarr
+   walk(0,UP,8)
+   sync
+   fadeout(X_FADE)
+   partyset(3,0)
+   lockon(0)
+
+   ; restore party now that they are leaving
+   healall
+   goto(mag_scene37)
+
+whiteflash:
+   palset(1)
+   sleep(4)
+   palnorm
+   end
+
+; boat lands at 61,43
+mag_scene37:
+   ; flag return to turren
+   put(1,VAR_RET_TUR)
+   put(0,VAR_MAGVISIT)
+   put(1,VAR_NPSBLOCK) ; block northpass
+   put(1,VAR_TGL1) ; wreck tagel
+
+
+   lmap(MAP_OVERWORLD, 23,15)
+   lockoff
+   detach
+   del(0)
+   del(1)
+   del(2)
+   del(3)
+   lockon(4)
+   fadein(X_FADE)
+
+   sleep(32)
+   walk(4,LEFT,4)
+   sync
+   walk(4,DOWN,15)
+   sync
+   walk(4,RIGHT,40)
+   sync
+   walk(4,DOWN,5)
+   sync
+   walk(4,RIGHT,2)
+   sync
+   walk(4,DOWN,8)
+   sync
+   sleep(32)
+
+   fadeout(X_FADE)
+   lmap(MAP_SHIP, 53,6)
+   lockoff
+   partyarr
+   detach
+   warp(0,53,4,UP)
+   warp(2,50,6,UP)
+   frame(2,CEL_ASLEEP)
+   warp(1,51,8,DOWN)
+   ldude(4,CH_RYAN,     59,7,DOWN,STAND)
+   fadein(X_FADE)
+
+   sleep(32)
+   walk(4,LEFT,4)
+   sync
+   sleep(32)
+   say(S30_ETXT1)
+
+   face(4,DOWN)
+   sleep(8)
+   face(4,LEFT)
+   sleep(8)
+   face(4,DOWN)
+   sleep(8)
+   face(4,LEFT)
+   sleep(8)
+   face(4,DOWN)
+   face(0,DOWN)
+   face(1,UP)
+   frame(2,CEL_LOOK1)
+   sleep(16)
+   face(2,DOWN)
+   sleep(16)
+   face(2,RIGHT)
+   sleep(32)
+
+   say(S30_ETXT2)
+   face(4,UP)
+   sleep(16)
+   say(S30_ETXT3B)
+
+   face(4,LEFT)
+   sleep(8)
+   face(4,DOWN)
+   sleep(8)
+   face(4,LEFT)
+   sleep(8)
+   face(4,DOWN)
+   sleep(16)
+
+   walk(1,RIGHT,2)
+   walk(2,RIGHT,3)
+   sleep(18)
+   walk(1,DOWN,9)
+   sleep(9)
+   walk(0,DOWN,7)
+   walk(2,DOWN,10)
+   sleep(18)
+   lockon(0)
+   sync
+   walk(4,LEFT,2)
+   sync
+   face(4,DOWN)
+   sleep(16)
+   face(0,UP)
+   sleep(16)
+   say(S30_ETXT4)
+   walk(4,RIGHT,7)
+   sleep(18)
+   walk(1,RIGHT,1)
+   walk(2,DOWN,1)
+   walk(0,DOWN,4)
+   sleep(9)
+   face(1,UP)
+   sync
+   walk(2,LEFT,1)
+   walk(0,DOWN,2)
+   sleep(9)
+   face(2,RIGHT)
+   face(1,LEFT)
+   sync
+   lockoff
+
+   say(S37_ETXT1)
+   sleep(16)
+   say(S37_ETXT2)
+   face(2,DOWN)
+   sleep(32)
+
+   face(0,LEFT)
+   sleep(16)
+   face(0,RIGHT)
+   sleep(16)
+   face(0,DOWN)
+   sleep(32)
+   walk(0,DOWN,6)
+   sleep(9)
+   face(1,DOWN)
+   face(2,DOWN)
+   sync
+   sleep(32)
+   face(1,LEFT)
+   face(2,RIGHT)
+   sleep(16)
+   walk(2,DOWN,5)
+   walk(1,DOWN,5)
+   sync
+   reform
+
+   set(B,61)
+   set(C,44)
+   setboat(122,86) ; 61 43
+   lockon(0)
+   call(OVER_WARP_NF)
+   fadein(X_ROLL)
+   walk(4,UP,10)
+   control(1)
+   sync
+   del(4)
+   setboat(0,0)  ; tuck the boat away someplace
+   goto(INC_EVT)
+   end
+
+
+mag_scene46:
+   walk(0,UP,2)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   walk(1,LEFT,1)
+   walk(2,RIGHT,1)
+   walk(3,UP,2)
+   sleep(9)
+   face(1,UP)
+   face(2,UP)
+   sync
+
+   sleep(16)
+   say(S46_ETXT1)
+   sleep(16)
+   say(S46_ETXT2)
+   walk(1,UP,1)
+   sync
+   sleep(16)
+   say(S46_ETXT3)
+   sleep(16)
+   say(S46_ETXT4)
+   face(1,LEFT)
+   sleep(16)
+   say(S46_ETXT5)
+   face(3,RIGHT)
+   sleep(4)
+   face(3,DOWN)
+   sleep(16)
+   say(S46_ETXT6)
+   face(1,UP)
+   sleep(16)
+   say(S46_ETXT7)
+   face(2,LEFT)
+   sleep(16)
+   say(S46_ETXT8)
+   face(0,RIGHT)
+   sleep(16)
+   say(S46_ETXT9)
+   sleep(16)
+   say(S46_ETXT10)
+   face(3,RIGHT)
+   sleep(4)
+   face(3,UP)
+   sleep(16)
+   say(S46_ETXT11)
+   sleep(16)
+   say(S46_ETXT12)
+   face(0,UP)
+   sleep(16)
+   say(S46_ETXT13)
+   sleep(16)
+   say(S46_ETXT14)
+   sleep(16)
+   say(S46_ETXT15)
+   sleep(16)
+   say(S46_ETXT16)
+   face(3,DOWN)
+   sleep(16)
+   say(S46_ETXT17)
+   sleep(16)
+   walk(3,DOWN,1)
+   walk(1,RIGHT,1)
+   walk(0,UP,1)
+   walk(2,UP,1)
+   sync
+   walk(2,LEFT,1)
+   sync
+   partynor
+   face(0,UP)
+   reform
+
+   put(2,VAR_RET_MAG)
+   end
+
+
+mag_scene47_setup:
+   del(4)
+   ldude(7,NPC_ARCHMAGI,$05,$03,DOWN,STAND)
+   ldude(5,NPC_KRAIT,   $05,$06,UP,  STAND)
+
+   ; falling omega
+   ldude(6,EN_OMEGA,   $06,$01,DOWN,STAND)
+   frame(6,CEL_DOWN1)
+   setbosspal(BOSSPAL_OMEGA)
+   end
+
+mag_scene47:
+   panspeed(1)
+   lockon(5)
+
+   sleep(32)
+   say(S47_ETXT1)
+   sleep(16)
+   say(S47_ETXT2)
+   sleep(16)
+   say(S47_ETXT3)
+   sleep(24)
+   say(S47_ETXT4)
+   sleep(16)
+   say(S47_ETXT5)
+   face(5,LEFT)
+   sleep(16)
+   say(S47_ETXT6)
+   face(5,UP)
+   sleep(16)
+   say(S47_ETXT7)
+   sleep(16)
+   say(S47_ETXT8)
+   ldude(4,NPC_FIRE,    $05,$04,DOWN,STAND)
+   sleep(16)
+   walk(4,DOWN,1)
+   sync
+   frame(4,4)
+   sleep(4)
+   frame(4,3)
+   sleep(4)
+   frame(4,2)
+   sleep(4)
+   del(4)
+   sleep(32)
+   partyarr
+   detach
+   walk(0,UP,1)
+   walk(1,UP,1)
+   walk(3,UP,1)
+   face(5,LEFT)
+   sleep(4)
+   face(5,DOWN)
+   sync
+   walk(3,LEFT,1)
+   walk(1,RIGHT,1)
+   sync
+   face(1,UP)
+   face(3,UP)
+   sleep(16)
+   say(S47_ETXT9)
+
+   face(5,LEFT)
+   sleep(4)
+   face(5,UP)
+   sleep(16)
+   ; fireball shoots at the archmage
+   ldude(4,NPC_FIRE,    $05,$05,DOWN,STAND)
+   sleep(32)
+   frame(4,CEL_DOWN1)
+   walk(4,UP,2)
+   sync
+   face(4,DOWN)
+   sleep(64)
+   ldude(7,NPC_EX1,    $05,$03,DOWN,STAND)
+   frame(7,ARCH_DEAD)
+   frame(4,4)
+   sleep(4)
+   frame(4,3)
+   sleep(4)
+   frame(4,2)
+   sleep(4)
+   del(4)
+
+   walk(0,UP,1)
+   walk(1,UP,1)
+   walk(2,UP,1)
+   walk(3,UP,1)
+   sync
+   walk(2,RIGHT,2)
+   sync
+   walk(2,UP,1)
+   sync
+   lockoff
+
+   walk(5,UP,1)
+   sync
+   face(5,DOWN)
+   sfx(SFX_FALL)
+   walk(6,DOWN,5)
+   sync
+   sfx(SFX_LAND)
+   face(6,DOWN)
+   sleep(16)
+   walk(6,LEFT,1)
+   sync
+   face(6,DOWN)
+
+   lockon(0)
+
+   ldude( 8,NPC_GOLEM,   $05,$09,DOWN,STAND)
+   ldude( 9,NPC_GOLEM,   $05,$09,DOWN,STAND)
+   ldude(10,NPC_GOLEM,   $05,$09,DOWN,STAND)
+   walk(8,UP,1)
+   sync
+   walk(8,LEFT,1)
+   walk(9,UP,1)
+   sync
+   face(8,UP)
+   walk(9,RIGHT,1)
+   walk(10,UP,1)
+   sync
+   face(9,UP)
+   sleep(32)
+
+   say(S47_ETXT10)
+   sleep(16)
+   say(S47_ETXT11)
+
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special2_MagiBoss,0,1,0,0)
+   song_resume
+   panspeed(2)
+   ldude(6,EN_OMEGA,   $05,$06,DOWN,STAND)
+   setbosspal(BOSSPAL_OMEGA)
+   warp(3,$05,$05,DOWN)
+   warp(1,$04,$06,RIGHT)
+   warp(2,$06,$06,LEFT)
+   warp(0,$05,$07,UP)
+   del(5)
+   del(8)
+   del(9)
+   del(10)
+   sleep(20)
+   fadein(X_FADE)
+   sleep(16)
+   sfx(SFX_SEARCH)
+   give(IT_FOmega)
+
+
+   sleep(32)
+   say(S48_ETXT1)
+   sleep(16)
+   say(S48_ETXT2)
+   sleep(16)
+   say(S48_ETXT3)
+   sleep(16)
+   say(S48_ETXT4)
+   sleep(32)
+   say(S48_ETXT5)
+   ldude(4,NPC_FIRE,    $05,$06,DOWN,STAND)
+   frame(4,2)
+   sleep(4)
+   frame(4,3)
+   sleep(4)
+   frame(4,4)
+   sleep(4)
+   face(4,DOWN)
+   sleep(32)
+   del(6)
+   frame(4,4)
+   sleep(4)
+   frame(4,3)
+   sleep(4)
+   frame(4,2)
+   sleep(4)
+   del(4)
+   setbosspal(0)
+
+   face(0,RIGHT)
+   sleep(4)
+   face(0,DOWN)
+   frame(0,CEL_LOOK1)
+   sleep(16)
+   say(S48_ETXT6)
+   walk(3,DOWN,1)
+   sync
+   sleep(16)
+   say(S48_ETXT7)
+   sleep(32)
+   say(S48_ETXT8)
+   face(0,UP)
+   face(1,UP)
+   face(2,UP)
+   face(3,UP)
+   sleep(16)
+
+   walk(3,UP,2)
+   walk(2,UP,2)
+   walk(1,UP,2)
+   walk(0,UP,2)
+   sync
+
+   sleep(32)
+   frame(7,ARCH_KNEEL)
+   ;ldude(7,NPC_ARCHMAGI,$05,$03,DOWN,STAND)
+   sleep(32)
+   say(S48_ETXT9)
+   sleep(16)
+
+   say(S48_ETXT10)
+   frame(3,CEL_HRAISE)
+   sleep(16)
+   sfx(SFX_SPARKLE)
+   call(whiteflash)
+   sleep(4)
+   call(whiteflash)
+   sleep(16)
+   face(3,DOWN)
+   sleep(16)
+   face(3,UP)
+   sleep(4)
+   say(S48_ETXT11)
+   sleep(16)
+   say(S48_ETXT12)
+   sleep(16)
+   say(S48_ETXT13)
+   sleep(16)
+   say(S48_ETXT14)
+   sleep(16)
+   say(S48_ETXT15)
+   sleep(16)
+   say(S48_ETXT16)
+   sleep(16)
+   say(S48_ETXT17)
+   sleep(16)
+   say(S48_ETXT18)
+
+   frame(7,ARCH_DEAD)
+   ;ldude(7,NPC_DEAD    ,$05,$03,DOWN,STAND)
+   ;frame(7,0)
+   sfx(SFX_LAND)
+   sleep(16)
+   say(S48_ETXT19)
+   sleep(16)
+   ldude(7,NPC_ARCHMAGI,$05,$03,DOWN,STAND)
+   sleep(16)
+   say(S48_ETXT20)
+   sleep(16)
+
+mag_scene47b:
+   ; raise the temples
+   fadeout(X_FADE)
+   call(mag_risetemples)
+
+   set(A,MAP_WMAG_ARCH)
+   set(F,25) ; skip to WMAG maps
+   
+   ; reload everyone
+   face(0,UP)
+   lockon(0)
+   lmap(MAP_WMAG_ARCH, $05,$05)
+   cstep(mag_arch1a, $05,$0a)
+   ldude(7,NPC_ARCHMAGI,$05,$03,DOWN,STAND)
+   partyarr
+   detach
+   warp(1,$04,$04,UP)
+   warp(3,$05,$04,UP)
+   warp(2,$06,$04,UP)
+   fadein(X_FADE)
+
+   sleep(32)
+   ldude(7,NPC_EX1    ,$05,$03,DOWN,STAND)
+   frame(7,ARCH_DEAD)
+   sfx(SFX_LAND)
+
+   sleep(32)
+   say(S48_ETXT21)
+   face(3,DOWN)
+   sleep(16)
+   say(S48_ETXT22)
+   face(2,LEFT)
+   sleep(16)
+   say(S48_ETXT23)
+   face(1,RIGHT)
+   sleep(16)
+   say(S48_ETXT24)
+   sleep(16)
+   say(S48_ETXT25)
+   sleep(16)
+   say(S48_ETXT26)
+   sleep(16)
+   say(S48_ETXT27)
+   face(0,DOWN)
+   sleep(16)
+   say(S48_ETXT28)
+   walk(0,UP,1)
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   sync
+   face(0,DOWN)
+   partynor
+   reform
+   sync
+   setskl(3,3,9)
+
+   put(3,VAR_RET_MAG)
+   put(1,VAR_NONLINEAR)
+   ctalk(mag_architem, 7)
+   end
+
+   set(D,$06)
+   set(E,$02)
+   goto(mag_part6)
+
+mag_architem:
+   say(S48_STXT4)
+   get(A,VAR_ARCHITEM)
+   if(A,CE,1,RET)
+   put(1,VAR_ARCHITEM)
+   say(S48_STXT5)
+   give(IT_EArchmage)
+   end
+
+mag_boat_nonlinear:
+   face(0,UP)
+   face(1,UP)
+   face(2,UP)
+   face(3,UP)
+
+   ldude(4,CH_RYAN,53,10,DOWN,STAND)
+   walk(4,DOWN,3)
+   sync
+   say(S48_STXT1)
+   sleep(16)
+   say(S48_STXT2)
+   face(4,RIGHT)
+   sleep(4)
+   face(4,UP)
+   sleep(16)
+   say(S48_STXT3)
+   walk(4,UP,3)
+   walk(0,UP,1)
+   walk(1,RIGHT,1)
+   walk(2,LEFT,1)
+   walk(3,DOWN,1)
+   sync
+   partynor
+   face(0,UP)
+   reform
+   walk(0,UP,9)
+   sync
+   sleep(16)
+   put(0,VAR_MAGVISIT)
+
+   set(B,23)
+   set(C,15)
+   lockon(0)
+   boat_on
+   call(OVER_WARP)
+   walk(0,LEFT,1)
+   sync
+   end
+
+
+mag_risetemples:
+   lmap(MAP_OVERWORLD, $22,$0e)
+   call(burn_forest)
+   del(0)
+   del(1)
+   del(2)
+   del(3)
+   fadein(X_FADE)
+   sleep(32)
+
+   set(B,23)
+   set(C,43)
+   pan(B,C)
+   sleep(128)
+   call(mag_riserumble)
+   call(mag_sandtemple)
+   call(mag_risestop)
+   sleep(32)
+
+   set(B,88)
+   set(C,99)
+   pan(B,C)
+   sleep(240)
+   sleep(48)
+   call(mag_riserumble)
+   call(mag_wavetemple2)
+   sleep(32)
+   call(mag_wavetemple)
+   call(mag_risestop)
+   sleep(32)
+
+   set(B,83)
+   set(C,15)
+   pan(B,C)
+   sleep(240)
+   sleep(128)
+   call(mag_riserumble)
+   call(mag_icetemple)
+   call(mag_risestop)
+   sleep(32)
+
+   fadeout(X_FADE)
+   end
+
+mag_riserumble:
+   quake
+   inc(B)
+   add(C,3)
+   ldude(1,NPC_SMOKE, B,C,DOWN,STAND)
+   setz(1,44)
+   sleep(64)
+   end
+
+mag_risestop:
+   sleep(64)
+   del(1)
+   quake
+   end
+
+mag_sandtemple:
+   tile(23,43,$36)
+   end
+mag_icetemple:
+   tile(83,15,$35)
+   end
+mag_wavetemple:
+   tile( 86, 97,$86)
+   tile( 87, 97,$72)
+   tile( 88, 97,$72)
+   tile( 89, 97,$72)
+   tile( 90, 97,$87)
+
+   tile( 86, 98,$7a)
+   tile( 87, 98,$02)
+   tile( 88, 98,$02)
+   tile( 89, 98,$02)
+   tile( 90, 98,$73)
+
+   tile( 86, 99,$7a)
+   tile( 87, 99,$02)
+   tile( 88, 99,$34)
+   tile( 89, 99,$02)
+   tile( 90, 99,$73)
+
+   tile( 86,100,$7a)
+   tile( 87,100,$02)
+   tile( 88,100,$02)
+   tile( 89,100,$02)
+   tile( 90,100,$73)
+
+   tile( 86,101,$8e)
+   tile( 87,101,$7b)
+   tile( 88,101,$7b)
+   tile( 89,101,$7b)
+   tile( 90,101,$8f)
+   end
+
+mag_wavetemple2:
+   tile( 87, 98,$86)
+   tile( 88, 98,$72)
+   tile( 89, 98,$87)
+
+   tile( 87, 99,$7a)
+   tile( 88, 99,$02)
+   tile( 89, 99,$73)
+
+   tile( 87,100,$8e)
+   tile( 88,100,$7b)
+   tile( 89,100,$8f)
+   end
+
+
+mag_settalk:
+   get(A,VAR_MAG1)
+   if(A,CL,3,mag_settalk1)
+   set(A,2)
+mag_settalk1:
+   tbase(MAG_DTXT1, MAG_DTSIZE, A)
+   end
+
+mag_setzone:
+   get(A,VAR_RET_MAG)
+   cif(A,CE,3,RET)
+   zone(ZONE_MAG)
+   end
+

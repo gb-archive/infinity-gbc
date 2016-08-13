@@ -1,0 +1,16 @@
+"Infinity Event Assembler"
+/****************************************************************************
+/* $Id: tasm99.tab 1.0 2000/05/23 12:27:40 toma Exp $
+/****************************************************************************
+/* This is the instruction set definition table 
+/*   for the Z80 version of TASM.
+/*      Thomas N. Anderson, Speech Technology Incorporated
+/*      This table authored and submitted by Carl A. Wall, VE3APY.
+/*
+/*      Class bits assigned as follows:
+/*        Bit-0 = Z80          (base instruction set)
+/*        Bit-1 = HD64180      (extended instructions)
+/*  See TASM manual for info on table structure.
+/* 
+/*INSTR ARGS      OP BYTES RULE     CLASS SHIFT OR */
+/*----------------------------------------------*/

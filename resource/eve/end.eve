@@ -1,0 +1,271 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+end_scene67:
+   sayauto(1)
+   setwolf(0)
+   song(SNG_ENDING1)
+
+   partyset(0,0)
+   partyset(1,0)
+   partyset(2,0)
+   partyset(3,0)
+
+   partyset(0,PARTY_VICTOR)
+
+   lmap(MAP_GRW,        $26,$06)
+   lockoff
+
+   warp(0,$0b,$06,RIGHT)
+   ldude(4,NPC_GIRL1,   $0a,$06,RIGHT,STAND)
+   ldude(5,NPC_BOY1,    $09,$06,RIGHT,STAND)
+   ldude(6,NPC_GIRL2,   $08,$06,RIGHT,STAND)
+   ldude(7,NPC_BOY2,    $07,$06,RIGHT,STAND)
+
+   ;panrel(1,0)
+   ;sleep(8)
+
+   fadein(X_FADE)
+
+   sleep(128)
+
+   panspeed(0)
+   lockon(0)
+   sleep(128)
+
+   sleep(96)
+   sleep(89)
+
+   walk(0,RIGHT,9)
+   walk(4,RIGHT,9)
+   walk(5,RIGHT,9)
+   walk(6,RIGHT,9)
+   walk(7,RIGHT,9)
+
+   sleep(40)
+   panspeed(2)
+   sync
+
+   lockoff
+   sleep(32)
+   face(0,DOWN)
+   sleep(32)
+   face(0,LEFT)
+   sleep(32)
+   say(S67_ETXT1)
+   sleep(32)
+   say(S67_ETXT2)
+   sleep(16)
+   face(0,UP)
+   sleep(32)
+   say(S67_ETXT3)
+   sleep(32)
+   fadeout(X_FADE)
+   sleep(64)
+   goto(end_scene68)
+
+
+end_scene68:
+
+   partyset(0,0)
+   partyset(0,PARTY_RYAN)
+
+   lmap(MAP_FAR,  $09,$16)
+
+   warp(0,$08,$16,RIGHT)
+   ldude(4,NPC_MAYOR, $09,$16,LEFT,STAND)
+   ldude(5,NPC_LADY1, $0d,$14,RIGHT,STAND)
+   fadein(X_FADE)
+
+   sleep(32)
+   walk(5,RIGHT,1)
+   sync
+   sleep(64)
+   say(S68_ETXT1)
+   sleep(28)
+   walk(5,RIGHT,1)
+   sleep(4)
+   say(S68_ETXT2)
+   sleep(32)
+   say(S68_ETXT3)
+   sleep(32)
+   say(S68_ETXT4)
+   sleep(32)
+   fadeout(X_FADE)
+   sleep(64)
+   goto(end_scene69)
+
+
+end_scene69:
+
+   partyset(0,0)
+   partyset(0,PARTY_ELYA)
+
+   lmap(MAP_MAG_ARCH, $05,$09)
+   lockoff
+   panspeed(0)
+   camera($05,$09)
+   pan($05,$06)
+
+   warp(0,$05,$04,DOWN)
+   ldude(4,NPC_GIRL1, $04,$06, UP,STAND)
+   ldude(5,NPC_KIDMAGI, $06,$06, UP,STAND)
+   fadein2(X_FADE)
+
+   sleep(128)
+   say(S69_ETXT1)
+   sleep(32)
+   say(S69_ETXT2)
+   sleep(32)
+   fadeout(X_FADE)
+   sleep(64)
+   goto(end_scene70)
+
+
+end_scene70:
+
+   lmap(MAP_FARM, $05,$04)
+   lockoff
+   del(0)
+   panspeed(0)
+   ldude(4,NPC_KRAIT,   $05,$07, DOWN,STAND)
+   lockon(4)
+   fadein(X_FADE)
+
+   sleep(96)
+   say(S70_ETXT1)
+   sleep(16)
+   face(4,RIGHT)
+   sleep(4)
+   face(4,UP)
+   sleep(16)
+   say(S70_ETXT2)
+   sleep(16)
+   face(4,RIGHT)
+   sleep(4)
+   face(4,DOWN)
+   sleep(16)
+   say(S70_ETXT3)
+   sleep(32)
+   fadeout(X_FADE)
+   panspeed(2)
+   sleep(64)
+   goto(end_scene71)
+
+
+end_scene71:
+
+   lmap(MAP_CLIFF, $00,$00)
+   lockoff
+   del(0)
+   ldude(4,CH_ROLAND,$00,$00, UP,STAND)
+   warp2(4,$07,$06,UP)
+   lockon(4)
+   fadein(X_FADE)
+
+   sleep(64)
+   say(S71_ETXT1)
+   sleep(32)
+   fadeout(X_FADE)
+   sleep(64)
+   goto(end_scene72)
+
+
+end_scene72:
+   sleep(64)
+   partyset(0,0)
+   partyset(0,PARTY_CONNOR)
+
+   lmap(MAP_SLR_CONNR, $01,$02)
+
+   ldude(4,NPC_ANNA, $04,$08,UP,STAND)
+   frame(0,CEL_TIRED)
+   panspeed(0)
+   camera($04,$07)
+   fadein(X_FADE)
+
+   sleep(32)
+   lockon(0)
+   sleep(32)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   sfx(SFX_KNOCK)
+   sleep(80)
+   say(S72_ETXT1)
+   sleep(8)
+   sfx(SFX_KNOCK)
+   sleep(8)
+   sfx(SFX_KNOCK)
+   sleep(8)
+   sfx(SFX_KNOCK)
+   frame(0,CEL_DOWN1)
+   sleep(8)
+   say(S72_ETXT2)
+   sleep(10)
+   face(0,  DOWN)
+   sleep(10)
+   walk(0,  RIGHT,1)
+   sync
+   walk(0,  DOWN, 2)
+   sync
+   walk(0,  RIGHT,2)
+   sync
+   walk(0,  DOWN, 2)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   sfx(SFX_KNOCK)
+   sleep(16)
+   say(S72_ETXT3)
+   sleep(32)
+   sfx(SFX_DOOROPEN)
+   lockon(4)
+   walk(4,  UP,   1)
+   sync
+   sleep(16)
+   say(S72_ETXT4)
+   sleep(8)
+
+/*   walk(4,UP,1)
+   frame(0,CEL_RIGHT1)
+   walk(0,LEFT,1)
+   sync
+   face(0,RIGHT)
+   face(4,LEFT)
+   sleep(32)
+   panspeed(2)
+
+   walk2(0,RIGHT,1)
+   sync
+   lockoff
+
+   ldude(5,NPC_EMBRACE,$00,$00,DOWN,STAND)
+   ldude(6,NPC_EMBRACE,$00,$00,DOWN,STAND)
+   warp2(5,$07,$0c,DOWN)
+   warp2(6,$09,$0c,DOWN)
+   frame(5,0)
+   frame(6,1)
+   sleep(2)
+   del(0)
+   del(4)*/
+
+   sleep(64)
+   fadeout(X_FADESLOW)
+   
+   sleep(44)
+   song(SNG_ENDING2)
+   poem(0)
+   sleep(180)
+   goto(credits)

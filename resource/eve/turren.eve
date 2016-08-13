@@ -1,0 +1,803 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_TUR:
+   call(MAPPOS_SAVE_R)
+   ; exit to the left always
+   get(A,VAR_WORLDX)
+   sub(A,1)
+   put(A,VAR_WORLDX)
+
+   get(A,VAR_TURWOODS)
+   cif(A,CE,0,tur_fromleft)
+   cif(A,CE,1,tur_fromright)
+
+   call(L_TUR)
+   fadein(X_ROLL)
+   get(A,VAR_EVEPROG)
+   cif(A,CE,11,tur_scene19)
+   put(0,VAR_TURWOODS)
+   end
+
+tur_fromleft:
+   face(0,RIGHT)
+   set(B,$00)
+   set(C,$10)
+   end
+tur_fromright:
+   face(0,LEFT)
+   set(B,$1f)
+   set(C,$12)
+   end
+
+I_TUR:
+   fadeout(X_FADE)
+   call(L_TUR)
+   fadein(X_FADE)
+   end
+
+L_TUR:
+   lmap(MAP_TURREN,        B,C)
+   song(SNG_SADNESS)
+;   song_off
+   chstep(OVERWORLD,       $7f,$04,$22)
+   chstep(OVERWORLD,       $7f,$1b,$22)
+   cvstep(OVERWORLD,       $7f,$7f,$22)
+   cvstep(tur_rightexit,   $20,$7F,$22)
+
+   cvstep(tur_wolves,      $17,$0D,$08)
+   csearch(tur_well,       $0e,$0a,S_U)
+   csearch(tur_well,       $0e,$0b,S_D)
+
+   csearch(tur_sign,       $02,$0e,S_U)
+
+   ; if RET_TUR != 0 then the place is empty
+   get(A,VAR_RET_TUR)
+   if(A,CNE,0,tur_outskip)
+
+   set(B,$11)
+   get(A,VAR_EVEPROG)
+   if(A,CL,15,tur_nopush)
+   dec(B)
+tur_nopush:
+   ldude(4,NPC_DEAD,       $1b,  B,DOWN,STAND)
+   ldude(5,NPC_DEAD,       $07,$0e,DOWN,STAND)
+   ldude(6,NPC_DEAD,       $10,$12,DOWN,STAND)
+   frame(4,2)
+   frame(5,0)
+   frame(6,1)
+
+   ctalk(tur_corpse3, 4)
+   ctalk(tur_corpse2, 5)
+   ctalk(tur_corpse1, 6)
+
+tur_outskip:
+   ; treasure -- 0c,13 -- only from facing up
+   csearch(tur_tres1,      $0c,$13,S_U)
+   end
+
+tur_rightexit:
+   get(A,VAR_WORLDX)
+   add(A,2)
+   put(A,VAR_WORLDX)
+   put(1,VAR_TURWOODS)
+   goto(OVERWORLD)
+
+tur_sign:
+   say(TUR_STXT4)
+   end
+
+tur_tres1:
+   get(A,VAR_TURTRES1)
+   if(A,CE,1,RET)
+   sfx(SFX_SEARCH)
+   give(IT_HPLO)
+   put(1,VAR_TURTRES1)
+   end
+
+tur_well:
+   get(A,VAR_EVEPROG)
+   if(A,CE,12,tur_well1)
+   ; go into lower turren
+   get(A,VAR_WELLFIRST)
+   cif(A,CE,0,tur_well2)
+   set(B,2)
+   set(C,5)
+   goto(tur_part1)
+tur_well1:
+   say(TUR_STXT1)
+   end
+tur_well2:
+   say(TUR_STXT5)
+   put(1,VAR_WELLFIRST)
+   end
+
+tur_corpse1:
+tur_corpse2:
+   say(TUR_STXT2)
+   end
+tur_corpse3:
+   get(A,VAR_EVEPROG)
+   if(A,CE,14,tur_corpse3a)
+   say(TUR_STXT2)
+   get(A,VAR_EVEPROG)
+   if(A,CG,12,RET)
+   ; activate wolves
+   put(1,VAR_TURWOLVES)
+   end
+tur_corpse3a:
+   align($1a,$11)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   face(2,RIGHT)
+   walk(0,LEFT,1)
+   walk(1,LEFT,1)
+   sync
+   face(0,RIGHT)
+   walk(1,UP,1)
+   sync
+   face(1,RIGHT)
+
+   sleep(16)
+   face(2,LEFT)
+   sleep(16)
+   face(2,RIGHT)
+   sleep(32)
+
+   walk(2,RIGHT,1)
+   walk(4,UP,1)
+   sync
+   face(2,UP)
+   sleep(32)
+   face(2,LEFT)
+   sleep(16)
+   face(0,UP)
+   face(1,DOWN)
+   sleep(32)
+   face(0,RIGHT)
+   face(1,RIGHT)
+   sleep(24)
+   walk(0,RIGHT,2)
+   walk(1,DOWN,1)
+   sleep(8)
+   walk(1,RIGHT,2)
+   sync
+   face(0,RIGHT)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   reform
+   goto(INC_EVT)
+
+tur_wolves:
+   get(A,VAR_TURWOLVES)
+   if(A,CE,0,RET)
+
+   face(0,LEFT)
+
+   ldude(7,EN_TWOLF1,$11,$0F,RIGHT,STAND)
+   ldude(8,EN_TWOLF2,$11,$10,RIGHT,STAND)
+   ldude(9,EN_TWOLF3,$11,$11,RIGHT,STAND)
+
+   sfx(SFX_ROAR)
+   walk(7,RIGHT,3)
+   walk(8,RIGHT,3)
+   walk(9,RIGHT,3)
+   sync
+
+   getxy(B,C)
+   cif(C,CG,$10,tur_wolves1)
+   cif(C,CL,$10,tur_wolves2)
+
+   face(7,RIGHT)
+   face(8,RIGHT)
+   face(9,RIGHT)
+
+   say(TUR_STXT3)
+   song_pause
+   bsong(SNG_FIGHT1)
+   battle(Special_ThreeWolves,0,1,0,0)
+   song_resume
+   del(7)
+   del(8)
+   del(9)
+   fadein(X_FADE)
+
+   getxy(B,C)
+   align(B,C)
+   sync
+   group
+   sync
+   partyarr
+   walk(1,RIGHT,1)
+   sync
+   face(0,RIGHT)
+   face(1,LEFT)
+   sleep(16)
+   say(S20_ETXT1)
+   sleep(16)
+   say(S20_ETXT2)
+   face(1,DOWN)
+   sleep(16)
+   say(S20_ETXT3)
+   sleep(16)
+   say(S20_ETXT4)
+   face(1,LEFT)
+   sleep(16)
+   say(S20_ETXT5)
+   walk(1,LEFT,1)
+   sync
+   face(0,LEFT)
+   reform
+
+   put(0,VAR_TURWOLVES)
+   goto(INC_EVT)
+
+tur_wolves1:
+   set(A,C)
+   sub(A,$10)
+   walk(7,DOWN,A)
+   walk(8,DOWN,A)
+   walk(9,DOWN,A)
+   sync
+   end
+tur_wolves2:
+   set(A,$10)
+   sub(A,C)
+   walk(7,UP,A)
+   walk(8,UP,A)
+   walk(9,UP,A)
+   sync
+   end
+
+tur_scene19:
+   sleep(16)
+   partyarr
+   walk(0,RIGHT,1)
+   walk(1,DOWN,1)
+   sync
+   walk(1,RIGHT,1)
+   sync
+   say(S19_ETXT1)
+   sleep(16)
+   say(S19_ETXT2)
+   face(0,DOWN)
+   sleep(16)
+   say(S19_ETXT3)
+   face(1,UP)
+   sleep(16)
+   say(S19_ETXT4)
+   face(0,RIGHT)
+   walk(1,UP,1)
+   sync
+   reform
+
+   goto(INC_EVT)
+
+tur_part1:
+   fadeout(X_FADE)
+   face(0,DOWN)
+   lmap(MAP_TUR_P1,     B,C)
+   cstep(tur_part1a,    $02,$04)
+   cstep(tur_part1b,    $0c,$08)
+   fadein(X_FADE)
+   end
+tur_part1a:
+   set(B,$0e)
+   set(C,$0b)
+   goto(I_TUR)
+tur_part1b:
+   set(B,$03)
+   set(C,$12)
+   goto(tur_part2)
+
+;  x,y  = changed, normal
+; 26,17 = $a2 - $19
+; 26,18 = $a2 - $19
+; 26,19 = $98 - $0b
+; 27,17 = $56 - $a3
+; 27,18 = $56 - $a3
+; 27,19 = $0b - $98
+
+tur_part2:
+   fadeout(X_FADE)
+   lmap(MAP_TUR_P2,     B,C)
+   put(0,VAR_A)
+   cstep(tur_part2a,    $03,$13)
+   cstep(tur_part2b,    $07,$02)
+   cstep(tur_part2c,    $22,$02)
+   cstep(tur_part2d,    $24,$02)
+
+   ; crazy second level swapping
+   cstep(tur_part2e,    $16,$16)
+   cstep(tur_part2f,    $16,$14)
+
+   cstep(tur_part2g,     21,  5)
+
+   ; if RET_TUR != 0 then the place is empty
+   get(A,VAR_RET_TUR)
+   cif(A,CNE,0,tur_deadguy)
+   get(A,VAR_RET_TUR)
+   if(A,CNE,0,tur_inskip)
+
+   ; victor
+   get(A,VAR_EVEPROG)
+   cif(A,CE,13,tur_before)
+   cif(A,CE,14,tur_after)
+
+   ; people
+   lguy(NPC_LADY2,      $06,$04,TUR_DTXT1)
+   lguy(NPC_MAN2,       $15,$07,TUR_DTXT2)
+   lguy(NPC_LADY3,      $16,$10,TUR_DTXT3)
+   lguy(NPC_GIRL1,      $22,$05,TUR_DTXT5)
+   lguy(NPC_MAN1,       $22,$18,TUR_DTXT6)
+
+tur_inskip:
+   ctres($1f,IT_HPLO,   $0f,$0e,$3b,SFX_CHEST)
+   ctres($20,IT_HPLO,   $0c,$10,$3b,SFX_CHEST)
+   ctres($21,IT_HPLO,   $26,$06,$00,SFX_SEARCH)
+
+   fadein(X_FADE)
+   end
+tur_part2a:
+   set(B,$0c)
+   set(C,$08)
+   goto(tur_part1)
+tur_part2b:
+   set(B,$02)
+   set(C,$07)
+   goto(tur_part3)
+tur_part2c:
+   set(B,$02)
+   set(C,$07)
+   goto(tur_part4)
+tur_part2d:
+   set(B,$06)
+   set(C,$07)
+   goto(tur_part4)
+tur_part2e:
+   tile(26,17,$a2)
+   tile(26,18,$a2)
+   tile(26,19,$98)
+   tile(27,17,$56)
+   tile(27,18,$56)
+   tile(27,19,$0b)
+   end
+tur_part2f:
+   tile(26,17,$19)
+   tile(26,18,$19)
+   tile(26,19,$0b)
+   tile(27,17,$a3)
+   tile(27,18,$a3)
+   tile(27,19,$98)
+   end
+tur_part2g:
+   set(B,  4)
+   set(C,  7)
+   goto(tur_part5)
+   end
+
+tur_deadguy:
+   ldude(4,NPC_DEAD,29,16,DOWN,STAND)
+   frame(4,0)
+   ctalk(tur_deadguy1, 4);
+   end
+tur_deadguy1:
+   get(A,VAR_TURTRES)
+   if(A,CE,1,RET)
+   put(1,VAR_TURTRES)
+   give(IT_HPathfinder)
+   end
+
+tur_before:
+   ldude(4,CH_VICTOR,   $1c,$0d,DOWN,STAND)
+   ldude(5,NPC_LADY1,   $20,$0f,DOWN,STAND)
+   frame(4,CEL_TIRED)
+   ctalk(tur_victor,4)
+   ctalk(tur_lady1,5)
+   end
+tur_after:
+   lguy(NPC_LADY1,      $1d,$0e,TUR_DTXT9)
+   end
+
+tur_lady1:
+   get(A,VAR_EVEPROG)
+   if(A,CE,14,tur_lady1a)
+   say(TUR_DTXT4)
+   get(A,VAR_A)
+   if(A,CE,1,RET)
+
+   get(A,VAR_TURMAYOR)
+   if(A,CE,0,tur_lady1b)
+   say(TUR_STXT18)
+
+   walk(5,DOWN,1)
+   sync
+   face(5,UP)
+   put(1,VAR_A)
+   end
+tur_lady1a:
+   say(TUR_DTXT9)
+   end
+tur_lady1b:
+   say(TUR_STXT17)
+   end
+
+tur_victor:
+   align($1d,$0d)
+   sync
+   face(0,LEFT)
+   group
+   sync
+
+   say(S21_ETXT1)
+   sleep(16)
+   face(4,LEFT)
+   sleep(16)
+   face(4,RIGHT)
+   sleep(16)
+   frame(4,CEL_TIRED)
+   sleep(16)
+   face(4,DOWN)
+   sleep(8)
+   walk(4,DOWN,1)
+   sync
+   face(0,DOWN)
+
+   set(A,8)
+tur_loop1:
+   ldude(4,CH_VICTOR,  $1c,$0e,DOWN,STAND)
+   sleep(4)
+   ldude(4,CH_VICTORWOLF,  $1c,$0e,DOWN,STAND)
+   sleep(4)
+   dec(A)
+   if(A,CG,0,tur_loop1)
+
+   sfx(SFX_ROAR)
+
+   walk(4,RIGHT,1)
+   sync
+   face(4,UP)
+
+   say(S21_ETXT2)
+   sleep(16)
+   say(S21_ETXT3)
+
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special_Victor1,0,1,5,1)
+   revive
+   song_resume
+   warp(4,$1c,$0f,DOWN)
+   warp(0,$1d,$0f,LEFT)
+   warp(1,$1d,$10,LEFT)
+   partyarr
+   frame(4,CEL_TIRED)
+   sleep(32)
+   fadein(X_FADE)
+
+   sleep(16)
+   say(S21_ETXT4)
+   sleep(16)
+   say(S21_ETXT5)
+   sleep(32)
+   say(S21_ETXT6)
+   sleep(16)
+   say(S21_ETXT7)
+   face(4,DOWN)
+   sleep(16)
+   say(S21_ETXT8)
+   sleep(16)
+   say(S21_ETXT9)
+   face(4,RIGHT)
+   sleep(16)
+   say(S21_ETXT10)
+   face(1,UP)
+   sleep(16)
+   say(S21_ETXT11)
+   sleep(16)
+   say(S21_ETXT12)
+   sleep(16)
+   say(S21_ETXT13)
+   face(1,LEFT)
+   sleep(16)
+   say(S21_ETXT14)
+   sleep(16)
+   say(S21_ETXT15)
+   walk(4,RIGHT,1)
+   walk(1,UP,1)
+   sync
+   del(4)
+   partyset(2,PARTY_VICTOR)
+   levelup(2)
+   reform
+   face(0,DOWN)
+
+   goto(INC_EVT)
+
+
+tur_part3:
+   fadeout(X_FADE)
+   lmap(MAP_TUR_P3,     B,C)
+tur_part3join:
+   chstep(tur_part3a,   $02,$08,$01)
+
+   ; if RET_TUR != 0 then the place is empty
+   get(A,VAR_RET_TUR)
+   if(A,CNE,0,tur_inskip_p3)
+
+   ldude(4,NPC_LADY4,   $02,$03,DOWN,STAND)
+   ctalk(tur_innroom,4)
+tur_inskip_p3:
+
+   fadein(X_FADE)
+   end
+tur_part3a:
+   set(B,$07)
+   set(C,$02)
+   goto(tur_part2)
+
+tur_part4:
+   fadeout(X_FADE)
+   lmap(MAP_TUR_P4,     B,C)
+   cstep(tur_part4a,    $02,$08)
+   cstep(tur_part4b,    $06,$08)
+
+   ; if RET_TUR != 0 then the place is empty
+   get(A,VAR_RET_TUR)
+   if(A,CNE,0,tur_inskip_p4)
+
+   ldude(4,NPC_MAN2,    $02,$04,DOWN,STAND)
+   ldude(5,NPC_BOY1,    $06,$04,DOWN,STAND)
+   ctalk(tur_wepshop,4)
+   ctalk(tur_itemshop,5)
+tur_inskip_p4:
+   ctres($22,IT_HPLO,   $03,$02,$3b,SFX_CHEST)
+
+   fadein(X_FADE)
+   end
+tur_part4a:
+   set(B,$22)
+   set(C,$02)
+   goto(tur_part2)
+tur_part4b:
+   set(B,$24)
+   set(C,$02)
+   goto(tur_part2)
+
+tur_wepshop:
+   say(TUR_DTXT7)
+   shop_res
+   shop_add(IT_ICamoflauge)
+   shop_add(IT_CRapier)
+   shop_add(IT_HHunter)
+   shop_add(IT_PHunter)
+   shop
+   end
+tur_itemshop:
+   say(TUR_DTXT8)
+   shop_res
+   shop_add(IT_HPLO)
+   shop
+   end
+
+tur_innroom:
+   align(2,4)
+   sync
+   face(4,DOWN)
+   face(0,UP)
+   group
+   sync
+
+   say(INN_TUR)
+   yesno(A)
+   say(INN_DTXT2)
+   if(A,CE,0,tur_innno)
+   cgold(A,15)
+   if(A,CE,1,tur_innok)
+   say(INN_DTXT4)
+   end
+tur_innok:
+   tgold(15)
+   say(INN_DTXT5)
+   walk(0,RIGHT,5)
+   sync
+   group
+   sync
+   call(INNSPLIT)
+   walk(0,LEFT,5)
+   sync
+   face(0,DOWN)
+   group
+   sync
+tur_innno:
+   yesno(A)
+   say(INN_DTXT6)
+   if(A,CE,0,tur_innns)
+   set(A,SVL_TURREN)
+   savemenu
+tur_innns:
+   say(INN_DTXT3)
+   end
+
+tur_innload:
+   lmap(MAP_TUR_P3,     2,4)
+   song(SNG_SADNESS)
+;   song_off
+   goto(tur_part3join)
+
+tur_part5:
+   fadeout(X_FADE)
+   lmap(MAP_TUR_P5,     B,C)
+   cstep(tur_part5a,    $04,$08)
+
+   ; if RET_TUR == 2, then theres no mayor
+   get(A,VAR_RET_TUR)
+   if(A,CE,2,tur_part5_skip)
+
+   ldude(4, NPC_MAYOR,  $04,$03,DOWN,STAND)
+   ctalk(tur_mayor,4)
+tur_part5_skip:
+   fadein(X_FADE)
+   end
+tur_part5a:
+   set(B,21)
+   set(C,5)
+   goto(tur_part2)
+tur_mayor:
+   ; if RET_TUR == 1 run scene38
+   get(A,VAR_RET_TUR)
+   if(A,CE,1,tur_scene38)
+
+   get(A,VAR_TURMAYOR)
+   if(A,CE,1,tur_mayor1)
+   put(1,VAR_TURMAYOR)
+
+   align($04,$04)
+   sync
+   face(4,DOWN)
+   group
+   sync
+   partyarr
+   detach
+   face(0,UP)
+   face(1,UP)
+   sleep(4)
+   say(TUR_STXT6)
+   walk(1,RIGHT,1)
+   sync
+   face(1,UP)
+   sleep(4)
+   say(TUR_STXT7)
+   sleep(16)
+   say(TUR_STXT8)
+   sleep(16)
+   say(TUR_STXT9)
+   face(4,RIGHT)
+   sleep(16)
+   say(TUR_STXT10)
+   sleep(16)
+   say(TUR_STXT11)
+   sleep(16)
+   say(TUR_STXT12)
+   sleep(16)
+   say(TUR_STXT13)
+   face(4,DOWN)
+   sleep(16)
+   say(TUR_STXT14)
+   sleep(16)
+   say(TUR_STXT15)
+   sleep(16)
+   say(TUR_STXT16)
+   givegem(1)
+   walk(1,LEFT,1)
+   sync
+   reform
+   end
+tur_mayor1:
+   say(TUR_STXT14)
+   end
+
+
+tur_scene38:
+   align($04,$04)
+   sync
+   face(4,DOWN)
+   face(0,UP)
+   group
+   sync
+   face(1,UP)
+   face(2,UP)
+   partyarr
+   detach
+   lockoff
+   walk(0,LEFT,1)
+   walk(1,RIGHT,1)
+   sync
+   face(0,UP)
+   face(1,UP)
+   sleep(16)
+
+   say(S38_ETXT1)
+   sleep(16)
+   say(S38_ETXT2)
+   walk(4,UP,1)
+   sync
+   sleep(16)
+   say(S38_ETXT3)
+   walk(2,UP,1)
+   sync
+   say(S38_ETXT4)
+   sleep(16)
+   say(S38_ETXT5)
+   sleep(16)
+
+   set(A,8)
+tur_loop2:
+   ldude(4,NPC_MAYOR,  $04,$02,UP,STAND)
+   sleep(4)
+   ldude(4,EN_TWOLF2,  $04,$02,UP,STAND)
+   sleep(4)
+   dec(A)
+   if(A,CG,0,tur_loop2)
+
+   face(4,RIGHT)
+   sleep(4)
+   face(4,DOWN)
+
+   song_pause
+   bsong(SNG_BOSS1)
+   battle(Special2_TurrenBoss,0,1,0,0)
+   song_resume
+   del(4)
+
+   face(2,DOWN)
+   frame(2,CEL_LOOK1)
+   face(0,RIGHT)
+   face(1,LEFT)
+   fadein(X_FADE)
+
+   sleep(16)
+   say(S38_ETXT6)
+   walk(0,UP,1)
+   sync
+   face(0,RIGHT)
+   face(2,LEFT)
+   sleep(16)
+   say(S38_ETXT7)
+   sleep(16)
+   say(S38_ETXT8)
+   face(2,DOWN)
+   sleep(16)
+   frame(2,CEL_LOOK1)
+   sleep(8)
+   face(2,DOWN)
+   sleep(16)
+   walk(0,DOWN,1)
+   walk(1,LEFT,1)
+   walk(2,DOWN,1)
+   sync
+   walk(0,RIGHT,1)
+   sync
+   face(0,DOWN)
+   face(1,DOWN)
+   face(2,DOWN)
+   reform
+   lockon(0)
+
+   put(2,VAR_RET_TUR)
+   put(1,VAR_KSM1)      ; wreck kassim
+   end
+
+

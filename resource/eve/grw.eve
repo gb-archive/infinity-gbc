@@ -1,0 +1,520 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_GRW:
+   fadeout(X_ROLL)
+   face(0,RIGHT)
+   set(D,$01)
+   set(E,$10)
+   set(G,X_ROLL)
+   song(SNG_FOREST)
+
+   ; set zone
+   set(F,ZONE_GRW)
+   get(A,VAR_RET_TUR)
+   if(A,CNE,3,grw_firstzone);
+   set(F,ZONE_GRW2)
+grw_firstzone:
+
+   call(grw_part1_nf)
+
+   get(A,VAR_RET_TUR)
+   if(A,CE,0,RET)
+   if(A,CE,3,grw_scene41)
+
+   ; victor doesnt want to go here
+   sleep(16)
+   say(GRW_STXT5)
+   sleep(16)
+   walk(0,LEFT,1)
+   sync
+   goto(grw_part1a)
+
+O_GRW2:
+   fadeout(X_ROLL)
+   face(0,LEFT)
+   set(D,$31)
+   set(E,$04)
+   set(G,X_ROLL)
+   song(SNG_FOREST)
+   goto(grw_part1_nf)
+
+; tres - $49
+grw_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+grw_part1_nf:
+   lmap(MAP_GRW,        D,E)
+   zone(F)
+   cvstep(grw_part1a,   $00,$0f,$03)
+   cvstep(grw_part1b,   $32,$04,$02)
+
+   cvstep(grw_vict1,    $04,$0f,$03)
+   cstep( grw_vict2,    $09,$26)
+   chstep(grw_vict3,    $14,$0a,$02)
+   cvstep(grw_treeboss, $27,$09,$04)
+
+   ctres($23,IT_PHunter,$04,$04,$49,SFX_CHEST)
+   ctres($24,IT_EThorn, $0b,$1d,$49,SFX_CHEST)
+   ctres($25,IT_LGolden,$1c,$2b,$49,SFX_CHEST)
+
+   fadein(G)
+   end
+grw_part1a:
+   set(B,$48)
+   set(C,$3d)
+   goto(OVER_WARP)
+grw_part1b:
+   ;set(B,$4f)
+   ;set(C,$39)
+   ;goto(OVER_WARP)
+   fadeout(X_FADE)
+   song_off
+   say(MSG_END)
+   song(SNG_ALUTHA)
+   lock
+
+
+grw_vict1:
+   get(A,VAR_GRW)
+   if(A,CG,0,RET)
+
+   getxy(B,C)
+   align(B,C)
+   sync
+
+   group
+   sync
+   partyarr
+   detach
+
+   walk(2,RIGHT,1)
+   sync
+   face(2,LEFT)
+   face(0,RIGHT)
+   sleep(16)
+
+   say(GRW_STXT1)
+   sleep(8)
+   walk(2,LEFT,1)
+   sync
+
+   reform
+
+   put(1,VAR_GRW)
+   end
+grw_vict2:
+   get(A,VAR_GRW)
+   if(A,CG,1,RET)
+
+   align($09,$26)
+   sync
+
+   walk(0,RIGHT,3)
+   sync
+   walk(0,DOWN,1)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   face(0,RIGHT)
+   walk(2,RIGHT,2)
+   walk(1,UP,1)
+   sync
+   face(1,RIGHT)
+   walk(2,UP,1)
+   sync
+   face(2,LEFT)
+   sleep(32)
+   face(2,RIGHT)
+   sleep(32)
+   face(2,DOWN)
+   sleep(32)
+   say(GRW_STXT2)
+   sleep(32)
+   face(2,RIGHT)
+   sleep(32)
+   say(GRW_STXT3)
+   sleep(16)
+   face(1,DOWN)
+   face(0,UP)
+   sleep(32)
+   face(1,RIGHT)
+   face(0,RIGHT)
+   sleep(16)
+   walk(1,RIGHT,2)
+   walk(0,RIGHT,2)
+   sync
+   walk(0,UP,1)
+   sync
+   face(0,RIGHT)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   reform
+
+   put(2,VAR_GRW)
+   end
+grw_vict3:
+   get(A,VAR_GRW)
+   if(A,CG,2,RET)
+
+   align($15,$07)
+   sync
+   group
+   sync
+   partyarr
+   detach
+   lockon(2)
+   walk(1,DOWN,1)
+   walk(2,RIGHT,2)
+   sleep(9)
+   face(0,RIGHT)
+   face(1,RIGHT)
+   sync
+   sleep(32)
+   face(2,UP)
+   sleep(32)
+   face(2,DOWN)
+   sleep(32)
+   face(2,RIGHT)
+   sleep(32)
+   say(GRW_STXT4)
+   sleep(16)
+   face(0,DOWN)
+   face(1,UP)
+   sleep(32)
+   face(0,RIGHT)
+   face(1,RIGHT)
+   sleep(16)
+   walk(1,UP,1)
+   walk(0,RIGHT,2)
+   sleep(9)
+   walk(1,RIGHT,2)
+   sync
+   face(0,RIGHT)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   reform
+   lockon(0)
+
+   put(3,VAR_GRW)
+   end
+
+grw_ftreeload:
+   ldude(4,EN_TREE1, $26,$07,DOWN,STAND)
+   ldude(5,EN_TREE1, $26,$08,DOWN,STAND)
+   ldude(6,EN_TREE1, $27,$07,DOWN,STAND)
+   ldude(7,EN_TREE1, $27,$08,DOWN,STAND)
+   call(grw_ftree1)
+
+grw_ftree1:
+   frame(4,0)
+   frame(5,1)
+   frame(6,2)
+   frame(7,3)
+   end
+
+grw_ftree2:
+   frame(4,4)
+   frame(5,5)
+   frame(6,6)
+   frame(7,7)
+   end
+
+grw_growroot:
+   warp(A,B,C,DOWN)
+   frame(A,3)
+   sleep(8)
+   frame(A,4)
+   sleep(8)
+   frame(A,5)
+   sleep(8)
+   frame(A,6)
+   sleep(8)
+   frame(A,7)
+   sleep(8)
+   face(A,DOWN)
+   end
+
+grw_treeboss:
+   get(A,VAR_EVEPROG)
+   if(A,CG,15,RET)
+
+   getxy(B,C)
+
+   ; roots
+   ldude(8, EN_ROOT,0,0,DOWN,STAND)
+   ldude(9, EN_ROOT,0,0,DOWN,STAND)
+   ldude(10,EN_ROOT,0,0,DOWN,STAND)
+   frame(8,2)
+   frame(9,2)
+   frame(10,2)
+
+   set(A,8)
+   set(B,$28)
+   call(grw_growroot)
+   sleep(16)
+
+   align($27,$0a)
+   sync
+   walk(0,LEFT,2)
+   sync
+
+   set(A,9)
+   set(B,$24)
+   set(C,$0a)
+   call(grw_growroot)
+   sleep(16)
+
+   walk(0,RIGHT,1)
+   sync
+   walk(0,DOWN,1)
+   sync
+
+   set(A,10)
+   set(B,$26)
+   set(C,$0c)
+   call(grw_growroot)
+   sleep(16)
+   say(S22_ETXT8)
+   sleep(16)
+
+   call(grw_ftreeload)
+   face(0,UP)
+   face(1,UP)
+   face(2,UP)
+
+   group
+   sync
+   partyarr
+   detach
+   face(0,LEFT)
+   face(1,UP)
+   walk(2,LEFT,1)
+   sync
+   sleep(24)
+   walk(2,UP,1)
+   sync
+   sleep(24)
+   walk(2,UP,1)
+   face(0,UP)
+   sync
+   sleep(24)
+   walk(2,RIGHT,1)
+   sync
+   face(2,UP)
+   sleep(16)
+
+   say(S22_ETXT1)
+   walk(1,RIGHT,1)
+   sync
+   face(1,LEFT)
+   sleep(8)
+   say(S22_ETXT2)
+   face(2,RIGHT)
+   sleep(16)
+   say(S22_ETXT3)
+   lockon(7)
+   sleep(32)
+   call(grw_ftree2)
+   sleep(4)
+   say(S22_ETXT4)
+   call(grw_ftree1)
+   walk(1,UP,1)
+   lockon(1)
+   sleep(24)
+   say(S22_ETXT5)
+   sleep(16)
+   call(grw_ftree2)
+   sleep(4)
+   say(S22_ETXT6)
+   call(grw_ftree1)
+
+   sleep(32)
+   face(2,UP)
+   sleep(32)
+   face(2,DOWN)
+   song_off
+   sleep(16)
+   say(S22_ETXT7)
+
+   call(grw_ftree2)
+   sleep(16)
+
+   del(4)
+   del(5)
+   del(6)
+   del(7)
+
+   setform
+   bsong(SNG_BOSS1)
+   battle(Special_BossTree,0,1,0,0)
+   setwolfp(1)
+
+   del(8)
+   del(9)
+   del(10)
+
+   warp(0,$26,$09,DOWN)
+   warp(1,$27,$09,DOWN)
+   warp(2,$26,$0a,UP)
+   song(SNG_FOREST)
+
+   lockon(2)
+   sleep(24)
+
+   fadein(X_FADE)
+
+   sleep(32)
+   say(S23_ETXT1)
+   sleep(16)
+   say(S23_ETXT2)
+   face(2,DOWN)
+   sleep(16)
+   say(S23_ETXT3)
+   walk(1,DOWN,1)
+   sync
+   face(1,LEFT)
+   say(S23_ETXT4)
+   sleep(8)
+   say(S23_ETXT5)
+   face(2,RIGHT)
+   sleep(16)
+   say(S23_ETXT6)
+   sleep(16)
+   say(S23_ETXT7)
+   face(2,UP)
+   sleep(8)
+   face(2,RIGHT)
+   sleep(8)
+   face(2,UP)
+   sleep(8)
+   face(2,RIGHT)
+   sleep(8)
+   say(S23_ETXT8)
+   walk(1,RIGHT,1)
+   sync
+   sleep(8)
+   say(S23_ETXT9)
+   walk(2,RIGHT,1)
+   sync
+   sleep(8)
+   say(S23_ETXT10)
+   face(0,RIGHT)
+   sleep(16)
+   say(S23_ETXT11)
+   face(1,DOWN)
+   sleep(16)
+   say(S23_ETXT12)
+   face(0,UP)
+   sleep(16)
+   say(S23_ETXT13)
+   sleep(16)
+   say(S23_ETXT14)
+   sleep(16)
+   say(S23_ETXT15)
+   face(1,RIGHT)
+   sleep(16)
+   say(S23_ETXT16)
+   walk(0,RIGHT,1)
+   sync
+   sleep(8)
+   say(S23_ETXT17)
+   face(1,DOWN)
+   sleep(16)
+   say(S23_ETXT18)
+   face(2,UP)
+   sleep(8)
+   face(2,RIGHT)
+   sleep(8)
+   face(2,UP)
+   sleep(8)
+   face(2,RIGHT)
+   sleep(8)
+   say(S23_ETXT19)
+
+   walk(2,UP,1)
+   walk(1,LEFT,1)
+   sync
+   walk(1,UP,1)
+   sync
+
+   lockon(0)
+
+   face(0,RIGHT)
+   face(1,RIGHT)
+   face(2,RIGHT)
+   reform
+
+   setskl(2,1,10)
+
+   goto(INC_EVT)
+
+
+grw_scene41:
+   get(A,VAR_RET_GRW)
+   if(A,CE,0,RET)
+
+   sleep(4)
+   say(S41_ETXT1)
+   align($03,$10)
+
+   sync
+   group
+   sync
+   partyarr
+   detach
+   face(0,UP)
+
+   walk(2,UP,1)
+   walk(1,LEFT,1)
+   walk(3,RIGHT,1)
+   sync
+   face(2,DOWN)
+   face(1,UP)
+   face(3,UP)
+
+   sleep(16)
+   face(2,RIGHT)
+   sleep(32)
+   face(2,LEFT)
+   sleep(32)
+   face(2,UP)
+   sleep(32)
+   face(2,RIGHT)
+   sleep(32)
+   say(S41_ETXT2)
+   sleep(16)
+   say(S41_ETXT3)
+   face(3,LEFT)
+   sleep(16)
+   say(S41_ETXT4)
+   face(1,RIGHT)
+   sleep(16)
+   say(S41_ETXT5)
+
+   walk(2,DOWN,1)
+   walk(3,LEFT,1)
+   walk(1,RIGHT,1)
+   sync
+   face(0,RIGHT)
+   reform
+
+   walk(0,RIGHT,2)
+   sync
+   put(0,VAR_RET_GRW)
+
+   ; flag trashed durgardt
+   put(1,VAR_RET_DUR)
+   end
+

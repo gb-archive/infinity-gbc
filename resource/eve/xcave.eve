@@ -1,0 +1,107 @@
+; Copyright (C) 1999-2001 Affinix Software, LLC
+;
+; This file is part of Infinity.
+;
+; This file may be used under the terms of the Creative Commons Attribution-
+; NonCommercial-ShareAlike 4.0 International License as published by Creative
+; Commons.
+;
+; In addition, as a special exception, Affinix Software gives you certain
+; additional rights. These rights are described in the LICENSE file in this
+; package.
+
+O_XCV:
+   fadeout(X_ROLL)
+   face(0,UP)
+   set(D,$09)
+   set(E,$21)
+   set(G,X_ROLL)
+   song(SNG_CAVE1)
+   goto(xcv_part1_nf)
+
+xcv_part1:
+   fadeout(X_FADE)
+   set(G,X_FADE)
+xcv_part1_nf:
+   lmap(MAP_XCV_P1, D,E)
+   zone(ZONE_XCV)
+   cstep(xcv_part1a, $09,$22)
+   cstep(xcv_part1b, $05,$04)
+   cstep(xcv_part1c, $16,$0d)
+   fadein(G)
+   end
+xcv_part1a:
+   set(B,$16)
+   set(C,$3e)
+   goto(OVER_WARP)
+xcv_part1b:
+   set(D,$0c)
+   set(E,$0c)
+   goto(xcv_part4)
+xcv_part1c:
+   set(D,$02)
+   set(E,$10)
+   goto(xcv_part2)
+
+xcv_part2:
+   fadeout(X_FADE)
+   lmap(MAP_XCV_P2, D,E)
+   zone(ZONE_XCV)
+   cstep(xcv_part2a, $02,$10)
+   cstep(xcv_part2b, $12,$18)
+   ctres($0f,IT_HPLO, $1a,$04,$3b,SFX_CHEST)
+   ctres($10,IT_HPLO, $1b,$05,$3b,SFX_CHEST)
+   ctres($11,IT_HPLO, $0c,$24,$3b,SFX_CHEST)
+   fadein(X_FADE)
+   end
+xcv_part2a:
+   set(D,$16)
+   set(E,$0d)
+   goto(xcv_part1)
+xcv_part2b:
+   set(D,$08)
+   set(E,$04)
+   goto(xcv_part3)
+
+xcv_part3:
+   fadeout(X_FADE)
+   lmap(MAP_XCV_P3, D,E)
+   zone(ZONE_XCV)
+   cstep(xcv_part3a, $08,$04)
+   fadein(X_FADE)
+   end
+xcv_part3a:
+   set(D,$12)
+   set(E,$18)
+   goto(xcv_part2)
+
+xcv_part4:
+   fadeout(X_FADE)
+   lmap(MAP_XCV_P4, D,E)
+   zone(ZONE_XCV)
+   cstep(xcv_part4a, $0c,$0c)
+   cstep(xcv_part4b, $28,$16)
+   fadein(X_FADE)
+   end
+xcv_part4a:
+   set(D,$05)
+   set(E,$04)
+   goto(xcv_part1)
+xcv_part4b:
+   set(D,$0a)
+   set(E,$04)
+   goto(xcv_part5)
+
+xcv_part5:
+   fadeout(X_FADE)
+   lmap(MAP_XCV_P5, D,E)
+   zone(ZONE_XCV)
+   cstep(xcv_part5a, $0a,$04)
+   ctres($12,IT_HPLO, $05,$08,$3b,SFX_CHEST)
+   fadein(X_FADE)
+   end
+xcv_part5a:
+   set(D,$28)
+   set(E,$16)
+   goto(xcv_part4)
+
