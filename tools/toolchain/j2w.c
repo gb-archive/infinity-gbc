@@ -20,9 +20,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-#if defined(__MACH__)
-#include <stdlib.h>
-#else
+#if !defined(__MACH__) || !defined(__APPLE__)
 #include <malloc.h>
 #endif
 

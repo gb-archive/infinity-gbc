@@ -35,3 +35,6 @@ enemy.o: enemy.c
 
 ../../bin/gbr2bin: gbr2bin.cpp
 	g++ -o ../../bin/gbr2bin gbr2bin.cpp
+
+clean:
+	rm -f enemy.o ../../bin/afzconv ../../bin/fixgb ../../bin/gbr2bin ../../bin/gfx2h ../../bin/inspage ../../bin/itemconv ../../bin/j2w ../../bin/pagesize ../../bin/pagify ../../bin/post ../../bin/proctext

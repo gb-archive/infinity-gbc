@@ -18,10 +18,10 @@
 
 #include<stdio.h>
 
-#if defined(__MACH__)
-#include <stdlib.h>
-#else
+#if !defined(__MACH__) || !defined(__APPLE__)
 #include <malloc.h>
+#else
+#include <stdlib.h>
 #endif
 
 //#include<mem.h>

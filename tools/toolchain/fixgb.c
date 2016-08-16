@@ -20,10 +20,10 @@
 #include<string.h>
 #include<memory.h>
 
-#if defined(__MACH__)
-#include <stdlib.h>
-#else
+#if !defined(__MACH__) || !defined(__APPLE__)
 #include <malloc.h>
+#else
+#include <stdlib.h>
 #endif
 
 unsigned char *buf;
@@ -47,7 +47,7 @@ int find_deadbeef(unsigned char **addr, int size)
    return 0;
 }
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
    FILE *f;
    unsigned int total;
