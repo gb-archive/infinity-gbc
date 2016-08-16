@@ -19,7 +19,12 @@
 #include<stdio.h>
 #include<string.h>
 #include<memory.h>
-#include<malloc.h>
+
+#if defined(__MACH__)
+#include <stdlib.h>
+#else
+#include <malloc.h>
+#endif
 
 unsigned char *buf;
 char title[16] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x80};

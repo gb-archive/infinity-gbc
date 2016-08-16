@@ -19,7 +19,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<malloc.h>
+
+#if defined(__MACH__)
+#include <stdlib.h>
+#else
+#include <malloc.h>
+#endif
+
 //#include<bios.h>
 
 #define PAGEBASE	28
@@ -597,7 +603,12 @@ void main(int argc, char *argv[])
 
 		printf("Turn to .PAG files? [Y/N]\n");
 		while(1) {
+			#if defined(__MACH__)
+			key = getchar();
+			#else
 			key = getch();//bioskey(0);
+			#endif
+
 			key = tolower(key);
 			if(key == 'y' || key == 'n')
 				break;

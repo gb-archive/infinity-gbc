@@ -17,12 +17,18 @@
  */
 
 #include<stdio.h>
-#include<malloc.h>
+
+#if defined(__MACH__)
+#include <stdlib.h>
+#else
+#include <malloc.h>
+#endif
+
 #include<string.h>
 #include<stdlib.h>
 //#include<mem.h>
 
-FILE *log;
+FILE *_log;
 
 void mem_error()
 {
@@ -63,7 +69,7 @@ void proc_line(char *s)
 	*(p++) = 0;
 //	n = atoi(s);
 	n = highest + 1;
-	fprintf(log, "#define %s %d\n", s, n);
+	fprintf(_log, "#define %s %d\n", s, n);
 
 	strcpy(str, p);
 
@@ -91,7 +97,7 @@ void proc_line(char *s)
 //	++numtexts;
 }
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *in, *out;
 	char *p, *p2;
@@ -103,7 +109,7 @@ void main(int argc, char *argv[])
 	int len;
 	int at;
 
-	log = fopen("etxt.h", "w");
+	_log = fopen("etxt.h", "w");
 
 	highest = -1;
 	numtexts = 0;

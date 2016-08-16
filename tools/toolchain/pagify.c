@@ -17,7 +17,13 @@
  */
 
 #include<stdio.h>
-#include<malloc.h>
+
+#if defined(__MACH__)
+#include <stdlib.h>
+#else
+#include <malloc.h>
+#endif
+
 //#include<mem.h>
 
 main(int argc, char *argv[])
@@ -29,7 +35,7 @@ main(int argc, char *argv[])
 
 	buf = malloc(16384);
 	if(!buf)
-		return;
+		return 1;
 
 	in = fopen(argv[1], "rb");
 	for(n = 0; !feof(in); ++n) {
