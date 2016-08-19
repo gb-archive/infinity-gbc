@@ -18,7 +18,7 @@
 
 #include<stdio.h>
 
-#if !defined(__MACH__) || !defined(__APPLE__)
+#if !defined(__MACH__) && !defined(__APPLE__)
 #include<malloc.h>
 #endif
 

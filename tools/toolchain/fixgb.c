@@ -20,7 +20,7 @@
 #include<string.h>
 #include<memory.h>
 
-#if defined(__MACH__) || defined(__APPLE__)
+#if defined(__MACH__) && defined(__APPLE__)
 #include<stdlib.h>
 #else
 #include<malloc.h>
