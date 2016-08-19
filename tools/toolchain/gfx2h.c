@@ -18,7 +18,7 @@
 
 #include<stdio.h>
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
         unsigned char c;
         FILE *in, *out;

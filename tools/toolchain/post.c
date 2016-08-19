@@ -29,7 +29,7 @@ void rcr(char *s)
 		s[n-1] = 0;
 }
 
-main()
+int main(int argc, char *argv[])
 {
 	FILE *in, *out;
 	char line[256];

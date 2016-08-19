@@ -156,7 +156,7 @@ int getvals(char *inbuf, int *index, int *icon, char *name)
 	return 1;
 }
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *f;
 	char *p, *p2;
@@ -288,7 +288,7 @@ main(int argc, char *argv[])
 			printf("unable to locate the Infinity Item List in this rom!\n");
 			return 1;
 		}
-		printf("Located at offset: [%d]\n", p - rom);
+		printf("Located at offset: [%ld]\n", p - rom);
 		p += 19;
 
 		for(n = 0; n < 100; ++n) {
@@ -306,7 +306,7 @@ main(int argc, char *argv[])
 			printf("unable to locate the Infinity Item List in this rom!\n");
 			return 1;
 		}
-		printf("Located at offset: [%d]\n", p - rom);
+		printf("Located at offset: [%ld]\n", p - rom);
 		p += 18;
 
 		for(n = 0; n < 100; ++n) {
@@ -329,7 +329,7 @@ main(int argc, char *argv[])
 			printf("unable to locate the Infinity Item List in this rom!\n");
 			return 1;
 		}
-		printf("Located at offset: [%d]\n", p - rom);
+		printf("Located at offset: [%ld]\n", p - rom);
 		p += 19;
 
 		for(n = 0; n < 100; ++n) {

@@ -19,9 +19,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<ctype.h> // tolower
 
 #if !defined(__MACH__) || !defined(__APPLE__)
-#include <malloc.h>
+#include<malloc.h>
 #endif
 
 //#include<bios.h>
@@ -298,6 +299,8 @@ int j2w_save(char *fname)
 		fwrite(&song[n], sizeof(struct J2W_SONG), 1, f);
 
 	fclose(f);
+
+	return 0;
 }
 
 int j2w_load(char *fname)
@@ -409,7 +412,7 @@ void usage()
 	printf(" usage: j2w <.j2w file> <.lst config file>\n");
 }
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *out, *lst;
 	char buf[16384];
@@ -460,7 +463,7 @@ void main(int argc, char *argv[])
 		lst = fopen(argv[2], "r");
 		if(!lst) {
 			printf("can't read [%s]\n", argv[2]);
-			return;
+			return 1;
 		}
 		// read the contents
 		while(1) {
@@ -500,7 +503,7 @@ void main(int argc, char *argv[])
 
 			if(ftype == 0) {
 				printf("Unknown type for label \"%s\".\n", flabel);
-				return;
+				return 1;
 			}
 			// maps need tilesets
 			if(ftype == 5) {
@@ -508,7 +511,7 @@ void main(int argc, char *argv[])
 				p = strtok(NULL, ",");
 				if(!p) {
 					printf("No tileset label for map \"%s\".\n", flabel);
-					return;
+					return 1;
 				}
 
 				// search through tilesets for this label
@@ -518,7 +521,7 @@ void main(int argc, char *argv[])
 				}
 				if(n >= hed.set_num) {
 					printf("Undefined tileset reference \"%s\".\n", p);
-					return;
+					return 1;
 				}
 				info = n;
 			}
@@ -532,7 +535,7 @@ void main(int argc, char *argv[])
 			if(!j2w_add(fadd, ftype, flabel, info)) {
 				//printf("Couldn't add [%s]\n", fadd);
 				printf("Error adding!\n");
-				return;
+				return 1;
 			}
 			else {
 				//printf("Added [%s]\n", fadd);
@@ -911,5 +914,5 @@ void main(int argc, char *argv[])
 		}
 		printf("Done.\n");
 	}
-	return;
+	return 0;
 }

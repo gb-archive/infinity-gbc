@@ -17,6 +17,7 @@
  */
 
 #include<stdio.h>
+#include<string.h> // memset
 
 #if !defined(__MACH__) || !defined(__APPLE__)
 #include <malloc.h>
@@ -26,7 +27,7 @@
 
 //#include<mem.h>
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *in, *out;
 	char *buf;
