@@ -20,10 +20,10 @@
 #include<string.h>
 #include<memory.h>
 
-#if !defined(__MACH__) || !defined(__APPLE__)
-#include <malloc.h>
+#if defined(__MACH__) || defined(__APPLE__)
+#include<stdlib.h>
 #else
-#include <stdlib.h>
+#include<malloc.h>
 #endif
 
 unsigned char *buf;

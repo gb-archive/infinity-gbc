@@ -19,10 +19,10 @@
 #include<stdio.h>
 #include<string.h> // memset
 
-#if !defined(__MACH__) || !defined(__APPLE__)
-#include <malloc.h>
+#if defined(__MACH__) || defined(__APPLE__)
+#include<stdlib.h>
 #else
-#include <stdlib.h>
+#include<malloc.h>
 #endif
 
 //#include<mem.h>
