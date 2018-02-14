@@ -399,25 +399,6 @@ extern UBYTE pal_bak[];
 extern UBYTE pal_cur[];
 extern UWORD pal[];
 
-static UWORD pro_pal[] = {
-   0x0000,0x5AD6,0x2529,0x520F
-};
-
-static UWORD pro_pal2[] = {
-   0x0000,0x1084,0x0000,0x7FFF
-};
-
-static void pro_str(UBYTE tile, char *s)
-{
-   UBYTE n;
-
-   n = 0;
-   while(*s) {
-      n = dfs_pschar(tile, n, *s);
-      ++s;
-   }
-}
-
 #include"poem.c"
 
 UWORD aluthapal[] = {
@@ -477,7 +458,7 @@ static char *copystr = "(C)1999-2016 Affinix Software";
 
 static UWORD copy_pal2[] = {
    0x0000,0x1084,0x0000,0x7FFF,
-   0x0D02,0x1DC9,0x0D02,0x7FFF,
+   0x0000,0x1DC9,0x0D02,0x7FFF,
 };
 
 void copyright()

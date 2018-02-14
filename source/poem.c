@@ -28,6 +28,11 @@
     Bringing with its promise a new hope."
 */
 
+static UWORD poem_pal[] = {
+   0x0000,0x1084,0x0000,0x7FFF,
+   0x0000,0x1DC9,0x0D02,0x7FFF,
+};
+
 char poemstr[2][7][35] = {
    { "Time moves forward,", "Taking us like leaves in the wind.", "We meet, we come together,", "And then fall to the earth.", "Longing for the spring...", "Longing for life...", "But all things end." },
    { "", "The seasons pass eternally,", "And vanish like the stars,", "", "Yet spring always comes again,", "Bringing rebirth and new hope.", ""},
@@ -102,7 +107,7 @@ void poem(UBYTE opt)
    for(at=0;at<(opt?1:2);at++)
    {
       for(j=0;j<8;j++)
-         memcpy(pal+j*4,pro_pal2+((_gba)?4:0),8);
+         memcpy(pal+j*4,poem_pal+((_gba)?4:0),8);
 
       VBK_REG=1;
       dfs_clear(0,160);
