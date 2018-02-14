@@ -42,8 +42,6 @@
 #include "data\wake.h"
 #include "data\staff1.h"
 
-#include "data\eventdat.h"
-
 char area_name[][16] = {
    "Selera",
    "Kassim Oasis",

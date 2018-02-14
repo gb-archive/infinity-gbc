@@ -43,8 +43,6 @@ extern unsigned char spawn1[];
 extern unsigned char slash1[];
 extern unsigned char whirl1[];
 
-extern unsigned char eventdat[];
-
 extern UBYTE item_name[][20];
 extern UBYTE item_data[][7];
 extern UWORD item_selldata[];
