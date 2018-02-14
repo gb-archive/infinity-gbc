@@ -828,10 +828,15 @@ void main(int argc, char *argv[])
 			buf[2] = 0x10;
 			buf[3] = hed.ch_num;
 
-			buf[4096] = hed.ch_num / CHSIZE;
-			buf[4097] = hed.en_num / ENSIZE;
-			buf[4098] = hed.npc_num / NPCSIZE;
-			printf("ch_num = %d, en_num = %d, npc_num = %d\n", buf[4096], buf[4097], buf[4098]);
+			{
+				int ch_num = hed.ch_num / CHSIZE;
+				int en_num = hed.en_num / ENSIZE;
+				int npc_num = hed.npc_num / NPCSIZE;
+				buf[4096] = ch_num;
+				buf[4097] = en_num;
+				buf[4098] = npc_num;
+				printf("ch_num = %d, en_num = %d, npc_num = %d\n", ch_num, en_num, npc_num);
+			}
 
 			at = 4;
 			for(n = 0; n < hed.ch_num; ++n, ++at) {
