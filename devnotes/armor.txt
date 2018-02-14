@@ -1,0 +1,41 @@
+C = Connor
+R = Ryan
+E = Elya
+V = Victor (nonwolf)
+W = Wolf Victor
+O = Roland
+A = Alutha
+
+Name		Def	Speed	Bonus		Cost		User	Location
+Tunic		5				20		CRVO	Sold Selera, Starting armor for Connor
+Leather		7				100		CRVO	Sold Selera, Chest Extra Cave; N. Pass, Starting Ryan
+Studded		10				250		CRVO	Sold Kassim
+Apprentice	8		Wis + 2		150		E	Sold Kassim, Starting Elya
+Hunter		10	+4	Agl + 2		450		CRV	Sold Turren
+Hunter		9	+4	Agl + 2		450		E	Sold Turren, Chest G. Wood
+Wolf		10	+2	Wis - 2				W	Starting, Victor
+Chain		15	-1					CVO	Chest Sewers, Chest Tower of Magi
+Fancy		12	+1	Wis + 2				E	Chest Pirates' Lair
+Scale		21						CO	Chest Cave of Shadows
+Master		16		Wis + 4				E	Gained and auto-equipped after Exanima dies
+Pathfinder	17	+4	Agl + 6				V	Chest under Turren, after Victor is human
+Hide		22		End + 3				V	Chest M. Pass
+Plate		28						CO	Sold Alutha, Chest Durgardt, Starting Roland
+Maiden		19		Att + 5				E	Sold Alutha
+Noble		22						E	Sold FairportNL
+Knight		34		Att + 2				CO	Sold FairportNL
+Cleopatra	29	+3					E	Sarcophagus Temple of Sands
+Annubis		29	+4	Att + 8				V	Sarcophagus Temple of Sands
+Valkyrie	24		Att + 9				E	Chest Temple of Ice
+Thor		38	-2	Air, Att + 5			OA	Chest Temple of Ice
+Altantian	40	-1	Water				CO	Chest Temple of Waves
+Archmage	33		MP + 20				E	Elya's Joyous Day
+Sacred		43	+3					CO	Great Dark
+Alutha		45		Fire				A	Starting Alutha
+
+T of Magi 2		CoElViRo
+Fairport		CoElViRo
+T of Sands		CoElViRo
+T of Waves		CoElViRo
+T of Ice		CoElViRo
+Great Dark		CoElRo

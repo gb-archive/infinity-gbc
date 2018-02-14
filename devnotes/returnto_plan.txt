@@ -1,0 +1,11 @@
+return-to plans:
+----------------
+
+turren:
+  great wood - blocked
+  tagel - jacked
+  selera,northpass,firecaves,cottage - normal
+
+kassim:
+  great wood - unblocked
+  durgardt - jacked

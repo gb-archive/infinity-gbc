@@ -1,0 +1,49 @@
+sewer1:
+  entry - 4,18
+  door - 6,4 (sewer inn)
+  pot - 4,5
+  chest - 19,21
+  chest - 42,10
+  door - 40,6
+
+sewer inn:
+  entry - 2,7
+  exit - 2,8 (hstep)
+  chest - 1,2
+  vstep - 7,4,2
+  pot - 5,3
+
+sewer2:
+  entry - 2,5
+  door - 2,6 (to go back)
+  door - 19,2
+  tres - 23,5
+
+  garg - 13,6
+  ladder - 8,5
+  ladder - 17,5
+
+sewer3:
+  entry - 2,14
+  door - 2,15 (to go back)
+  door - 16,30
+  tres - 11,21
+  tres - 27, 5
+
+  garg - 2,6
+  garg - 10,7
+  garg - 18,3
+  garg - 11,16
+  garg - 18,19
+
+  ladder - 13,5
+  ladder - 18,5
+  ladder - 22,11
+  ladder - 23,25
+
+water up --
+  use hit detection of state 0
+
+water down --
+  upper uses hit detection of state 1
+  lower uses hit detection of state 3

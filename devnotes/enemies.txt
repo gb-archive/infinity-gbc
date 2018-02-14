@@ -1,0 +1,140 @@
+infiniti foes
+
+holbrooke/durgardt area
+
+ragnop - normal foe ( maybe damagable with cure , first undead appeareances )
+oaff - he's seen before in the first area 
+wampy - fast moving , weak in defense (is immune to magic possible ?) but heavy damage to you
+yik - same as the older slimes but stronger
+fire soldier - actually this is an aluthan soldier , in the beginning they could appear alot but when ronald sends you back from that point on they shouldnt appear anymore
+
+---------------------------------------------------------------------------------------------------------------------------
+
+sewers
+
+werdge - poison spitting ( just use the fire skill but instead of a red tileset use green for it ?)
+optrus - seen before , but a tad stronger now
+eagwa - seen before but a tad stronger now
+mermud - only rarely appeareance Id say ( they inhabit the temple of waves ) now they should be a bit harder a challenge than the other foes here ( maybe causing you almost to die at times ) using the wave skill and normal attacks
+
+----------------------------------------------------------------------------------------------------------------------------
+
+fairport area
+
+black saru - normal foe
+Wazzip - a stinging bee they're very very fast but weak to thunder , quake doesnt harm them
+Mermud(rare)- same as before
+folcon - another flying foe
+
+----------------------------------------------------------------------------------------------------------------------------
+
+pirates cave
+
+Pirate - (was steal an ability ?) normal foe
+Eagwa - a common sight in cave places
+grumble - normal foe
+tasm - doesnt move but has strong defence values , can cast spells very strong foe ( some chest in the cave are fake chest with one of these inside , they must be REAL strong )
+black saru - normal foe
+
+----------------------------------------------------------------------------------------------------------------------------
+
+tower of magi area
+
+nitusj-
+mushroma-
+leshiz-
+!#%-
+
+----------------------------------------------------------------------------------------------------------------------------
+
+cave of shadows
+
+shadows - the most common foe , they appear in various groups and shapes ( can move trough obstacles?) are fast and hard to hit with non-magic
+nitusj - they are pretty strong and cast several spells
+
+---------------------------------------------------------------------------------------------------------------------------
+
+magi trail
+
+spectrals-
+nitusj-
+herrera-
+
+---------------------------------------------------------------------------------------------------------------------------
+
+snow mountain pass
+
+wituzki-
+wampy-
+blizzard (skyfoez)-
+
+----------------------------------------------------------------------------------------------------------------------------
+
+alutha castle area
+
+masket-
+wampy-
+ragnop-
+ottorak(rare)-
+
+----------------------------------------------------------------------------------------------------------------------------
+
+destroyed tower of magi
+
+golem-
+spectrals-
+zombie-
+tasm-
+
+----------------------------------------------------------------------------------------------------------------------------
+
+temple of sands
+
+mummy-
+werdge-
+grossle-
+leshiz-
+tasm-
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+temple of waves
+
+mermud-
+fish-
+craller-
+sponge-
+tasm-
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+temple of ice
+
+wituzki-
+utocia-
+snowmen-
+icemage-
+wampy-
+tasm-
+
+----------------------------------------------------------------------------------------------------------------------------
+
+great dark area
+
+golem-
+leshiz-
+wampy-
+zombie-
+
+----------------------------------------------------------------------------------------------------------------------------
+
+great dark dungeon
+
+leshiz-
+geist-
+balok-
+wodu-
+geistknight- (2tiles big )
+tasmasta- (4tiles big )
+
+----------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,94 @@
+Accessories	Location
+Cloak		Sold Selera, Starting Connor
+Round		Sold Selera
+Traveler	Sold Kassim
+Desert		Chest Fire Caves
+Wizard		Starting Elya
+Camoflauge	Sold Turren
+Golden		Chest Great Wood
+--
+Iron		Chest Sewers (Storeroom)
+Slippers	Chest Fairport
+Pirate		Chest Pirate's Lair, starting Ryan2
+
+
+LongSwords	Location
+Conscript	First Weapon
+Iron		Chest in N Pass, near corpse
+Scimitar	Sold Kassin Oasis
+Crimson		Chest Fire Caves, hard to get
+Rapier		Sold Turren
+--
+Saber		Chest Sewer
+Cutlass		Chest Pirates
+Gladius		Chest Magi
+Katana		Sold Alutha
+Falchion	Sold Fairport2, Chest Magi2
+Frozen		Chest Temple of Ice
+Crystal		Chest Great Dark
+Ancestral	Chest Tomb of Anna
+
+
+BroadSwords	Location
+Bastard		First Weapon
+Flamberge	Chest Fire Caves, hard to get
+Claymore	Chest M. Pass, Sold Alutha
+Zweihander	Sold Fairport2
+Ancient		Chest Temple of Sands
+Frey		Chest Roland's Joyous Day, Alutha's casket
+
+Arrows		Location
+Basic		First Weapon
+Sharp		Sold Selera
+--
+Pirate		Rejoins
+Blessed		Chest, Cave of Darkness
+
+
+Staves		Location
+Oak		First Weapon
+Thorn		Chest Great Wood
+--
+Traveler	Holbrooke
+Master		Chest before Exanima, Trial
+Cudgel		Chest Durgardt
+War		Sold Alutha
+Archmage	Left behind by dead Archmage
+Sea		Temple of the Waves
+Gilus		Great Dark, Gilus's corpse
+
+Claws
+Wolf		First Weapon, "cursed"
+--
+Iron		Chest, Magi
+Bear		Gained from Boss, M. Pass
+Omega		Gained from Boss, Magi2
+Dino		Gained from Boss, Ice Cave
+
+Armor		Location
+Tunic		Sold Selera, Starting armor for Connor
+Leather		Sold Selera, Chest Extra Cave; N. Pass, Starting Ryan
+Studded		Sold Kassim
+Apprentice	Sold Kassim, Starting Elya
+Hunter		Sold Turren
+Hunter		Sold Turren, Chest G. Wood
+Wolf		Starting, Victor
+--
+Chain		Chest Sewers, Chest Tower of Magi
+Fancy		Chest Pirates' Lair
+Scale		Chest Cave of Shadows
+Master		Gained and auto-equipped after Exanima dies
+Pathfinder	Chest under Turren, after Victor is human
+Hide		Chest M. Pass
+Plate		Sold Alutha, Chest Durgardt, Starting Roland
+Maiden		Sold Alutha
+Noble		Sold FairportNL
+Knight		Sold FairportNL
+Cleopatra	Sarcophagus Temple of Sands
+Annubis		Sarcophagus Temple of Sands
+Valkyrie	Chest Temple of Ice
+Thor		Chest Temple of Ice
+Altantian	Chest Temple of Waves
+Archmage	Elya's Joyous Day
+Sacred		Great Dark
+Alutha		Starting Alutha

@@ -1,0 +1,43 @@
+5 catagories
+------------
+  - Melee (Conan M)
+    Onyx - attack x3
+    Turquoise - two turns
+    Jade - recv'ed damage /4
+
+  - Life (Goddess F)
+    Diamond - revive
+    Emerald - heal all (partial)
+    Pearl - heal x3
+
+  - Paranormal (Sorceress F)
+    Sapphire - invulnerability
+    Carnelian - time freeze
+    Crystal - revive when you die
+
+  - Chaos (Fern ?)
+    Ruby - fire x3
+    Aquamarine - water x3
+    Amethyst - wind x3
+
+  - Trickery (Wizard M)
+    Coral - no enemy encounter
+    Garnet - escape from battle
+    Moonstone - town warp
+
+Zulema
+
+  - Oddball
+    Opal - party invincibility
+
+Ruby
+
+
+Chaos - space           M
+Gaia - earth            F
+Ares - war              M
+Athena - wisdom         F
+Artemis - hunt          F
+Apollo - archer         M
+Hermes - messenger      M
+Aphrodite - love        F

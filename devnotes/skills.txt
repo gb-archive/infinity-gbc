@@ -1,0 +1,148 @@
+TODO:
+ - Rumble damage
+ - Wake strengths (4 types: 3 items, and the skill/gem)
+ - Inversion
+ - Justice
+ - Leap should stay where landed
+ - Spray should face first target
+ - Wildcall
+ - Slash
+ - Whirlwind
+ - Sacrifice damage
+
+
+*1)	Engulf		4
+*2)	Jolt		4
+*3) 	Tidal		4
+*4)	Blaze		12
+*5)	Thunder		12
+*6)	Tsnuam		12
+*7)	Rumble		12
+*8)	Embrace		5		Raises HP by 10+Wis
+*9) 	Hope		15		Raises HP by 15+2Wis/3
+*10	Soulslurp	8
+*11 	Sacrifice	8		Lose 50% HP, give 30% of HP to each party member
+*12 	Wake		10
+13 	Inversion	10		Caster dies, all dead members come to life with an equal
+					percentage of the caster's HP when he was alive
+					ie.  Connor casts with 60 HP, brings 2 people back,
+					each will have 30 HP, brings 1 back, he has 60 HP
+14 	Justice		8
+*15 	Leap		4		Damage + 50%
+*16 	Longshot	1
+17 	Spray		8		Targets 5 random enemies at half damage
+18 	WildCall	8		Transform into a werewolf, berserk (player loses control,
+					caster inflicts 100% extra damage, takes 50% extra damage,
+					for 3-5 rounds)
+19 	Slash		8
+
+Whirlwind	8		Strike all adjacent enemies
+Spawn		1
+Confuse		4
+Bash		4		Character critical hits an enemy, and then becomes stunned
+Defend		6		Character becomes grayscale, cannot be harmed for 1-3 rounds
+Rage		8		Exclamation mark appears over head, next 1-3 attacks are
+				critical hits
+Stun		4		Target character becomes stunned for 1-3 rounds
+Shoot		1		A long-range attack, but the enemy just shoots out a ball,
+				rather than an arrow
+Roar		4		Stuns all enemies
+
+
+
+*Engulf - Enemy
+ engulf in flames
+
+*Jolt - Enemy
+ zap with lightening
+
+*Tidal - Enemy
+ soak with water
+
+*Blaze - Enemy All	[engulf]
+ hit half of the enemies with Engulf
+
+*Storm - Enemy All	[jolt]
+ hit half of the enemies with Jolt
+
+*Tsunam - Enemy All	[tidal]
+ hit half of the enemies with Tidal
+
+*Rumble - Enemy All
+ shake the ground below
+
+*Embrace - Ally
+ restore HP
+
+*Hope - Ally All	[shift white, embrace]
+ restore HP to all but one of the alive party members
+
+*Soulslurp - Enemy	[slurp]
+ damage enemy, gain HP equal to the amount of damage dealt
+
+*Sacrifice - Ally All	[spark / embrace]
+ lose half HP.  give half of that amount to each party member
+
+*Wake - Ally		[revive]
+ revive with 1 HP
+
+Inversion - Ally All	[shift white, spark]
+ anyone alive goes to 0 HP.  anyone with 0 HP goes to half max HP.
+
+Justice - Enemy		[justice]
+ damage opponent equal to the amount of damage you've recieved since your last move
+
+*Leap - Enemy
+ hit from a distance
+
+*Longshot - Enemy	[projectile]
+ shoot enemy from a distance
+
+Sureshot - Enemy all	[projectile]
+ shoot 5 random enemies for half damage
+
+WildCall - Enemy	[jump / downthrust]
+ attack enemy 4 times
+
+Slash - Enemy		[jump / downthrust]
+ attack enemy 2 times
+
+Judgement - Enemy	[justice]
+ remove an enemy from the battle
+
+
+
+Conner
+ - Engulf       Start
+ - Sacrifice    Gutana
+ - Blaze        Golem Omega
+ - Inversion    Anna's Grave in destroyed Selera
+
+Ryan
+ - Longshot     Start
+ - Tidal        Start
+ - Spray        Rejoins
+ - Tsunam       Rejoins
+
+Elya
+ - Embrace      Start
+ - Tidal        Start
+ - Wake         Completes Trials
+ - Hope         Archmage Dies
+
+Victor
+ - Leap         Start
+ - Soulslurp    Evil Tree
+ - Rumble       Human Form
+ - WildCall     Kills Yeti at the end of Mountain Pass
+
+Roland
+ - Jolt         Start
+ - Slash        Start
+ - Whirlwind    Return to Alutha Castle
+ - Justice      Meet up w/ Alutha
+
+Alutha
+ - Bash
+ - Defend
+ - Rage

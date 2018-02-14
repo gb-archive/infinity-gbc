@@ -1,0 +1,38 @@
+  - potion
+
+    -hp low (20%)
+    -hp hi  (50%)
+    -sp     (20%)
+    -both   (50%)
+
+  - battle
+
+    -strength
+    -defense
+    -speedup
+    -wisdom
+
+  - extra
+
+    -life   (50% chance, 50% hp)
+    -escape
+    -bang
+    -slowmo
+
+  - weapon
+
+
+
+0 herb - lo cure
+1 Mushroom - hi cure
+2 Magiroom - SP cure
+3 Blue medicine - heal status
+4 Red medicine - cure HP and SP
+5 Rage potion - strength +
+6 Shell potion - defence +
+7 Blitz potion - speed +
+8 Psy potion - wisdom +
+9 Time scroll - slowmotion
+10 Divine doll - life
+11 Bomb - bomb
+12 - Escape rope - escape

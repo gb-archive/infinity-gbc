@@ -1,0 +1,154 @@
+todo list was a mess in the repo so this is a new one created august 2016.
+it is considered the official list now.
+
+design issues:
+- decide which gems will be used
+
+development:
+- better handling of boss graphics
+- make spells easier to add
+- replace magic numbers with more defines (characters, skills, skill slots, etc) (event code, source code)
+- add debug status changer (for balancing battles, change stat and restart the battle)
+
+big tasks:
+- do final boss joyous day (need map)
+- do alutha battle
+- do final boss
+- put something behind blue rock
+- adjust map lengths
+- balance items
+
+individual tasks:
+- remove 'end of demo' roadblock (or move it later than the evil tree)
+- add ice temple boss - izuar (NPC_IZUAR is ready)
+- add sand temple boss - mummy
+- add wave temple boss - kraken
+- link in the "got all gems" scene, which opens up GD Isle (need to finish temple bosses)
+- ending: credits_scene8: heroes face unnamed (need boss joyous day)
+- add remaining enemies: Demon, SmallYeti, Sasquatch, Snowflake, Floating sword (MEL)
+- add skill: Justice
+- add skill: Menu support for wake, hope, and embrace
+- add skill: Skill casting costs (LAST)
+- add skill: roar
+- add skill: death
+- add skill: big boss spell
+- sprinkle items in pots, barrels, crates, furniture, etc of Tower of Magi and Fairport (LAST)
+- ending: confirm the music is in sync with what is displayed
+- fix sewer tile (which one?)
+- close doors at durgardt first visit
+- stop battle song when roland calls "hold."
+- add silence and alutha's song after the battle.
+- add silence after the geist cannon fires.
+- add sewer switch sound effect/water receding effect
+- put victor in between the great magi and elya when they do the spell on him
+- change song to ship music when warped out of magi tower
+- play boss song when fighting golem omega
+- fix golem omega palette during kassim event
+- put everybody into the king's room (in alutha event?)
+- add sound effects to alutha event when the screen shakes and everybody looks surprised
+- walk kraith upwards with the golem when the screen pans in alutha event
+- pan screen back and forth when kraith talks in alutha event
+- change music to the troubled event music in alutha event
+- make everybody surprised when the king mentions that kraith can bring back the unnamed in alutha event
+- change to ship music when ryan comes to the rescue after alutha castle
+- remove ryan debug character in magi cave
+- disable usage of sacrifice if connor is only character alive
+- require a weapon to be equipped to use weapon skills (ie longshot)
+
+bug reports:
+- battle cursor lockon will go to a different guy if you make a move too fast (not fatal, but looks strange)
+- gems in battle sometimes mess the menu icons (see other gem bugs)
+- You can enter the castle after having gotten Ryan, but no one will speak to you and the
+  king is absent.  This apparently happened in Alutha as well.  Strange!
+- ryan can't use items at the beginning?
+- sell menu doesn't show correct values on initial draw.
+- lifedolls don't seem to be reviving me, but they are getting removed from inventory (this is in battle)
+- sometimes using mycelia in battle causes them to be removed from inventory but not actually used
+- window palette gets jacked during palette effects in battle.
+- it's possible to walk one way and face another if you turn fast enough
+- connor did a side-step when right button is hit after stepping out of bed
+- Down-left slash shot out down-right instead...not sure why
+- Exanima's palette is all screwy when she moves.
+- command ring palette problem
+- wrong on-map graphic for yeti (it's the zombie)
+- wrong battle graphic for yeti (it's the wolf again)
+- can't see damage when dying
+- bug on screen when dying
+- ryan sometimes skips using an item
+- lifedoll in battle crashes game??
+- um... the little mage killed exanima by casting cure on her... i don't think that was supposed to happen...
+- victor and sword palette got screwed up after a critical hit in battle
+- you seem to lose your ship after getting it if you enter firecave or north pass
+- the color of the "new game" window is the window color of the last game played
+- cycling around the tabs in the subscreen for awhile will mess up the graphics
+
+what-ifs:
+- can get on boat at Tower of Magi during visit?
+- what happens if the player goes to the mountain pass instead of kassim?
+- can elya get on the boat by herself if she walked back to it before the trials?
+- it's not obvious that the player needs to go through the fire cave again. what happens if the player goes to the forest?
+
+suggestions:
+- mat: infinity logo during prophecy?
+- alpha 4 golem should stop moving after battle if you win
+- mark: let dead party members earn xp
+- mark: enemy magic seems too strong. problem is we only have 1 stat for both magic def and magic strength. reduce magic damage from enemies by 15%?
+- mark: running should be easier. 25% minimum rate? (though that'd be 100% with 4 characters..)
+- mark: increase cost of items at kassim?
+- mark: only allow selling 1 water? or allow water to be used in combat?
+- mark: I wonder if we should change the months' names for fantasy?
+- mark: seems weird to be able to just waltz into king's bedroom
+- mark: transitions between rooms could be faster
+- mark: remove long gaps between sentences in the prophecy scene
+- shops should indicate who can equip what
+- consider having some areas not use the battle music (noticed this in crono trigger and it's kinda cool)
+
+observations:
+- inns all cost 15 au?
+- when elya is charmed, some frames have holes
+- charm graphics appear on top of battle menu
+- are we using the right mountains in the prophecy scene?
+- You cannot see movement circles on snow backgrounds.  Big problem.
+- The way character numbering works seems odd...ie, I select "Embrace'...Elya
+  (#4) is the target.  I press down, Ryan (who is #3) is the target.  I hit down
+  again, Connor (#1) is the taget...what's going on?
+- quake affects the bird
+- the cave to the east of Holbrook is inactive (nothing happens when you walk on it)
+- fire cave: is the chest in the lava room accessible?
+- sending the player through the fire cave 3 times is pretty ridiculous
+- roland starts with all skills which is probably wrong
+- after the trials, the boy in the first room says this is the treasury which is probably wrong?
+- moonstone should probably ask you if you want to warp. also some maps need to disable it.
+- to elya, is the magi tower inpregnable or inpenetrable??
+
+final checklist:
+- make sure wolf victor can't equip anything except gems
+- make sure you can't buy an item if you have 100
+- make sure you can't open a chest containing an item if you have 100
+- level cap works?
+- all enemies have casting frames?
+- every chest filled?
+- every shop filled?
+- gems in the correct places too?
+- all enemies in the game?
+- make sure shops sell the right stuff
+- make sure all skills are team reversable
+- make sure all skill damage are modified based on strength/weakness attributes (note: bcalcmod())
+- make sure all battle speeds work properly
+- make sure items have the right names
+- make sure soulslurp looks correct
+- make sure all weapon skills (ie longshot) require a weapon to be equipped
+- make sure enemies can't attack dead characters
+- make sure it's not possible to run from the golem fights in kassim except for the boss
+- make sure it's not possible to beat the golem boss at kassim other than running
+- make sure skills are given away at the correct places
+- make sure gems are given away at the correct spots in the game
+- make sure gems are all functional
+- make sure music is used in the correct places
+- make sure sfx is used in the correct places
+- make sure items are sprinkled in maps
+- make sure talking to a moving townsperson that triggers and event correctly executes the event
+- make sure there are no debug features in the final game
+- make sure you can't use moonstone in situations where you shouldn't be able to warp
+- make sure gem charge decreases based on battle speed
+- make sure ailments wears off based on battel speed

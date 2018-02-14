@@ -1,0 +1,23 @@
+sign: 2b,11
+
+woman3: 26,13
+man1: 14,10
+woman1: 1f,16
+woman2: 11,0c
+mayor: 08,1a
+kid1: 0f,15
+man2: 2a,19
+
+tres: 07,15
+tres: 0b,1c
+tres: 1f,18
+
+inn - 26,10
+pub - 26,18
+hous1 - 21,19
+hous2 - 11,09
+hous3 - 07,0c
+wep  - 20,13
+item - 13,16
+mns - 17,0a
+

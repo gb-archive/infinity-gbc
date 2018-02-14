@@ -1,0 +1,58 @@
+SELERA
+Connor:
+It's a book of poetry, that ends with the unfinished poem, "Fallen Time."
+
+Item: (7,1)
+The bookcase is filled with standard texts found in any apothecary, describing the function of healing herbs, magical restoratives,
+and other useful medicines.
+
+House1: (8,1)
+A History of Selera. The mutli-tome history of the empire of Selera begins with the city's fabled founding by a prophet of God, moves
+through its renaming after the great sacrifice made by Selera for her people, and ends shortly after the sundering of the peace with
+Alutha.
+
+KASSIM
+ks_hous1: (1,1)
+Empire of the Sands. It is a historical treatise, though it seems more fictitious than factual, describing an ancient empire that
+ruled over this entire region, led by kings who worshipped the dead and drew great power from spirits.
+
+HOLBROOKE
+hb_weap: (2,1)
+A book of children's songs is here, seemingly out of place for a weaponshop.  The book falls open to an old nursery rhyme.
+"We danced for joy, we danced for life / around the flowers, upon the fields / In times of peace, in times of strife, / We danced
+for love that never yields."
+
+FAIRPORT
+fp_hous2: (1,1)
+The cartography of a great explorer named Caius Argorus, who claimed to have discovered a land beyond the great seas, peopled by
+folk of different custom and appearance.  The charts are time-worn and almost impossible to read, and would be useless for any form
+of navigation.
+
+fphous3: (7,1)
+A children's story called "The Song of Eliandra." It tells of a beautiful woman who, fleeing pursuit by an unwanted suitor, escaped
+into a forest. When she was surrounded by the suitor and his servants, she prayed to God for protection, and transformed into a great
+and dignified tree. It is said that her song calls out to unhappy souls, and comforts them in their time of need.
+
+fpinn2: (3,1)
+A wide variety of popular novels are here for the perusal of those staying in the inn.  Most of them featurely luridly painted covers
+depicting swashbuckling heroes with misproportioned females hanging on their arms.
+
+fp_weap: (1,1)
+Aside from diagrams of various weapons and suits of armor, there is a single, leather-bound text describing a fabled race called the
+niebelung, who were said to have forged a weapon of incomparable virtue.
+
+fp_mns_c: (1,1) (2,1)
+How to Succeed in Shipping Without Really Trying. The book seems partial to techniques such as price fixing and forcibly removing the
+competition, and its conception of the "common man" seems to consider sloth and idiocy inherent qualities.
+
+Eastern Secrets for Married Couples.  Probably not a good idea to look through this.
+
+ALUTHA
+al_house: (6,1)
+This bookcase holds only The Litany of Rememberance. "Remember that Alutha gave up all: life, honor, love.
+Remember that beside him Selera and Gilus gave up no less.  Remember that we must honor their sacrifices by making sacrifices no
+less great.  Remember that duty comes before pleasure.  Remember that death comes before dishonor."
+
+MAGI
+mg_arch: (9,2)
+The personal research of the ArchMage, delving into elementalism and temporal manipulation.

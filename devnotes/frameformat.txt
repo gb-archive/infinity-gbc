@@ -1,0 +1,128 @@
+Characters:
+-----------
+	Walking
+	-------
+ 0	Down 1
+ 1	Down 2
+ 2	Left 1
+ 3	Left 2
+ 4	Right 1
+ 5	Right 2
+ 6	Up 1
+ 7	Up 2
+
+	Jumping
+	-------
+ 8	Down
+ 9	Left
+10	Right
+11	Up
+
+	Arm out
+	-------
+12	Down
+13	Left
+14	Right
+15	Up
+
+	Attack
+	------
+16	Down 1
+17	Down 2
+18	Down 3
+19	Down 4
+20	Left 1
+21	Left 2
+22	Left 3
+23	Left 4
+24	Right 1
+25	Right 2
+26	Right 3
+27	Right 4
+28	Up 1
+29	Up 2
+30	Up 3
+31	Up 4
+
+	Cast
+	----
+32	Frame 1
+33	Frame 2
+34	Frame 3
+35	Frame 4
+
+	Wipe head
+	---------
+36	Frame 1
+37	Frame 2
+
+	Look down
+	---------
+38	Frame 1
+39	Frame 2
+
+	Sit
+	---
+40	Frame 1
+41	Frame 2
+42	Eating
+43	Asleep
+
+	Miscellaneous
+	-------------
+44	Arm raised
+45	Attention
+46	Eyes closed
+47	Asleep/Dead
+48	Damage
+49	Thrown
+
+	Special
+	-------
+50-63	anything
+
+
+Enemies:
+--------
+	Walking
+	-------
+ 0	Down 1
+ 1	Down 2
+ 2	Left 1
+ 3	Left 2
+ 4	Right 1
+ 5	Right 2
+ 6	Up 1
+ 7	Up 2
+
+	Miscellaneous
+	-------------
+ 8	Damage
+
+ For bosses only:
+
+ 9	Attention
+
+	Special
+	-------------
+10-15	anything
+
+
+
+NPC
+---
+	Walking
+	-------
+ 0	Down 1
+ 1	Down 2
+ 2	Left 1
+ 3	Left 2
+ 4	Right 1
+ 5	Right 2
+ 6	Up 1
+ 7	Up 2
+
+	Special
+	-------
+8	Arms raised
+9-15	anything

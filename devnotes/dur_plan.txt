@@ -1,0 +1,18 @@
+durgardt:
+  - barracks: 5,7
+
+barracks:
+  - entry 10,10 (exit 10,11)
+  - door 10,8
+  - guard 18,7
+  - guard 1,3 (asleep)
+
+tow1:
+  - entry 5,8 (exit 5,9)
+  - stairs 6,4
+  - guard 4,5
+
+tow2:
+  - entry 6,4
+  - stairs 4,6
+  - guard 7,6
