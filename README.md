@@ -46,6 +46,7 @@ Download [TASM 3.2](http://www.ticalc.org/archives/files/fileinfo/250/25051.html
 You should now have all the tools ready to build the game. Now go run a bunch of commands:
 
 ```
+PATH=%PATH%;c:\mingw\bin
 cd \resource\eve
 itemconv --defs items.ref
 copy itemdefs.h ..\..\source\eve
