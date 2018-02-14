@@ -1243,7 +1243,7 @@ UBYTE load_bgfx_item(UBYTE x)
 
    lastpage = rom_page(DATA_PAGE);
 
-   ptr = (UBYTE *)itemgfx + 24;
+   ptr = (UBYTE *)itemgfx + 12;
    ptr += (UWORD)x * 64;
 
    VBK_REG = 1;

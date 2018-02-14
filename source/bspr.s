@@ -1759,7 +1759,7 @@ bicon_notwingding:
    ADD   HL, DE
    LD    A, (HL)
 
-   LD    HL, #_itemgfx-6*64+24         ; data page
+   LD    HL, #_itemgfx-6*64+12         ; data page
    ADD   HL, BC
    JR    loadbicon
 bicon_notitem:
