@@ -1,0 +1,2943 @@
+Scene 0A:
+[Starts with a black screen, with "THE PAST" centered.  In the middle of an evil fortress are
+three people, a female knight, a male knight, and a male wizard.  They are facing each other.
+
+Woman: Please, my love, you must.
+
+Knight: I cannot.
+
+Wizard: You must!  He has touched us all.  If you allow us to live, we will be turned...you
+alone have the strength to endure.
+
+Knight: NO!  Not this.  Anything but this.
+
+Woman: My love, there can be nothing else.  You must return to make sure the world is kept
+safe, and we must die to ensure that He does not survive.  You must protect our child.
+
+Knight: My love...
+
+Wizard: Now!  Before it is too late!
+
+Woman: Let your love guide your hand.
+
+(The screen fades to black.)
+
+"THE FUTURE"
+
+Scene 0B:
+[This scene is in fact the exact formation of scene 25, in which Roland and Connor face off,
+but in black and white.  It then fades to a picture of a tree with a single leaf on it, snow
+covering the ground.  (If you can do pictures like that.)  Finally, it fades out, and text
+appears.]
+
+"Time moves forward, taking us like leaves in the wind... 
+We meet, we brush against each other, and then fall to the earth... 
+Longing for the days when we shared a branch together... 
+Longing for the spring... 
+But all things end..."
+
+Scene 1:
+[Follows scene 0B]
+[Connor's bedroom, second floor of his house, in Avindale.]
+
+"THE PRESENT"
+
+(Sound of a clock ticking, the screen is slightly darkened.)
+(Connor lies in bed, turning restlessly from side to side.)
+(Sound of a knock at the door.)
+
+Connor: Anna?  Anna...is that you?
+
+(Another knock.  Connor awakens and gets out of bed.  Screen brightens.)
+
+Connor: No one bothers me any more.  Who could it be?
+
+(Connor walks down to the first floor.  He stands facing the door.  There
+is another knock.)
+
+Connor: Who is it?
+
+Voice: Open in the name of the King!
+
+Connor: Just come in and get it over with.
+
+(A guard enters.)
+
+Guard: Sir Connor...
+
+Connor: SIR Connor?  You're mistaken.  I'm just plain, old, common Connor now.
+
+Guard: Sir Connor, in the name of King Aldric, guardian of Selera, beloved of
+God, I have come to summon you to Tagel Castle.  
+
+Connor: Tell Aldric there is no Sir Connor here.  Not any more.
+
+Guard: Failure to obey a summons is tantamount to treason, Sir Connor.
+
+Connor: Is that what it has come to, then?  Very well.
+
+Guard: His majesty will receive you in the throneroom.
+
+(Guard exits.)
+
+Connor: SIR Connor.  Hah.
+
+Scene 2:
+[Connor has left his house.]
+[The mood in Selera is relatively happy.  There are three houses, including Connor's, an 
+inn, an armory, and an item shop.  The Inn contains a couple of tables, both of which are 
+empty.  The armory sells weaponry somewhat better than what Connor has, but he has no gold 
+with which to purchase it.  There is a graveyard in the town.  The majority of the graves 
+list casualties in the years between 641 and 643, cause of death is often listed as the 
+Plague.  The citizens don't talk about the plague, but instead focus on how things are 
+better, though one man complains about the high taxes charged by King Aldric.  On a bluff in 
+town, a woman stands staring out into nothing, saying nothing.  A boy nearby says that the 
+woman spends almost the entire day there, even the whole night.  Inspecting the graveyard 
+reveals a grave for Anna, Connor's wife.  When he reads it, he turns away and whispers her 
+name.  The date on the grave is July 17, 641]
+
+Scene 3:
+[Arrival at Alutha Castle]
+[At the gates to Tagel Castle are two guards.  All the guards within the castle tell Connor
+that, "The King awaits your presence in the throneroom."  Within the castles are various
+statues of the same model -- in fact, they are Golems made by the creator.  Talking to them
+generates, "What a curious statue."  In the castle is a training room, a barracks, and the
+main hall.  The main hall contains a door leading to the king's room, to the tower (and
+dungeon) and leads to the dais on which King Aldric is normally seated.]
+
+Scene 4:
+[Approaches the King]
+[Throne Room]
+
+Aldric: So you have come, Sir Connor.  I am glad.
+
+Connor: "A failure to comply is tantamount to treason," my liege.
+
+Aldric: Ahh, and the request of an old friend means nothing?
+
+Connor: Your age is unimportant, your friendship, nonexistant.  It was by your will that I am Connor 
+merely, by your will that I have been shamed.  You did not stand by me when my wife died, but looked 
+down on me.  I am here, King Aldric, because if I were not, I can only wonder what new torment 
+you would lay upon me.
+
+Aldric: You have so much anger in you, Sir Connor...
+
+Connor: If it has flourished, it is because you have nurtured it.
+
+Aldric: Enough!  I am King, and you are my servant.  I know you were fond of the Aluthans, 
+and so it is that you might wish to know that they have begun a war with me, with US, if you 
+still consider yourself a Seleran.  Our people is small in number, and the northerners can 
+feel that, can smell our weakness.  Oh, how they hate us.
+
+Connor: If they hate, it is because you taught them to hate, just as you taught me. 
+
+Aldric: If you had ever but felt the weight of gold upon your brow, Sir Connor...  I am 
+wearied by this discussion.  You will return here at midnight, and we shall discuss this 
+matter further.
+
+Connor: There is nothing more to discuss, my liege.
+
+Aldric: Is there not?  Golem!
+
+(The "statues" begin walking in place)
+
+Aldric: Behold.  We are few in number, but we have grown mighty.  Here is an army that knows 
+no fear, no mercy.  Here is a scourge for the north, which can forever rid us of the 
+Aluthans, if I but will it.  Speak to the Creator, if you doubt me.  You will find him in 
+the cavern beneath the tower.  Look upon them, think upon them, and return to me at 
+midnight.
+
+Scene 5:
+[Wandering Tagel, Connor can try speaking to the King (who tells him to go home), to the 
+guards (who boast of a sure victory over Alutha), to the golem (which simply say, "I live 
+to serve.") or to the guard in the training room, which prompts a series of training 
+battles, which can earn the player some money.  In the basement below the tower is the 
+Creator and four golems.  Guards bar the player's path up the tower, explaining 
+that he cannot pass.  Positioned around him (at diagonals) are four buttons.  The golems 
+are all inert until the buttons have been stepped on.  The top-left golem, when his button has been pressed, merely says, "I live to serve."  The top-right golem begins walking in
+circles, the bottom left one spins in place, and the bottom right one, when activated, 
+announces, "General protection fault!" and attacks.  But when the player first enters the
+room, he automatically talks to the Creator, triggering this scene.  This room is has cave
+like walls, and rough stone floors.]
+
+Connor: Who are you?
+
+Creator: I am the Creator.  I am...a tinkerer, a toy-maker, nothing more.
+
+Connor: You give life to these things...
+
+Creator: Life?  What is life?  This is but a reflection of life, reflected in but a muddy 
+pool.  It is not life.  No, not life at all!  These are just toys.  But what fun toys are to 
+play with, do you not agree, Sir Connor?
+
+Connor: How do you know my name?
+
+Creator: You are a great man, Sir Connor, King Aldric speaks of you often.  Yes, often.  
+Like a parrot, "Sir Connor," he caws.  Yet you do not know my name!  No, no name, no name 
+for me, I am the Creator, nameless, a toy-maker!
+
+Connor: Yes...I suppose you are.
+
+Creator: Come, play with them!  Yet be careful with Alpha Four, he is a bit...mad, kee kee 
+kee.
+
+Scene 6:
+[Attack by Golem 4]
+
+Connor: Your "toy" nearly killed you!
+
+Creator: A toy kill a knight!  Oh, dear, no!  Had I worried, kee kee, I would have stopped
+it.  But you are a great man!  "Connor," he caws.  Kee Kee!  Alpha Four needs to learn to 
+protect, not attack, kee kee kee.
+
+Connor: Be more careful in the future.
+
+Creator: Oh, I am, kee kee!  I am already more careful!
+
+Scene 7: EVEPROG=3
+[Return home to rest.]
+[If the player tries to rest before talking to the Creator, Connor says, "Perhaps I should 
+meet this "Creator" before I go to sleep.  After he has talked, he can "talk" to his bed and 
+climb in and sleep.]
+
+Scene 8: EVEPROG=4
+[Selera at Night]
+[Selera at night is a dark and empty place.  The houses and shops are locked, including
+the Inn.  A woman stands on the bluff staring into nothing.  Talking to her receives the
+answer, "Richard..."]
+
+Scene 9:
+[Tagel at Night]
+[The guards are still in place, and tell Connor that the King awaits him in the tower.  The
+training room is closed, but the Golem pace on.]
+
+Scene 10:
+[Talk to the king at the tower.]
+[In RPG95, I handled this scene exclusively using tiles.  Basically, you can see the 
+mountains to the north, stars above them, and a crescent moon as well.  Aldric is staring 
+north.  This is a "prophecy" type scene, so executing it well is important.]
+
+Connor: I am here.
+
+Aldric: Look out with me, Connor.
+
+(Connor steps to stand to the right of the King, and they both look north.)
+
+Aldric: As far as the eye can see are the lands that look to me for protection.
+
+Connor: And beyond are those whose look southward in fear.
+
+Aldric: In fear no longer, Sir Connor.
+
+Connor: Sir, again, King Aldric?
+
+Aldric: You were a good knight, Sir Connor.
+
+Connor: I never wanted to be.
+
+Aldric: We have little choice in this world.  Forces move us, and we must bend before them 
+or snap.
+
+Connor: There can be more honor in snapping.
+
+Aldric: You sound like a knight, Sir Connor.
+
+Connor: You sound like a man who has forsaken what he believes in.
+
+(Aldric turns away from Connor.)
+
+Aldric: I have.  I am an old man, Connor, older than you know.  Our people are long lived, 
+and the Soul Gem has preserved me.  There are none to follow me, my sons are plague-dead and 
+my wife, with no Soul Gem to prolong her, is Beyond as well.  I am an old man and weary of 
+hating.  There is a war coming, Connor, a terrible war.
+
+(Connor turns to Aldric.)
+
+Connor: A war of your contrivance!
+
+Aldric: Enough, Connor, enough.  Let me speak.  I let you speak six years ago.
+
+Connor: And then stripped me of my rank.
+
+(Aldric turns to Connor.)
+
+Aldric: Enough!  I do not wish to fight with you!  There is a war between men, but that is 
+nothing new.  We have fought for ages, we weak children of God.  But that is not all.  I 
+am tied to the Earth, and I can hear its whispering.  There is a darkness stirring, a terrible
+darkness.  I fear when it falls, we will need the Aluthans beside us, not against us.
+
+Connor: The Unnamed?
+
+Aldric: Perhaps.  I do not know.  I am no Selera, to face Him if He comes again.  Not alone. 
+So I need you to go north, Connor, one last time for me.  The Aluthans have destroyed the 
+town of Holbrooke.  I cannot allow them to come further.  I am Guardian of Selera.  So go 
+north, my knight.  Go north and speak to the people who were once your friends, convince 
+them to turn away from the path of war.  Tell them what you must, promise what you must.
+
+Connor: And if they refuse?
+
+Aldric: Then may God have mercy on them, for I shall not.  
+
+(Aldric walks to the stairs, then turns back.)
+
+Aldric: Good luck, Sir Connor.  I trust you will leave for North Pass tomorrow.  Learn what 
+happened at Holbrooke, and make peace for me.
+
+(Aldric walks down the stairs.  Connor stares north a bit longer.)
+
+Connor: For you, Anna.  One last time home, for you.
+
+(Connor walks down the stairs, but the scene remains.  Text appears, standard RPG Prophecy 
+Style.)
+
+It was an age of suffering.
+War followed plague, and death
+stalked the land.
+Far in the north lay the hope for peace,
+and yet deep in the Earth,
+Something dark was stirring.
+
+Scene 11:
+[Autoruns after 10]
+[Connor is facing the door leaving his house, the next morning.  The town is the same as it
+was before.]
+
+Connor: To go north again, after so long...
+
+Scene 12: EVEPROG=5
+[Wandering Selera]
+[People warn Connor that the North Pass is very difficult to navigate without a guide.  They 
+congratulate him on his new rank.  Using money he found in chests while going up the tower, 
+he can now buy some new equipment (just one piece of new equipment, though.)  In the Inn is 
+Ryan, a guide, and a merchant.  Talking first to the merchant, he will joke about how it 
+will be impossible for Connor to get through N Pass, because a horrible monster guards it.  
+He says they only barely made it through, and most of his guards died.  People in the Inn 
+tell Connor that Ryan is a guide.]
+
+Scene 13:
+[Talking to Ryan]
+
+Connor: I need a guide to take me through North Pass.
+
+Ryan: Well, you're out of luck, buddy.  Yeah, I am a guide, but I'm already under contract
+with old moneybags over there.
+
+Connor: This is a mission of utmost importance.
+
+Ryan: Blah, blah, blah?  What did you say?  I'm sorry, I didn't quite hear...I was thinking
+about how I need to eat, and how I need money to eat.  So could you repeat yourself?
+
+Connor: I'm sure they King will reward you handsomely!
+
+Ryan: Blah blah?  Could you repeat that?
+
+Connor: To hell with you!  I can't believe anyone would be so selfish!
+
+Ryan: Selfish, is it?  Now...let me get this right, because I'm so easily confused.  You want 
+me to abandon a man I'm sworn to protect, give up my payment, after having fought my
+way through a horde of monsters, all just to help you out?  And you're offering me nothing
+to do this?  So...um...who was selfish?
+
+Connor: If I were doing this for myself, it would be different.  This is for Selera.
+
+Ryan: Fancy that!  I'm not a Seleran!  I'm from Freeport.
+
+Connor: Please!
+
+Ryan: Look, I'd love to help you.  You'd love to buy my contract from my boss.  It's that simple.
+
+Connor: Fine.
+
+Scene 13: EVEPROG=6
+[Hiring Ryan]
+[The player must gain however much money to hire him.  This is obviously based upon how much
+gold you have the monsters give, etc.  He should have to fight enough to level up once or 
+twice, as Ryan will join at level 3, and Connor is only level 1.  In the original, Ryan was
+able to use various "special effect" arrows (fire, poison, and sleep), which made him sort
+of like a magic user (though he had to buy these arrows.)  Something analogous might work
+well in your game.  The rest of this scene describes what happens after Ryan has been talked
+to after his contract has been bought.]
+
+Connor: I bought your contract.
+
+Ryan: Well then, boss, it's a pleasure to help out.  You want to go up through North Pass?
+
+Connor: Yes.
+
+Ryan: Heh.  I'll make it through alive.  I can't make any promises about you.  You seem a
+bit slow, ya know?  The pass is filled with monsters, and there's a big one in there, a
+wolfman.  He ripped up the three guards moneybags had with him.  Luckily, I gave him one in
+the eye and we got away.
+
+Connor: I can handle myself.
+
+Ryan: Sure you can.  That's why you just pleaded with me and bribed me to help you out.
+But hey, you're right!  You're a tough guy.
+
+Connor: Let's just go.
+
+Scene 14: EVEPROG=8
+[North Pass]
+[North Pass consists of going up and down cliffs.  It is an almost entirely "outdoor" dungeon
+in that regard.  Perhaps some waterfalls (with hidden caves behind them) would be a nice touch.
+I used Healing Urns (urns filled with water that restored HP/MP) throughout dungeons when I
+made the game.  They pretty much allowed me to make fairly large dungeons, without requiring
+the player to go into a dungeon, level up, leave, rest, go back in, etc.  This sequence starts
+as they pass by a particular cave.]
+
+Ryan: That's where we holed up.  Real smart, huh?  It came in at night, once we ran out of
+firewood, and killed the others.  Might be stuff worth taking in there.
+
+Connor: Robbing the dead?
+
+Ryan: I like to think of it as repossession.
+
+Connor: You have no morals!
+
+Ryan: Morals?  My moral is this: live and let live.  And if not, put an arrow in their heart
+and say good night.  Once you're dead, who cares about morals?  Those guards don't need their
+gold.
+
+Connor: Morals are what make us human!
+
+Ryan: Thinking for yourself is what makes you human.  But we aren't a debate club, we're
+adventurers, aren't we?  So why don't we go adventure some.
+
+Connor: Hrm.
+
+Scene 15: EVEPROG=9
+[North Pass, boss battle]
+[They are walking out, when the werewolf jumps down from a cliff.]
+
+Werewolf: Humans!  I...hate...you!
+
+Ryan: It's a cyclops!  Oh, wait, no, it's just a wolfman who's come back to lose his other
+eye.
+
+(Battle)
+
+Ryan: Well, my job's done.  So...I'll just leave here, and I'll go claim that big reward
+with your King.
+
+(Ryan runs off.)
+
+Connor: Good riddance.
+
+Scene 16: EVEPROG=10
+[Kassim Oasis]
+[Kassim Oasis is in the desert north of Selera, but south-west of Holbrooke.  Its
+architecture and townspeople reflect a more "Arab" feel, as should the music.  There is an 
+open marketplace -- at which Hassan will ultimately sell his wares -- and an oasis in the
+middle of town.  Townspeople complain about arranged marriages, about Hassan's outrageous
+business practices, and about the strange occurences in the fire caverns to the north.  They
+warn the player that he'll need water to extinguish the flames in the cavern.  This scene
+starts as the player enters.  Hassan stands north of the entry point of the town, a bit
+south of the Oasis, facing south.  People in the town should also describe the legend of the
+Djinni -- powerful Djinni trapped in Gems by an ancient Sultan, which, if freed, would serve
+their liberator.  They should also mention (or one person should) that a strange creature,
+half-man, half-wolf, was seen wandering south over the mountains recently.]
+
+Hassan: Welcome to my town, effendi!
+
+(Hassan walks south.)
+
+Connor: YOUR town?
+
+Hassan: Of course, my friend.  They do not call it "Hassan's Oasis" for nothing.
+
+Connor: This is Kassim Oasis.
+
+Hassan: Kassim, Hassan, they are very similar in sound.  The Royal Translators are renowned
+for their butchery of our language.
+
+Connor: I see.
+
+Hassan: So what brings you to this opal of the sands, this breeze in the summer?
+
+Connor: I am traveling north to Alutha.
+
+Hassan: To Alutha!  May God watch over you!  The Aluthans are a bestial people.
+
+Connor: Are they, now?
+
+Hassan: Indeed, my friend!  Why, I have heard, from none but the most reliable of the
+trustworthy, that their men don't know their fathers and the women are hairier than bears!
+
+(Connor begins driving Hassan backwards, to the edge of the Oasis.)
+
+Connor: My...wife...was an Aluthan.
+
+Hassan: Effendi!  Hassan does not know how to swim!
+
+Connor: Then you may lie with the fishes.
+
+Hassan: EFFENDI!  Please!  Excuse this poor fool!  I must have been tricked by the most 
+deceitful of the liars!  Oh, forgive me!  Please, I will make it worth your kindness if you 
+but spare me!
+
+Connor: And how is that?
+
+Hassan: A five-percent discount, on all my wares!
+
+Connor: Five-percent?
+
+Hassan: Ayeee!  Ten-percent, my friend, but no higher, or you would better just kill me now,
+for drowning is a more noble fate than starving.  But I will also give you this gem, more precious
+than water or gold!  The traveler who sold said there were but nine in the whole world, and that
+each has its own magical nature.  For free, effendi!  
+
+Connor: Fine.  I'll let you live, Hassan.  But be careful what you say.
+
+Hassan: You are the most benevolent of the kind, the most beatific of the saints, my lord! 
+Now I will be hurrying to my store.  Stop by if you have any needs.
+
+Scene 17:
+[Fire Caves, the player has reached the end and confronts the Wadji.]
+[The Fire Caves are filled with random flames that cannot be passed.  Using water purchased
+from Hassan, it is possible to extinguish the flames.  At the end of the cavern is the Wadji 
+Gutana, who has two flames on either side of him.]
+
+Gutana: I am the Wadji Gutana.  I have become one with the flames.
+
+Connor: Step aside.  I need to pass through.
+
+Gutana: The flames make my blood boil and my dreams sear my mind.  I feel ecstacy.
+
+Connor: I'll ask you one more time, step aside.
+
+(Flames appear, surrounding Connor.  He looks left, right, down, and then back at Gutana.)
+
+Gutana: You will burn for a thousand years!  Your flesh shall cook and your fat sizzle, your 
+hairs shall curl and your eyes turn to fluid.  And above it all I shall dance with the 
+flame, twisting, caressing the fire.
+
+Voice: Frost!
+
+(Screen flashes blue, and the fires are extinguished by Elya's magical spell.  Screen pans
+northward, to show Elya, facing south.   Gutana turns to face him.)
+
+Wizard: Gutana, once apprentice of the Magi, I have come to bring you back to the Tower.
+
+Gutana: I have become one with the flames!
+
+Wizard: Then, with your flames shall you be extinguished!
+
+(Battle commences, with Elya joining the party.  Perhaps using extra water can extinguish
+the fire helpers of Gutana?  Maybe only water or magic can hurt them.  I don't know enough 
+about your combat system to know if this is a viable idea.)
+
+Scene 18:
+[After the battle.]
+
+Wizard: I am Elya, First Apprentice of the Tower of Magi.
+
+Connor: I'm Sir Connor of Selera.  I've been sent to investigate Holbrooke and to make
+peace with the Aluthans.
+
+Elya: Holbrooke is it?  I have business there myself.
+
+Connor: And what would that be?
+
+Elya: There was a great surge of magical energy in that area, strong enough that its 
+ripples were felt in the Tower.  The stench of the magic permeates this entire region.  As 
+the only Apprentice, I was sent to determine the source of this energy, and deal with it as 
+necessary.
+
+Connor: Well then, I could use a wizard at my side.
+
+Elya: And I a knight.  Yet all is not right in this world.  Be wary, knight, as we proceed. 
+Even a sword and a spell may not be sufficient.
+
+Connor: I have passed the point where death meant much to me.  If it comes, let it come, I 
+am ready.
+
+Elya: I am not, and as long as we are to be companions, I expect you will respect my 
+wishes.
+
+Connor: You're safe with me, wizard.
+
+Elya: Very well then.
+
+Scene 19: EVEPROG=11
+[The party enters Turren.]
+[The town is empty.  All the doors are locked.  Examining the well in the north-western
+corner of town generates the message, "A deep, dark well."  Eventually, the party will
+descend into the well to reach the caverns beneath Turren.  There is a corpse in the
+top-right corner of the map, blocking the path into the Great Wood.  This event begins with 
+the party having just entered the map.  The music in Turren should be sad and mysterious.]
+
+Connor: It's totally empty.
+
+Elya: Something is wrong here.  I feel it.  There is fell magic at work.
+
+Connor: The world is an evil place.  That's why we're here, isn't it?
+
+Elya: Keep your sword ready, knight, and you tongue still.
+
+Scene 20: EVEPROG=12
+[The party examines the corpse and tries to walk back out to the rest of the town.]
+
+(Sound of an animal roar.  Three werewolves -- weaker than the one in the pass, but still
+quite powerful -- approach and attack.)
+
+Connor: What were those things?  I saw one in North Pass earlier...
+
+Elya: They are less than human...and more.  There is a great corruption welling up in the 
+world, and this is but one effect.  I sensed horrible pain in them, great anger.  They know 
+what they have lost, but do not know how to regain it, and they hate us for our humanity.
+
+Connor: Less than human...were they men once?
+
+Elya: Perhaps.  Let us investigate further.
+
+Scene 21: EVEPROG=13
+[The party can now descend into the well (they find a rope hanging in it) which leads them
+to the refugee camp established below.  The people of Turren are terrified and speak of the 
+curse of God coming to them.  They tell how anyone can become lycanthropic, because it 
+spread in ways other than through biting.  They also learn that it is impossible to make it 
+through the Great Wood without a Pathfinder.  The only Pathfinder left is Victor, who is ill 
+and is confined to the inn.  The mayor begs them for help.  This scene begins when they go 
+to speak to Victor.  To get to victor, they must first speak to a woman who is taking care
+of him, who tells them that this Victor, the famous Pathfinder.  There is an Inn and item
+and weapon shops in the cave, but the prices are very steep.]
+
+(Victor begins turning back and forth in his bed.)
+
+Victor: The...song...
+
+(Victor leaps out of bed and begins turning into a werewolf.)
+
+Elya: Kill him!
+
+Victor: Huumans....
+
+(Battle commences with Victor.  It ends before Victor is dead, however, ending instead after 
+a certain amount of damage has been dealt to him.)
+
+Victor: So...much...pain.  I..help me.
+
+Connor: You can speak?
+
+Victor: I...am...who...am...I?
+
+Connor: You are Victor, a Pathfinder of Turren.
+
+Victor: Vic...tor...yes!  I am a human!
+
+Elya: Not any more, Victor.  You're a monster now.
+
+Victor: No!  I'm a human!  Not...an...animal!  I am a human!
+
+Elya: Kill him Connor.  He'll turn.
+
+Connor: No, I won't kill him.  We need you to lead us to Holbrooke, Victor.
+
+Victor: Yes...I will lead you.  Come, let's go!  The little wizard can come to.
+
+Elya: I'll be watching you, Victor.
+
+Victor: Watch all you want.  But just remember...I bite back.
+
+Scene 22: EVEPROG=14 before pushing the corpse, then EVEPROG=15
+[To get into the Great Wood, Victor pushes aside the corpse blocking the way.  The Great 
+Wood is a maze of paths through trees.  There is a pool of healing water (in other dungeons, 
+I would place urns of healing water, which can be used once for complete HP/MP restoration) 
+The exit to the Wood is blocked by roots, examining them yields, "These roots are too thick 
+to cut through."  At certain crossroads, Victor will claim he is hearing a song, and will 
+say which direction it is coming from.  Following these roads will lead to the Evil Tree, a 
+standard Tree Demon type character.  A sound (I used sort of a mystically throbbing sound) 
+begins, and Steven walks toward the tree.  Roots grow behind the party, blocking them off.  
+The party approaches the tree and talks to Victor.]
+
+Connor: Snap out of it, Victor!
+
+Elya: He can't hear you.  He's no longer human.
+
+Victor: Hu....man...
+
+Tree: Human, wolf, man or beast, there is no difference.  All things are but vessels for the 
+darkness.  Your world has come to its end.  Fight on, fight on, but for nothing.  You will 
+become slaves or you will become corpses, until all the world is awash in suffering.
+
+Elya: I defy you, demon.  The Magi stand firm against the darkness.  Our light is a bastion 
+against the darkness, our will a force against the shadow.
+
+Tree: The will of men!  Come, then, test your will now!
+
+(The song ceases.)
+
+Victor: I..am...Victor!
+
+(Battle commences.)
+
+Scene 23:
+
+[Battle complete.]
+
+Victor: Wha...it's like...a horrible nightmare has passed.
+
+Connor: The demon is dead.
+
+Victor: But...I'm still a monster!  Why?  Wizard, why?  Why aren't I healed?
+
+Elya: It's not so simple, Victor.  Lycanthropy is a powerful spell, and it is perpetual.  
+It doesn't stop when the caster dies.  It can only be reversed by an even more difficult 
+counter-spell.
+
+Victor: Then cast the spell!
+
+Elya: I'm an apprentice, I don't have the power.
+
+Victor: Who does?  How can I be healed?  Tell me!
+
+Elya: Come with me to the Tower of Magi, and perhaps the Archmage can restore you.
+
+Victor: To the Tower of Magi?  So be it!  I would go to Hell if that's what it took.  Life 
+isn't worth living as a beast.
+
+Connor: Elya...what was that thing?  In the past few days I've seen horrors that make the 
+war between Selera and Alutha pale in comparison.  These creatures...this demon...what is 
+happening?
+
+Elya: The Earth is remembering evil.
+
+Connor: Remembering evil?  There's been evil enough in my lifetime!  Wars, murder, betrayal, 
+destruction...
+
+Elya: There has been anger, fear, disease...these are natural.  Not evil.  Evil is not hatred, 
+it is not terror, and it is not an illness.  It transcends these things.  Evil has but one 
+wellspring, and it is a deep and terrible place.
+
+Victor: And where is that, wizard?
+
+Elya: I need to know more first.  We must go to Holbrooke.
+
+Connor: To Holbrooke then, where answers may be found.
+
+Elya: Some answers are best left unknown, Sir Connor.  You will learn more than you wish, I 
+fear.
+
+Victor: Whatever it takes!
+
+Scene 24: EVEPROG=16 (after defeating the tree)
+[Party enters Holbrooke.  If they try to first enter Durgardt to the north, they are bounced
+back, with the message, "Connor: We need to investigate Holbrooke first."]
+[Holbrooke has been oddly destroyed.  All of the people are dead -- replaced by charred
+skeletons, but all the buildings remain in tact.  All the grass is turned into dead ground
+cover (a sort of wasteland) and all the trees are now devoid of leaves, etc.  Clearly all
+living things in the town were destroyed, but stones, etc. were left undamaged.  There should
+be things to loot from the houses.  It would be good if the corpses were in logical places...
+maybe two corpses in front of a bar, with one behind it, etc.  A corpse behind the counter in
+the item shop.]
+
+Connor: My God...
+
+Victor: This smell is horrible...
+
+Elya: The smell is worse when you can perceive changes in the ether.  A horrible thing has 
+been done here.
+
+Victor: Obvious enough, wizard.
+
+Elya: No, not the killing.  That is horrible in its own way.  But not the killing.
+
+(Elya approaches a skeleton.)
+
+Elya: These people were killed by magic.
+
+Victor: You killed monsters with magic, beasts who were once men.
+
+Elya: Different, again.
+
+(Elya presses his hand to his head.)
+
+Elya: Terribly different.  This is not magic of our variety.  It...is a darker sort.
+Perhaps an older sort, practiced when our race believed in many bloodthirsty gods.  This is
+death magic here, human sacrifice.
+
+Victor: Explain yourself.
+
+Elya: Not now, not here.  I need more answers.
+
+Connor: Are you sure you want them?
+
+Elya: No, no I'm not.  But the other Magi will.  It came from the north.  From the 
+Aluthans.
+
+Connor: Well then, our paths remain together.
+
+Victor: And I stay with you, wizard.
+
+Elya: Like a dog on a leash.
+
+(Victor charges toward Elya.)
+
+Connor: Stop it!  There's been enough killing here.  More than enough.  Let's go.
+
+Scene 25:
+[The party enters Durgardt.]
+[Durgardt is a walled fortress in the frozen wastes of the north that guards the pass between 
+Seleran territories and Aluthan territories.  The walls can be climbed by means
+of ladders on the interior of the northern wall.  There is a keep in the middle, the top
+of which can be reached from the norther wall.  This keep is not visible from the point of
+entry -- only the gateway really is.  On top of the keep is the Geist Cannon.  Design it
+however you wish.  I used two large statues with a pentagram in the middle, but that was a
+matter of lacking my own tiles.  It should be relatively immobile (like it's not a standard
+Age of Sails vintage cannon or something, nor a tank.)  Four guards stand outside the gate.]
+
+Guards: Selerans!
+
+(Battle music begins to play and the guards rush toward the pary.)
+
+Voice: Hold.
+
+(Battle music stops.)
+
+Voice: I'll handle this, men.
+
+(Walking out of the gate is Roland.)
+
+Connor: Roland.
+
+(Connor rushes toward Roland, Roland slaps him back.)
+
+Roland: What are you doing here, Connor?
+
+Connor: Are we not brothers, Roland?  Don't you remember our pledge?
+
+Roland: Pledge?  What are words, compared to blood?  You will die here today.
+
+Connor: Die?  Roland, what are you doing?  I'm here on a mission of peace.
+
+Roland: You came here eight years ago on a mission of peace...or have you forgotten?  Your honeyed 
+tongue convinced us all, my father, my sister...oh God, Anna.  Have you forgotten so quickly, you
+Seleran dog?  You came here, you smiled and whispered...you praised and embraced me.  We studied
+the sword side by side.  And then you took Anna, took her to die of a plague on foreign soil.  To
+be buried in the filth of Selera.  Took her to never see her home again, never see her brother, to
+never laugh again, to never run through the meadows again.  Have you forgotten?
+
+Connor: I will never forget Anna, Roland.  You forget her if you think she would want this.  Do
+you believe she would have smiled as you razed Holbrooke?  Do you think she would laugh as you
+threatened me?  She loved me, Roland, and I her!
+
+Roland: Did you love her when Selera brought the sword to Alutha?  Did you love her when our women
+were dishonored?  Each one of those women loved someone, a father, a brother, a husband.  Did you love
+her when they beat me?  I loved her then.  I held her memory close, like a thorn in my heart.  I
+remember her face, and then I think of what you did to her, how you killed her.
+
+Connor: We were brothers once, we are brothers still.
+
+Roland: You lost the right to call me brother when you took her away.  Now draw your sword and face
+me as a man, or turn tail like a dog.  It matters little to me.  Either way, your pride dies here.
+
+Connor: You still think this is about PRIDE, Roland, that this is about HONOR?  It stopped being a
+matter of honor after what my people did to yours, after what you did to Holbrooke.  This is about
+LIFE and DEATH, Roland, nothing else.
+
+Roland: Then die, Seleran.
+
+(Battle commences.  Roland defeats Connor.)
+
+Roland: Pathetic.  I hardly...broke...a sweat.
+
+Connor: Kill me.  I'm ready to join Anna.
+
+Roland: No.  No, you have a message to bring to your King.  Get up.
+
+(Connor stands.)
+
+Roland: Follow me.
+
+(Roland walks off.  It becomes a player controlled sequence.  The doors of the castle are all
+locked.  His companions urge him to follow, the guards mock him.  He follows Roland, who leads him
+to the Geist Cannon.)
+
+Roland: Beautiful, isn't it?
+
+Connor: What is this?
+
+Roland: Death for death, Roland.  Death for death.  The Geist Cannon takes life twice.  Watch,
+watch closely, for Aldric will wish to hear of this.
+
+(Roland turns north.)
+
+Roland: Bring the Seleran!
+
+(A man is brought forward between two guards, and is forced into position in the Geist Cannon.)
+
+Roland: Fire!
+
+(The cannon activates, turning the man into a skeleton.  A ball of fire shoots forth.  The screen
+follows it, and then the screen switches to the overworld map, following the ball as it streaks
+south to a forest south of Holbrooke.  It expodes, burning the entire forest to the ground,
+leaving it a scorched wasteland.  The screen returns to the castle.)
+
+Roland: You have seen it now, my answer to your King.  You may have come in peace, but leave now for
+war.  There will be no peace, only vengeance.  Tell Aldric that he may hide, that he may flee, but we 
+will follow his people to the ends of the Earth.  Tell him of the suffering that will come.
+
+(Fade to black.)
+
+Scene 26:
+
+[Immediately after]
+[The scene is the throne room.  The party stands before King Aldric.
+
+Connor: ... "death for death," he said.
+
+Aldric: So it comes to this.  The darkness I felt is within us, not the Earth.  This evil is man
+made.  Three hundred years ago, Alutha killed Selera, and now his progeny has come to finish the
+evil he began.
+
+Connor: They have come not to fulfill that sin, but rather because of the sins we have committed
+against their people for the last three centuries.  It is your persecution of them, for that old
+legend, that has brought this war!
+
+(Suddenly the room begins shaking and there is a sound of an explosion.  Music changes to a
+desperate tune and a guard rushes in)
+
+Guard: Your majesty, we are under attack!
+
+Aldric: The Geist Cannon?  Already?  Send the Golem!  All of them!
+
+Guard: It is the Golem who have attacked, your majesty!
+
+Aldric: What?!
+
+Guard: We are betrayed...
+
+(The guard collapses.)
+
+Victor: I smell...decay.
+
+Aldric: Disaster upon disaster.  You must take the Soul Gem from my room and flee.
+
+Connor: My duty is here.  I am a Knight of Selera.
+
+Aldric: And so your duty is to me!  I order you to take the Soul Gem and flee!
+
+Connor: Not now...I am not a coward.
+
+Aldric: In the name of God, Connor, GO!  There is a secret passage behind the bookshelf in my
+room.  Hurry!
+
+(The party is now player controlled.  The tower is locked, as is the exit from the main hall.  
+Only the King's room is open.  As the players enter, the screen pans back to Aldric.)
+
+(The Creator enters from the south, a guard rushes in his path.  The Creator raises his hand, and
+a ball of fire shoots forth and kills the guard.)
+
+Creator: The little King on his mighty throne!  See how it trembles!
+
+(The castle shakes again.)
+
+Creator: The Soul Gem shall be mine, kee kee kee.
+
+Aldric: You'll find I'm harder to kill than a mere guard.
+
+Creator: Oh!  Kee kee!  Are you?  Not to me!  No, no!
+
+(Aldric raises his hands over his head and a sphere of energy begins shimmering in front of him.
+The Creator does the same.  The screen pans right back to the door, and then transitions into the
+King's room.  A scream is heard.)
+
+Scene 27:
+
+[Taking the Gem.]
+[The King's room is nicely appointed, with a bed, a bookshelf, a table and chairs, a map, etc.
+There is a pedestal with a crystal on it.  Trying to leave the room generates the message,
+"Connor: We can't go back out there.  Not now."]
+
+Elya: I had heard of the Soul Gem...but I never thought I'd see it.  It is magnificent.
+
+Victor: It's a rock.
+
+Elya: To you, a rock.  But when you can feel its energy, comprehend its essence...
+
+Victor: It's still a rock.  Take it and let's go.
+
+(The player takes the crystal and proceeds through the secret passage behind the bookcase.  [The
+bookcase slides aside when "talked" to.]  As they go through, the floor to the tunnel suddenly
+collapses, plunging them into the sewers.)
+
+Scene 28:
+[Fallen into the sewers]
+[The sewers are filled with moss, dripping water, and cracked stone floors.  There are large
+canals (presumably where the sewage is flowing) which can be lowered or raised with switches.
+I used gargoyles with fountains below them to fill / empty, telling you whether the water was
+raised or lowered for the switch you were flipping.  Thought that worked well.  Might be cool
+if you could make this a sort of puzzle section.  This scene starts with them all fallen, then
+standing up.]
+
+Connor: I knew the Creator and his Golem were evil.
+
+(Elya walks toward him.)
+
+Elya: Creator?  Golem?  Your King used that word, "golem."  What was he referring to?
+
+Connor: Statues, given life.
+
+Elya: What?
+
+(Elya begins pushing Connor backward, toward the water.)
+
+Elya: Your King allowed WHAT?
+
+Connor: The Creator came to Selera and constructed beings called Golem...an entire army of them.
+
+Elya: You fools!  That violates the most basic tenet of the Magi: life shall never be created.
+
+Connor: And why is that?
+
+Elya: FOOL!  Life must come from life!  For an army to be made, an army must be slain.  How could
+your King sanction such slaughter?
+
+Connor: Slaughter?
+
+Elya: For each new life, there must be a life taken.  How many hundreds did your King kill?
+
+Connor: Kill...oh God...the plague...
+
+Elya: This "Creator" whom your King has aided is none other than Kraith, a mage exiled from our
+Tower for his studies in the creation of life.  In fact, I was sent to investigate the matter in
+Holbrooke, because the energy there bore patterns remarkably similar to his.  Now I see this evil
+runs deeper.  How many have been sacrificed on the altar of this war of yours?  How many more will
+die?
+
+Connor: Life...for life?  Are the spirits...
+
+Elya: Trapped inside the "Golem."  Forever.  Yet there is likely little left of them, under his
+spells and, beneath the suffering he has put upon them.  Hundreds of souls twisted into weapons.
+Your King is no better than the wielders of the Geist Cannon.
+
+Victor: Wizard, we are trapped in a sewer.  Your may have a sense for magic, but I have one for
+smell.  I don't want to sit around in this filth.  Finish your whining when we get out of here,
+or there will be three more lost souls for this Creator.
+
+Connor: He's right.  But...Anna...Anna...
+
+Victor: Pull yourselves together!
+
+(The party assembles, and traverses the dungeon.  They face an overgrown lizard of some kind at
+the end.)
+
+Scene 29:
+[After exiting the sewers.]
+[They are east of Tagel castle, just outside the moat.]
+
+Connor: Golem to the west, water to the east and south...
+
+(Suddenly a boat arrives from the east, pulling on shore.  Out of it steps Ryan.)
+
+Ryan: Well, boss, looks like I showed up just in time.  Seems that your oh-so-important quest
+didn't come together too well?
+
+Connor: Ryan!?
+
+Ryan: None other!  Your King stiffed me on the reward, so I figure we can work out an agreement
+here.  I think all of your money sounds quite reasonable, don't you?
+
+Vincent: How about I don't rip your head off, and you give us a ride?
+
+Ryan: Woof woof?  How about I step back on my boat and you get stuck kenneled in a town that is
+about to get destroyed?
+
+Elya: You scoundrel.
+
+Ryan: I'm about to save your lives.  I think that makes me something more than a scoundrel.  
+But...just so that I don't prove you wrong and hurt your feelings...
+
+(Ryan turns around.)
+
+Connor: Wait!  Take the money!
+
+(Ryan turns back.)
+
+Ryan: Now that's more like it!  All aboard!
+
+(Ryan enters the boat, as do the others.)
+
+Scene 30:
+[The boat sets sail and comes to shore north-west of Freeport.]
+
+Ryan: All right, here's your stop.
+
+Connor: Where are we?
+
+Ryan: Away from Selera.  You'll find my old stomping grounds to the south of here, might be able
+to find a bite to eat at the Inn there.  I'm sure you'll scrape some change together.
+
+(The party steps off the boat.)
+
+Ryan: Later!
+
+(The boat sails off, heading north.)
+
+Victor: So now what?
+
+Elya: We need to get to the Tower of Magi.  They must know what has happened.
+
+Victor: You don't need to tell me that!  Every time I see my claws, my fur, I know we need to get
+there!  But what are you going to do?  Summon us a boat?
+
+Connor: Ryan told me he was from Freeport.  That must be his "old stomping grounds."  We can go
+there and hire a boat to take us to the Tower.
+
+Scene 31:
+[Within the pirate's lair.  Obviously a lot happens between scene 30 and 31, but it's not really
+scripted.  Basically, the party finds out that all the boats have been stolen by the dread pirate
+Red Arrow.  (His color should be based on whatever color the Ryan character is.  If he's green,
+call him Green Arrow, etc.)  The townspeople are hopeless because without their boats, they
+cannot fish or ship goods.  A townsperson should mention Ryan by name, saying that he was 
+"always a nuisance" or something.  The player then looks around the island, will find the pirate 
+lair, and enter.  I was thinking Pirate's Lair could be booby trapped, maybe puzzles and stuff, 
+but that's just me.  They reach the room with the boats (this might look cheesy, cause the boats 
+will be so small, but hopefully it won't look horrible...) and...]
+
+(Red Arrow, who is basically just Ryan in a mask, steps out, with 4 henchmen.)
+
+Red Arrow: That's far enough, throw down your weapons and leave.
+
+Connor: You need to return the ships to Freeport.
+
+Red Arrow: You need to realize when to back down, tough guy.
+
+Victor: To hell with this talking!
+
+(Victor rushes at them, starting the fight.  The battle commences, the party wins.)
+
+Scene 32:
+[Immediately after]
+
+Red Arrow: Calm down guys!
+
+(Red Arrow pulls of his mask.)
+
+Red Arrow: I wasn't actually gonna attack you or anything.
+
+Connor: Ryan?!
+
+Victor: You...son of a...
+
+Ryan: Hey...who's the dog here?  I wouldn't go insulting my lineage if I were you!
+
+Elya: It little matters whether you are Ryan, or Red Arrow, or any other name.  You will give us
+the ships now, or we'll dispose of you and your little band of thieves.
+
+Ryan: Ooh, now even the little girl wants to talk the talk.  If not for dog-face there, we woulda
+sent you to kingdom come...
+
+Connor: Enough, Ryan.  We need your ship.  Return the others, and take us to the Tower of Magi.
+Time is of the essence.
+
+Ryan: Yeah, fine, you win!  Happy?
+
+(Fade out.  The next scene is them sailing toward the wizard's isle.)
+
+Scene 33:
+[They stop on the coast of the Wizard's Isle.  The party disembarks.  Ryan has joined the party.]
+
+Ryan: So now what?
+
+Elya: We're here now, we have the Soul Gem, all will be well.  You will be cured, and the Magi
+will be stirred to deal with this terrible calamity.  The tower is to the east.  We'll need to
+pass through the Cave of Shadows to get through.
+
+Ryan: Why didn't you guys think to build your tower in a place that DIDN'T require an absurd
+amount of work to get to?
+
+Elya: Because then people like you might stop by.  
+
+Ryan: Most people can settle for a "Do Not Disturb" sign, not some Cave of Shadows.
+
+Victor: Enough!  Let's go!
+
+Scene 34:
+[Talking to the Archmage.]
+[Again, obviously a lot passes between 33 and 34.  They go through the Cave of Shadows, a dungeon
+that I did not initially include in the outline.  I would envision it as a place in which you can
+only see for a short distance around you, giving it a maze-like quality.  It might be interesting
+if the same rules applied to battle (granted, not to the enemies.)  It's in the script now to
+have more 4-character party sections and to elongate the game.  After the party gets through the
+dungeon, the arrive at the Tower of Magi.  The other Magi are exclusively men.  They are somewhat
+shocked that Elya returned, but generally very happy.  They tell her she's the best apprentice
+yet, etc.  The ArchMage can be found at the highest level of the tower.  The tower schould be
+laid out in a manner akin to a dungeon, because later in the game it will become one.  I would
+put some treasure chests behind locked doors, which would be broken down when the Golem attack.]
+
+Elya: Master, I have returned.
+
+ArchMage: Yes, that is obvious.  I presume this means you have failed?
+
+(Elya turns away.)
+
+Elya: No.  I have succeeded.  And perhaps, that is more terrible now than failure.  Kraith lives,
+and has destroyed Selera.  Moreover, the Aluthans have acquired a weapon of unthinkable power,
+called the "Geist Cannon."  Utilizing a form of necromancy, it can kill one man and use his life
+force to destroy a massive area.
+
+ArchMage: This sounds...unlikely to me.  No such weapon could be created.  Not without the aid
+of a great Master Wizard.
+
+Elya: Please, master, believe me.
+
+ArchMage: I believe that you THOUGHT you saw such things, Elya.  But there is a reason why never
+have we had a female Mage.  Your senses are easily disturbed.  I understand how emotional trauma
+could lead you to feel such things...such is your weakness.
+
+Elya: Master, I know what I saw.
+
+Connor: She's telling you the truth!
+
+ArchMage: Ah, a layman seeks to tell me about magic.  Perhaps next I could instruct you in
+swordplay?
+
+Ryan: You know what?  I didn't see this Geist Cannon, but I did see some big men made out of
+rock attacking Selera.  And you've got a man with a dog's face right in front of you.  Don't 
+stick your head in the sand.
+
+ArchMage: There is evil abroad, and within.  Yet it is only when disaster is near that we must
+be cautious.  The man who is cautious when times are safe is a coward.  He who is trusting when
+the times are perilous is a fool.  I am neither.  I will send a Mage to investigate this matter,
+and he shall determine if what you say is true.
+
+Elya: If you doubt me...look at this!
+
+(Elya throws the Soul Gem on the floor between them.)
+
+ArchMage: The Soul Gem!?
+
+Elya: Kraith sought it in Selera.
+
+ArchMage: You saw his face?
+
+Elya: No.
+
+ArchMage: Then I shall send a Mage to determine the truth.
+
+Elya: NO!  Why don't you believe me?
+
+ArchMage: You are an apprentice.
+
+Elya: Then let me...let me take the trials now!
+
+ArchMage: No apprentice has survived the trials in ten years, Elya.  And they were stronger than
+you!  You are too ambitious.  Bide your time.  Your kind is not well suited to magic.
+
+Elya: NO!  I will die if need be, and prove the truth in my blood!  But you cannot wait, not now.
+Let me take the trials now!
+
+ArchMage: Very well then.  You know where to begin.
+
+Connor: What's going on, Elya?
+
+Elya: I am going to become a Mage now, no longer an apprentice.
+
+Ryan: Riiiight.  Well, best of luck to ya.
+
+Victor: What about me?  I need to be cured of this curse!
+
+ArchMage: If Elya succeeds, she and I will perform the incantation.
+
+Elya: Enough!  I must go now!
+
+Scene 35:
+[Elya faces the Empty Soul at the end of the trials.]
+[Again, a lot has passed.  After Scene 34, the party becomes simply Elya alone.  She has to go
+through the trials, which I envisioned is a lot of puzzles, but it can be handled however.  I
+would put a lot of magic restoring points in the dungeon, so that Elya can use her spells, etc.
+At the end, she's about to leave, when Exanima(some kind of demon) appears.  The dungeon for the
+trials is below the first floor of the tower.]
+
+Elya: What...are you?
+
+Exanima: I am Exanima, the eater of souls.  I have been fatted off the children that have been
+sent my way.  It has been long since they have fed me...I appreciate your coming.  I have not
+yet dined on a female soul.
+
+Elya: The other apprentices...
+
+Exanima: One by one, they found their way to me.  And one by one, I ate them whole, both body and
+soul.  It was quite a feast, course after course of dishes...truly a magical experience.
+
+Elya: You beast!
+
+Exanima: Demon, really.
+
+(Battle commences.)
+
+Scene 36
+[Speaking to the Archmage again]
+[Elya leaves the trials, returns to talk to the Archmage.  Her class has been changed to Mage,
+rather than apprentice, and she should acquire one or two new abilities.  (Maybe change her old
+spells to more powerful versions if that's easier.)]
+
+Elya: It is done.
+
+ArchMage: How...can...this be?
+
+Elya: There was a demon at the end of the trials, a creature called "Exanima."  It was killing
+the others when they went through.  Each time you sent a boy to become a master, he was killed,
+and the beast grew stronger.
+
+ArchMage: So it was strongest...
+
+Elya: When I faced it.  Do you doubt me still?
+
+ArchMage: No...no, I cannot now.  You are truly a Mage.
+
+Victor: Ahem...
+
+ArchMage: Ah yes.  Elya, come here.
+
+(Elya stands beside the ArchMage.  They raise their hands, the screen flashes, and Victor is
+restored to human form.  As a human, he loses the Howl ability, but should pick up some others.
+He also gains the ability to equip claws.)
+
+Victor: At last!
+
+Ryan: Aw...now who are we gonna feed our scraps to?
+
+(Victor turns on Ryan.)
+
+Connor: Stop!  All right.  What are we going to do?
+
+Elya: We need to find Kraith.
+
+Victor: No.  First, I need to go home.  My people need my help.
+
+Connor: Fine, we'll take Victor home, then see what we can do to capture Kraith.  I have... 
+something to tell him when next I see him.
+
+Ryan: Then it's back to my ship ... I guess that means back through your little cavern.
+
+ArchMage: Not really.
+
+(There is a flash of light, and the party stands on the shore.)
+
+Ryan: Hey, I could get used to that kinda service, if I didn't love the sea air so much!  Now
+let's go!
+
+Scene 37
+[Arrival at shore.]
+[Ryan's boat automatically takes them to the north-western shore near Turren.]
+
+(As soon as the party disembarks [minus Ryan] the ship leaves.)
+
+Victor: Why did anyone ever trust that scoundrel?
+
+Elya: What shall come, shall come.  Kraith may yet be near Selera.  For now, let us return
+you to your home.
+
+Scene 38
+[Talking to the Mayor under Turren.]
+[No one is left in the caverns, except for the mayor.]
+
+Mayor: They...all...turned...you're...too...late...
+
+Victor: No!  We killed the demon!
+
+Mayor: Too...late...all the people have turned...they are all gone.
+
+Victor: NO!
+
+Mayor: Now...even I am...too weak.
+
+(The Mayor turns into a werewolf, battle commences.  The party wins.)
+
+Victor: There's nothing left for me.  Nothing.
+
+Connor: Revenge.  Revenge is always left.  Now Kraith owes us all a debt, and the interest will
+be steep.
+
+Elya: Let's go.
+
+Scene 39:
+[Arrival in Kassim Oasis]
+[The party cannot enter the Great Forest -- Victor refuses.  Hence, they must travel through
+the Fire Caves, which are now empty, to reach Kassim Oasis.  The Aluthan army is stationed in
+the Oasis, and wounded soldiers lie everywhere.  The Geist Cannon is in the middle of the town.
+The townspeople are gone.  Houses should be damaged, but not destroyed.  The Geist Cannon was
+not used on Kassim -- the villagers fled.  In fact, Hassan will be met later.]
+
+Roland: Connor!  So...the wheel turns full circle, and now I am ground once more into the dirt.
+
+Connor: What are you talking about?
+
+Roland: You know too well.  These Seleran Golem are immune to the Geist Cannon.  They do not
+live, and unliving, cannot be affected.  What irony.
+
+Connor: The Golem are not Seleran, Roland.  They belong to ...
+
+Solider: Prince Roland!
+
+(Golem rush in.)
+
+Roland: They are my enemies too!
+
+Connor: Then we fight together once more...brother.
+
+(Battle commences.  There are a series of battles, increasingly difficult.
+Each victory nonetheless leaves the party closer to the Geist Cannon, which the Golem seem to
+have as their target.  After however many victories...)
+
+(The Creator enters from the south.)
+
+Roland: You...?  Are you here to save us once more?
+
+Kraith: Save you?  Oh, princeling, kee kee!  You are such a fool, so blind, so blind.  Look at
+the beautiful death that surrounds us.  Look at the wonderful slaughter you have created!  Kee!
+Now it is your turn to join the others.
+
+Connor: You know him, Roland?
+
+Kraith: Kee kee!  Knight and prince, and little wizard too!  All here, kee kee kee!
+
+Connor: You...you...I....
+
+Kraith: The little knight is tongue tied?  Am I evil?  Oh ho ho ho ho!  No no!  Not evil, kee
+kee!  Just me!  And now...
+
+(Another Golem walks on and attacks.  This golem is listed in the outline as GolemOmega, he's
+the boss faced in the Wizard's Tower and he is also responsible for driving the party back when
+they are defending Alutha.  Battle commences, but it is clear that Omega cannot be beaten and
+the party is forced to retreat back to the Fire Caves.  As they are running, the Creator yells
+one last insult.)
+
+Creator: I'll see you in Alutha!  Kee kee kee!
+
+Scene 40:
+[Immediately after, in the Fire Caves.]
+
+Roland: God curse his soul!  Betrayal upon betrayal!
+
+Connor: So now you see what your hatred has brought you to, Roland.  Now we all suffer the
+consequences of your wrath.
+
+Roland: I haven't forgotten my vengeance yet, Connor, not yet.  
+
+Elya: This is not the time.  We must stand united now.  This is humanity against demons, and 
+smaller feuds are drowned out in the greater strife.
+
+Victor: Enough talk!  Let's regroup, and attack!
+
+Elya: Attack?  No, Victor.  Your blood has not yet cooled, despite my spell.  Use your mind.
+We are ruled by reason, not emotion, we are humans, not beasts.  We cannot defeat Kraith, not
+now.  We must warn Alutha of the impending attack.
+
+Roland: For what?  For what!  The Geist Cannon will make short work of any defense we can hope
+to muster!
+
+Elya: Perhaps, perhaps.  Yet better they be warned.
+
+Connor: She's right.  Let's move.
+
+Scene 41:
+[The party leaves the Great Wood.]
+[A ford has been added to the river south of the Great Wood.]
+
+Connor: That ford!
+
+Roland: They've cut past us.  We need to hurry!
+
+Scene 42:
+[The party enters Durgardt.]
+[There are dead bodies -- but not skeletons, as there were when Holbrooke was destroyed.]
+
+Roland: No...we're too late.  They've used the Geist Cannon.
+
+Elya: No, I don't sense the energy I felt before.  And look, these men were killed by physical
+means, not magic.  Yet we must hurry nonetheless.
+
+(The party passes through Durgardt.  They can find some stuff in chests as they go.  Maybe
+some Golem were left behind to guard, up to you.  I would say no, because there is a dungeon
+immediately after.  They should be able to rest or be healed somehow in Durgardt.  Also, they
+have already just fought through the Great Wood again.)
+
+Scene 43:
+[Speaking to the King of Alutha.]
+[A lot has passed, again.  The party has journeyed through the mountain pass dungeon, which
+might include things like sliding on ice, sliding down slopes, etc., standard "icy mountain"
+type RPG dungeon stuff.  They can then enter Alutha (the town) if they want, but there's no
+one there.  All the houses are locked and abandoned, or you can make them open and put loot
+in them if you want.  Within the castle, they find the people of Alutha.  The guards are
+ecstatic to see that Roland has survived, and greet him with phrases like, "With you at our
+front, perhaps we stand a chance after all!" and "Thank God you're alive!"  The townspeople
+holed up in the castle are considerably more pessimistic ("We're all doomed..." "Those Golem
+can rip a man limb from limb!"  Generally, there should be enough info to clue the player in
+that the Golem attacked, were repelled, and withdrew.  This scene starts in the throne room.]
+
+King: Connor, my boy!  You have returned to Alutha at last!
+
+Roland: Your first words are for Connor, and not me?
+
+King: Roland, still your heart.  This is a time for rememberances.  I fear we will have little
+left to remind us of what we once were when the wave crashes once more.
+
+Roland: So the Golem have arrived?
+
+King: A night ago.  We defeated them...barely.  They will return soon, I fear.
+
+Elya: Was Kraith with them?
+
+King: Kraith?
+
+Roland: The man who called himself "The Creator."
+
+King: Yes.  He was at their rear, mocking, laughing his terrible laugh.
+
+(The castle suddenly shakes.)
+
+Connor: History repeats itself...
+
+(A guard rushes in.)
+
+Guard: They have returned.  The Creator wishes to parlay at the gate.
+
+King: Very well.
+
+(The party and the King walk to the wall overlooking the gate.  This obviously involves
+several screen transitions, so if you engine can't really run events between scenes, you can
+just do a fade in / fade out to the wall.  Kraith stands at the gate.)
+
+Roland: Archers could kill him where he stands!
+
+Elya: Doubtful.  His arts are quite numerous and quite powerful.
+
+Kraith: KING OF ALUTHA!
+
+King: I hear you, dog.
+
+Kraith: Dog!  Kee kee!  A loyal dog I am not, not to you, no, kee kee, I shall bite your hand
+if you try to feed me again!  But loyal am I to another, kee kee!  To me!
+
+King: What do you want?
+
+Kraith: The castle!  Leave, but leave, just leave is all!  Kee kee!  Walk, walk, walk away and
+stay, and live to last another day!  The castle is all you need to give, Kingling!
+
+King: Why should I trust you?
+
+Kraith: Trust!  Kee kee!  Fear me, that's enough!  Open and flee, or stay and die.
+
+King: We will not surrender!
+
+Kraith: Kee kee kee!  More blood then!
+
+(Kraith withdraws, and Golem rush toward the gate.)
+
+King: Quickly, you must help guard the gate.
+
+(The King heals the party, I suppose.)
+
+(The party moves to guard the gate.  I envision this sequence as being very much like the
+defense of that castle in FF2, where the party fall back after each battle.  So, after the
+first battles.)
+
+Roland: Damn, there're too many coming.  We need to hold them at the next door.
+
+(So the party falls back to the next door, fights some more battles.)
+
+Connor: We can't hold this door any longer.  Your father must be protected.
+
+(The party falls back again, fights another round of battles, this time holds the door.)
+
+Victor: They're falling back!  Ha!
+
+Elya: While we have a moment, let me heal our wounds.
+
+(Elya heals the party.  Sounds of heavy steps, the screen shaking slightly after each step.  In
+walks Golem Omega.)
+
+Roland: Not again!
+
+(They fight Omega, after a time, Golem Omega flees.  They don't kill it.  In terms of "after a
+time" I would say after a certain amount of damage has been done to Omega.  So you can lose
+the fight be dying, but you can't kill GO.)
+
+Victor: Ha!  Even that Golem can't stop us!
+
+Elya: No...we hardly scratched the thing.  Something is wrong.
+
+(The King and the remaining guards enter.)
+
+King: You have saved us!
+
+Elya: Perhaps...
+
+Roland: You think the Geist Cannon?
+
+Connor: No, he could've used that with the Golem here.  He didn't want to kill us...he just
+wanted something in the castle.
+
+King: No....guards!  Check the crypt!
+
+(A guard rushes off.)
+
+Roland: What is it, father?
+
+King: Three hundred years ago, a war was fought with a terrible demon, whose name was so foul
+it could not be spoken.
+
+Connor: The Unnamed.
+
+King: Yes.  Three warriors emerged to combat the Unnamed: Alutha, Selera, and Gilus.  They
+fought many battles, eventually facing the demon in its island castle, the Great Dark.  Though
+they killed the Unnamed, its taint had infected them all.
+
+Elya: What do you mean?
+
+King: The Unnamed was so powerful, it could implant its soul within their bodies.  So long as
+any portion of its soul remained, it would endure.  Gilus and Selera knew that their people
+lived too long to control the dark soul within them.  By the time they died natural deaths,
+they would be wholly under the control of the Unnamed.  Alutha alone was strong enough, and
+short-lived enough, to survive the possession.  Thus, it was up to him to return to the world
+and to keep its people ever vigilant.  In his name have we Aluthans endured suffering, always
+keeping courage close to our hearts and swords close to our hands.
+
+Connor: What does that all mean?
+
+(The guard returns.)
+
+King: You will see.  You will learn.
+
+Elya: Some things...
+
+Guard: The corpse of Alutha has been taken!  The rest of the crypt has been desecrated.
+
+King: I suspected as much.  I knew it.
+
+Roland: What, father?
+
+King: Kraith is a servant of the Unnamed.  The evil that remains trapped in Alutha's body may
+allow him to bring the Unnamed back to our world.
+
+Victor: How can a corpse help him?
+
+King: I don't...
+
+Elya: A corpse can't.  A living body can.  And with the Soul Gem, Kraith will be able to
+restore Alutha's body to a mockery of life.  And with that body, and that Gem, and his already
+substantial magical arts, he will be able to draw the Unnamed into the body and unleash him
+once more upon the world.
+
+Connor: Damn it!
+
+King: All our suffering...for nothing.
+
+Victor: So we've lost...
+
+Elya: No.  I said WITH the Soul Gem.  It seems you have forgotten that the Soul Gem is not in
+Kraith's possession.  The Magi guard it.  And our tower is impregnable to attack.  A magical
+barrier can be raised to guard it from entry.
+
+Victor: Plus there's that stupid cavern.
+
+King: You must protect the Soul Gem!
+
+Roland: But...what about Alutha?  What about our people?
+
+King: My arms are not so tired that I cannot still raise a sword in defense of my home.  Go,
+my son.  I shall make sure there is life here yet when you return.  You ensure that our battle
+here is not in vain.
+
+Connor: To the Tower, then!
+
+Scene 44:
+[Leaving the castle]
+[Ideally, I'd like the castle to sustain some damage after the battle, rubble here and there,
+parts of walls missing, etc.  Maybe this opens up some new treasure, I dunno.  Also, the icon
+of the castle should be changed accordingly.]
+
+(Ryan's boat pulls up to shore, and Ryan steps out.)
+
+Victor: Well, well, well.
+
+Ryan: Hey guys...I hope everything's going well?
+
+Connor: You vulture!  Every time disaster strikes, there you are.
+
+Ryan: You could say the same thing about any hero, couldn't you?  After all, how is it that you
+end up at every battle?  I just come by -- like a doctor -- to help fix things up afterwards.
+And right now, it seems like things could use some fixing.
+
+Elya: So how much are you going to demand this time?
+
+Ryan: Oh..you pierce my heart, really.  I'm doing this from the goodness of my heart.  And my
+heart needs energy from food...and food costs money.
+
+Victor: A twerp like you can't eat much!
+
+Ryan: Fair enough, but not all of us can subsist on dog food.
+
+Victor: Why you....!
+
+Connor: STOP!
+
+Roland: This is your band of heroes, Connor?  Really...I thought you could do better.  You must
+have lost some of your charm.
+
+Ryan: Ya know what they say?  When you're saving the world, it's okay to take a dogman with 
+you.
+
+Victor: I'll KILL YOU!
+
+Ryan: Aww...I bet your bark is worse than your bite...
+
+(Elya raises her hands and there is a flash of light.  Everyone turns to her.)
+
+Elya: No more.  We go now to the Tower of the Magi.  The great tapestry of the world is
+unravelling while you bicker like children.
+
+Ryan: Can't you do that little teleportation trick?
+
+Elya: No, such are not my arts.
+
+Victor: And who'd want to miss the sea air, anyway?
+
+Ryan: Hey, I might get to like you after all, Rover!
+
+(The party gets on the ship, and sails to the Tower of Magi.)
+
+Scene 45:
+[The boat lets them off on the island.]
+
+Ryan: I'll wait here.
+
+Victor: Uh-uh.  I don't trust you.
+
+Ryan: Oh, so what are you gonna do?  Really?  Try and make me stay?  Need I remind that I have
+a crew of bloodthirsty pirates...
+
+Elya: Who we beat easily last time we faced them.  But we'll trust you this time, Ryan.  If
+you're not here when we come back, I'll get the ArchMage to teleport an knife -- right into
+your head.
+
+Ryan: He...he...he can do that?!?!
+
+Elya: Just test him, if you doubt it.
+
+Ryan: Everyone's gotta be a bully these days.  What's the world come to?
+
+Roland: The apocalypse.
+
+Scene 46:
+[The party enters the Tower of Magi.  From the outside, it is clear the tower has been badly
+damaged.  The party needs to pass through the cave of shadow again, but without enemies.]
+
+Elya: No...no...
+
+Victor: I'm sorry.  I know...too well...
+
+Roland: This isn't time for tears.  Tears can be shed after blood, not before.  There is an
+accounting to be reckoned, and I'm eager for it.
+
+Connor: I stand with you on that, Roland.
+
+Roland: This looks like Golem work, does it not?
+
+Elya: But...how could they get in?  The shield is impenetrable!  There's no way...no way...
+how...
+
+Roland: The Geist Cannon.  Nothing can withstand its might, not even the spells of mighty
+wizards.  That means...as long as we're in here, we could be killed at any moment.
+
+Victor: Then why don't we leave?
+
+Connor: NO!  We need the Soul Gem.  It may still be here.
+
+Victor: Doubtful.
+
+Elya: No...it's here.  I feel it.  But...so is Kraith.
+
+Roland: All the better, all the better.
+
+Connor: Let's go then.  He's not getting away this time.
+
+Victor: I'm itching to meet that Omega again.  I'd like to sink my claws into him.
+
+Elya: God...watch over us.
+
+Roland: God has forsaken us.  Now is the time for mankind to act for itself, as it did when
+last the Unnamed reared his head.
+
+Elya: God never forsakes us.  It is he who gives us the hope to fight on.  And now...let us
+do just that!
+
+Scene 47:
+[Top of the Tower of the Magi.]
+[The party has fought its way up the tower.  Many of the stairs they went up before were
+destroyed, so they need to find alternate paths.  There are dead wizards all over the place,
+and previously locked doors are now broken open, revealing treasure chests.  The enemies in the
+tower are all Golem.  At the top, the destruction is extremely severe.  Kraith stands in front 
+of the ArchMage, who is on his knees (I dunno if you can do this 16x16, it can be done very
+well 16x24.)  The Soul Gem is behind the ArchMage.]
+
+ArchMage: I'll...never...give...it...to...you!
+
+Kraith: Kee kee!  You think you have a choice?  No choice, no voice, no no!  Nothing for you,
+nowhere to hide, all you can do is lay down and die!
+
+ArchMage: I'm not through yet!
+
+Kraith: Through?  Oh, not through, not dead, not yet, yes yes.  Not yet, but soon!  Soon
+enough all will be ... through!  Kee kee!  Throughout the whole world, darkness, darkness!
+
+ArchMage: Why?
+
+Kraith: Why?  "Why?" asks the fly.  Kee kee.  I...hate...you.  Life!  I wanted life, life here,
+there, everywhere!  Trees, flowers, songbirds singing, children dancing, bears playing with
+rabbits, yes yes!  But no, you said, no, you refused, you threw me out!  Threw?  Through!  You
+said I was through, now you are through.  No life!  No more life!  Life is wrong...then...
+death!  Death is right!
+
+ArchMage: Then...DIE!
+
+(The ArchMage stands, raises his hands, and a fireball flies at Kraith.  It stops before him
+and disappears.  Kraith turns around.)
+
+Kraith: Little heroes, little heroes, in you come!  What will you do?  You are THROUGH!  Kee
+kee kee!
+
+(Kraith turns back to the ArchMage and raises his hands.  Fire engulfes the mage, and he
+collapses.  The party rushes toward Kraith, but from the ceiling drops Omega Golem, with a
+loud thud.  Three more Golems enter from behind the heroes.)
+
+Kraith: Last time!  Farewell, farewell!  Nothing is left, nothing is left!
+
+Omega: Crush.  Kill.  Destroy.
+
+(The battle commences, and is won.)
+
+Scene 48:
+[After the battle.]
+[Same scene...the archmage is twitching on the ground.  I've acomplished a twitcihg effect just
+by having the two frame animation be him lying on his face, for the left step, have him one
+pixel to the left of where he normally would be, for the right step, have him one to the right,
+so that he seems to be sort of shifting from side to side.  You guys can probably do something
+better though.  Golem Omega is sparking in front of Connor.]
+
+Omega: Connor...Connor...is that you?  I can't see...
+
+Connor: What?
+
+Omega: My love...is that you?
+
+Connor: An...na?
+
+Omega: Oh Connor...I hurt so much...I hurt...
+
+(Omega explodes.)
+
+Connor: ANNA!!!  Noo!  I killed her...I killed...my love.
+
+Eyla: No, Connor, she was not your love when you struck her down.  You freed her from her
+prison.  
+
+ArchMage: Help...me...up.
+
+(Elya rushes to the ArchMage's side.  He gets up on his knees again.)
+
+ArchMage: So...powerful...
+
+Elya: Don't worry, I'll heal you.
+
+(Flash of light, maybe just doing her healing effect on ArchMage, like the battle graphic.)
+
+ArchMage: It's...too...late.  He killed me...body...and soul...
+
+Elya: But...
+
+ArchMage: Quiet now...you are the last of the Magi.  Listen carefully.  With the Soul Gem, he
+will be able to bring the Unnamed into this world, but only if he can obtain some remains of
+the Unnamed...he will need to...
+
+Roland: Too late.  He already has a part.
+
+ArchMage: Then, it's...already over.  I can...but...
+
+Elya: What?
+
+ArchMage: So..little...left.  I will...raise...the three Temples.  They contain three powerful
+Gems...with them...you may be able to stop Kraith.
+
+(ArchMage falls forward again.)
+
+Elya: He's...
+
+(ArchMage returns to his knees.)
+
+ArchMage: Not yet.
+
+(There are some magical effects.  The screen changes to the desert outside of Kassim, where a
+temple rises out of the said.  It then changes to the waters near Freeport, where one rises
+out of the sea, and then finally to the mountains near Alutha, where one comes out from the
+snow.  If you have any of the Crystals set up so that you need to "find" them, it should show
+the dungeons or towns in which they are hidden at this point.  Not where they are, explicitly,
+but just the general area.  It returns to the tower, in which the ArchMage collapses, dead.)
+
+Connor: We were too late.
+
+Elya: Maybe...with the Gems we can still stop him.
+
+Victor: Somehow I doubt it.
+
+Roland: We must try!  To accept failure is cowardice.  Never have the Aluthans given up, never
+in our long history.  I will stand now.
+
+Connor: And I.
+
+Elya: It is my duty to the memory of my people.
+
+Victor: And to the memory of mine.
+
+Connor: Then together, let's pay Kraith his due.
+
+NON LINEAR INTERLUDE:
+
+At this point in the game, the player can go anywhere using Ryan's boat.  The next scenes will
+be listed using letters, rather than numbers, to indicate that they are nonlinear and thus
+unrelated.  The next "linear" scene will be denoted with the number 49.  Many of the "scenes"
+below simply describe locations that have changed since the player last visited them.
+
+Scene A:
+[Arriving in Selera.]
+[The town has been utterly destroyed.  The houses have been replaced by burnt out rubble, and
+there are corpses (perhaps skeletons, since it's been a few days) on the ground.]
+
+Connor: Oh God...
+
+(Connor rushes through the town, but nothing is left alive.)
+
+Connor: They're all dead...are you happy Roland?
+
+Roland: Happy?  That the world has reached its end?  My vengeance for your people is exhausted,
+Connor.  All my emotions are bent toward one man: Kraith.
+
+Scene B:
+[Arriving in Tagel Castle.]
+[The castle has been destroyed, and rubble blocks entry.  The icons for both the castle and
+the town should be changed, so that on the overworld it is clear that they have been
+destroyed.]
+
+Connor: What is there left to fight for?
+
+Roland: Revenge.
+
+Elysa: As long as there is life left in the world, we must fight on.
+
+Scene C:
+[Fairport]
+[Fairport is essentially the only functional city left in the world.  The people there are
+fairly optimistic, saying things like, "The end of the world?  We'll find a way to ride it
+out."  The sailors speak of a temple that arose off their coast, and believe it may be the
+home of an ancient sea God.  One sailor also tells the player about an island he found to the
+south west.  As he tried to approach, a giant ball of fire shot from the island and nearly
+destroyed his boat.  The weapons in Fairport have been powered up to match this section of the
+plot.]
+
+Scene D:
+[Alutha]
+[The people in the castle show a proud resilience.  They mention other terrors they've survived.
+For example, one woman should say, "I lived through the Selerans, and kept my pride.  We
+Aluthans never give up!"  Others wish Roland luck, etc.  The King promises to keep the castle
+safe.  "These are hard walls, and harder people.  I will see to it that we survive.  But even
+the tallest cliffs fall before the endless tides.  You stop Kraith, and I will see to it that
+you have a home."  A guard or two should mention that a scouting patrol saw a strange temple
+to the west of the castle, but had no time to investigate.]
+
+Scene E:
+[Kassin Oasis]
+[The town has been razed, but there are surprisingly no corpses.  The Geist Cannon has been
+taken, and the oasis has been muddied and ruined.]
+
+Scene F:
+[Pirate's Lair]
+[In the Pirate's lair is a free inn, and a pub with some pirates to talk to.  They make boasts
+like, "With Captain Red Arrow at the helm, you'll do just fine!"  Some express worries such as,
+"If everyone else dies, who will we have to rob from?"  For the most part, they come off as
+dolts.]
+
+Scene G:
+[Temple of the Sands]
+[The Temple of the Sands is located near Kassim Oasis.  The people of Kassim Oasis fled there
+when the Aluthan soldiers were coming.  The lowest level (the Temple is a pyramid) is where
+they have been staying.  As this is the tomb of the Sultan who enslaved the Djinni, it might
+be nice if you could have something in there -- perhaps coded to accomodate the gems they have
+-- that clues the player in to how he can set up Djinni, maybe telling him one combo that
+unlocks them.  Anyway, the whole place obviously has an Egyptian mottif.  I think it would be
+amusing if we had the sarcophagus containing the gem -- and the mummy boss of the temple --
+made to look like Hassan of Kassim Oasis.  The people in the Temple have little hope.  "We are
+entombed in here to die, just like the workers who built it!"  "The end of the world is coming,
+but for us, the world is already over."  "Hassan charges us outrageous rent to stay here."
+Of course, Hassan himself has things to sell -- the best loot pilfered from the first floor
+of the Temple.  The people also speak of the monsters on the upper floors.  This scene takes
+place as the player first enters.  Hassan is standing by the door.  The interior should have
+carvings, hieroglyphics, etc.  Obviously, each level of the dungeon gets smaller and smaller,
+since it is a pyramid.  Might be nice to have traps, if you can program them, since pyramids
+did have lots of traps.]
+
+Hassan: Welcome, effendi, to my new home.  It is a large home, but could use more furniture,
+yes?
+
+Connor: Hassan?  How are you alive?
+
+Hassan: I am a most resourceful man, am I not, effendi?  I know the ways of the desert like
+the back of a coin.  This temple was built to honor my greatest of grandfathers, the venerable
+Sultan Hassan I.  You see, had not your kingdom misunderstood the name of the Oasis, I might
+be a Sultan still.
+
+Victor: You look more like a merchant than a Sultan to me.
+
+Hassan: Ah, but as we say here in the desert: do not believe it is water until you have tasted
+it.  In the heat, images can shift and change, and true natures become hidden.
+
+Elya: We are here to find a Gem of magical power.
+
+Hassan: Ah yes.  The Sultan Hassan I was a wise man, and a powerful wadji.  It is certain that
+he possessed such a Gem.  In fact, there is surely such a treasure here.  Yet I must warn you.  This
+Gem will not come as easily as the last one, effendi.
+
+Connor: Where is it?
+
+Hassan: I do not know.  But know it is a dangerous place!  Around each corner lurks a monster.
+
+Roland: We can handle it.
+
+Hassan: Yes, but the monsters of this place are monsters of the ages past, trapped in here,
+hungry, angry.  Be very careful!
+
+Victor: I think you're holding out on us.
+
+Hassan: Effendi, you hurt your friend Hassan.  Please, my humblest apologies, but I have nothing
+else to give you.  Yet if you are needing a sword, or perhaps a potion, you may find my modest
+wares to the north of here.
+
+(Hassan leaves.)
+
+Elya: Let's go.
+
+(The party groups up, and continues.)
+
+Scene H:
+[Temple of the Waves]
+[This temple is obviously going to have water throughout it.  I think it would be cool if
+you could have puzzles based on wave patterns (cross a section while it's at the ebb of the
+wave, or be swept downstream.)   It might also be cool -- I don't know if you could do this --
+if this dungeon went under water, so that you have glass walls with fish and stuff behind them.
+Probably not possible, but oh well.  You might also be able to have underwater sequences (where
+you can be underwater for X amount of time before HP starts dropping.)  I would use a Kraken
+as the final boss here -- a sort of play on the Fairport notion that "the God of the sea" lives
+there.  Might be cool if there was a lot of flotsam around him, too, indicating that he'd sunk
+some ships in his time.  This scene occurs as the ship enters.
+
+Ryan: Well...I've never seen this place before.  It's not in any of the maps I've seen.
+
+Eyla: The ArchMage raised it from the sea for us.
+
+Ryan: Perhaps it is the legendary city of Pacifica.  An old sea tale says that a bunch of no
+guts peace-lovers lived in here, until a massive beast called the kraken came knocking.  The
+kraken killed 'em all, ate them up, and then pulled the city into the deep with it.  Doubt it's
+true, except maybe that a bunch of fools lived here.
+
+Eyla: Loving peace is not foolish.
+
+Ryan: It is when you've got a sea-monster outside your door.
+
+Scene I:
+[Temple of Ice]
+[The Temple of Ice is located near Alutha.  Sliding ice floors can make for some simple to
+code puzzles.  I would like the final boss to be a mammoth frozen in ice, but I'm not sure the
+GB has the capabilities of doing something like that.  I just think it would be a nice touch.
+As the party picks up the crystal, the ice breaks, and they have to fight the mammoth.  If
+you can do that, I'd like this scene.]
+
+Victor: That thing is...huge!
+
+Eyla: It's long dead.  Creatures like that can't survive in today's world.
+
+Roland: Let's get the crystal.
+
+Victor: Yeah...that thing bothers me.
+
+(The party takes the crystal, the ice shatters, the mammoth roars.)
+
+Victor: "Long dead."
+
+(Battle commences.)
+
+Eyla: I...<wheeze> told you...<huff> it couldn't survive in this world!
+
+
+Scene J:
+[Party approachs the island of the Great Dark.]
+
+(A fireball streaks toward the ship.  It moves just in time to dodge it.)
+
+Ryan: Whooooah!  That was a close one!
+
+Eyla: Kraith must be using the Geist Cannon.  We don't stand a chance until we have the Gems.
+
+Roland: The coward!  If only I had a chance to face him!
+
+Victor: Believe me, we're all dying for the chance.
+
+Ryan: Well, I think you'll all die as soon as you get the chance, so count me out.  Just think
+of me as Captain Red Arrow, not "Mr. Save the World for Kicks."
+
+Connor: What a surprise.
+
+Victor: Ryan, you're a coward.
+
+Ryan: Well, he who dies last, dies best, right?  Now go get those Gems before my boat gets
+sunk.
+
+Scene K:
+[After the party has amassed all 9 crystals.  This scene ends the "non-linear" portion of the
+game, though the player can still pick and choose between cities to visit.  The next 
+destination is the isle of the Great Dark.]
+
+Connor: That's the last of them.
+
+Eyla: Now, we can but hope that their power will be sufficient.
+
+Victor: If not, I've got a little something laid aside myself for Kraith.  I'd like to take
+him out real close, and feel his blood on my hands.
+
+Roland: If there's anything left of him after I'm through, you can run your hands through it
+all you like.
+
+Connor: Let's not get cocky now.  He has the Geist Cannon defending him, and all of his Golem.
+It will take a miracle to succeed.
+
+Roland: Miracles are all we have now, so we should do just fine.
+
+Eyla: Truly spoken, Roland.  May God see us through.
+
+Victor: And if he doesn't, to hell with him!
+
+END INTERLUDE
+
+Scene 49:
+[Approaching the Isle of the Great Dark]
+[I would handle this approach, and the approach in Scene J, by having it that there is an icon
+of the island on the map, which then brings you to a second island (zoomed in) that you 
+approach from a fixed direction (the south, I would say.)  This method was used in Dragon
+Warrior 4 with great effect.  It allows these scenes to run smoothly, and adds some exploration
+to the island.  The island should be mostly marsh.  The ruins of a castle (rubble, etc.) stand
+in its center.  To the south of the rubble is the Geist Cannon, which is guarded by Golem.  In
+the very middle is the body of Alutha -- perfectly preserved -- and the soul Gem, with Kraith
+to the south.  This scene starts with Ryan's ship in the south.]
+
+(The ship begins sailing north.  Fire balls begin flying at it.)
+
+Ryan: Here it comes!  Brace yourselves!
+
+(The fireball hits a barrier in front of the ship.)
+
+Eyla: The power of the Gems protects us!
+
+Ryan: Goodness gracious!
+
+(Another fireball hits.)
+
+Ryan: That means as soon as you get off, I'm toast.
+
+Victor: What a shame.
+
+Ryan: What that REALLY means is that as soon as you get off, I'm getting the hell out of here.
+
+Connor: No turning back.
+
+(Another fireball hits.)
+
+Roland: There never has been.  Destiny only takes you forward.
+
+Ryan: Maybe you guys, but it's taking me back where I came from.  And if you guys don't kill
+this Kraith jerk, destiny will probably take me dancing around the world for as long as I've
+got food.
+
+Roland: What a noble sentiment.
+
+(The boat is nearing shore.)
+
+Ryan: Hey, tough guy?
+
+Connor: What?
+
+Ryan: Good luck!
+
+(The boat docks and the party disembarks.  The boat sails off, dodging fireballs.)
+
+Connor: Let's move!
+
+Scene 50:
+[The party reaches the Geist Cannon.]
+
+Kraith: How can this be?  Little flies still not swatted?  Well then, you can kill them, my
+children!
+
+(The Golem attack.  The party wins.)
+
+Kraith: Still alive!
+
+Roland: My hate will keep me alive until you're dead.
+
+Kraith: Hate?  You should LOVE!  Good men love, evil men hate.  If you hate, then how are you
+better than me?  Kee kee!  I should kill YOU!
+
+Victor: You have killed thousands already, demon!
+
+Kraith: Kill one and you're a murderer...kill them all...and you're ME!  Kee kee kee!  I am
+too strong, too strong for four, poor four, pour forth your blood!
+
+Eyla: The spirits of the Magi will give me strength to avenge their deaths.
+
+Connor: Anna...this is for you.
+
+Victor: I am a man, and I will strike you down!
+
+Roland: Alutha will never submit.
+
+Kraith: Kee kee kee!  You are so scary!  But really, it's already too late!  Two late.  One
+late.  Two become one later!
+
+(Battle commences.)
+
+Scene 51:
+[The battle is over.  Kraith is on his knees.]
+
+Kraith: Kee kee...my...blood...was...all...he needed!
+
+(The screen darkens, and some evil effect [up to your graphical abilties] occurs over the
+corpse of Alutha.  The Soul Gem shatters.)
+
+Elya: No!
+
+Kraith: Yes!
+
+(Alutha stands, then begins flipping into the sprite for the Unnamed, a nice demon of some
+kind.  It might be better if he were just some dark blob shape, but maybe a demon would be
+easier to grasp.)
+
+Unnamed: Fool.
+
+Kraith: Yes!  Fools, all fools!
+
+Unnamed: YOU are the fool, mortal.  You longed for death, but I am not a bringer of death.  I
+am a bringer of evil.  Your pathetic scheming is nothing compared to what I shall inflict.  I
+will bring torment without end, suffering that is incomprehensible to the mortal mind.  None
+shall die, but rather all shall live forever, in eternal hell.
+
+Kraith: NO!  Death!  Kill!  Destroy it all!
+
+Unnamed: Do you think I am some Djinn to do your bidding, mortal?  I could strike you down now,
+but I shall not.  You five, fool who would revive me, and greater fools who thought they could
+defeat me: I shall let you live.  Live to watch my evil unfurl.
+
+(The Unnamed disappears.)
+
+Kraith: NO!  Come back!  Please...
+
+Victor: It's over.
+
+Roland: Well, I have one thing left to do.
+
+(Roland draws his sword and begins moving toward Kraith.)
+
+Kraith: How...could this be?  No death...death is...DEAD?  Impossible!  No no no!  Not this,
+only death may live, yet now only death may die!  It is wrong!  Evil!
+
+Connor: You have only yourself to blame.  But don't worry, you'll die here, now.
+
+Kraith: But...wait!  Wait, yes, all is lost TOMORROW, all is lost TODAY, but all is not lost
+YESTERDAY!
+
+Victor: Well, then why don't you go back and live in yesterday.
+
+Kraith: YES!  But no!  You will DIE in yesterday, and KILL in yesterday!  Yes!  Kill Alutha!
+
+Connor: What are you talking about?
+
+Kraith: Yesterday makes today!  Yes!  But unmake yesterday, remake today, and gone today is
+the Unnamed!  Unknown!  Unkill death, unlive the Unnamed, free us!
+
+Eyla: You mean...go back in time?  Impossible!
+
+Kraith: No, death is impossible, nothing is impossible, yes, this is something possible!  Kee
+kee!  One last trick!  Kee kee!
+
+(Kraith stands, raises his arms.  A portal appears before him.)
+
+Kraith: In in!  Go go!
+
+Roland: Trust you again?  Never!
+
+Eyla: It is the only chance we have.  Even the legendary wizard Gilus was barely able to contain
+the Unnamed's magic, and at his side fought brave Alutha and Selera.  We are no equal to those
+heroes.
+
+Kraith: No match!  Kee kee!  Not for all, not at all, but for one, all for one!  Three may kill
+one!  You will kill Alutha!
+
+Connor: What does he mean?
+
+Eyla: We will kill Alutha before he leaves the Great Dark.  We stand here on its ruins.  If
+we were to go back in time, we could find Alutha and kill him after he kills the Unnamed.
+
+Roland: And thus destroy the kingdom of Alutha?  How ironic.  King Aldric would be pleased.
+
+Connor: Better that we sacrifice these things...so that the world may live.  The kingdom of
+Alutha may disappear, but its people will survive.
+
+Roland: Indeed.  The Aluthan people are strong.  I will stand beside you in this darkest hour.
+
+Kraith: Kee kee!  Dark indeed!  Greater Dark within!  In in!
+
+Victor: I don't trust him.
+
+Roland: You stay here, kill Kraith when we pass through.
+
+Kraith: Yes, death, death is good!
+
+Victor: Thank you.  I'll relish it.
+
+Eyla: Let's go!  If this is a trick...
+
+Connor: Doesn't matter.  We're already dead anyway.
+
+(The party steps into the portal.)
+
+Scene 52:
+[Through the portal]
+[The Great Dark is the very castle in which scene 0A takes place.  This will be the penultimate
+dungeon of the game.  Logically, the treasure chests should be empty -- Alutha, Selera, and
+Gilus have already plundered the castle.  You can leave it that way if you want, I think it
+would be better.  This dungeon should be long and hard.  Enemies should pretty much be overly
+strong, in that the player is meant to feel weaker than the original three heroes who navigated
+the Great Dark.  The party cannot leave (the gates are sealed) and there is no portal to take
+them back.  This scene begins immediately after they teleport in.  They are standing next to
+the gate.]
+
+Connor: It...worked!
+
+Roland: This place...chills me to the bones.
+
+Elya: Indeed.  I can sense the evil in each stone.  It is overwhelming.  I...I...I can't go on.
+
+Connor: Yes Elya, you can.  Together, we have the strength.
+
+Roland: You have the two best knights of our age, Elya, and you are its last wizard.  Between
+us, we represent the hope of all peoples of the world.
+
+Elya: I...
+
+Connor: Shh.  Don't talk.  Just trust in yourself.
+
+(The party reforms.)
+
+Scene 53:
+[The party has made its way through some of the dungeon.]
+
+Elya: Oh...the evil...it's getting stronger.
+
+Connor: Even I can feel it now.
+
+Roland: Hold on to your hate!  Let your anger carry you forward.
+
+Elya: NO!  No, the Unnamed cannot be defeated with hate.  We must remember that we are acting
+to save, not to kill.
+
+Roland: We're not here to kill the Unnamed, we're here to kill my ancestor.
+
+Elya: No, don't you see?  If you come in here with a weak heart, he will take it.  We cannot
+allow the Unnamed to pass from Alutha into us.  We must be strong.
+
+Connor: Think of Roland, Anna.
+
+Roland: Think of Anna and not be filled with rage?  Easier that I think of Kraith!
+
+Elya: Think of your father, then.  Think of the love he still holds in his heart, despite all
+the evil that has been done to him.  We must kill for love, not for hatred.
+
+Roland: I...my..my father is too good for me.
+
+(Roland turns away.)
+
+Connor: Roland, you have surpassed all others with your skill at the sword.  Now, you need but
+be a knight in your heart.
+
+Roland: Very well.  Trust in me.  I shall not fail.
+
+Elya: Then..let's hurry.
+
+Scene 54:
+[The party watches the killing of the Unnamed.]
+[The party at one point reaches a locked door.  They can go a floor higher, though.  From the
+higher floor, they can look down on what was behind the door -- the end of the battle between
+the original three heroes: Alutha, Selera, and Gilus.  They face off against the Unnamed.
+Selera is on her knees, Gilus has his hands raised, Alutha his sword drawn.]
+
+(The screen pans to focus on the old heroes and the Unnamed)
+
+Selera: I'm...wounded.
+
+Gilus: Inferno!
+
+(The spell strikes the Unnamed, who in turn attacks Gilus, knocking him to his knees.)
+
+Alutha: GILUS!  SELERA!
+
+(Alutha strikes the Unnamed, who hits him back.)
+
+Alutha: This...is for my friends!  For everyone who you've ruined!
+
+(Alutha unleashes a flurry of attacks.  The Unnamed collapses, then disappears.)
+
+Selera: You...you did it, my love!
+
+(Selera and Gilus stand.)
+
+Gilus: Something is wrong...the evil isn't disappearing.  I still feel it.
+
+Selera: I can feel it too...
+
+Alutha: Inside me...
+
+Gilus: NO!  He's infected us with his taint!  Just like he did to turn the people of Finargin
+into his slaves!
+
+Alutha: So even in victory, we are defeated.
+
+Gilus: Alutha, you must kill us!
+
+Alutha: No...
+
+Selera: Please, my love, you must.
+
+Alutha: I cannot.
+
+Gilus: You must!  He has touched us all.  If you allow us to live, we will be turned...you
+alone have the strength to endure.
+
+Alutha: NO!  Not this.  Anything but this.
+
+Selera: My love, there can be nothing else.  You must return to make sure the world is kept
+safe, and we must die to ensure that He does not survive.  You must protect our child.
+
+Alutha: My love...
+
+Gilus: Now!  Before it is too late!
+
+Selera: Let your love guide your hand.
+
+(Alutha strikes down first Selera, then Gilus.  He drops to his knees.)
+
+Alutha: What have I done?  What sin have I committed to earn this torment?
+
+(He rises to his his knees and walks out the door.  The screen pans back to the heroes.)
+
+Connor: We need to hurry, before he escapes!
+
+Roland: So that...is our sin.
+
+Connor: Come on!
+
+(The party reforms.)
+
+Scene 55:
+[The party confronts Alutha as he tries to leave.  He is just a bit outside the door that was
+previously locked.]
+
+Alutha: Who are you?
+
+Connor: We need to kill you.
+
+Alutha: What?  What are you talking about?  Are you His servants?
+
+Elya: You must let us kill you, or everything you have fought for is for nothing.
+
+Alutha: Explain yourselves!
+
+Roland: We are from your future.  You will return to your kingdom, and make it proud and mighty.
+But hatred will consume our nation, and Selera's...
+
+Alutha: Impossible!  We loved each other.
+
+Roland: I HAVE LIVED THAT HATRED!  It will happen!  In that chaos, your body will be stolen,
+used to return the Unnamed to our world.  And none will be strong enough to oppose him.
+Already, when we left, most of the world was destroyed.  If we had stayed, we would merely
+have borne witness to the end of what little remained.  But know that our people were
+among the the strongest.
+
+Alutha: LIES!  He was ever the King of Lies.  I will not submit.  I will return and make a peace 
+that shall endure forever.
+
+Connor: With Selera's blood fresh on your blade?  Your history has already been written,
+Alutha.  The only choice we have is to ensure you have no more history at all.
+
+Elya: Trust us!
+
+Alutha: Never!  I do not submit, I do not surrender.  My strength will carry me on.  Now stand
+aside.
+
+Roland: That pride is what destroyed us, Alutha.
+
+Alutha: STAND ASIDE!
+
+Roland: I cannot.  We cannot.  It is the only hope for the world.
+
+Alutha: Stand aside, or die on my blade.
+
+Roland: We are the same, Alutha.  Neither of us will yield.  Only there are three of us, and
+but one of you.
+
+Alutha: I have killed the Unnamed.  Do you think that three of His SLAVES are enough to defeat
+me?
+
+(The battle commences.)
+
+Scene 56:
+[Battle has ended.]
+[Alutha has dropped to his knees.]
+
+Alutha: How is this possible?
+
+Connor: It is the only hope for the future.
+
+Alutha: Selera...I'm sorry...I have failed you.
+
+(Alutha collapses.)
+
+Roland: I feel...evil...
+
+Connor: The Unnamed's taint?
+
+Elya: No, we have remained clean.  This was a dark deed, however.  We have succeeded in doing
+the Unnamed's work, after a fashion.
+
+Connor: No!  Not that.  We have undone his plots.  But...now what?
+
+Roland: There was no portal going back.  We're trapped here.  To die.
+
+Elya: Perhaps there is a way.  We must not lose hope.  Let us search the citadel.
+
+Scene 57:
+[Entering the portal.]
+[If the player searches the bodies of the corpses, they will find Alutha's Sword, Gilus's
+Staff, and Selera's Sword, the ultimate three weapons in the game.  As the proceed through the
+door which was previously locked, they see that a portal now shimmers at the end of the room.
+If they try to leave from the front gate (which was initially locked) they will find that it
+is still locked.  There is no way out from the citadel save the portal.  This scene starts as
+the player tries to step through it.]
+
+Connor: I suppose...this is the only way?
+
+Roland: Always forward.  It is either through here or wait for death: the same choice we faced
+on the island.
+
+Elya: He is correct.  I sense this portal is different from the others, however.  It does not
+merely pass through time...
+
+Connor: Well, we have no choice.
+
+(Scene ends.)
+
+Scene 58:
+[Through the portal.]
+[The player may try to enter the portal again, and this time he steps through.  There is a
+flash of light.  As the light fades, Connor is alone in his bed in Selera.  In front of him
+stands Anna -- his wife.]
+
+(Connor gets out of bed.)
+
+Anna: Good morning, my love.
+
+Connor: Anna?
+
+Anna: I've been waiting for you.
+
+Connor: Is this heaven.
+
+Anna: Heaven?  It is heaven to be with you, my angel.
+
+Connor: Wha...what day is this?
+
+Anna: It is the sixteenth.
+
+Connor: What month, what year?!
+
+Anna: What's wrong, Connor?  You must've been having a nightmare.
+
+Connor: Please, just tell me.
+
+Anna: July, 641.
+
+Connor: Oh God...no...just one more day...
+
+Anna: The same day it has been, and shall remain, forever.
+
+Connor: What do you mean?
+
+Anna: You'll see.  Go visit your friends, I'll be waiting for you.  I've been waiting for
+a long time, I can wait a bit longer.
+
+Scene 59:
+[Connor speaks to a boy in town.]
+[The people in Selera are happy, and happy to explain to Connor what is happening.  Many of
+them are less specific, and merely say things like, "The sun always shines here, and there is
+always more than enough to eat!"  Connor should ask one, "Is anyone sick?  Has anyone become
+ill?"  The answer is no.  The graveyard is missing all of the graves that occur from the 
+Plague.  He asks one person, "What about the war?!"  The person responds, "What war?  It is
+peaceful here."  Shops don't sell anything.  The shopkeepers say things like, "No one needs
+gold here.  We're all happy without it!"  The innkeeper says, "A room?  Why?  There's no need
+to sleep!"  The player cannot leave town.  Walking to the edge of the map does nothing.  Perhaps
+there should be some sort of misty barrier around the edge of town.]
+
+Connor: Where am I?
+
+Boy: You are within your Joyous Day, Connor.  This is where you will stay.  Those who leave 
+space and time come here, to live out their happiest moment for eternity.
+
+Connor: Is this Heaven?
+
+Boy: It is YOUR Heaven, Connor.  We are only here for your sake.
+
+Connor: But what about the Plague, the War...?
+
+Boy: None of that has happened here, nor ever will happen.  This is a moment of joy.
+
+(Suddenly, the screen darkens a bit.)
+
+Boy: What's happening?
+
+Connor: Don't you know?!
+
+Boy: I'm scared!
+
+Scene 60:
+[Talking to Anna again.]
+[Now everyone in the town is worried.  "What is happening?" "I'm scared!" "It's never been this
+way before...what's going to become of us?!"  As before, the shops sell nothing, but merely
+talk to the hero.]
+
+Anna: What's happening, Connor?
+
+Connor: I don't know.
+
+Anna: Why is this happening?
+
+Connor: I...I need to find out, Anna.
+
+(Suddenly a portal opens in the room.)
+
+Connor: Anna...
+
+Anna: What is it?
+
+Connor: I need to go through.  Will you come with me?
+
+Anna: I only exist here, Connor.  I only exist while you're here.  If you leave...I will be
+gone.
+
+Connor: MY LOVE!
+
+Anna: But, Connor...I know your heart.  You cannot live in a fantasy forever.  Step through.
+Be strong for me.  Remember me.
+
+Connor: Anna, I can't leave!
+
+Anna: Don't you see, Connor?  As long as you remember me, our Day will last forever in your
+soul.  We'll be together until all else ends.
+
+Connor: Anna...
+
+Anna: Go through.
+
+(Player takes control.)
+
+Scene 61:
+[The player steps through.]
+[Talking to Anna gets, "Go through, my love."  Talking to other townspeople generates the same
+response.  Stepping through the portal brings the player into an even darker "Joyous Day."
+This day is merely a childhood day of Roland's when he and Anna were kids together.  It takes
+place in Alutha Castle.]
+
+Connor: Where...where am I now?
+
+Scene 62:
+[Connor finds Roland.]
+[Talking to the people in this Day receives answers like, "It's growing dark, but our King will
+protect us."  "Who are you?"  "What are you doing here...you aren't from this Day!"  "The light
+of Alutha shines brightest in the darkness."  Eventually, Connor finds Roland and Anna playing
+in a courtyard.  As he walks in, the scene commences.]
+
+Girl: Roland!  No fair!  You got to be the hero yesterday!  It's my turn today!
+
+Roland: That's because I'm the BOY, Anna!
+
+Girl: No fair!
+
+Connor: Rol...Roland?
+
+Roland: Who are you?
+
+Connor: These Joyous Days aren't real, Roland.  There is something more important happening.
+
+Roland: I don't know who you are, go away!
+
+Connor: Yes you do, Roland.  We're brothers.  Don't hide...it's not like you.  You have
+never hidden from a fight.
+
+(Boy Roland transforms into a full grown Roland.)
+
+Roland: You're right.
+
+Anna: Roland?
+
+(Roland turns back to Anna.)
+
+Roland: I'll come back and play with you later, sis.  But for now, I've got a job to do.  Keep
+safe...and...don't skin your knees.
+
+Anna: I won't!  Who's the other boy with you?  He looks nice.
+
+Roland: He is, Anna.  He is.  You'll get to meet him later.
+
+(Roland turns to Connor.)
+
+Roland: Come on.  Where do we go now?
+
+Scene 63:
+[Stepping into the next portal.]
+[The next portal is found in the crypt, where the body of Alutha was.]
+
+Roland: Where will this one take us?
+
+Connor: I don't know.
+
+Roland: These days are disappearing...turning into night.
+
+Connor: I know.  Something is wrong.
+
+Roland: Let's go.
+
+Scene 64:
+[Stepped through the portal.]
+[This day is almost completely black.  It is a mockery of the old Tower of Magi.  The party
+has appeared at the end of the Trial of Magi, where Elya is waiting.]
+
+Elya: I was waiting for you.
+
+Connor: How...what...is happening?
+
+Elya: The Joyous Days are the resting places of souls that have been cast out of space and
+time.  By slaying Alutha, we changed our futures, so that we no longer exist in that time.  
+If all were right, we should stay in these Days forever.
+
+Roland: But these portals are appearing?
+
+Elya: I created the portals.  The darkness falling here is a shadow cast by the Unnamed.  He
+has somehow crept into the Joyous Days.  From here, He can destroy all happy memories for all
+who have ever lived, or ever will live, turning the Days into Grievious Nights.
+
+Connor: How can we stop him?
+
+Elya: There is one more portal, at the top of the Tower.  Passing through it will bring us
+to His Day, where we must face Him.  If we can destroy Him there, He will be destroyed utterly:
+no trace of Him will remain in any past, any future, any present.
+
+Roland: And if we fail?
+
+Elya: Then we have failed in everything we have fought for, this whole quest.
+
+Connor: Then we shall not fail!
+
+Elya: Be wary!  All is not as it seems here...He has already corrupted my Joyous Day entirely.
+It is a reflection of the chaos within His evil.
+
+Roland: My sword will be ready.
+
+Scene 65:
+[Stepping into the last portal.]
+[The Tower of the Magi is totally disjointed, its Day is ruined.  I'm not sure the best way
+to create this effect, but I'm sure you can figure out good effects.  Maybe dischordant music,
+strange dungeon lay out, Magi talking in gibberish throughout, etc.  There is no final boss
+to this dungeon, just the portal.  I think weird effects, like magi walking backwards, stairs
+not connecting to each other, etc. would accomplish the feel I'm looking for here.  This Day
+is supposed to hint a the utter disorder and chaos contained within the Unnamed.]
+
+Elya: Are you ready?  Beyond this there is only suffering.
+
+Roland: All my life, I dreamed of facing a legendary evil, proving the worth of my people.  Now
+I have the chance.
+
+Connor: Our hope shall see us through.
+
+Elya: God watch over us.
+
+Scene 66:
+[Stepped through.]
+[This scene is completely dark.  The Unnamed's Joyous Day has fully become the Grievous Night.
+Standing alone in the center of the darkness in the Unnamed.]
+
+Connor: We've come to destroy you at last, demon!
+
+Unnamed: Of course.  Yet what gives you mortals the right to bring war to me?  I am driven by
+motives no different from yours.
+
+Roland: Liar!  You are the King of Lies.  Your motives are foul: inflicting pain; ruining hopes;
+crushing dreams!
+
+Unnamed: Yet you would crush my dreams, would you not?  Ruin my hopes?  You ruined the hopes of
+the fool Kraith.  Each of us has dreams, and we struggle fiercely to achieve them.  What makes yours
+just, and mine unjust?
+
+Connor: You have killed hundreds for your dream!  Your dream destroys all others!
+
+Unnamed: And yours has not?  How many thousands of souls did you force into the Joyous Day by
+rewriting history?  How many creatures did you kill along the way to facing me?  All these
+"monsters" as you deem them had dreams, did they not?  All the humans in your present, all those
+who would exist in that future, whose future you stole -- are their dreams not ruined?
+
+Connor: We acted to stop you!
+
+Unnamed: Ahhh...so your dreams take precendence over theirs?  Come then: I will grant you
+your dreams.  Connor, return to Anna.  Elya, gloat over the chauvanist Magi who denied you a
+place in their ranks.  Roland, live your childhood for eternity.  I shall leave your Days
+untouched.  The rest shall be ground to dust.
+
+Elya: To betray my conscience...that would ruin any joy I could ever feel.
+
+Unnamed: Come now, don't be a fool, girl!  You have all betrayed your consciences already.
+You allowed Victor to live, when you knew he was a threat to you all.  Roland, you gave up your
+revenge against Connor, against Kraith, against Selera, betraying everything you lived for.
+And Connor!  Oh, Connor, you betrayed Anna, you betrayed Roland, you betrayed yourself when
+you allowed Aldric to lock you in your home.  You sat there and lived happily with your wife
+while Alutha was ruined.  Don't tell me that you have stayed true -- that is but one more lie
+in your long littany of falsehoods.
+
+Connor: We have changed our minds, yes!  That is part of life!  But the "betrayals" you speak
+of were for the good.  Our souls came to peace.  We turned away from hatred, from mistrust,
+from violence.  This promise of yours is the greatest lie!  There will be no "Joyous Dream." 
+I cannot return to Anna having turned my back on everything our love stood for.
+
+Roland: I have let go of vengeance, so that I may be pure of heart when I destroy you, demon!
+
+Elya: I have learned it is wrong to judge others...yet you have judged yourself, Unnamed.  Now face 
+your punishment.
+
+Unnamed: You will not turn aside?  Then fall before me!
+
+(The Unnamed raises his hands, but suddenly the images of Gilus, Selera, and Alutha appear
+around him)
+
+Alutha: Here, where time and space mean nothing, we can stop you again, Nameless One!
+
+(The three heroes glow, then disappear.)
+
+Unnamed: How...can...it be?  My powers...are...diminished.  I am made mortal!
+
+Connor: And now you shall die.
+
+Unnamed: I still have power enough to defeat you fools!
+
+(Battle commences.  During the fight, the Unnamed can summon up shadow creatures to fight for
+him, providing him with endless henchmen.  When he is defeated, the screen flashes to white,
+and stays that way for a moment.  The next scenes are all in grayscale, rather than color.)
+
+Scene 67:
+[Autoruns after the battle ends.]
+[It is in the Great Wood.  Victor, in human form, is leading children through the Wood.]
+
+(Victor walks some way with the children.)
+
+Victor: Now, look, you need to feel the Wood around you, hear its calls and smell its scents.
+You'll all be Guides too, some day.  Better ones than me, I'm sure!
+
+Boy: Impossible!
+
+Victor: Anything is possible.
+
+(Fade out)
+
+Scene 68:
+[Autoruns after 67]
+[Ryan is standing in Fairport, by the harbor.  A merchant is talking to him.  People move
+through the town in the background.]
+
+Merchant: Five...five...five thousand gold?!  That's robbery!
+
+Ryan: Well, that's what it's gonna cost ya, so pay up or shut up.
+
+Merchant: You would make a better pirate than a merchant!
+
+Ryan: Wouldn't I though?
+
+(Fade out)
+
+Scene 69:
+[Autoruns after 68]
+[Elya is standing at the top of the Tower of Magi.  Two female apprentices stand in front of
+her.]
+
+Girl: Archmage!  I think I finally mastered the fire spell!
+
+Elya: Congratulations, Cecille!  I can't wait to see what else you'll learn.  If you believe
+in yourself, you can accomplish anything.
+
+Scene 70:
+[Autoruns after 69]
+[Kraith stands in the middle of a field.  He should no longer have his black robes or hat, he
+is now simply an ordinary looking person.  He will be identifiable only by his dialogue.  The
+field is a farm field, with plants growing.]
+
+Man: Grow, grow, ho ho!  Life is good, life I should...
+
+(Man turns north.)
+
+Man: Or...maybe...death is good!  Kill kill!
+
+(Man turns south.)
+
+Man: Nah.  Life is better.
+
+
+Scene 71:
+[Autoruns after 70]
+[Roland stands alone in the Mountain Pass by himself.  He is looking north, over a cliff.]
+
+Roland: Somewhere...my destiny is waiting for me.  I will find an enemy powerful enough to
+prove my mettle.  Then, all the world will know of the strength of my people.
+
+(Fade out.)
+
+Scene 72:
+[Autoruns after 71]
+[There is a bit of a delay between 70 and 71.  Unlike the preceeding scenes, this one is in
+color.  Connor is lying in his bed, the clock is ticking, just as it was in Scene 1.]
+
+(Sound of a clock ticking, the screen is slightly darkened.)
+(Connor lies in bed, turning restlessly from side to side.)
+(Sound of a knock at the door.)
+
+Connor: Anna?  Anna...is that you?
+
+(Another knock.  Connor awakens and gets out of bed.  Screen brightens.)
+
+Connor: Who could be...what is going on?  Was it all a dream?  A nightmare?  Or is this another
+Joyous Day?
+
+(Another knock.)
+
+(Connor walks down to the first floor.  He stands facing the door.  There is another knock.)
+
+Connor: Who is it?
+
+(The door opens and in walks Anna.)
+
+Connor: My love!
+
+(They walk to each other and embrace.  The screen fades to black.)
+
+THE END
