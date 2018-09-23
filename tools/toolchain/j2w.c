@@ -604,7 +604,7 @@ int main(int argc, char *argv[])
 
 		printf("Turn to .PAG files? [Y/N]\n");
 		while(1) {
-			#if defined(__MACH__)
+			#if defined(__MACH__) || defined(__unix__)
 			key = getchar();
 			#else
 			key = getch();//bioskey(0);
