@@ -24,8 +24,8 @@ UBYTE ram_page(UBYTE page);
 
 #define play_sfx(num) SOUNDLIB_sfx(num)
 
-#include"eve\sfx.h"
-#include"eve\itemdefs.h"
+#include"eve/sfx.h"
+#include"eve/itemdefs.h"
 
 //#define NO_MUSIC        1
 

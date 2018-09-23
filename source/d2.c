@@ -616,7 +616,7 @@ UWORD item_selldata[] = {
    0,0,0,0,0,
 };
 
-#include "data\slurp.h"
-#include "data\spawn1.h"
-#include "data\slash1.h"
-#include "data\whirl1.h"
+#include "data/slurp.h"
+#include "data/spawn1.h"
+#include "data/slash1.h"
+#include "data/whirl1.h"

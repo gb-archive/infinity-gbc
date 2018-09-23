@@ -1514,7 +1514,7 @@ UBYTE do_slmenu(UBYTE type)
 
 // extra stuff
 
-#include "eve\exptab.h"
+#include "eve/exptab.h"
 
 UBYTE expnext[3];
 UBYTE *get_expnext(UBYTE level)
