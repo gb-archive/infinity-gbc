@@ -28,7 +28,7 @@ Download [GBDK 2.1.5](https://sourceforge.net/projects/gbdk/files/gbdk/2.1.5/) (
 Download and install [MinGW](http://www.mingw.org/wiki/Getting_Started) if you don't already have it. From a MinGW shell (leave the original command prompt alone, we'll come back to it), patch the GBDK and build the custom build utiltiies:
 
 ```sh
-cd /j
+cd /j/sdk/gbz80-gb/2-1-5/lib
 patch -p0 < tools/gbdk_infinity.diff
 cd tools/toolchain
 make
@@ -80,8 +80,8 @@ make SDK_DIR=/home/user/tmp install
 Patch the GBDK and build the library:
 
 ```sh
-cd /home/user/tmp    # the dir with "sdk" in it
-patch -p0 < /path/to/infinity/tools/gbdk_infinity_unix.diff
+cd /home/user/tmp/sdk/gbz80-gb/2.1.5    # the dir with "sdk" in it
+patch -p0 < /path/to/infinity/tools/gbdk_infinity.diff
 cd sdk/gbz80-gb/2.1.5/lib
 make
 ```
