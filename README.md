@@ -100,7 +100,7 @@ Put the compiler in your `PATH`:
 export PATH=$PATH:/home/user/tmp/sdk/gbz80-gb/2.1.5/bin
 ```
 
-Copy all the `.pag` files from a Windows build into `resource/ext` of the infinity dir.
+Copy all the `.pag` files from a Windows build into the `resource` dir of the infinity dir.
 
 Build the game!
 
