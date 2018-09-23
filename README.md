@@ -8,6 +8,8 @@ This project is licensed under the [Creative Commons Attribution-NonCommercial-N
 
 For commercial inquiries, please contact support@affinix.com.
 
+Additionally, any programming source files for the main game program, as well as for any utility programs, are licensed under the GNU General Public License, Version 3 or any later version. This includes files written in C and assembly language, but does not include event programming files. Such source files that are additionally covered by the GPL are marked with an appropriate license header.
+
 ## Building
 
 Currently the game only builds on a Windows host. Building the game requires GBDK, TASM, as well as custom build utilities that you'll need to compile.
@@ -61,3 +63,50 @@ do
 ```
 
 If all goes well, the game will be built as `build\j.gb`.
+
+## Building on Linux
+
+**WORK IN PROGRESS**
+
+Build GBDK and install it somewhere. Below installs to `/home/user/tmp/sdk`:
+
+```sh
+git clone git://github.com/infinity-gbc/gbdk.git
+cd gbdk
+make SDK_DIR=/home/user/tmp
+make SDK_DIR=/home/user/tmp install
+```
+
+Patch the GBDK and build the library:
+
+```sh
+cd /home/user/tmp    # the dir with "sdk" in it
+patch -p0 < /path/to/infinity/tools/gbdk_infinity_unix.diff
+cd sdk/gbz80-gb/2.1.5/lib
+make
+```
+
+Build the toolchain:
+
+```sh
+# (from infinity dir)
+cd tools/toolchain
+make
+```
+
+Put the compiler in your `PATH`:
+
+```sh
+export PATH=$PATH:/home/user/tmp/sdk/gbz80-gb/2.1.5/bin
+```
+
+Copy all the `.pag` files from a Windows build into `resource/ext` of the infinity dir.
+
+Build the game!
+
+```sh
+# (from infinity dir)
+make
+```
+
+If all goes well, the game will be built as `build/j.gb`.
