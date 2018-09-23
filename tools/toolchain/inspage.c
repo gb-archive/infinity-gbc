@@ -27,22 +27,23 @@ int main(int argc, char *argv[])
 	int pagenum;
 
 	if(argc < 4)
-		exit(0);
+		return 1;
 
 	pagenum = atoi(argv[3]);
 
 	f = fopen(argv[2], "rb");
 	if(!f)
-		exit(0);
+		return 1;
 	fread(buf, 16384, 1, f);
 	fclose(f);
 
 	f = fopen(argv[1], "r+b");
 	if(!f)
-		exit(0);
+		return 1;
 	fseek(f, pagenum * 16384, SEEK_SET);
 	fwrite(buf, 16384, 1, f);
 	fclose(f);
 
 	printf("Wrote %s into page %d.\n", argv[2], pagenum);
+	return 0;
 }
