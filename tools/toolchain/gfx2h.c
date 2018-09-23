@@ -18,18 +18,18 @@
 
 #include<stdio.h>
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
         unsigned char c;
         FILE *in, *out;
         int n;
 
         if(argc < 4)
-                return;
+                return 1;
         in = fopen(argv[1], "rb");
         out = fopen(argv[2], "wb");
         if(!in || !out)
-                return;
+                return 1;
 
         fprintf(out, "unsigned char %s[] = {\n", argv[3]);
         n = 0;

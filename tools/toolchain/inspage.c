@@ -17,10 +17,11 @@
  */
 
 #include<stdio.h>
+#include<stdlib.h> // exit, atoi
 
 char buf[16384];
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *f;
 	int pagenum;

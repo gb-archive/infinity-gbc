@@ -17,10 +17,17 @@
  */
 
 #include<stdio.h>
+#include<string.h> // memset
+
+#if defined(__MACH__) && defined(__APPLE__)
+#include<stdlib.h>
+#else
 #include<malloc.h>
+#endif
+
 //#include<mem.h>
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *in, *out;
 	char *buf;
@@ -29,7 +36,7 @@ main(int argc, char *argv[])
 
 	buf = malloc(16384);
 	if(!buf)
-		return;
+		return 1;
 
 	in = fopen(argv[1], "rb");
 	for(n = 0; !feof(in); ++n) {

@@ -19,6 +19,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<ctype.h> // isalnum
 #include"enemy.h"
 
 int base_enemy = 0;
@@ -240,6 +241,8 @@ char *zonestr(int x, struct ZONES *z)
 		}
 		at += num;
 	}
+
+	return NULL;
 }
 
 struct FORM_STRUCT *findform(int x, struct ZONES *z)
@@ -256,6 +259,8 @@ struct FORM_STRUCT *findform(int x, struct ZONES *z)
 		}
 		at += num;
 	}
+
+	return NULL;
 }
 
 int xfindform(int x, int zone, struct ZONES *z)
@@ -270,6 +275,8 @@ int xfindform(int x, int zone, struct ZONES *z)
 		}
 		at += num;
 	}
+
+	return 0;
 }
 
 void fix(char *s)
@@ -310,7 +317,7 @@ int genformdefs(char *fname, struct ZONES *z)
 }
 
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	struct FORM_STRUCT form, *formp;
 	struct ENEMY_STRUCT en;
