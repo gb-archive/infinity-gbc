@@ -22,14 +22,14 @@ end_scene67:
 
    partyset(0,PARTY_VICTOR)
 
-   lmap(MAP_GRW,        $26,$06)
+   lmap(MAP_GRW,        0x26,0x06)
    lockoff
 
-   warp(0,$0b,$06,RIGHT)
-   ldude(4,NPC_GIRL1,   $0a,$06,RIGHT,STAND)
-   ldude(5,NPC_BOY1,    $09,$06,RIGHT,STAND)
-   ldude(6,NPC_GIRL2,   $08,$06,RIGHT,STAND)
-   ldude(7,NPC_BOY2,    $07,$06,RIGHT,STAND)
+   warp(0,0x0b,0x06,RIGHT)
+   ldude(4,NPC_GIRL1,   0x0a,0x06,RIGHT,STAND)
+   ldude(5,NPC_BOY1,    0x09,0x06,RIGHT,STAND)
+   ldude(6,NPC_GIRL2,   0x08,0x06,RIGHT,STAND)
+   ldude(7,NPC_BOY2,    0x07,0x06,RIGHT,STAND)
 
    ;panrel(1,0)
    ;sleep(8)
@@ -79,11 +79,11 @@ end_scene68:
    partyset(0,0)
    partyset(0,PARTY_RYAN)
 
-   lmap(MAP_FAR,  $09,$16)
+   lmap(MAP_FAR,  0x09,0x16)
 
-   warp(0,$08,$16,RIGHT)
-   ldude(4,NPC_MAYOR, $09,$16,LEFT,STAND)
-   ldude(5,NPC_LADY1, $0d,$14,RIGHT,STAND)
+   warp(0,0x08,0x16,RIGHT)
+   ldude(4,NPC_MAYOR, 0x09,0x16,LEFT,STAND)
+   ldude(5,NPC_LADY1, 0x0d,0x14,RIGHT,STAND)
    fadein(X_FADE)
 
    sleep(32)
@@ -110,15 +110,15 @@ end_scene69:
    partyset(0,0)
    partyset(0,PARTY_ELYA)
 
-   lmap(MAP_MAG_ARCH, $05,$09)
+   lmap(MAP_MAG_ARCH, 0x05,0x09)
    lockoff
    panspeed(0)
-   camera($05,$09)
-   pan($05,$06)
+   camera(0x05,0x09)
+   pan(0x05,0x06)
 
-   warp(0,$05,$04,DOWN)
-   ldude(4,NPC_GIRL1, $04,$06, UP,STAND)
-   ldude(5,NPC_KIDMAGI, $06,$06, UP,STAND)
+   warp(0,0x05,0x04,DOWN)
+   ldude(4,NPC_GIRL1, 0x04,0x06, UP,STAND)
+   ldude(5,NPC_KIDMAGI, 0x06,0x06, UP,STAND)
    fadein2(X_FADE)
 
    sleep(128)
@@ -133,11 +133,11 @@ end_scene69:
 
 end_scene70:
 
-   lmap(MAP_FARM, $05,$04)
+   lmap(MAP_FARM, 0x05,0x04)
    lockoff
    del(0)
    panspeed(0)
-   ldude(4,NPC_KRAIT,   $05,$07, DOWN,STAND)
+   ldude(4,NPC_KRAIT,   0x05,0x07, DOWN,STAND)
    lockon(4)
    fadein(X_FADE)
 
@@ -164,11 +164,11 @@ end_scene70:
 
 end_scene71:
 
-   lmap(MAP_CLIFF, $00,$00)
+   lmap(MAP_CLIFF, 0x00,0x00)
    lockoff
    del(0)
-   ldude(4,CH_ROLAND,$00,$00, UP,STAND)
-   warp2(4,$07,$06,UP)
+   ldude(4,CH_ROLAND,0x00,0x00, UP,STAND)
+   warp2(4,0x07,0x06,UP)
    lockon(4)
    fadein(X_FADE)
 
@@ -185,12 +185,12 @@ end_scene72:
    partyset(0,0)
    partyset(0,PARTY_CONNOR)
 
-   lmap(MAP_SLR_CONNR, $01,$02)
+   lmap(MAP_SLR_CONNR, 0x01,0x02)
 
-   ldude(4,NPC_ANNA, $04,$08,UP,STAND)
+   ldude(4,NPC_ANNA, 0x04,0x08,UP,STAND)
    frame(0,CEL_TIRED)
    panspeed(0)
-   camera($04,$07)
+   camera(0x04,0x07)
    fadein(X_FADE)
 
    sleep(32)
@@ -251,10 +251,10 @@ end_scene72:
    sync
    lockoff
 
-   ldude(5,NPC_EMBRACE,$00,$00,DOWN,STAND)
-   ldude(6,NPC_EMBRACE,$00,$00,DOWN,STAND)
-   warp2(5,$07,$0c,DOWN)
-   warp2(6,$09,$0c,DOWN)
+   ldude(5,NPC_EMBRACE,0x00,0x00,DOWN,STAND)
+   ldude(6,NPC_EMBRACE,0x00,0x00,DOWN,STAND)
+   warp2(5,0x07,0x0c,DOWN)
+   warp2(6,0x09,0x0c,DOWN)
    frame(5,0)
    frame(6,1)
    sleep(2)

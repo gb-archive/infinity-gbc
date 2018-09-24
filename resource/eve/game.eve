@@ -17,24 +17,24 @@
 
 ; Game begins here
 
-   goto(INIT)                    ; $0000 Initialization
-   goto(OVERWORLD)               ; $0003 Warp
+   goto(INIT)                    ; 0x0000 Initialization
+   goto(OVERWORLD)               ; 0x0003 Warp
 
-   goto(BOAT_UP)                 ; $0006 Step on the Boat going up
-   goto(BOAT_DOWN)               ; $0009 Step on the Boat going down
-   goto(BOAT_LEFT)               ; $000C Step on the Boat going left
-   goto(BOAT_RIGHT)              ; $000F Step on the Boat going right
+   goto(BOAT_UP)                 ; 0x0006 Step on the Boat going up
+   goto(BOAT_DOWN)               ; 0x0009 Step on the Boat going down
+   goto(BOAT_LEFT)               ; 0x000C Step on the Boat going left
+   goto(BOAT_RIGHT)              ; 0x000F Step on the Boat going right
 
-   goto(BOAT_UP)                 ; $0012
-   goto(BOAT_DOWN)               ; $0015
-   goto(BOAT2_LEFT)              ; $0018
-   goto(BOAT2_RIGHT)             ; $001b
+   goto(BOAT_UP)                 ; 0x0012
+   goto(BOAT_DOWN)               ; 0x0015
+   goto(BOAT2_LEFT)              ; 0x0018
+   goto(BOAT2_RIGHT)             ; 0x001b
 
-   goto(OVERSAVE)                ; $001e
-   goto(ICE_SLIDE)               ; $0021
-   goto(WORLD_EDGE)              ; $0024
-   goto(end_press)               ; $0027
-   goto(rescue)                  ; $002a
+   goto(OVERSAVE)                ; 0x001e
+   goto(ICE_SLIDE)               ; 0x0021
+   goto(WORLD_EDGE)              ; 0x0024
+   goto(end_press)               ; 0x0027
+   goto(rescue)                  ; 0x002a
 
 TOGGLE_BOAT:
    get(A,VAR_BOATMODE)
@@ -318,40 +318,40 @@ demo_part1:
 demo_part2:
    put(0,VAR_NONLINEAR)
    partyset(0,PARTY_CONNOR)
-   set(B,$12)
-   set(C,$0f)
+   set(B,0x12)
+   set(C,0x0f)
    face(0,LEFT)
    call(L_SELERA)
    end
 demo_part3:
    partyset(0,PARTY_ELYA)
-   set(D,$05)
-   set(E,$14)
+   set(D,0x05)
+   set(E,0x14)
    face(0,UP)
    lmap(MAP_TRIAL1, D,E)
-   cstep(mag_trial1a, $05,$03)
-   ctres($00,IT_PMaster,$08,$22, $31,SFX_CHEST)
-   ctres($01,IT_EMaster,$04,$0a, $31,SFX_CHEST)
+   cstep(mag_trial1a, 0x05,0x03)
+   ctres(0x00,IT_PMaster,0x08,0x22, 0x31,SFX_CHEST)
+   ctres(0x01,IT_EMaster,0x04,0x0a, 0x31,SFX_CHEST)
    end
 demo_part4:
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_RYAN)
-   set(D,$0b)
-   set(E,$16)
+   set(D,0x0b)
+   set(E,0x16)
    face(0,UP)
    lmap(MAP_NPS_P3,     D,E)
    zone(ZONE_NPS)
    call(nps_bridge2)
    //cif(D,CE,0,nps_bridge1)
    //cif(D,CE,11,nps_bridge1)
-   chstep(nps_part3a,   $06,$22,1)
-   cstep(nps_part3b,    $7F,$0C)
-   cvstep(nps_part3c,   $0E,$0B,2)
-   cstep(nps_bridge1,   $1E,$17)
-   cstep(nps_bridge2,   $1E,$13)
-   csearch(nps_part3d,  $1B,$0B,S_ALL)
+   chstep(nps_part3a,   0x06,0x22,1)
+   cstep(nps_part3b,    0x7F,0x0C)
+   cvstep(nps_part3c,   0x0E,0x0B,2)
+   cstep(nps_bridge1,   0x1E,0x17)
+   cstep(nps_bridge2,   0x1E,0x13)
+   csearch(nps_part3d,  0x1B,0x0B,S_ALL)
    cstep(nps_part3e,    11,8);
-   warp(1,$0b,$17,UP)
+   warp(1,0x0b,0x17,UP)
    lastmoves(UP,DOWN,DOWN)
    end
 demo_part5:
@@ -359,18 +359,18 @@ demo_part5:
    partyset(1,PARTY_ROLAND)
    partyset(2,PARTY_ELYA)
    put(0,VAR_FIN1)
-   set(D,$09)
-   set(E,$07)
+   set(D,0x09)
+   set(E,0x07)
    face(0,RIGHT)
    lmap(MAP_FIN_P1, D,E)
-   cstep(fin_part1a, $06,$07)
-   cstep(fin_part1b, $1a,$07)
-   csearch(fin_door1,$0f,$11,S_D)
-   csearch(fin_door1,$10,$11,S_D)
-   csearch(fin_door1,$11,$11,S_D)
-   cvstep(fin_scene53,$0a,$06,4)
-   warp(1,$08,$07,RIGHT)
-   warp(2,$07,$07,RIGHT)
+   cstep(fin_part1a, 0x06,0x07)
+   cstep(fin_part1b, 0x1a,0x07)
+   csearch(fin_door1,0x0f,0x11,S_D)
+   csearch(fin_door1,0x10,0x11,S_D)
+   csearch(fin_door1,0x11,0x11,S_D)
+   cvstep(fin_scene53,0x0a,0x06,4)
+   warp(1,0x08,0x07,RIGHT)
+   warp(2,0x07,0x07,RIGHT)
    lastmoves(RIGHT,RIGHT,DOWN)
    end
 demo_part6:
@@ -378,21 +378,21 @@ demo_part6:
    panspeed(2)
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_ELYA)
-   set(D,$0d)
-   set(E,$06)
+   set(D,0x0d)
+   set(E,0x06)
    face(0,LEFT)
    lmap(MAP_FRC_P6, D,E)
-   cstep(frc_part6a, $07,$06)
-   cstep(frc_part6b, $0f,$06)
-   warp(1,$0e,$06,LEFT)
+   cstep(frc_part6a, 0x07,0x06)
+   cstep(frc_part6b, 0x0f,0x06)
+   warp(1,0x0e,0x06,LEFT)
    lastmoves(LEFT,DOWN,DOWN)
    end
 demo_part7a:
    partyset(0,PARTY_CONNOR)
-   lmap(MAP_TGL_TOW3,      $06,$07)
+   lmap(MAP_TGL_TOW3,      0x06,0x07)
    face(0,UP)
-   ldude(4,NPC_KING,       $03,$07,UP,STAND)
-   camera($05,$07)
+   ldude(4,NPC_KING,       0x03,0x07,UP,STAND)
+   camera(0x05,0x07)
    end
 demo_part7b:
    sleep(30)
@@ -418,7 +418,7 @@ demo_part7b:
    del(0)
    sleep(30)
    panspeed(0)
-   pan($05,$04)
+   pan(0x05,0x04)
    sleep(180)
    panspeed(2)
    prophecy
@@ -429,8 +429,8 @@ demo_part8:
    partyset(1,PARTY_ELYA)
    partyset(2,PARTY_VICTOR)
    setwolf(1)
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    face(0,UP)
    lmap(MAP_SEW_P2, D,E)
    zone(ZONE_SEW)
@@ -442,22 +442,22 @@ demo_part8:
    cstep(sew_hithi,   17,  4)
    cstep(sew_hitlo,   17,  6)
    csearch(sew_garg,  13,  6, S_ALL)
-   ctres($02,IT_HALo,119,  5,$3b,SFX_CHEST)
+   ctres(0x02,IT_HALo,119,  5,0x3b,SFX_CHEST)
    end
 demo_part9:
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_ELYA)
    partyset(2,PARTY_VICTOR)
    setwolf(1)
-   set(D,$14)
-   set(E,$0f)
+   set(D,0x14)
+   set(E,0x0f)
    face(0,UP)
    lmap(MAP_GRW,        D,E)
-   ctres($03,IT_PHunter,$04,$04,$49,SFX_CHEST)
-   ctres($04,IT_EThorn, $0b,$1d,$49,SFX_CHEST)
-   ctres($05,IT_LGolden,$1c,$2b,$49,SFX_CHEST)
-   warp(1,$15,$0f,UP)
-   warp(2,$15,$10,UP)
+   ctres(0x03,IT_PHunter,0x04,0x04,0x49,SFX_CHEST)
+   ctres(0x04,IT_EThorn, 0x0b,0x1d,0x49,SFX_CHEST)
+   ctres(0x05,IT_LGolden,0x1c,0x2b,0x49,SFX_CHEST)
+   warp(1,0x15,0x0f,UP)
+   warp(2,0x15,0x10,UP)
    lastmoves(LEFT,UP,DOWN)
    end
 demo_part10:
@@ -478,8 +478,8 @@ demo_part11:
    partyset(0,PARTY_CONNOR)
    put(67,VAR_WORLDX)
    put(79,VAR_WORLDY)
-   set(B,$11)
-   set(C,$16)
+   set(B,0x11)
+   set(C,0x16)
    face(0,RIGHT)
    put(0,VAR_NONLINEAR)
    put(4,VAR_EVEPROG)
@@ -489,8 +489,8 @@ demo_part12a:
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_RYAN)
    put(0,VAR_EVEPROG)
-   set(D,$09)
-   set(E,$08)
+   set(D,0x09)
+   set(E,0x08)
    face(0,UP)
    lmap(MAP_NPS_P4,     D,E)
    end
@@ -501,10 +501,10 @@ demo_part13a:
    partyset(1,PARTY_ELYA)
    partyset(2,PARTY_VICTOR)
    partyset(3,PARTY_RYAN)
-   set(D,$05)
-   set(E,$09)
+   set(D,0x05)
+   set(E,0x09)
    lmap(MAP_MAG_ARCH, D,E)
-   ldude(4,NPC_ARCHMAGI,$05,$04,DOWN,STAND)
+   ldude(4,NPC_ARCHMAGI,0x05,0x04,DOWN,STAND)
    ctalk(mag_arch1b, 4)
    end
 demo_part13b:
@@ -514,11 +514,11 @@ demo_part14:
    put(0,VAR_NONLINEAR)
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_ELYA)
-   set(B,$16)
-   set(C,$16)
+   set(B,0x16)
+   set(C,0x16)
    face(0,LEFT)
    call(L_KASSIM)
-   warp(1,$17,$16,LEFT)
+   warp(1,0x17,0x16,LEFT)
    lastmoves(LEFT,DOWN,DOWN)
    end
 demo_part15a:
@@ -541,54 +541,54 @@ demo_part16:
    partyset(2,PARTY_VICTOR)
    partyset(3,PARTY_ELYA)
    face(0,RIGHT)
-   set(D,$12)
-   set(E,$0e)
+   set(D,0x12)
+   set(E,0x0e)
    lmap(MAP_ICE_P2, D,E)
-   chstep(ice_part2a,$0f,$1f,$02)
-   cstep(ice_part2b, $07,$0c)
-   warp(1,$11,$0e,RIGHT)
-   warp(2,$10,$0e,RIGHT)
-   warp(3,$0f,$0e,RIGHT)
+   chstep(ice_part2a,0x0f,0x1f,0x02)
+   cstep(ice_part2b, 0x07,0x0c)
+   warp(1,0x11,0x0e,RIGHT)
+   warp(2,0x10,0x0e,RIGHT)
+   warp(3,0x0f,0x0e,RIGHT)
    lastmoves(RIGHT,RIGHT,RIGHT)
    end
 demo_part17:
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_ELYA)
    partyset(2,PARTY_VICTOR)
-   set(D,$19)
-   set(E,$15)
+   set(D,0x19)
+   set(E,0x15)
    face(0,DOWN)
 
    lmap(MAP_PIR_P1, D,E)
    call(pir_clear)
-   cstep(pir_part1a, $11,$2d)
-   cstep(pir_part1b, $1a,$03)
-   cstep(pir_part1c, $19,$15)
-   cstep(pir_part1d, $23,$03)
-   ctres($06,IT_PFancy, $14,$0a,$3B,SFX_CHEST)
-   ctres($07,IT_SPLo,   $1d,$0b,$3B,SFX_CHEST)
-   ctres($08,IT_AU_500, $17,$10,$3B,SFX_CHEST)
-   ctres($09,IT_KPirate,$03,$11,$3B,SFX_CHEST)
+   cstep(pir_part1a, 0x11,0x2d)
+   cstep(pir_part1b, 0x1a,0x03)
+   cstep(pir_part1c, 0x19,0x15)
+   cstep(pir_part1d, 0x23,0x03)
+   ctres(0x06,IT_PFancy, 0x14,0x0a,0x3B,SFX_CHEST)
+   ctres(0x07,IT_SPLo,   0x1d,0x0b,0x3B,SFX_CHEST)
+   ctres(0x08,IT_AU_500, 0x17,0x10,0x3B,SFX_CHEST)
+   ctres(0x09,IT_KPirate,0x03,0x11,0x3B,SFX_CHEST)
    call(pir_tasm_init)
 
-   csearch(pir_switch1, $27,$13, S_U)
-   csearch(pir_switch2, $28,$13, S_U)
-   csearch(pir_switch3, $29,$13, S_U)
-   csearch(pir_switch4, $2a,$13, S_U)
-   csearch(pir_switch5, $2b,$13, S_U)
-   csearch(pir_switch6, $2c,$13, S_U)
+   csearch(pir_switch1, 0x27,0x13, S_U)
+   csearch(pir_switch2, 0x28,0x13, S_U)
+   csearch(pir_switch3, 0x29,0x13, S_U)
+   csearch(pir_switch4, 0x2a,0x13, S_U)
+   csearch(pir_switch5, 0x2b,0x13, S_U)
+   csearch(pir_switch6, 0x2c,0x13, S_U)
    end
 demo_part18:
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_ELYA)
    partyset(2,PARTY_VICTOR)
    partyset(3,PARTY_RYAN)
-   set(D,$03)
-   set(E,$07)
+   set(D,0x03)
+   set(E,0x07)
    face(0,UP)
    lmap(MAP_MAG_INN, D,E)
-   ldude(4,NPC_WOOMAGI, $03,$04,DOWN,STAND)
-   csearch(mag_innroom, $03,$05,S_U)
+   ldude(4,NPC_WOOMAGI, 0x03,0x04,DOWN,STAND)
+   csearch(mag_innroom, 0x03,0x05,S_U)
    end
 
 
@@ -696,8 +696,8 @@ NEW_GAME:
    goto(EVT_START_S1)
 
 warpspot:
-   set(B,$00)
-   set(C,$0A)
+   set(B,0x00)
+   set(C,0x0A)
    call(L_SELERA)
    fadein(X_FADE)
    end
@@ -717,8 +717,8 @@ rescue:
 rescue_ep4:
    song(SNG_NIGHTTIME)
 rescue_loadmap:
-   set(D,$07)
-   set(E,$04)
+   set(D,0x07)
+   set(E,0x04)
    call(l_tgl_gate)
    say(TGL_STXT4)
    end
@@ -816,29 +816,29 @@ over_loadnonlinear:
    end
 
 drink_oasis:
-   tile($1e,$2d,$b3)
-   tile($1f,$2d,$b3)
-   tile($20,$2d,$b3)
+   tile(0x1e,0x2d,0xb3)
+   tile(0x1f,0x2d,0xb3)
+   tile(0x20,0x2d,0xb3)
 
-   tile($1d,$2e,$bd)
-   tile($1e,$2e,$b0)
-   tile($1f,$2e,$b1)
-   tile($20,$2e,$b2)
-   tile($21,$2e,$bc)
+   tile(0x1d,0x2e,0xbd)
+   tile(0x1e,0x2e,0xb0)
+   tile(0x1f,0x2e,0xb1)
+   tile(0x20,0x2e,0xb2)
+   tile(0x21,0x2e,0xbc)
 
-   tile($1e,$2f,$b5)
-   tile($1f,$2f,$b8)
-   tile($20,$2f,$b9)
-   tile($21,$2f,$b2)
-   tile($22,$2f,$b4)
+   tile(0x1e,0x2f,0xb5)
+   tile(0x1f,0x2f,0xb8)
+   tile(0x20,0x2f,0xb9)
+   tile(0x21,0x2f,0xb2)
+   tile(0x22,0x2f,0xb4)
 
-   tile($1f,$30,$b5)
-   tile($20,$30,$b8)
-   tile($21,$30,$ba)
-   tile($22,$30,$b4)
+   tile(0x1f,0x30,0xb5)
+   tile(0x20,0x30,0xb8)
+   tile(0x21,0x30,0xba)
+   tile(0x22,0x30,0xb4)
 
-   tile($20,$31,$bb)
-   tile($21,$31,$bb)
+   tile(0x20,0x31,0xbb)
+   tile(0x21,0x31,0xbb)
    end
 
 over_turwood_on:
@@ -855,8 +855,8 @@ over_durtop_off:
    end
 
 EVT_START_S2:
-   set(B,$17)
-   set(C,$07)
+   set(B,0x17)
+   set(C,0x07)
    set(A,1)
    put(A,VAR_EVEPROG)
    goto(I_SELERA)
@@ -867,8 +867,8 @@ EVT_START_S4:
 
 
 EVT_START_S1:
-   set(B,$17)
-   set(C,$07)
+   set(B,0x17)
+   set(C,0x07)
 ;   fadeout(X_FADE)
    call(SLR_CONNRE0)
 
@@ -876,11 +876,11 @@ EVT_START_S1:
    ;end
 
 EVT_SCENE1:
-   ldude(4,NPC_SOLDIER,    $04,$08,  UP,  STAND)      ; guard1
-   warp(0,$01,$02,DOWN)
+   ldude(4,NPC_SOLDIER,    0x04,0x08,  UP,  STAND)      ; guard1
+   warp(0,0x01,0x02,DOWN)
    frame(0,CEL_TIRED)
    panspeed(0)
-   camera($04,$07)
+   camera(0x04,0x07)
    fadein(X_FADE)
 
    sleep(32)
@@ -1119,7 +1119,7 @@ EVT_SCENE4:
 EVT_SCENE5:
    panspeed(0)
    song(SNG_CREATOR)
-   pan($15,$0A)
+   pan(0x15,0x0A)
    sleep(80)
    face(4,LEFT)
    say(S5_ETXT1)
@@ -1265,7 +1265,7 @@ EVT_SCENE10:
    del(0)
    sleep(30)
    panspeed(0)
-   pan($05,$04)
+   pan(0x05,0x04)
    sleep(180)
    panspeed(2)
    prophecy
@@ -1280,8 +1280,8 @@ EVT_SCENE10:
    call(mappos_save_bc)
    healall
 
-   set(B,$17)
-   set(C,$08)
+   set(B,0x17)
+   set(C,0x08)
    call(L_SELERA)
    face(0,UP)
    fadein(X_FADE)
@@ -1291,7 +1291,7 @@ EVT_SCENE10:
    end
 
 EVT_SCENE13:
-   align($03,$02)
+   align(0x03,0x02)
    sync
    face(0,LEFT)
    say(S13_ETXT1)
@@ -1330,7 +1330,7 @@ EVT_SCENE13:
    goto(INC_EVT)
 
 EVT_SCENE13_2:
-   align($03,$02)
+   align(0x03,0x02)
    sync
    face(0,LEFT)
    say(S13_ETXT16)
@@ -1401,12 +1401,12 @@ SLR_CONNR:
    end
 
 SLR_CONNRE0:
-   lmap(MAP_SLR_CONNR,   $04,$07)
-   cstep(I_SELERA,       $04,$08)
-   csearch(SLR_BOOKCASE1,$07,$01,S_U)
-   csearch(SLR_CBED,     $01,$02,S_L)
-   ctres($0a,IT_AU_50,      $03,$01,0,SFX_SEARCH)
-   ctres($0b,IT_HPLO,      $06,$01,0,SFX_SEARCH)
+   lmap(MAP_SLR_CONNR,   0x04,0x07)
+   cstep(I_SELERA,       0x04,0x08)
+   csearch(SLR_BOOKCASE1,0x07,0x01,S_U)
+   csearch(SLR_CBED,     0x01,0x02,S_L)
+   ctres(0x0a,IT_AU_50,      0x03,0x01,0,SFX_SEARCH)
+   ctres(0x0b,IT_HPLO,      0x06,0x01,0,SFX_SEARCH)
    get(F,VAR_EVEPROG)
    if(F,CE,4,SLR_CONEP4)
    end
@@ -1419,7 +1419,7 @@ SLR_CBED:
    get(F,VAR_EVEPROG)
    if(F,CL,2,SLR_CBED1) ; <2: meet king
    if(F,CE,2,SLR_CBED2) ; 2: meet creator
-   if(F,CE,4,RET)       ; 4: night time, cant use
+   if(F,CE,4,GRET)       ; 4: night time, cant use
    if(F,CL,8,SLR_CBED3)
    end
 SLR_CBED1:
@@ -1429,7 +1429,7 @@ SLR_CBED2:
    say(S7_ETXT1)
    end
 SLR_CBED3:
-   align($02,$02)
+   align(0x02,0x02)
    sync
    walk(0,LEFT,1)
    sync
@@ -1464,39 +1464,39 @@ SLR_NIGHT:
 SLR_HOUS1:
    fadeout(X_FADE)
    getxy(B,C)
-   lmap(MAP_SLR_HOUS1,   $05,$07)
-   cstep(I_SELERA,       $05,$08)
-   lguy(NPC_LADY2,       $03,$03, SLR_DTXT3)
-   lguy(NPC_BOY1,        $08,$04, SLR_DTXT4)
-   csearch(SLR_BOOKCASE3,$08,$01, S_U)
-   ctres($0c,IT_AU_100,  $03,$01,0,SFX_SEARCH)
+   lmap(MAP_SLR_HOUS1,   0x05,0x07)
+   cstep(I_SELERA,       0x05,0x08)
+   lguy(NPC_LADY2,       0x03,0x03, SLR_DTXT3)
+   lguy(NPC_BOY1,        0x08,0x04, SLR_DTXT4)
+   csearch(SLR_BOOKCASE3,0x08,0x01, S_U)
+   ctres(0x0c,IT_AU_100,  0x03,0x01,0,SFX_SEARCH)
    fadein(X_FADE)
    end
 SLR_HOUS2:
    fadeout(X_FADE)
    getxy(B,C)
-   lmap(MAP_SLR_HOUS2,     $09,$08)
-;   set(B,$15)
-;   set(C,$12)
-   cstep(I_SELERA,         $09,$09)
-   csearch(SLR_BOOKCASE4,  $03,$01, S_U)
-   lguy(NPC_MAN2,          $07,$04, SLR_DTXT5)
+   lmap(MAP_SLR_HOUS2,     0x09,0x08)
+;   set(B,0x15)
+;   set(C,0x12)
+   cstep(I_SELERA,         0x09,0x09)
+   csearch(SLR_BOOKCASE4,  0x03,0x01, S_U)
+   lguy(NPC_MAN2,          0x07,0x04, SLR_DTXT5)
    fadein(X_FADE)
    end
 
 SLR_INN:
    fadeout(X_FADE)
-   lmap(MAP_SLR_INN,       $07,$07)
+   lmap(MAP_SLR_INN,       0x07,0x07)
 SLR_INN_JOIN:
-   set(B,$08)
-   set(C,$05)
-   chstep(I_SELERA,       $07,$08,$01)
-   ldude(4, NPC_MAN2,     $07,$04, DOWN, STAND)
-   ldude(5, NPC_LADY4,    $04,$05, DOWN, WALK)
-   ctres($0d, IT_HPLO,    $06,$01,0,SFX_SEARCH)
+   set(B,0x08)
+   set(C,0x05)
+   chstep(I_SELERA,       0x07,0x08,0x01)
+   ldude(4, NPC_MAN2,     0x07,0x04, DOWN, STAND)
+   ldude(5, NPC_LADY4,    0x04,0x05, DOWN, WALK)
+   ctres(0x0d, IT_HPLO,    0x06,0x01,0,SFX_SEARCH)
    ctalk(SLR_INNTALK, 4)
    ctalk(SLR_INNLADY, 5)
-   csearch(SLR_INNROOM,   $07,$05,S_U)
+   csearch(SLR_INNROOM,   0x07,0x05,S_U)
 
    ; Ryan?
    get(F,VAR_EVEPROG)
@@ -1527,7 +1527,7 @@ SLR_INNROOM:
 SLR_INNOK:
    tgold(15)
    say(INN_DTXT5)
-   align($08,$06)
+   align(0x08,0x06)
    sync
    call(INNREST)
 
@@ -1559,8 +1559,8 @@ SLR_INNLADY2:
    end
 
 SLR_RYAN:
-   ldude(6,CH_RYAN,        $02,$02,DOWN,STAND)
-   ldude(7,NPC_MAYOR,      $01,$03,RIGHT,STAND)
+   ldude(6,CH_RYAN,        0x02,0x02,DOWN,STAND)
+   ldude(7,NPC_MAYOR,      0x01,0x03,RIGHT,STAND)
    ctalk(SLR_RYAN1, 6)
    ctalk(SLR_MERCHANT, 7)
    end
@@ -1573,7 +1573,7 @@ SLR_MERCHANT:
 SLR_MERCHANT2:
    say(S12_ETXT2)
    cgold(A,200)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    tgold(200)
    say(S12_ETXT3)
    sfx(SFX_SEARCH)
@@ -1594,19 +1594,19 @@ SLR_INNLOAD:
    ;set(E,9)
    ;call(INC_EVT)
    ;goto(nps_part4)
-   lmap(MAP_SLR_INN,       $07,$06)
+   lmap(MAP_SLR_INN,       0x07,0x06)
    song(SNG_TOWN1)
    goto(SLR_INN_JOIN)
 
 SLR_WEAPN:
    fadeout(X_FADE)
-   lmap(MAP_SLR_WEAPN,     $06,$08)
-   set(B,$0F)
-   set(C,$08)
-   cstep(I_SELERA,         $06,$09)
-   ldude(4, NPC_MAN1,      $03,$04, RIGHT, STAND)
-   ctres($0e,IT_HALo,        $02,$07, $C4, SFX_CHEST)
-   csearch(SLR_WEAPBUY,    $04,$04, S_L)
+   lmap(MAP_SLR_WEAPN,     0x06,0x08)
+   set(B,0x0F)
+   set(C,0x08)
+   cstep(I_SELERA,         0x06,0x09)
+   ldude(4, NPC_MAN1,      0x03,0x04, RIGHT, STAND)
+   ctres(0x0e,IT_HALo,        0x02,0x07, 0xC4, SFX_CHEST)
+   csearch(SLR_WEAPBUY,    0x04,0x04, S_L)
    fadein(X_FADE)
    end
 SLR_WEAPBUY:
@@ -1622,13 +1622,13 @@ SLR_WEAPBUY:
 
 SLR_ITEM:
    fadeout(X_FADE)
-   lmap(MAP_SLR_ITEM,      $04,$07)
-   set(B,$13)
-   set(C,$0D)
-   cstep(I_SELERA,         $04,$08)
-   csearch(SLR_ITEMBUY,    $04,$03, S_U)
-   csearch(SLR_BOOKCASE2,  $07,$01, S_U)
-   ldude(4, NPC_MAN2,      $04,$02, DOWN, STAND)
+   lmap(MAP_SLR_ITEM,      0x04,0x07)
+   set(B,0x13)
+   set(C,0x0D)
+   cstep(I_SELERA,         0x04,0x08)
+   csearch(SLR_ITEMBUY,    0x04,0x03, S_U)
+   csearch(SLR_BOOKCASE2,  0x07,0x01, S_U)
+   ldude(4, NPC_MAN2,      0x04,0x02, DOWN, STAND)
    fadein(X_FADE)
    end
 SLR_ITEMBUY:
@@ -1657,8 +1657,8 @@ mappos_save_bc:
 O_SELERA:
    call(MAPPOS_SAVE_R)
    face(0,RIGHT)
-   set(B,$00)
-   set(C,$08)
+   set(B,0x00)
+   set(C,0x08)
    call(L_SELERA)
    fadein( X_ROLL)
 
@@ -1669,8 +1669,8 @@ O_SELERA:
 O_TAGEL:
    call(MAPPOS_SAVE_R)
    face(0,UP)
-   set(B,$15)
-   set(C,$23)
+   set(B,0x15)
+   set(C,0x23)
    call(L_TAGEL)
    fadein( X_ROLL)
    end
@@ -1678,15 +1678,15 @@ O_TAGEL:
 O_NPASS:
    fadeout(X_ROLL)
    face(0,UP)
-   set(B,$04)
-   set(C,$08)
+   set(B,0x04)
+   set(C,0x08)
    goto(L_NPASS)
 
 O_NPASS2:
    fadeout(X_ROLL)
    face(0,UP)
-   set(B,$05)
-   set(C,$08)
+   set(B,0x05)
+   set(C,0x08)
    goto(L_NPASS2)
 
 #include"xcave.eve"
@@ -1751,20 +1751,20 @@ nps_part1:
    set(G,X_FADE)
 nps_part1_nf:
    lmap(MAP_NPS_P1,     D,E)
-   chstep(nps_part1b,   $7F,$09,12)
-   cvstep(nps_part1b,   $7F,$7F,11)
-   cvstep(nps_part1b,   $0B,$7F,11)
-   cstep(nps_part1a,    $05,$7F)
-   cstep(nps_guide,     $05,$02)
-   csearch(nps_sign1,   $06,$05,S_U)
+   chstep(nps_part1b,   0x7F,0x09,12)
+   cvstep(nps_part1b,   0x7F,0x7F,11)
+   cvstep(nps_part1b,   0x0B,0x7F,11)
+   cstep(nps_part1a,    0x05,0x7F)
+   cstep(nps_guide,     0x05,0x02)
+   csearch(nps_sign1,   0x06,0x05,S_U)
    get(F,VAR_EVEPROG)
    if(F,CE,4,nps_ep4)
    song(SNG_MOUNTAIN)
    fadein(G)
    end
 nps_part1a:
-   set(D,$05)
-   set(E,$1C)
+   set(D,0x05)
+   set(E,0x1C)
    goto(nps_part2)
 nps_part1b:
    set(B,50)
@@ -1777,7 +1777,7 @@ nps_ep4:
    end
 nps_guide:
    get(F,VAR_EVEPROG)
-   if(F,CGE,8,RET)
+   if(F,CGE,8,GRET)
    sleep(4)
    say(NPS_STXT1)
    sleep(16)
@@ -1791,17 +1791,17 @@ nps_part2:
    fadeout(X_FADE)
    lmap(MAP_NPS_P2,     D,E)
    zone(ZONE_NPS)
-   chstep(nps_part2a,   $05,$1D,1)
-   cstep(nps_part2b,    $1E,$7F)
+   chstep(nps_part2a,   0x05,0x1D,1)
+   cstep(nps_part2b,    0x1E,0x7F)
    fadein(X_FADE)
    end
 nps_part2a:
-   set(D,$05)
-   set(E,$00)
+   set(D,0x05)
+   set(E,0x00)
    goto(nps_part1)
 nps_part2b:
-   set(D,$06)
-   set(E,$21)
+   set(D,0x06)
+   set(E,0x21)
    goto(nps_part3)
 
 nps_part3:
@@ -1810,29 +1810,29 @@ nps_part3:
    zone(ZONE_NPS)
    cif(D,CE,0,nps_bridge1)
    cif(D,CE,11,nps_bridge1)
-   chstep(nps_part3a,   $06,$22,1)
-   cstep(nps_part3b,    $7F,$0C)
-   cvstep(nps_part3c,   $0E,$0B,2)
-   cstep(nps_bridge1,   $1E,$17)
-   cstep(nps_bridge2,   $1E,$13)
-   csearch(nps_part3d,  $1B,$0B,S_ALL)
+   chstep(nps_part3a,   0x06,0x22,1)
+   cstep(nps_part3b,    0x7F,0x0C)
+   cvstep(nps_part3c,   0x0E,0x0B,2)
+   cstep(nps_bridge1,   0x1E,0x17)
+   cstep(nps_bridge2,   0x1E,0x13)
+   csearch(nps_part3d,  0x1B,0x0B,S_ALL)
    cstep(nps_part3e,    11,8);
    fadein(X_FADE)
    end
 nps_part3a:
-   set(D,$1E)
-   set(E,$00)
+   set(D,0x1E)
+   set(E,0x00)
    goto(nps_part2)
 nps_part3b:
-   set(D,$19)
-   set(E,$18)
+   set(D,0x19)
+   set(E,0x18)
    goto(nps_part4)
 nps_part3c:
    get(F,VAR_EVEPROG)
-   if(F,CG,8,RET)
+   if(F,CG,8,GRET)
    panspeed(0)
-   align($0E,$0C)
-   pan($0B,$08)
+   align(0x0E,0x0C)
+   pan(0x0B,0x08)
    sync
    group
    sync
@@ -1886,25 +1886,25 @@ nps_part4:
    fadeout(X_FADE)
    lmap(MAP_NPS_P4,     D,E)
    zone(ZONE_NPS)
-   cstep(nps_part4a,    $1A,$18)
-   cstep(nps_part4b,    $7F,$05)
-   cstep(nps_boss,      $09,$08)
+   cstep(nps_part4a,    0x1A,0x18)
+   cstep(nps_part4b,    0x7F,0x05)
+   cstep(nps_boss,      0x09,0x08)
    fadein(X_FADE)
    end
 nps_part4a:
-   set(D,$00)
-   set(E,$0C)
+   set(D,0x00)
+   set(E,0x0C)
    goto(nps_part3)
 nps_part4b:
-   set(D,$0A)
-   set(E,$03)
+   set(D,0x0A)
+   set(E,0x03)
    goto(nps_part5)
 nps_boss:
    get(F,VAR_EVEPROG)
-   if(F,CG,9,RET)
-   align($09,$08)
+   if(F,CG,9,GRET)
+   align(0x09,0x08)
    sync
-   ldude(4,NPC_WOLF,    $09,$02,DOWN,STAND)
+   ldude(4,NPC_WOLF,    0x09,0x02,DOWN,STAND)
    group
    frame(4,CEL_DOWN1)
    walk(4,DOWN,5)
@@ -1947,16 +1947,16 @@ nps_part5:
 nps_part5_nf:
    lmap(MAP_NPS_P5,     D,E)
    zone(ZONE_NPS)
-   cstep(nps_part5a,    $0B,$03)
-   chstep(nps_part5b,   $00,$09,11)
-   csearch(nps_sign1,   $04,$06,S_U)
+   cstep(nps_part5a,    0x0B,0x03)
+   chstep(nps_part5b,   0x00,0x09,11)
+   csearch(nps_sign1,   0x04,0x06,S_U)
    fadein(G)
    get(A,VAR_NPSBLOCK)
    if(A,CE,1,nps_part5_blocked)
    end
 nps_part5a:
-   set(D,$00)
-   set(E,$05)
+   set(D,0x00)
+   set(E,0x05)
    goto(nps_part4)
 nps_part5b:
 ;   fadeout(X_FADE)
@@ -1993,15 +1993,15 @@ nps_part5_blocked:
 nps_part6:
    fadeout(X_FADE)
    lmap(MAP_NPS_P6,     D,E)
-   ldude(4,NPC_DEAD,    $02,$06,DOWN,STAND)
-   ldude(5,NPC_DEAD,    $07,$04,DOWN,STAND)
-   ldude(6,NPC_DEAD,    $0D,$06,DOWN,STAND)
+   ldude(4,NPC_DEAD,    0x02,0x06,DOWN,STAND)
+   ldude(5,NPC_DEAD,    0x07,0x04,DOWN,STAND)
+   ldude(6,NPC_DEAD,    0x0D,0x06,DOWN,STAND)
    frame(4,0)
    frame(5,1)
    frame(6,2)
    cstep(nps_part6a,    7,13)
-   ctres($74,IT_HPLO,     $08,$03,$3B,SFX_CHEST)
-   ctres($75,IT_HPLO,     $09,$03,$3B,SFX_CHEST)
+   ctres(0x74,IT_HPLO,     0x08,0x03,0x3B,SFX_CHEST)
+   ctres(0x75,IT_HPLO,     0x09,0x03,0x3B,SFX_CHEST)
    ctalk(nps_part6_guy1, 4)
    ctalk(nps_part6_guy2, 5)
    ctalk(nps_part6_guy3, 6)
@@ -2013,48 +2013,48 @@ nps_part6a:
    goto(nps_part3)
 nps_part6_guy1:
    get(A,VAR_NPS6_G1)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_NPS6_G1)
    sfx(SFX_SEARCH)
    give(IT_CIron)
    end
 nps_part6_guy2:
    get(A,VAR_NPS6_G2)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_NPS6_G2)
    sfx(SFX_SEARCH)
    give(IT_HLeather)
    end
 nps_part6_guy3:
    get(A,VAR_NPS6_G3)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_NPS6_G3)
    sfx(SFX_SEARCH)
    give(IT_AU_50)
    end
 
 nps_bridge1:
-   tile(10,16,$43)
-   tile(10,17,$00)
-   tile(11,16,$33)
-   tile(12,16,$33)
-   tile(11,17,$14)
-   tile(12,17,$14)
-   tile(11,18,$33)
-   tile(12,18,$33)
-   tile(13,17,$00)
+   tile(10,16,0x43)
+   tile(10,17,0x00)
+   tile(11,16,0x33)
+   tile(12,16,0x33)
+   tile(11,17,0x14)
+   tile(12,17,0x14)
+   tile(11,18,0x33)
+   tile(12,18,0x33)
+   tile(13,17,0x00)
    end
 
 nps_bridge2:
-   tile(10,16,$47)
-   tile(10,17,$33)
-   tile(11,16,$00)
-   tile(12,16,$00)
-   tile(11,17,$3F)
-   tile(12,17,$3F)
-   tile(11,18,$00)
-   tile(12,18,$00)
-   tile(13,17,$33)
+   tile(10,16,0x47)
+   tile(10,17,0x33)
+   tile(11,16,0x00)
+   tile(12,16,0x00)
+   tile(11,17,0x3F)
+   tile(12,17,0x3F)
+   tile(11,18,0x00)
+   tile(12,18,0x00)
+   tile(13,17,0x33)
    end
 nps_sign1:
    say(S14_STXT1)
@@ -2068,22 +2068,22 @@ L_SELERA:
 l_selera_normal:
 
    lmap(F,      B,C)
-   cvstep(OVERWORLD,     127,$05,8)
-   cstep(SLR_CONNR,      $17,$07)
-   cstep(SLR_HOUS1,      $0B,$0F)
-   cstep(SLR_HOUS2,      $15,$12)
-   cstep(SLR_INN,        $08,$05)
-   cstep(SLR_WEAPN,      $0F,$08)
-   cstep(SLR_ITEM,       $13,$0D)
-   csearch(SLR_SIGN,     $0F,$18, S_U)              ; sign
-   csearch(SLR_TOMB2,    $06,$19, S_U)              ; tomb
-   csearch(SLR_TOMB3,    $08,$19, S_U)              ; tomb
-   csearch(SLR_TOMB4,    $05,$1B, S_U)              ; tomb
-   csearch(SLR_TOMB5,    $07,$1B, S_U)              ; tomb
-   csearch(SLR_TOMB6,    $09,$1B, S_U)              ; sign
-   ctres($77,IT_AU_50,   $0A,$04,0,SFX_SEARCH)      ; crate
-   ctres($78,IT_HPLO,      $11,$0C,0,SFX_SEARCH)      ; pot
-   csearch(SLR_ANNA,$04,$19,S_U)
+   cvstep(OVERWORLD,     127,0x05,8)
+   cstep(SLR_CONNR,      0x17,0x07)
+   cstep(SLR_HOUS1,      0x0B,0x0F)
+   cstep(SLR_HOUS2,      0x15,0x12)
+   cstep(SLR_INN,        0x08,0x05)
+   cstep(SLR_WEAPN,      0x0F,0x08)
+   cstep(SLR_ITEM,       0x13,0x0D)
+   csearch(SLR_SIGN,     0x0F,0x18, S_U)              ; sign
+   csearch(SLR_TOMB2,    0x06,0x19, S_U)              ; tomb
+   csearch(SLR_TOMB3,    0x08,0x19, S_U)              ; tomb
+   csearch(SLR_TOMB4,    0x05,0x1B, S_U)              ; tomb
+   csearch(SLR_TOMB5,    0x07,0x1B, S_U)              ; tomb
+   csearch(SLR_TOMB6,    0x09,0x1B, S_U)              ; sign
+   ctres(0x77,IT_AU_50,   0x0A,0x04,0,SFX_SEARCH)      ; crate
+   ctres(0x78,IT_HPLO,      0x11,0x0C,0,SFX_SEARCH)      ; pot
+   csearch(SLR_ANNA,0x04,0x19,S_U)
 
    get(A,VAR_NONLINEAR)
    if(A,CE,1,SLR_WRECKED)
@@ -2095,11 +2095,11 @@ l_selera_normal:
 
 SLR_NORM:
    song(SNG_TOWN1)
-   lguy(NPC_LADY1,         $05,$08, SLR_DTXT1)        ; welcome lady
-   lguy(NPC_LADY4,         $0C,$09, SLR_DTXT2)        ; peace lady
-   ldude(10, NPC_MAN1,     $08,$1A, UP,     STAND)    ; old man in graveyard
-   ldude(11, NPC_LADY3,    $17,$19, RIGHT,  STAND)    ; lady in patch
-   lguy(NPC_BOY2,          $11,$16, SLR_DTXT16)         ; boy
+   lguy(NPC_LADY1,         0x05,0x08, SLR_DTXT1)        ; welcome lady
+   lguy(NPC_LADY4,         0x0C,0x09, SLR_DTXT2)        ; peace lady
+   ldude(10, NPC_MAN1,     0x08,0x1A, UP,     STAND)    ; old man in graveyard
+   ldude(11, NPC_LADY3,    0x17,0x19, RIGHT,  STAND)    ; lady in patch
+   lguy(NPC_BOY2,          0x11,0x16, SLR_DTXT16)         ; boy
    ctalk(S2_OLDMAN, 10)
    ctalk(S2_LADY, 11)
    frame(11, CEL_RIGHT1)
@@ -2111,22 +2111,22 @@ SLR_NORM:
 SLR_EP4:
    song(SNG_NIGHTTIME)
    colshift(C_DBLUE)
-   ldude(10, NPC_LADY3,    $17,$19, RIGHT,  STAND)    ; lady in patch
+   ldude(10, NPC_LADY3,    0x17,0x19, RIGHT,  STAND)    ; lady in patch
    ctalk(S8_LADY, 10)
    frame(10, CEL_RIGHT1)
 
-   csearch(SLR_LOCKED, $0b,$0f,S_U)
-   csearch(SLR_LOCKED, $15,$12,S_U)
-   csearch(SLR_LOCKED, $08,$05,S_U)
-   csearch(SLR_LOCKED, $0f,$08,S_U)
-   csearch(SLR_LOCKED, $13,$0d,S_U)
+   csearch(SLR_LOCKED, 0x0b,0x0f,S_U)
+   csearch(SLR_LOCKED, 0x15,0x12,S_U)
+   csearch(SLR_LOCKED, 0x08,0x05,S_U)
+   csearch(SLR_LOCKED, 0x0f,0x08,S_U)
+   csearch(SLR_LOCKED, 0x13,0x0d,S_U)
 
    ; lock the doors
-   tile($0B,$0F,$33)
-   tile($15,$12,$33)
-   tile($08,$05,$33)
-   tile($0F,$08,$33)
-   tile($13,$0D,$33)
+   tile(0x0B,0x0F,0x33)
+   tile(0x15,0x12,0x33)
+   tile(0x08,0x05,0x33)
+   tile(0x0F,0x08,0x33)
+   tile(0x13,0x0D,0x33)
 SLR_WRECKED:
    end
 
@@ -2170,7 +2170,7 @@ S8_LADY:
 
 slr_sceneA:
    get(A,VAR_RET_SLR)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_RET_SLR)
 
    sleep(16)
@@ -2226,40 +2226,40 @@ slr_sceneA:
 
 tgl_set_out:
    get(A,VAR_EVEPROG)
-   if(A,CL,2,RET)
-   tile(16, 8,$03)
-   tile(27, 8,$03)
-   tile(18,12,$03)
-   tile(25,12,$03)
+   if(A,CL,2,GRET)
+   tile(16, 8,0x03)
+   tile(27, 8,0x03)
+   tile(18,12,0x03)
+   tile(25,12,0x03)
    end
 tgl_set_hall:
    get(A,VAR_EVEPROG)
-   if(A,CL,2,RET)
-   tile(12,16,$be)
-   tile(12,18,$be)
-   tile(12,20,$be)
-   tile(20,16,$be)
-   tile(20,18,$be)
-   tile(20,20,$be)
-   tile( 6,26,$be)
-   tile(26,26,$be)
+   if(A,CL,2,GRET)
+   tile(12,16,0xbe)
+   tile(12,18,0xbe)
+   tile(12,20,0xbe)
+   tile(20,16,0xbe)
+   tile(20,18,0xbe)
+   tile(20,20,0xbe)
+   tile( 6,26,0xbe)
+   tile(26,26,0xbe)
    end
 tgl_set_base1:
    get(A,VAR_EVEPROG)
-   if(A,CL,2,RET)
-   tile( 2, 5,$be)
+   if(A,CL,2,GRET)
+   tile( 2, 5,0xbe)
    end
 tgl_set_base2:
    get(A,VAR_EVEPROG)
-   if(A,CL,2,RET)
-   tile( 1, 4,$be)
-   tile(15, 4,$be)
+   if(A,CL,2,GRET)
+   tile( 1, 4,0xbe)
+   tile(15, 4,0xbe)
    end
 tgl_set_gate:
    get(A,VAR_EVEPROG)
-   if(A,CL,2,RET)
-   tile( 5, 3,$be)
-   tile(12, 3,$be)
+   if(A,CL,2,GRET)
+   tile( 5, 3,0xbe)
+   tile(12, 3,0xbe)
    end
 
 tgl_book1:
@@ -2277,7 +2277,7 @@ tgl_scene26:
    put(1,VAR_TGLESC)
    lmap(MAP_TGL_THRON,     7,9)
    lockoff
-   ldude(4,NPC_KING,       $07,$05,  DOWN,  STAND)
+   ldude(4,NPC_KING,       0x07,0x05,  DOWN,  STAND)
    partyarr
    detach
    warp(0,   7,  7,UP)
@@ -2313,7 +2313,7 @@ tgl_scene26:
    walk(4,DOWN,1)
    sync
 
-   ldude(5,NPC_SOLDIER,    $07,$0d, DOWN, STAND)
+   ldude(5,NPC_SOLDIER,    0x07,0x0d, DOWN, STAND)
    walk(5,UP,1)
    sleep(32)
    walk(5,UP,1)
@@ -2339,7 +2339,7 @@ tgl_scene26:
    say(S26_ETXT8)
    sleep(16)
    say(S26_ETXT9)
-   ldude(5,NPC_DEAD,       $07,$09, DOWN, STAND)
+   ldude(5,NPC_DEAD,       0x07,0x09, DOWN, STAND)
    frame(5,3)
    sleep(16)
    frame(5,2)
@@ -2394,8 +2394,8 @@ tgl_scene26:
 ;  fadeout(X_FADE)
 
    call(TGL_HALLD)
-   tile($06,$0d,$08)
-   csearch(tgl_scene27_a,  $06,$0d,S_D)
+   tile(0x06,0x0d,0x08)
+   csearch(tgl_scene27_a,  0x06,0x0d,S_D)
    lockon(0)
    end
 
@@ -2422,11 +2422,11 @@ tgl_scene27_b:
    del(1)
    del(2)
    del(3)
-   ldude(4,NPC_KING,       $06,$06,  DOWN, STAND)
-   ldude(6,NPC_SOLDIER,    $08,$06,  DOWN, STAND)
-   ldude(7,NPC_DEAD,       $07,$09,  DOWN, STAND)
+   ldude(4,NPC_KING,       0x06,0x06,  DOWN, STAND)
+   ldude(6,NPC_SOLDIER,    0x08,0x06,  DOWN, STAND)
+   ldude(7,NPC_DEAD,       0x07,0x09,  DOWN, STAND)
    frame(7,2)
-   ldude(8,NPC_KRAIT,      $06,$0d,  DOWN, STAND)
+   ldude(8,NPC_KRAIT,      0x06,0x0d,  DOWN, STAND)
 
    fadein(X_FADE)
 
@@ -2441,7 +2441,7 @@ tgl_scene27_b:
    walk(6,DOWN,2)
 
    sfx(SFX_ENGULF)
-   ldude(5,NPC_FIRE,       $06,$0a,  DOWN, STAND)
+   ldude(5,NPC_FIRE,       0x06,0x0a,  DOWN, STAND)
    frame(5,2)
    sleep(8)
    frame(5,3)
@@ -2453,7 +2453,7 @@ tgl_scene27_b:
    walk(5,UP,1)
    sync
    sfx(SFX_ENGULF)
-   ldude(6,NPC_DEAD,       $06,$09,  DOWN, STAND)
+   ldude(6,NPC_DEAD,       0x06,0x09,  DOWN, STAND)
    frame(6,3)
    frame(5,5)
    sleep(8)
@@ -2485,8 +2485,8 @@ tgl_scene27_b:
 
    panspeed(1)
    sfx(SFX_ENGULF)
-   ldude(5,NPC_FIRE,       $06,$08,  DOWN, STAND)
-   ldude(9,NPC_FIRE,       $06,$09,  DOWN, STAND)
+   ldude(5,NPC_FIRE,       0x06,0x08,  DOWN, STAND)
+   ldude(9,NPC_FIRE,       0x06,0x09,  DOWN, STAND)
    frame(5,2)
    frame(9,2)
    sleep(8)
@@ -2516,19 +2516,19 @@ tgl_scene27_b_skip:
 
 tgl_showgem:
    get(A,VAR_TGLGEM)
-   if(A,CE,1,RET)
-   tile($06,$03,$95)
+   if(A,CE,1,GRET)
+   tile(0x06,0x03,0x95)
    end
 
 tgl_soulgem:
    get(A,VAR_TGLGEM)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    get(A,VAR_TGLESC)
    if(A,CE,1,tgl_soulgem1)
    say(TGL_STXT2)
    end
 tgl_soulgem1:
-   align($06,$04)
+   align(0x06,0x04)
    sync
    group
    sync
@@ -2556,7 +2556,7 @@ tgl_soulgem1:
    face(1,UP)
    sleep(16)
    sfx(SFX_SEARCH)
-   tile($06,$03,$96)
+   tile(0x06,0x03,0x96)
    sleep(32)
    walk(2,RIGHT,1)
    walk(0,LEFT,1)
@@ -2580,24 +2580,24 @@ tgl_normal:
 
    lmap(F,         B,C)
    call(tgl_set_out)
-   chstep(OVERWORLD,       $00,$00,$2C)
-   chstep(OVERWORLD,       $00,$24,$2C)
-   cvstep(OVERWORLD,       $00,$00,$25)
-   cvstep(OVERWORLD,       $2B,$00,$25)
-   chstep(TGL_GATEE,       $14,$1C,$04)
-   chstep(TGL_GATEX,       $15,$17,$02)
-   chstep(TGL_HALL,        $15,$14,$02)
-   chstep(TGL_THRONEB,     $15,$08,$02)
-   cstep(TGL_TOWA,         $0E,$15)       ; lowerleft
-   cstep(TGL_TOWB,         $1D,$15)       ; lowerright
-   cstep(TGL_TOWC,         $0E,$02)       ; topleft    3
-   cstep(TGL_TOWD,         $1D,$02)       ; topright   3
-   cstep(TGL_TOWE,         $0E,$0D)       ; lowerleft  3
-   cstep(TGL_TOWF,         $1D,$0D)       ; lowerright 3
-   csearch(TGL_GOLEM,      $10,$08,S_ALL)
-   csearch(TGL_GOLEM,      $12,$0C,S_ALL)
-   csearch(TGL_GOLEM,      $19,$0C,S_ALL)
-   csearch(TGL_GOLEM,      $1B,$08,S_ALL)
+   chstep(OVERWORLD,       0x00,0x00,0x2C)
+   chstep(OVERWORLD,       0x00,0x24,0x2C)
+   cvstep(OVERWORLD,       0x00,0x00,0x25)
+   cvstep(OVERWORLD,       0x2B,0x00,0x25)
+   chstep(TGL_GATEE,       0x14,0x1C,0x04)
+   chstep(TGL_GATEX,       0x15,0x17,0x02)
+   chstep(TGL_HALL,        0x15,0x14,0x02)
+   chstep(TGL_THRONEB,     0x15,0x08,0x02)
+   cstep(TGL_TOWA,         0x0E,0x15)       ; lowerleft
+   cstep(TGL_TOWB,         0x1D,0x15)       ; lowerright
+   cstep(TGL_TOWC,         0x0E,0x02)       ; topleft    3
+   cstep(TGL_TOWD,         0x1D,0x02)       ; topright   3
+   cstep(TGL_TOWE,         0x0E,0x0D)       ; lowerleft  3
+   cstep(TGL_TOWF,         0x1D,0x0D)       ; lowerright 3
+   csearch(TGL_GOLEM,      0x10,0x08,S_ALL)
+   csearch(TGL_GOLEM,      0x12,0x0C,S_ALL)
+   csearch(TGL_GOLEM,      0x19,0x0C,S_ALL)
+   csearch(TGL_GOLEM,      0x1B,0x08,S_ALL)
 
    get(F,VAR_EVEPROG)
    if(F,CE,4,TGL_EP4)   ; EP4? nighttime
@@ -2607,48 +2607,48 @@ tgl_normal:
    get(A,VAR_TGL1)
    if(A,CE,1,tgl_wreck)
 
-   ldude(4,NPC_SOLDIER,    $15,$0E,DOWN,WALK)
+   ldude(4,NPC_SOLDIER,    0x15,0x0E,DOWN,WALK)
    ctalk(TGL_G2,4)
-   ldude(5,NPC_SOLDIER,    $0D,$01,DOWN,STAND)
+   ldude(5,NPC_SOLDIER,    0x0D,0x01,DOWN,STAND)
    ctalk(TGL_G3,5)
-   ldude(6,NPC_SOLDIER,    $1E,$0C,DOWN,STAND)
+   ldude(6,NPC_SOLDIER,    0x1E,0x0C,DOWN,STAND)
    ctalk(TGL_G4,6)
-   ldude(7,NPC_SOLDIER,    $01,$01,UP,STAND)
+   ldude(7,NPC_SOLDIER,    0x01,0x01,UP,STAND)
    frame(7, CEL_UP1)
    ctalk(TGL_G6,7)
-   lguy(NPC_MAN2,          $21,$0F,TGL_DTXT2)
+   lguy(NPC_MAN2,          0x21,0x0F,TGL_DTXT2)
    end
 TGL_EP4:
    song(SNG_NIGHTTIME)
    colshift(C_DBLUE)
-   ldude(4,NPC_SOLDIER,    $0E,$16,DOWN,STAND)
+   ldude(4,NPC_SOLDIER,    0x0E,0x16,DOWN,STAND)
    ctalk(TGL_GATE_G1,4)
-   ldude(5,NPC_SOLDIER,    $15,$15,DOWN,STAND)
+   ldude(5,NPC_SOLDIER,    0x15,0x15,DOWN,STAND)
    ctalk(TGL_GATE_G1,5)
-   ldude(6,NPC_SOLDIER,    $16,$15,DOWN,STAND)
+   ldude(6,NPC_SOLDIER,    0x16,0x15,DOWN,STAND)
    ctalk(TGL_GATE_G1,6)
-   ldude(7,NPC_KING,       $1D,$0C,UP,STAND)
+   ldude(7,NPC_KING,       0x1D,0x0C,UP,STAND)
    end
 tgl_wreck:
    end
 
 
 TGL_GATEX:
-   set(D,$08)
-   set(E,$02)
+   set(D,0x08)
+   set(E,0x02)
 TGL_GATEJOIN:
    fadeout(X_FADE)
 l_tgl_gate:
    lmap(MAP_TGL_GATE,      D,E)
    call(tgl_set_gate)
-   chstep(TGL_ENTER,       $08,$01,$02)
-   chstep(TGL_EXIT,        $07,$06,$04)
-   ldude(4,NPC_SOLDIER,    $07,$03, DOWN,  STAND)
-   ldude(5,NPC_SOLDIER,    $0A,$03, DOWN,  STAND)
+   chstep(TGL_ENTER,       0x08,0x01,0x02)
+   chstep(TGL_EXIT,        0x07,0x06,0x04)
+   ldude(4,NPC_SOLDIER,    0x07,0x03, DOWN,  STAND)
+   ldude(5,NPC_SOLDIER,    0x0A,0x03, DOWN,  STAND)
    ctalk(TGL_GATE_G1, 4)
    ctalk(TGL_GATE_G1, 5)
-   csearch(TGL_GOLEM,      $05,$03,S_ALL)
-   csearch(TGL_GOLEM,      $0C,$03,S_ALL)
+   csearch(TGL_GOLEM,      0x05,0x03,S_ALL)
+   csearch(TGL_GOLEM,      0x0C,0x03,S_ALL)
 
    get(A,VAR_EVEPROG)
    cif(A,CE,4,tgl_gatejoin_night)     ; EP4 = nighttime
@@ -2656,71 +2656,71 @@ l_tgl_gate:
    fadein( X_FADE)
    end
 tgl_gatejoin_night:
-   tile($08,$01,$b2)
-   tile($09,$01,$b2)
+   tile(0x08,0x01,0xb2)
+   tile(0x09,0x01,0xb2)
    end
 
 TGL_GATEE:
-   set(D,$08)
-   set(E,$05)
+   set(D,0x08)
+   set(E,0x05)
    goto(TGL_GATEJOIN)
 
 TGL_ENTER:
-   set(B,$15)
-   set(C,$17)
+   set(B,0x15)
+   set(C,0x17)
    goto(I_TAGEL)
 
 TGL_EXIT:
-   set(B,$15)
-   set(C,$1D)
+   set(B,0x15)
+   set(C,0x1D)
    goto(I_TAGEL)
 
 TGL_HALL:
-   set(D,$10)
-   set(E,$1B)
+   set(D,0x10)
+   set(E,0x1B)
 TGL_HALLJOIN:
    fadeout(X_FADE)
    lmap(MAP_TGL_HALL,      D,E)
    call(tgl_set_hall)
-   chstep(TGL_HALLA,       $0F,$1C,$03)   ; front door
-   cstep(TGL_HALLB,        $0C,$0E)       ; left throne
-   cstep(TGL_HALLC,        $14,$0E)       ; right throne
-   cstep(TGL_HALLD,        $10,$0D)       ; kings room
-   cstep(TGL_HALLE,        $02,$05)       ; left tower
-   cstep(TGL_HALLF,        $1E,$05)       ; right tower
-   cstep(TGL_HALLG,        $06,$05)       ; left basement
-   cstep(TGL_HALLH,        $1A,$05)       ; right basement
-   csearch(TGL_GOLEM,      $0C,$10,S_ALL)
-   csearch(TGL_GOLEM,      $14,$10,S_ALL)
-   csearch(TGL_GOLEM,      $0C,$12,S_ALL)
-   csearch(TGL_GOLEM,      $14,$12,S_ALL)
-   csearch(TGL_GOLEM,      $0C,$14,S_ALL)
-   csearch(TGL_GOLEM,      $14,$14,S_ALL)
-   ldude(4,NPC_SOLDIER,    $10,$13,DOWN,WALK)
+   chstep(TGL_HALLA,       0x0F,0x1C,0x03)   ; front door
+   cstep(TGL_HALLB,        0x0C,0x0E)       ; left throne
+   cstep(TGL_HALLC,        0x14,0x0E)       ; right throne
+   cstep(TGL_HALLD,        0x10,0x0D)       ; kings room
+   cstep(TGL_HALLE,        0x02,0x05)       ; left tower
+   cstep(TGL_HALLF,        0x1E,0x05)       ; right tower
+   cstep(TGL_HALLG,        0x06,0x05)       ; left basement
+   cstep(TGL_HALLH,        0x1A,0x05)       ; right basement
+   csearch(TGL_GOLEM,      0x0C,0x10,S_ALL)
+   csearch(TGL_GOLEM,      0x14,0x10,S_ALL)
+   csearch(TGL_GOLEM,      0x0C,0x12,S_ALL)
+   csearch(TGL_GOLEM,      0x14,0x12,S_ALL)
+   csearch(TGL_GOLEM,      0x0C,0x14,S_ALL)
+   csearch(TGL_GOLEM,      0x14,0x14,S_ALL)
+   ldude(4,NPC_SOLDIER,    0x10,0x13,DOWN,WALK)
    ctalk(TGL_G1,4)
 
    get(F,VAR_EVEPROG)
    if(F,CNE,3,TGL_HALL_E0) ; not Scene 7?
-   ldude(5,NPC_SOLDIER,    $10,$0E,DOWN,STAND)
+   ldude(5,NPC_SOLDIER,    0x10,0x0E,DOWN,STAND)
    ctalk(TGL_G5,5)
 TGL_HALL_E0:
    fadein( X_FADE)
    end
 
 TGL_HALLA:
-   set(B, $15)
-   set(C, $15)
+   set(B, 0x15)
+   set(C, 0x15)
    goto(I_TAGEL)
 TGL_HALLB:
-   set(D, $02)
-   set(E, $0A)
+   set(D, 0x02)
+   set(E, 0x0A)
 TGL_HALLBJOIN:
    fadeout(X_FADE)
    lmap(MAP_TGL_THRON,     D,E)
-   cstep(TGL_THRONA,       $02,$0A)
-   cstep(TGL_THRONB,       $0C,$0A)
-   chstep(TGL_THRONC,      $06,$0C,$03)
-   chstep(TGL_EVE1,        $05,$09,$05)
+   cstep(TGL_THRONA,       0x02,0x0A)
+   cstep(TGL_THRONB,       0x0C,0x0A)
+   chstep(TGL_THRONC,      0x06,0x0C,0x03)
+   chstep(TGL_EVE1,        0x05,0x09,0x05)
    get(F,VAR_EVEPROG)
    if(F,CL,3,TGL_THRON_E1)
    ;if(F,CGE,3,TGL_THRON_E2)
@@ -2729,10 +2729,10 @@ TGL_THRON_ED:
    fadein( X_FADE)
    end
 TGL_THRON_E1:
-   ldude(4,NPC_KING,       $07,$04, RIGHT,  STAND)    ; king
-   ldude(5,NPC_ADVISOR,    $08,$04,  LEFT,  STAND)    ; advisor
-   ldude(6,NPC_GOLEM,      $04,$08, RIGHT,  STAND)    ; golem
-   ldude(7,NPC_GOLEM,      $0A,$08,  LEFT,  STAND)    ; golem
+   ldude(4,NPC_KING,       0x07,0x04, RIGHT,  STAND)    ; king
+   ldude(5,NPC_ADVISOR,    0x08,0x04,  LEFT,  STAND)    ; advisor
+   ldude(6,NPC_GOLEM,      0x04,0x08, RIGHT,  STAND)    ; golem
+   ldude(7,NPC_GOLEM,      0x0A,0x08,  LEFT,  STAND)    ; golem
    get(A,VAR_EVEPROG)
    if(A,CGE,2,tgl_nofreeze1)
    frame(6,CEL_RIGHT1)
@@ -2744,8 +2744,8 @@ tgl_nofreeze1:
    ctalk(TGL_GOLEM, 7)
    goto(TGL_THRON_ED)
 TGL_THRON_E2:
-   ldude(6,NPC_GOLEM,      $04,$08, RIGHT,  STAND)    ; golem
-   ldude(7,NPC_GOLEM,      $0A,$08,  LEFT,  STAND)    ; golem
+   ldude(6,NPC_GOLEM,      0x04,0x08, RIGHT,  STAND)    ; golem
+   ldude(7,NPC_GOLEM,      0x0A,0x08,  LEFT,  STAND)    ; golem
 //   frame(6,CEL_RIGHT1)
 //   frame(7,CEL_LEFT1)
    ctalk(TGL_GOLEM, 6)
@@ -2754,73 +2754,73 @@ TGL_THRON_E2:
 
 TGL_EVE1:
    get(F,VAR_EVEPROG)
-   if(F,CNE,1,RET)
-   align($07,$09)
+   if(F,CNE,1,GRET)
+   align(0x07,0x09)
    sync
    face(0,UP)
    goto(EVT_SCENE4)
 
 TGL_HALLC:
-   set(D, $0C)
-   set(E, $0A)
+   set(D, 0x0C)
+   set(E, 0x0A)
    goto(TGL_HALLBJOIN)
 TGL_HALLD:
    fadeout(X_FADE)
-   lmap(MAP_TGL_KING,      $06,$0C)
+   lmap(MAP_TGL_KING,      0x06,0x0C)
 tgl_halld_sew:
    call(tgl_showgem)
-   cstep(TGL_KING,         $06,$0D)
-   csearch(tgl_soulgem,    $06,$03,S_ALL)
-   csearch(tgl_desk1,      $02,$03,S_ALL)
-   csearch(tgl_desk1,      $03,$03,S_ALL)
-   csearch(tgl_scene27_b,  $0a,$02,S_U)
-   ctres($79,IT_SPLo,      $08,$07,$70,SFX_CHEST)
-   ctres($7a,IT_HPLo,      $09,$07,$70,SFX_CHEST)
+   cstep(TGL_KING,         0x06,0x0D)
+   csearch(tgl_soulgem,    0x06,0x03,S_ALL)
+   csearch(tgl_desk1,      0x02,0x03,S_ALL)
+   csearch(tgl_desk1,      0x03,0x03,S_ALL)
+   csearch(tgl_scene27_b,  0x0a,0x02,S_U)
+   ctres(0x79,IT_SPLo,      0x08,0x07,0x70,SFX_CHEST)
+   ctres(0x7a,IT_HPLo,      0x09,0x07,0x70,SFX_CHEST)
    fadein( X_FADE)
    end
 TGL_HALLE:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_TOWUL2)
 TGL_HALLF:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_TOWUR2)
 TGL_HALLG:
    goto(TGL_BASE1)
 TGL_HALLH:
-   set(D, $02)
-   set(E, $04)
+   set(D, 0x02)
+   set(E, 0x04)
    goto(TGL_BASE2)
 
 
 TGL_THRONEB:
-   set(D, $07)
-   set(E, $0B)
+   set(D, 0x07)
+   set(E, 0x0B)
    goto(TGL_HALLBJOIN)
 TGL_TOWA:
-   set(D, $04)
-   set(E, $1D)
+   set(D, 0x04)
+   set(E, 0x1D)
    goto(TGL_TOWLL)
 TGL_TOWB:
-   set(D, $1C)
-   set(E, $1D)
+   set(D, 0x1C)
+   set(E, 0x1D)
    goto(TGL_TOWLR)
 TGL_TOWC:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_TOWUL3)
 TGL_TOWD:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_TOWUR3)
 TGL_TOWE:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_TOWLL3)
 TGL_TOWF:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_TOWLR3)
 
 
@@ -2828,50 +2828,50 @@ TGL_TOWLL:
    fadeout(X_FADE)
    lmap(MAP_TGL_HALL,      D,E)
    call(tgl_set_hall)
-   cstep(TGL_TOWLLA,       $04,$1E)
-   cstep(TGL_TOWLLB,       $02,$1A)
-   csearch(TGL_GOLEM,      $06,$1A,S_ALL)
+   cstep(TGL_TOWLLA,       0x04,0x1E)
+   cstep(TGL_TOWLLB,       0x02,0x1A)
+   csearch(TGL_GOLEM,      0x06,0x1A,S_ALL)
    fadein( X_FADE)
    end
 TGL_TOWLLA:
-   set(B, $0E)
-   set(C, $16)
+   set(B, 0x0E)
+   set(C, 0x16)
    goto(I_TAGEL)
 TGL_TOWLLB:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_TOWLL2)
 
 TGL_TOWLL2:
    fadeout(X_FADE)
    lmap(MAP_TGL_TOW1,      D,E)
-   cstep(TGL_TOWLL2A,      $02,$05)
-   cstep(TGL_TOWLL2B,      $06,$05)
+   cstep(TGL_TOWLL2A,      0x02,0x05)
+   cstep(TGL_TOWLL2B,      0x06,0x05)
    fadein( X_FADE)
    end
 TGL_TOWLL2A:
-   set(D, $02)
-   set(E, $1A)
+   set(D, 0x02)
+   set(E, 0x1A)
    goto(TGL_TOWLL)
 TGL_TOWLL2B:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_TOWLL3)
 
 TGL_TOWLL3:
    fadeout(X_FADE)
    lmap(MAP_TGL_TOW2,      D,E)
-   cstep(TGL_TOWLL3A,      $02,$05)
-   cstep(TGL_TOWLL3B,      $06,$05)
+   cstep(TGL_TOWLL3A,      0x02,0x05)
+   cstep(TGL_TOWLL3B,      0x06,0x05)
    fadein( X_FADE)
    end
 TGL_TOWLL3A:
-   set(B, $0E)
-   set(C, $0D)
+   set(B, 0x0E)
+   set(C, 0x0D)
    goto(I_TAGEL)
 TGL_TOWLL3B:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_TOWLL2)
 
 
@@ -2879,60 +2879,60 @@ TGL_TOWLR:
    fadeout(X_FADE)
    lmap(MAP_TGL_HALL,      D,E)
    call(tgl_set_hall)
-   cstep(TGL_TOWLRA,       $1C,$1E)
-   cstep(TGL_TOWLRB,       $1E,$1A)
-   csearch(TGL_GOLEM,      $1A,$1A,S_ALL)
+   cstep(TGL_TOWLRA,       0x1C,0x1E)
+   cstep(TGL_TOWLRB,       0x1E,0x1A)
+   csearch(TGL_GOLEM,      0x1A,0x1A,S_ALL)
    fadein( X_FADE)
    end
 TGL_TOWLRA:
-   set(B, $1D)
-   set(C, $16)
+   set(B, 0x1D)
+   set(C, 0x16)
    goto(I_TAGEL)
 TGL_TOWLRB:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_TOWLR2)
 
 TGL_TOWLR2:
    fadeout(X_FADE)
    lmap(MAP_TGL_TOW2,      D,E)
-   cstep(TGL_TOWLR2A,      $02,$05)
-   cstep(TGL_TOWLR2B,      $06,$05)
+   cstep(TGL_TOWLR2A,      0x02,0x05)
+   cstep(TGL_TOWLR2B,      0x06,0x05)
    fadein( X_FADE)
    end
 TGL_TOWLR2A:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_TOWLR3)
 TGL_TOWLR2B:
-   set(D, $1E)
-   set(E, $1A)
+   set(D, 0x1E)
+   set(E, 0x1A)
    goto(TGL_TOWLR)
 
 TGL_TOWLR3:
    fadeout(X_FADE)
    lmap(MAP_TGL_TOW1,      D,E)
-   cstep(TGL_TOWLR3A,      $02,$05)
-   cstep(TGL_TOWLR3B,      $06,$05)
+   cstep(TGL_TOWLR3A,      0x02,0x05)
+   cstep(TGL_TOWLR3B,      0x06,0x05)
    fadein( X_FADE)
    end
 TGL_TOWLR3A:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_TOWLR2)
 TGL_TOWLR3B:
    get(F,VAR_EVEPROG)
    if(F,CE,4,TGL_TOWMEET)
-   set(B, $1D)
-   set(C, $0D)
+   set(B, 0x1D)
+   set(C, 0x0D)
    goto(I_TAGEL)
 TGL_TOWMEET:
    fadeout(X_FADE)
-   lmap(MAP_TGL_TOW3,      $05,$09)
+   lmap(MAP_TGL_TOW3,      0x05,0x09)
    song(SNG_PROPHECY)
    face(0,UP)
-   ldude(4,NPC_KING,       $04,$07,UP,STAND)
-   camera($05,$07)
+   ldude(4,NPC_KING,       0x04,0x07,UP,STAND)
+   camera(0x05,0x07)
    fadein( X_FADE)
    goto(EVT_SCENE10)
 
@@ -2940,105 +2940,105 @@ TGL_TOWMEET:
 TGL_TOWUL2:
    fadeout(X_FADE)
    lmap(MAP_TGL_TOW1,      D,E)
-   cstep(TGL_TOWUL2A,      $02,$05)
-   cstep(TGL_TOWUL2B,      $06,$05)
+   cstep(TGL_TOWUL2A,      0x02,0x05)
+   cstep(TGL_TOWUL2B,      0x06,0x05)
    fadein( X_FADE)
    end
 TGL_TOWUL2A:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_HALLJOIN)
 TGL_TOWUL2B:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_TOWUL3)
 
 TGL_TOWUL3:
    fadeout(X_FADE)
    lmap(MAP_TGL_TOW2,      D,E)
-   cstep(TGL_TOWUL3A,      $02,$05)
-   cstep(TGL_TOWUL3B,      $06,$05)
+   cstep(TGL_TOWUL3A,      0x02,0x05)
+   cstep(TGL_TOWUL3B,      0x06,0x05)
    fadein( X_FADE)
    end
 TGL_TOWUL3A:
-   set(B, $0E)
-   set(C, $02)
+   set(B, 0x0E)
+   set(C, 0x02)
    goto(I_TAGEL)
 TGL_TOWUL3B:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_TOWUL2)
 
 
 TGL_TOWUR2:
    fadeout(X_FADE)
    lmap(MAP_TGL_TOW2,      D,E)
-   cstep(TGL_TOWUR2A,      $02,$05)
-   cstep(TGL_TOWUR2B,      $06,$05)
+   cstep(TGL_TOWUR2A,      0x02,0x05)
+   cstep(TGL_TOWUR2B,      0x06,0x05)
    fadein( X_FADE)
    end
 TGL_TOWUR2A:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_TOWUR3)
 TGL_TOWUR2B:
-   set(D, $1E)
-   set(E, $05)
+   set(D, 0x1E)
+   set(E, 0x05)
    goto(TGL_HALLJOIN)
 
 TGL_TOWUR3:
    fadeout(X_FADE)
    lmap(MAP_TGL_TOW1,      D,E)
-   cstep(TGL_TOWUR3A,      $02,$05)
-   cstep(TGL_TOWUR3B,      $06,$05)
+   cstep(TGL_TOWUR3A,      0x02,0x05)
+   cstep(TGL_TOWUR3B,      0x06,0x05)
    fadein( X_FADE)
    end
 TGL_TOWUR3A:
-   set(D, $02)
-   set(E, $05)
+   set(D, 0x02)
+   set(E, 0x05)
    goto(TGL_TOWUR2)
 TGL_TOWUR3B:
-   set(B, $1D)
-   set(C, $02)
+   set(B, 0x1D)
+   set(C, 0x02)
    goto(I_TAGEL)
 
 
 TGL_THRONA:
-   set(D, $0C)
-   set(E, $0E)
+   set(D, 0x0C)
+   set(E, 0x0E)
    goto(TGL_HALLJOIN)
 TGL_THRONB:
-   set(D, $14)
-   set(E, $0E)
+   set(D, 0x14)
+   set(E, 0x0E)
    goto(TGL_HALLJOIN)
 TGL_THRONC:
-   set(B, $15)
-   set(C, $09)
+   set(B, 0x15)
+   set(C, 0x09)
    goto(I_TAGEL)
 
 TGL_KING:
-   set(D, $10)
-   set(E, $0D)
+   set(D, 0x10)
+   set(E, 0x0D)
    goto(TGL_HALLJOIN)
 
 TGL_BASE1:
    fadeout(X_FADE)
-   lmap(MAP_TGL_BASE1,     $06,$05)
+   lmap(MAP_TGL_BASE1,     0x06,0x05)
    call(tgl_set_base1)
-   cstep(TGL_BASE1A,       $06,$05)
-   csearch(TGL_GOLEM,      $02,$05,S_ALL)
+   cstep(TGL_BASE1A,       0x06,0x05)
+   csearch(TGL_GOLEM,      0x02,0x05,S_ALL)
 
-   ldude(4,NPC_SOLDIER,    $08,$0b,LEFT,STAND)
+   ldude(4,NPC_SOLDIER,    0x08,0x0b,LEFT,STAND)
    ctalk(tgl_base1b,4)
-   ctres($7b,IT_HPLO,      $0a,$0a,$70,SFX_CHEST)
-   ctres($7c,IT_HPLO,      $0b,$0a,$70,SFX_CHEST)
-   ctres($7d,IT_HPLO,      $0c,$0a,$70,SFX_CHEST)
+   ctres(0x7b,IT_HPLO,      0x0a,0x0a,0x70,SFX_CHEST)
+   ctres(0x7c,IT_HPLO,      0x0b,0x0a,0x70,SFX_CHEST)
+   ctres(0x7d,IT_HPLO,      0x0c,0x0a,0x70,SFX_CHEST)
 
    fadein( X_FADE)
    end
 TGL_BASE1A:
-   set(D, $06)
-   set(E, $05)
+   set(D, 0x06)
+   set(E, 0x05)
    goto(TGL_HALLJOIN)
 tgl_base1b:
    say(TGL_DTXT12)
@@ -3048,31 +3048,31 @@ TGL_BASE2:
    fadeout(X_FADE)
    lmap(MAP_TGL_BASE2,     D,E)
    call(tgl_set_base2)
-   cstep(TGL_BASE2A,       $02,$04)
-   cstep(TGL_BASE2B,       $0E,$04)
-   csearch(TGL_GOLEM,      $01,$04,S_ALL)
-   csearch(TGL_GOLEM,      $0F,$04,S_ALL)
+   cstep(TGL_BASE2A,       0x02,0x04)
+   cstep(TGL_BASE2B,       0x0E,0x04)
+   csearch(TGL_GOLEM,      0x01,0x04,S_ALL)
+   csearch(TGL_GOLEM,      0x0F,0x04,S_ALL)
    fadein( X_FADE)
    end
 TGL_BASE2A:
-   set(D, $1A)
-   set(E, $05)
+   set(D, 0x1A)
+   set(E, 0x05)
    goto(TGL_HALLJOIN)
 TGL_BASE2B:
-   set(D, $07)
-   set(E, $05)
+   set(D, 0x07)
+   set(E, 0x05)
    goto(TGL_BASE3)
 
 TGL_BASE3:
    get(F,VAR_EVEPROG)
    fadeout(X_FADE)
    lmap(MAP_LAB,           D,E)
-   cstep(tgl_base3a,       $07,$05)
-   cvstep(tgl_base3b,      $11,$0A,3)
-   csearch(tgl_desk2,      $16,$08,S_ALL)
-   csearch(tgl_desk2,      $17,$08,S_ALL)
-   ctres($7e,IT_HPLO,       $12,$07,$3B,SFX_CHEST)
-   ctres($7f,IT_HPLO,       $14,$07,$3B,SFX_CHEST)
+   cstep(tgl_base3a,       0x07,0x05)
+   cvstep(tgl_base3b,      0x11,0x0A,3)
+   csearch(tgl_desk2,      0x16,0x08,S_ALL)
+   csearch(tgl_desk2,      0x17,0x08,S_ALL)
+   ctres(0x7e,IT_HPLO,       0x12,0x07,0x3B,SFX_CHEST)
+   ctres(0x7f,IT_HPLO,       0x14,0x07,0x3B,SFX_CHEST)
    if(F,CL,2,lab_blank)
    cif(F,CLE,8,lab_scene5)
 lab_blank:
@@ -3080,11 +3080,11 @@ lab_blank:
    end
    
 lab_scene5:
-   ldude(4,NPC_KRAIT,      $16,$09,UP,STAND)
-   ldude(5,NPC_GOLEM,      $15,$0A,DOWN,STAND)
-   ldude(6,NPC_GOLEM,      $17,$0A,DOWN,STAND)
-   ldude(7,NPC_GOLEM,      $15,$0C,DOWN,STAND)
-   ldude(8,NPC_GOLEM,      $17,$0C,DOWN,STAND)
+   ldude(4,NPC_KRAIT,      0x16,0x09,UP,STAND)
+   ldude(5,NPC_GOLEM,      0x15,0x0A,DOWN,STAND)
+   ldude(6,NPC_GOLEM,      0x17,0x0A,DOWN,STAND)
+   ldude(7,NPC_GOLEM,      0x15,0x0C,DOWN,STAND)
+   ldude(8,NPC_GOLEM,      0x17,0x0C,DOWN,STAND)
    ctalk(lab_krait,4)
    ctalk(lab_g1,5)
    ctalk(lab_g2,6)
@@ -3092,13 +3092,13 @@ lab_scene5:
    ctalk(lab_g4,8)
    end
 tgl_base3a:
-   set(D, $0E)
-   set(E, $04)
+   set(D, 0x0E)
+   set(E, 0x04)
    goto(TGL_BASE2)
 tgl_base3b:
    get(F,VAR_EVEPROG)
-   if(F,CNE,2,RET)
-   align($11,$0B)
+   if(F,CNE,2,GRET)
+   align(0x11,0x0B)
    sync
    face(0,RIGHT)
    goto(EVT_SCENE5)
@@ -3260,11 +3260,11 @@ SET_A3:
    set(A,3)
    end
 
-RET:
+GRET:
    end
 
-LOCK:
-   goto(LOCK)
+GLOCK:
+   goto(GLOCK)
 
 
 SFX_TEST:
@@ -3434,50 +3434,50 @@ scenek:
    end
 
 burn_forest:
-   tile(78,62,$2c)
-   tile(79,62,$2a)
-   tile(80,62,$29)
+   tile(78,62,0x2c)
+   tile(79,62,0x2a)
+   tile(80,62,0x29)
 
-   tile(77,63,$2c)
-   tile(78,63,$62)
-   tile(79,63,$3c)
-   tile(80,63,$1d)
-   tile(81,63,$3d)
+   tile(77,63,0x2c)
+   tile(78,63,0x62)
+   tile(79,63,0x3c)
+   tile(80,63,0x1d)
+   tile(81,63,0x3d)
 
-   tile(77,64,$2b)
-   tile(78,64,$3c)
-   tile(79,64,$1d)
-   tile(80,64,$1d)
-   tile(81,64,$1d)
-   tile(82,64,$3d)
+   tile(77,64,0x2b)
+   tile(78,64,0x3c)
+   tile(79,64,0x1d)
+   tile(80,64,0x1d)
+   tile(81,64,0x1d)
+   tile(82,64,0x3d)
 
-   tile(77,65,$29)
-   tile(78,65,$1d)
-   tile(79,65,$1d)
-   tile(80,65,$1d)
-   tile(81,65,$1d)
-   tile(82,65,$3f)
-   tile(83,65,$20)
+   tile(77,65,0x29)
+   tile(78,65,0x1d)
+   tile(79,65,0x1d)
+   tile(80,65,0x1d)
+   tile(81,65,0x1d)
+   tile(82,65,0x3f)
+   tile(83,65,0x20)
 
-   tile(78,66,$3e)
-   tile(79,66,$1d)
-   tile(80,66,$1d)
-   tile(81,66,$3f)
-   tile(82,66,$63)
+   tile(78,66,0x3e)
+   tile(79,66,0x1d)
+   tile(80,66,0x1d)
+   tile(81,66,0x3f)
+   tile(82,66,0x63)
    end
 
 ;;;;;;;;;;;;;;;;;;;
-   lmap(MAP_TGL_THRON,     $06,$09)
-   ldude(4,NPC_KING,       $07,$03, RIGHT,  STAND)    ; king
-   ldude(5,NPC_MAN2,       $08,$03,  LEFT,  STAND)    ; advisor
-   ldude(6,NPC_GOLEM,      $04,$07, RIGHT,  STAND)    ; golem
-   ldude(7,NPC_GOLEM,      $0A,$07,  LEFT,  STAND)    ; golem
+   lmap(MAP_TGL_THRON,     0x06,0x09)
+   ldude(4,NPC_KING,       0x07,0x03, RIGHT,  STAND)    ; king
+   ldude(5,NPC_MAN2,       0x08,0x03,  LEFT,  STAND)    ; advisor
+   ldude(6,NPC_GOLEM,      0x04,0x07, RIGHT,  STAND)    ; golem
+   ldude(7,NPC_GOLEM,      0x0A,0x07,  LEFT,  STAND)    ; golem
    frame(6,CEL_RIGHT1)
    frame(7,CEL_LEFT1)
-   chstep(OVERWORLD,       $06,$0A,2)
+   chstep(OVERWORLD,       0x06,0x0A,2)
    get(A,VAR_EVEPROG)
    if(A,CE,2,NO_EVT4)
-   chstep(EVT_SCENE4,      $06,$08,2)
+   chstep(EVT_SCENE4,      0x06,0x08,2)
 NO_EVT4:
    end
 

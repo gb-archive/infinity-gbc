@@ -23,8 +23,8 @@ O_PIR:
    put(A,VAR_PIRTRAP2)
 
    face(0,UP)
-   set(D,$11)
-   set(E,$2c)
+   set(D,0x11)
+   set(E,0x2c)
    set(F,0)
    set(G,X_ROLL)
    song(SNG_CAVE1)
@@ -41,50 +41,50 @@ pir_noenemy:
    set(F,0)
 
    call(pir_clear)
-   cstep(pir_part1a, $11,$2d)
-   cstep(pir_part1b, $1a,$03)
-   cstep(pir_part1c, $19,$15)
-   cstep(pir_part1d, $23,$03)
-   ctres($4f,IT_PFancy, $14,$0a,$3B,SFX_CHEST)
-   ctres($50,IT_SPLo,   $1d,$0b,$3B,SFX_CHEST)
-   ctres($51,IT_AU_500, $17,$10,$3B,SFX_CHEST)
-   ctres($52,IT_KPirate,$03,$11,$3B,SFX_CHEST)
+   cstep(pir_part1a, 0x11,0x2d)
+   cstep(pir_part1b, 0x1a,0x03)
+   cstep(pir_part1c, 0x19,0x15)
+   cstep(pir_part1d, 0x23,0x03)
+   ctres(0x4f,IT_PFancy, 0x14,0x0a,0x3B,SFX_CHEST)
+   ctres(0x50,IT_SPLo,   0x1d,0x0b,0x3B,SFX_CHEST)
+   ctres(0x51,IT_AU_500, 0x17,0x10,0x3B,SFX_CHEST)
+   ctres(0x52,IT_KPirate,0x03,0x11,0x3B,SFX_CHEST)
    call(pir_tasm_init)
-   ;ctres($53,IT_CCutlass,$2c,$1f,$3B,SFX_CHEST)
+   ;ctres(0x53,IT_CCutlass,0x2c,0x1f,0x3B,SFX_CHEST)
 
-   csearch(pir_switch1, $27,$13, S_U)
-   csearch(pir_switch2, $28,$13, S_U)
-   csearch(pir_switch3, $29,$13, S_U)
-   csearch(pir_switch4, $2a,$13, S_U)
-   csearch(pir_switch5, $2b,$13, S_U)
-   csearch(pir_switch6, $2c,$13, S_U)
+   csearch(pir_switch1, 0x27,0x13, S_U)
+   csearch(pir_switch2, 0x28,0x13, S_U)
+   csearch(pir_switch3, 0x29,0x13, S_U)
+   csearch(pir_switch4, 0x2a,0x13, S_U)
+   csearch(pir_switch5, 0x2b,0x13, S_U)
+   csearch(pir_switch6, 0x2c,0x13, S_U)
    fadein(G)
    end
 pir_part1a:
-   set(B,$57)
-   set(C,$6b)
+   set(B,0x57)
+   set(C,0x6b)
    goto(OVER_WARP)
 pir_part1b:
-   set(D,$05)
-   set(E,$03)
+   set(D,0x05)
+   set(E,0x03)
    goto(pir_part2)
 pir_part1c:
-   set(D,$04)
-   set(E,$1f)
+   set(D,0x04)
+   set(E,0x1f)
    goto(pir_part2)
 pir_part1d:
    get(A,VAR_PIRDONE)
    if(A,CE,1,pir_part1e)
-   set(D,$06)
-   set(E,$0d)
+   set(D,0x06)
+   set(E,0x0d)
    goto(pir_part3)
 pir_part1e:
-   set(D,$0b)
-   set(E,$08)
+   set(D,0x0b)
+   set(E,0x08)
    goto(pir_part4)
 pir_tasm:
    get(A,VAR_PIR_CHEST1)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_PIR_CHEST1)
    song_pause
    bsong(SNG_FIGHT1)
@@ -97,10 +97,10 @@ pir_tasm:
 pir_tasm_init:
    get(A,VAR_PIR_CHEST1)
    if(A,CE,1,pir_tasm_init1)
-   csearch(pir_tasm,    $2c,$1f,S_ALL)  ; set search
+   csearch(pir_tasm,    0x2c,0x1f,S_ALL)  ; set search
    end
 pir_tasm_init1:
-   tile($2c,$1f,$3b)  ; open chest
+   tile(0x2c,0x1f,0x3b)  ; open chest
    end
 
 pir_part2:
@@ -109,18 +109,18 @@ pir_part2:
    zone(ZONE_PIR)
 
    call(pir_layholes)
-   cstep(pir_part2a, $05,$03)
-   cstep(pir_part2b, $04,$1f)
+   cstep(pir_part2a, 0x05,0x03)
+   cstep(pir_part2b, 0x04,0x1f)
    fadein(X_FADE)
    end
 pir_part2a:
-   set(D,$1a)
-   set(E,$03)
+   set(D,0x1a)
+   set(E,0x03)
    goto(pir_part1)
 pir_part2b:
    set(F,1)
-   set(D,$19)
-   set(E,$15)
+   set(D,0x19)
+   set(E,0x15)
    goto(pir_part1)
 
 pir_part3:
@@ -132,16 +132,16 @@ pir_part4:
    fadeout(X_FADE)
    lmap(MAP_PIR_P4, D,E)
    zone(ZONE_PIR)
-   cstep(pir_part4a, $0b,$09)
-   ctres($54,IT_CCutlass, $13,$05,$3B,SFX_CHEST)
-   ctres($55,IT_HALo, $15,$06,$3B,SFX_CHEST)
-   ctres($56,IT_PFancy, $1d,$06,$3B,SFX_CHEST)
+   cstep(pir_part4a, 0x0b,0x09)
+   ctres(0x54,IT_CCutlass, 0x13,0x05,0x3B,SFX_CHEST)
+   ctres(0x55,IT_HALo, 0x15,0x06,0x3B,SFX_CHEST)
+   ctres(0x56,IT_PFancy, 0x1d,0x06,0x3B,SFX_CHEST)
    fadein(X_FADE)
    end
 pir_part4a:
    set(F,1)
-   set(D,$23)
-   set(E,$03)
+   set(D,0x23)
+   set(E,0x03)
    goto(pir_part1)
 
 
@@ -176,22 +176,22 @@ pir_solved:
    put(1,VAR_PIRDOOR6)
 
    ; flag switches
-   tile($27,$13,$91)
-   tile($29,$13,$91)
-   tile($2c,$13,$91)
+   tile(0x27,0x13,0x91)
+   tile(0x29,0x13,0x91)
+   tile(0x2c,0x13,0x91)
 
    ; turn off doors
-   tile($23,$09,$09)
-   tile($23,$0a,$09)
-   tile($23,$0b,$09)
-   tile($23,$0c,$09)
-   tile($23,$0d,$09)
-   tile($23,$0e,$09)
-   tile($23,$0f,$09)
+   tile(0x23,0x09,0x09)
+   tile(0x23,0x0a,0x09)
+   tile(0x23,0x0b,0x09)
+   tile(0x23,0x0c,0x09)
+   tile(0x23,0x0d,0x09)
+   tile(0x23,0x0e,0x09)
+   tile(0x23,0x0f,0x09)
    end
 
 pir_showA:
-   pan($23,$0c)
+   pan(0x23,0x0c)
    sleep(64)
    end
 pir_showB:
@@ -219,11 +219,11 @@ pir_switch1:
 pir_switch1b:
    get(A,VAR_PIRSW1)
    if(A,CE,1,pir_switch1a)
-   tile($27,$13,$91)
+   tile(0x27,0x13,0x91)
    put(1,VAR_PIRSW1)
    end
 pir_switch1a:
-   tile($27,$13,$90)
+   tile(0x27,0x13,0x90)
    put(0,VAR_PIRSW1)
    end
 
@@ -238,11 +238,11 @@ pir_switch2:
 pir_switch2b:
    get(A,VAR_PIRSW2)
    if(A,CE,1,pir_switch2a)
-   tile($28,$13,$91)
+   tile(0x28,0x13,0x91)
    put(1,VAR_PIRSW2)
    end
 pir_switch2a:
-   tile($28,$13,$90)
+   tile(0x28,0x13,0x90)
    put(0,VAR_PIRSW2)
    end
 
@@ -257,11 +257,11 @@ pir_switch3:
 pir_switch3b:
    get(A,VAR_PIRSW3)
    if(A,CE,1,pir_switch3a)
-   tile($29,$13,$91)
+   tile(0x29,0x13,0x91)
    put(1,VAR_PIRSW3)
    end
 pir_switch3a:
-   tile($29,$13,$90)
+   tile(0x29,0x13,0x90)
    put(0,VAR_PIRSW3)
    end
 
@@ -276,11 +276,11 @@ pir_switch4:
 pir_switch4b:
    get(A,VAR_PIRSW4)
    if(A,CE,1,pir_switch4a)
-   tile($2a,$13,$91)
+   tile(0x2a,0x13,0x91)
    put(1,VAR_PIRSW4)
    end
 pir_switch4a:
-   tile($2a,$13,$90)
+   tile(0x2a,0x13,0x90)
    put(0,VAR_PIRSW4)
    end
 
@@ -295,11 +295,11 @@ pir_switch5:
 pir_switch5b:
    get(A,VAR_PIRSW5)
    if(A,CE,1,pir_switch5a)
-   tile($2b,$13,$91)
+   tile(0x2b,0x13,0x91)
    put(1,VAR_PIRSW5)
    end
 pir_switch5a:
-   tile($2b,$13,$90)
+   tile(0x2b,0x13,0x90)
    put(0,VAR_PIRSW5)
    end
 
@@ -314,11 +314,11 @@ pir_switch6:
 pir_switch6b:
    get(A,VAR_PIRSW6)
    if(A,CE,1,pir_switch6a)
-   tile($2c,$13,$91)
+   tile(0x2c,0x13,0x91)
    put(1,VAR_PIRSW6)
    end
 pir_switch6a:
-   tile($2c,$13,$90)
+   tile(0x2c,0x13,0x90)
    put(0,VAR_PIRSW6)
    end
 
@@ -326,77 +326,77 @@ pir_switch6a:
 pir_door1:
    get(A,VAR_PIRDOOR1)
    if(A,CE,1,pir_door1a)
-   tile($23,$09,$09)
+   tile(0x23,0x09,0x09)
    put(1,VAR_PIRDOOR1)
    end
 pir_door1a:
-   tile($23,$09,$97)
+   tile(0x23,0x09,0x97)
    put(0,VAR_PIRDOOR1)
    end
 
 pir_door2:
    get(A,VAR_PIRDOOR2)
    if(A,CE,1,pir_door2a)
-   tile($23,$0a,$09)
+   tile(0x23,0x0a,0x09)
    put(1,VAR_PIRDOOR2)
    end
 pir_door2a:
-   tile($23,$0a,$97)
+   tile(0x23,0x0a,0x97)
    put(0,VAR_PIRDOOR2)
    end
 
 pir_door3:
    get(A,VAR_PIRDOOR3)
    if(A,CE,1,pir_door3a)
-   tile($23,$0b,$09)
+   tile(0x23,0x0b,0x09)
    put(1,VAR_PIRDOOR3)
    end
 pir_door3a:
-   tile($23,$0b,$97)
+   tile(0x23,0x0b,0x97)
    put(0,VAR_PIRDOOR3)
    end
 
 pir_door4:
    get(A,VAR_PIRDOOR4)
    if(A,CE,1,pir_door4a)
-   tile($23,$0c,$09)
+   tile(0x23,0x0c,0x09)
    put(1,VAR_PIRDOOR4)
    end
 pir_door4a:
-   tile($23,$0c,$97)
+   tile(0x23,0x0c,0x97)
    put(0,VAR_PIRDOOR4)
    end
 
 pir_door5:
    get(A,VAR_PIRDOOR5)
    if(A,CE,1,pir_door5a)
-   tile($23,$0d,$09)
+   tile(0x23,0x0d,0x09)
    put(1,VAR_PIRDOOR5)
    end
 pir_door5a:
-   tile($23,$0d,$97)
+   tile(0x23,0x0d,0x97)
    put(0,VAR_PIRDOOR5)
    end
 
 pir_door6:
    get(A,VAR_PIRDOOR6)
    if(A,CE,1,pir_door6a)
-   tile($23,$0e,$09)
+   tile(0x23,0x0e,0x09)
    put(1,VAR_PIRDOOR6)
    end
 pir_door6a:
-   tile($23,$0e,$97)
+   tile(0x23,0x0e,0x97)
    put(0,VAR_PIRDOOR6)
    end
 
 pir_door7:
    get(A,VAR_PIRDOOR7)
    if(A,CE,1,pir_door7a)
-   tile($23,$0f,$09)
+   tile(0x23,0x0f,0x09)
    put(1,VAR_PIRDOOR7)
    end
 pir_door7a:
-   tile($23,$0f,$97)
+   tile(0x23,0x0f,0x97)
    put(0,VAR_PIRDOOR7)
    end
 
@@ -404,17 +404,17 @@ pir_door7a:
 pir_check:
    put(0,VAR_PIROPEN)
    get(A,VAR_PIRDOOR1)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    get(A,VAR_PIRDOOR2)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    get(A,VAR_PIRDOOR3)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    get(A,VAR_PIRDOOR4)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    get(A,VAR_PIRDOOR5)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    get(A,VAR_PIRDOOR6)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
 
    put(1,VAR_PIROPEN)
    end
@@ -422,21 +422,21 @@ pir_check:
 
 pir_layholes:
    get(A,VAR_PIRTRAP1)
-   set(C,$18)
-   set(B,$01)
+   set(C,0x18)
+   set(B,0x01)
    cif(A,CNE,0,pir_layholes1)
-   set(B,$04)
+   set(B,0x04)
    cif(A,CNE,1,pir_layholes1)
-   set(B,$07)
+   set(B,0x07)
    cif(A,CNE,2,pir_layholes1)
 
    get(A,VAR_PIRTRAP2)
-   set(C,$0a)
-   set(B,$01)
+   set(C,0x0a)
+   set(B,0x01)
    cif(A,CNE,0,pir_layholes1)
-   set(B,$04)
+   set(B,0x04)
    cif(A,CNE,1,pir_layholes1)
-   set(B,$07)
+   set(B,0x07)
    cif(A,CNE,2,pir_layholes1)
    end
 pir_layholes1:
@@ -446,9 +446,9 @@ pir_layholes1:
 pir_hole:
    getxy(B,C)
    call(pir_adjust)
-   tile(B,C,$bf)
+   tile(B,C,0xbf)
    inc(B)
-   tile(B,C,$bf)
+   tile(B,C,0xbf)
    dec(B)
    call(pir_shake)
    pan(B,C)
@@ -463,26 +463,26 @@ pir_hole:
    sleep(2)
    fadeout(X_FADE)
    lockon(0)
-   set(D,$19)
-   set(E,$0d)
+   set(D,0x19)
+   set(E,0x0d)
    set(G,X_FADE)
    goto(pir_part1_nf)
 
 pir_adjust:
-   if(B,CE,1,RET)
-   if(B,CE,4,RET)
-   if(B,CE,7,RET)
+   if(B,CE,1,GRET)
+   if(B,CE,4,GRET)
+   if(B,CE,7,GRET)
    dec(B)
    end
 
 pir_scene31:
    put(1,VAR_PIRDONE)
-   ldude(4,EN_GARROW,   $06,$05,DOWN,STAND)
+   ldude(4,EN_GARROW,   0x06,0x05,DOWN,STAND)
 
-   ldude(5,EN_HENCH,    $00,$0b,DOWN,STAND)
-   ldude(6,EN_PIRATE,   $00,$0b,DOWN,STAND)
-   ldude(7,EN_PIRATE,   $0c,$0a,DOWN,STAND)
-   ldude(8,EN_HENCH,    $0c,$0b,DOWN,STAND)
+   ldude(5,EN_HENCH,    0x00,0x0b,DOWN,STAND)
+   ldude(6,EN_PIRATE,   0x00,0x0b,DOWN,STAND)
+   ldude(7,EN_PIRATE,   0x0c,0x0a,DOWN,STAND)
+   ldude(8,EN_HENCH,    0x0c,0x0b,DOWN,STAND)
    fadein(X_FADE)
 
    walk(0,UP,2)
@@ -531,25 +531,25 @@ pir_scene31:
    setwolfp(3)
    song_resume
 
-   warp(0,$06,$0b,UP)
-   warp(1,$05,$0b,LEFT)
-   warp(2,$07,$0b,RIGHT)
+   warp(0,0x06,0x0b,UP)
+   warp(1,0x05,0x0b,LEFT)
+   warp(2,0x07,0x0b,RIGHT)
 
-   ldude(4,EN_GARROW,   $06,$09,DOWN,STAND)
-   ;ldude(4,CH_RYAN,     $06,$09,DOWN,STAND)
+   ldude(4,EN_GARROW,   0x06,0x09,DOWN,STAND)
+   ;ldude(4,CH_RYAN,     0x06,0x09,DOWN,STAND)
    ;frame(4,CEL_ASLEEP)
    sleep(16)
    fadein(X_FADE)
 
    sleep(32)
    say(S32_ETXT1)
-   ldude(4,EN_GARROW,   $06,$09,DOWN,STAND)
+   ldude(4,EN_GARROW,   0x06,0x09,DOWN,STAND)
    sleep(32)
    face(4,RIGHT)
    sleep(4)
    face(4,UP)
    sleep(4)
-   ldude(4,CH_RYAN,     $06,$09,LEFT,STAND)
+   ldude(4,CH_RYAN,     0x06,0x09,LEFT,STAND)
    sleep(4)
    face(4,DOWN)
    sleep(16)

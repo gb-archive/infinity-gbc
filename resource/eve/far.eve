@@ -13,8 +13,8 @@
 O_FAR:
    call(MAPPOS_SAVE_R)
    face(0,LEFT)
-   set(B,$2C)
-   set(C,$13)
+   set(B,0x2C)
+   set(C,0x13)
    call(L_FAR)
    fadein(X_ROLL)
    end
@@ -31,30 +31,30 @@ L_FAR:
    lmap(MAP_FAR,           B,C)
    song(SNG_TOWN2)
 
-   cvstep(OVERWORLD,       $2d,$00,35)
-   csearch(far_sign,       $2b,$11,S_U)
-   cstep(far_oinn,         $26,$10)
-   cstep(far_pub,          $26,$18)
-   cstep(far_hous1,        $21,$19)
-   cstep(far_hous2,        $11,$09)
-   cstep(far_hous3,        $07,$0c)
-   cstep(far_wep,          $20,$13)
-   cstep(far_item,         $13,$16)
-   cstep(far_omns,         $17,$0a)
+   cvstep(OVERWORLD,       0x2d,0x00,35)
+   csearch(far_sign,       0x2b,0x11,S_U)
+   cstep(far_oinn,         0x26,0x10)
+   cstep(far_pub,          0x26,0x18)
+   cstep(far_hous1,        0x21,0x19)
+   cstep(far_hous2,        0x11,0x09)
+   cstep(far_hous3,        0x07,0x0c)
+   cstep(far_wep,          0x20,0x13)
+   cstep(far_item,         0x13,0x16)
+   cstep(far_omns,         0x17,0x0a)
 
-   ldude(4,NPC_MAYOR,      $08,$1a, LEFT,STAND)
+   ldude(4,NPC_MAYOR,      0x08,0x1a, LEFT,STAND)
    ctalk(far_guy1, 4)
 
-   lguy(NPC_LADY3,         $26,$13, FAR_DTXT1)
-   lguy(NPC_MAN1,          $14,$10, FAR_DTXT2)
-   lguy(NPC_LADY1,         $1f,$16, FAR_DTXT3)
-   lguy(NPC_LADY2,         $11,$0c, FAR_DTXT4)
-   lguy(NPC_BOY1,          $0f,$15, FAR_DTXT6)
-   lguy(NPC_MAN2,          $2a,$19, FAR_DTXT7)
+   lguy(NPC_LADY3,         0x26,0x13, FAR_DTXT1)
+   lguy(NPC_MAN1,          0x14,0x10, FAR_DTXT2)
+   lguy(NPC_LADY1,         0x1f,0x16, FAR_DTXT3)
+   lguy(NPC_LADY2,         0x11,0x0c, FAR_DTXT4)
+   lguy(NPC_BOY1,          0x0f,0x15, FAR_DTXT6)
+   lguy(NPC_MAN2,          0x2a,0x19, FAR_DTXT7)
 
-   ctres($4c,IT_HPLO,      $07,$15,$00,SFX_SEARCH)
-   ctres($4d,IT_HPLO,      $0b,$1c,$00,SFX_SEARCH)
-   ctres($4e,IT_HPLO,      $1f,$18,$00,SFX_SEARCH)
+   ctres(0x4c,IT_HPLO,      0x07,0x15,0x00,SFX_SEARCH)
+   ctres(0x4d,IT_HPLO,      0x0b,0x1c,0x00,SFX_SEARCH)
+   ctres(0x4e,IT_HPLO,      0x1f,0x18,0x00,SFX_SEARCH)
    end
 
 far_sign:
@@ -69,14 +69,14 @@ far_guy1:
 far_pub:
    getxy(B,C)
    fadeout(X_FADE)
-   lmap(MAP_FAR_PUB,       $05,$07)
-   cstep(I_FAR,            $05,$08)
-   ldude(4,NPC_MAN1,       $02,$04,UP,STAND)
-   ldude(5,NPC_MAN2,       $09,$06,LEFT,STAND)
-   ldude(6,NPC_MAYOR,      $04,$02,DOWN,STAND)
+   lmap(MAP_FAR_PUB,       0x05,0x07)
+   cstep(I_FAR,            0x05,0x08)
+   ldude(4,NPC_MAN1,       0x02,0x04,UP,STAND)
+   ldude(5,NPC_MAN2,       0x09,0x06,LEFT,STAND)
+   ldude(6,NPC_MAYOR,      0x04,0x02,DOWN,STAND)
    ctalk(far_pub1,4)
    ctalk(far_pub2,5)
-   csearch(far_pub3,       $04,$03,S_U)
+   csearch(far_pub3,       0x04,0x03,S_U)
    fadein(X_FADE)
    end
 far_pub1:
@@ -94,18 +94,18 @@ far_pub3:
 far_hous1:
    getxy(B,C)
    fadeout(X_FADE)
-   lmap(MAP_FAR_HOUS1,     $04,$07)
-   cstep(I_FAR,            $04,$08)
-   lguy(NPC_LADY2,         $02,$04,FAR_DTXT11)
+   lmap(MAP_FAR_HOUS1,     0x04,0x07)
+   cstep(I_FAR,            0x04,0x08)
+   lguy(NPC_LADY2,         0x02,0x04,FAR_DTXT11)
    fadein(X_FADE)
    end
 far_hous2:
    getxy(B,C)
    fadeout(X_FADE)
-   lmap(MAP_FAR_HOUS2,     $03,$06)
-   cstep(I_FAR,            $03,$07)
-   csearch(far_book6,      $01,$01,S_U)
-   csearch(far_diary,      $01,$01,S_U)
+   lmap(MAP_FAR_HOUS2,     0x03,0x06)
+   cstep(I_FAR,            0x03,0x07)
+   csearch(far_book6,      0x01,0x01,S_U)
+   csearch(far_diary,      0x01,0x01,S_U)
    fadein(X_FADE)
    end
 far_diary:
@@ -114,34 +114,34 @@ far_diary:
 far_hous3:
    getxy(B,C)
    fadeout(X_FADE)
-   lmap(MAP_FAR_HOUS3,     $04,$07)
-   cstep(I_FAR,            $04,$08)
-   csearch(far_book7,      $07,$01,S_U)
+   lmap(MAP_FAR_HOUS3,     0x04,0x07)
+   cstep(I_FAR,            0x04,0x08)
+   csearch(far_book7,      0x07,0x01,S_U)
 
-   csearch(far_desk1,      $06,$04,S_ALL)
-   csearch(far_desk1,      $07,$04,S_ALL)
+   csearch(far_desk1,      0x06,0x04,S_ALL)
+   csearch(far_desk1,      0x07,0x04,S_ALL)
 
-   lguy(NPC_LADY4,         $06,$03,FAR_DTXT12)
+   lguy(NPC_LADY4,         0x06,0x03,FAR_DTXT12)
    fadein(X_FADE)
    end
 
 far_wep:
    getxy(B,C)
    fadeout(X_FADE)
-   lmap(MAP_FAR_WEP,       $03,$07)
-   cstep(I_FAR,            $03,$08)
-   ldude(4,NPC_MAN2,       $07,$04,LEFT,STAND)
-   csearch(far_wepshop,    $06,$04,S_R)
-   csearch(far_book9,      $01,$01,S_U)
+   lmap(MAP_FAR_WEP,       0x03,0x07)
+   cstep(I_FAR,            0x03,0x08)
+   ldude(4,NPC_MAN2,       0x07,0x04,LEFT,STAND)
+   csearch(far_wepshop,    0x06,0x04,S_R)
+   csearch(far_book9,      0x01,0x01,S_U)
    fadein(X_FADE)
    end
 far_item:
    getxy(B,C)
    fadeout(X_FADE)
-   lmap(MAP_FAR_ITEM,      $04,$06)
-   cstep(I_FAR,            $04,$07)
-   ldude(4,NPC_MAN1,       $04,$02,DOWN,STAND)
-   csearch(far_itemshop,    $04,$03,S_U)
+   lmap(MAP_FAR_ITEM,      0x04,0x06)
+   cstep(I_FAR,            0x04,0x07)
+   ldude(4,NPC_MAN1,       0x04,0x02,DOWN,STAND)
+   csearch(far_itemshop,    0x04,0x03,S_U)
    fadein(X_FADE)
    end
 
@@ -184,61 +184,61 @@ far_wepshop2:
 
 far_omns:
    getxy(B,C)
-   set(D,$08)
-   set(E,$0a)
+   set(D,0x08)
+   set(E,0x0a)
    goto(far_mns1)
 
 far_mns1:
    fadeout(X_FADE)
    lmap(MAP_FAR_MNSA,      D,  E)
-   cstep(I_FAR,            $08,$0b)
-   cstep(far_mns1a,        $08,$02)
-   lguy(NPC_OLDLADY,       $03,$03,FAR_DTXT14)
+   cstep(I_FAR,            0x08,0x0b)
+   cstep(far_mns1a,        0x08,0x02)
+   lguy(NPC_OLDLADY,       0x03,0x03,FAR_DTXT14)
 
-   csearch(far_book1,      $0b,$01,S_U)
-   csearch(far_book2,      $0c,$01,S_U)
-   csearch(far_book3,      $0d,$01,S_U)
-   csearch(far_book4,      $0e,$01,S_U)
-   csearch(far_book5,      $0f,$01,S_U)
-   csearch(far_desk1,      $0b,$05,S_ALL)
-   csearch(far_desk1,      $0c,$05,S_ALL)
+   csearch(far_book1,      0x0b,0x01,S_U)
+   csearch(far_book2,      0x0c,0x01,S_U)
+   csearch(far_book3,      0x0d,0x01,S_U)
+   csearch(far_book4,      0x0e,0x01,S_U)
+   csearch(far_book5,      0x0f,0x01,S_U)
+   csearch(far_desk1,      0x0b,0x05,S_ALL)
+   csearch(far_desk1,      0x0c,0x05,S_ALL)
 
    fadein(X_FADE)
    end
 far_mns1a:
-   set(D,$08)
-   set(E,$02)
+   set(D,0x08)
+   set(E,0x02)
    goto(far_mns2)
 
 far_mns2:
    fadeout(X_FADE)
    lmap(MAP_FAR_MNSB,      D,  E)
-   cstep(far_mns2a,        $08,$02)
-   cstep(far_mns2b,        $0f,$08)
+   cstep(far_mns2a,        0x08,0x02)
+   cstep(far_mns2b,        0x0f,0x08)
 
    fadein(X_FADE)
    end
 far_mns2a:
-   set(D,$08)
-   set(E,$02)
+   set(D,0x08)
+   set(E,0x02)
    goto(far_mns1)
 far_mns2b:
-   set(D,$0f)
-   set(E,$08)
+   set(D,0x0f)
+   set(E,0x08)
    goto(far_mns3)
 
 far_mns3:
    fadeout(X_FADE)
    lmap(MAP_FAR_MNSC,      D,  E)
-   cstep(far_mns3a,        $0f,$08)
-   csearch(far_book10,     $01,$01,S_U)
-   csearch(far_book11,     $02,$01,S_U)
-   lguy(NPC_OLDMAN,        $04,$05,FAR_DTXT13)
+   cstep(far_mns3a,        0x0f,0x08)
+   csearch(far_book10,     0x01,0x01,S_U)
+   csearch(far_book11,     0x02,0x01,S_U)
+   lguy(NPC_OLDMAN,        0x04,0x05,FAR_DTXT13)
    fadein(X_FADE)
    end
 far_mns3a:
-   set(D,$0f)
-   set(E,$08)
+   set(D,0x0f)
+   set(E,0x08)
    goto(far_mns2)
 
 far_book1:
@@ -298,32 +298,32 @@ far_book11:
 
 far_oinn:
    getxy(B,C)
-   set(D,$04)
-   set(E,$07)
+   set(D,0x04)
+   set(E,0x07)
    goto(far_inn)
 
 far_inn:
    fadeout(X_FADE)
    lmap(MAP_FAR_INN1,      D,  E)
 far_innjoin:
-   chstep(I_FAR,           $04,$08,$01)
-   ldude(4,NPC_LADY4,      $04,$04,DOWN,STAND)
-   csearch(far_innroom1,   $04,$05,S_U)
-   csearch(far_innroom2,   $03,$04,S_R)
-   cstep(far_inn2,         $01,$02)
+   chstep(I_FAR,           0x04,0x08,0x01)
+   ldude(4,NPC_LADY4,      0x04,0x04,DOWN,STAND)
+   csearch(far_innroom1,   0x04,0x05,S_U)
+   csearch(far_innroom2,   0x03,0x04,S_R)
+   cstep(far_inn2,         0x01,0x02)
    fadein(X_FADE)
    end
 
 far_inn2:
    fadeout(X_FADE)
-   lmap(MAP_FAR_INN2,      $01,$02)
-   cstep(far_inn2a,        $01,$02)
-   csearch(far_book8,      $03,$01,S_U)
+   lmap(MAP_FAR_INN2,      0x01,0x02)
+   cstep(far_inn2a,        0x01,0x02)
+   csearch(far_book8,      0x03,0x01,S_U)
    fadein(X_FADE)
    end
 far_inn2a:
-   set(D,$01)
-   set(E,$02)
+   set(D,0x01)
+   set(E,0x02)
    goto(far_inn)
 
 far_innroom1:
@@ -352,7 +352,7 @@ far_innroom2:
 
 far_innok2:
    say(INN_DTXT5)
-   align($02,$04)
+   align(0x02,0x04)
    sync
    walk(0,DOWN,2)
    sync
@@ -365,7 +365,7 @@ far_innok1:
 
 far_innok:
    tgold(15)
-   align($05,$06)
+   align(0x05,0x06)
    sync
    call(INNREST)
 far_innno:
@@ -378,16 +378,16 @@ far_innns:
    say(INN_DTXT3)
    end
 far_innload:
-   lmap(MAP_FAR_INN1,      $04,$06)
+   lmap(MAP_FAR_INN1,      0x04,0x06)
    song(SNG_TOWN2)
-   set(B,$26)
-   set(C,$10)
+   set(B,0x26)
+   set(C,0x10)
    goto(far_innjoin)
 
 
 far_settalk:
    get(A,VAR_NONLINEAR)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
 
    tbase(FAR_DTXT1, FAR_DTSIZE, 1)
    end

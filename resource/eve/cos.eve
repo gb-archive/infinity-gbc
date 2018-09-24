@@ -13,16 +13,16 @@
 O_COS:
    fadeout(X_ROLL)
    face(0,UP)
-   set(D,$10)
-   set(E,$1f)
+   set(D,0x10)
+   set(E,0x1f)
    set(G,X_ROLL)
    song(SNG_CAVE1)
    goto(cos_part1_nf)
 O_COS2:
    fadeout(X_ROLL)
    face(0,UP)
-   set(D,$16)
-   set(E,$1f)
+   set(D,0x16)
+   set(E,0x1f)
    set(G,X_ROLL)
    song(SNG_CAVE1)
    goto(cos_part3_nf)
@@ -33,13 +33,13 @@ cos_part1:
 cos_part1_nf:
    lmap(MAP_COS_P1, D,E)
    zone(ZONE_COS)
-   cstep(cos_part1a, $10,$20)
-   cstep(cos_part1b, $11,$0a)
-   cstep(cos_part1c, $1a,$0d)
-   ctres($57,IT_IFuligin, $1b,$05,$3b,SFX_CHEST)
+   cstep(cos_part1a, 0x10,0x20)
+   cstep(cos_part1b, 0x11,0x0a)
+   cstep(cos_part1c, 0x1a,0x0d)
+   ctres(0x57,IT_IFuligin, 0x1b,0x05,0x3b,SFX_CHEST)
 
 ; pull this out for final release
-   ldude(4,CH_RYAN,$11,$1A,DOWN,STAND)
+   ldude(4,CH_RYAN,0x11,0x1A,DOWN,STAND)
    ctalk(cos_music,4)
    set(A,0)
 
@@ -167,54 +167,54 @@ cos_sng27:
 
 
 cos_part1a:
-   set(B,$20)
-   set(C,$11)
+   set(B,0x20)
+   set(C,0x11)
    goto(OVER_WARP)
 cos_part1b:
-   set(D,$07)
-   set(E,$10)
+   set(D,0x07)
+   set(E,0x10)
    goto(cos_part2)
 cos_part1c:
-   set(D,$0c)
-   set(E,$14)
+   set(D,0x0c)
+   set(E,0x14)
    goto(cos_part2)
 
 cos_part2:
    fadeout(X_FADE)
    lmap(MAP_COS_P2, D,E)
    zone(ZONE_COS)
-   cstep(cos_part2a, $07,$10)
-   cstep(cos_part2b, $0c,$14)
-   cstep(cos_part2c, $02,$0c)
-   cstep(cos_part2d, $10,$02)
-   cstep(cos_part2e, $11,$0a)
-   cstep(cos_part2f, $15,$0a)
-   ctres($58,IT_HScale, $0f,$0d,$3b,SFX_CHEST)
+   cstep(cos_part2a, 0x07,0x10)
+   cstep(cos_part2b, 0x0c,0x14)
+   cstep(cos_part2c, 0x02,0x0c)
+   cstep(cos_part2d, 0x10,0x02)
+   cstep(cos_part2e, 0x11,0x0a)
+   cstep(cos_part2f, 0x15,0x0a)
+   ctres(0x58,IT_HScale, 0x0f,0x0d,0x3b,SFX_CHEST)
    fadein(X_FADE)
    end
 cos_part2a:
-   set(D,$11)
-   set(E,$0a)
+   set(D,0x11)
+   set(E,0x0a)
    goto(cos_part1)
 cos_part2b:
-   set(D,$1a)
-   set(E,$0d)
+   set(D,0x1a)
+   set(E,0x0d)
    goto(cos_part1)
 cos_part2c:
-   set(D,$0a)
-   set(E,$0a)
+   set(D,0x0a)
+   set(E,0x0a)
    goto(cos_part3)
 cos_part2d:
-   set(D,$19)
-   set(E,$06)
+   set(D,0x19)
+   set(E,0x06)
    goto(cos_part3)
 cos_part2e:
-   set(D,$17)
-   set(E,$0f)
+   set(D,0x17)
+   set(E,0x0f)
    goto(cos_part3)
 cos_part2f:
-   set(D,$1a)
-   set(E,$0c)
+   set(D,0x1a)
+   set(E,0x0c)
    goto(cos_part3)
 
 cos_part3:
@@ -223,31 +223,31 @@ cos_part3:
 cos_part3_nf:
    lmap(MAP_COS_P3, D,E)
    zone(ZONE_COS)
-   cstep(cos_part3a, $0a,$0a)
-   cstep(cos_part3b, $19,$06)
-   cstep(cos_part3c, $17,$0f)
-   cstep(cos_part3d, $1a,$0c)
-   cstep(cos_part3e, $16,$20)
+   cstep(cos_part3a, 0x0a,0x0a)
+   cstep(cos_part3b, 0x19,0x06)
+   cstep(cos_part3c, 0x17,0x0f)
+   cstep(cos_part3d, 0x1a,0x0c)
+   cstep(cos_part3e, 0x16,0x20)
    fadein(G)
    end
 cos_part3a:
-   set(D,$02)
-   set(E,$0c)
+   set(D,0x02)
+   set(E,0x0c)
    goto(cos_part2)
 cos_part3b:
-   set(D,$10)
-   set(E,$02)
+   set(D,0x10)
+   set(E,0x02)
    goto(cos_part2)
 cos_part3c:
-   set(D,$11)
-   set(E,$0a)
+   set(D,0x11)
+   set(E,0x0a)
    goto(cos_part2)
 cos_part3d:
-   set(D,$15)
-   set(E,$0a)
+   set(D,0x15)
+   set(E,0x0a)
    goto(cos_part2)
 cos_part3e:
-   set(B,$1f)
-   set(C,$0e)
+   set(B,0x1f)
+   set(C,0x0e)
    goto(OVER_WARP)
 

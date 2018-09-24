@@ -39,11 +39,11 @@ credits_scene1:
    call(credits_clearparty)
    partyset(0,PARTY_CONNOR)
    face(0,DOWN)
-   lmap(MAP_TAGEL,         $15,$08)
-   ldude(4,NPC_SOLDIER,    $15,$0E,DOWN,STAND)
-   ldude(5,NPC_SOLDIER,    $0D,$01,DOWN,STAND)
-   ldude(6,NPC_SOLDIER,    $1E,$0C,DOWN,STAND)
-   lguy(NPC_MAN2,          $21,$0F,TGL_DTXT2)
+   lmap(MAP_TAGEL,         0x15,0x08)
+   ldude(4,NPC_SOLDIER,    0x15,0x0E,DOWN,STAND)
+   ldude(5,NPC_SOLDIER,    0x0D,0x01,DOWN,STAND)
+   ldude(6,NPC_SOLDIER,    0x1E,0x0C,DOWN,STAND)
+   lguy(NPC_MAN2,          0x21,0x0F,TGL_DTXT2)
    fadein(X_FADE)
    sleep(32)
    walk(0,DOWN,2)
@@ -82,15 +82,15 @@ credits_scene2:
    partyset(0,PARTY_CONNOR)
 
    face(0,UP)
-   lmap(MAP_FRC_P7,  $09,$0c)
-   ldude(4,EN_GUTANA,   $09,$06,DOWN,STAND)
+   lmap(MAP_FRC_P7,  0x09,0x0c)
+   ldude(4,EN_GUTANA,   0x09,0x06,DOWN,STAND)
    fadein(X_FADE)
    sleep(8)
    sleep(64)
    walk(0,UP,3)
    sync
 
-   ldude(8,CH_ELYA,     $09,$02,DOWN,STAND)
+   ldude(8,CH_ELYA,     0x09,0x02,DOWN,STAND)
    walk(0,UP,1)
    sync
    lockon(4)
@@ -110,11 +110,11 @@ credits_scene2:
    sleep(8)
 
    ; load the flamies
-   ldude(5,EN_FLAME,    $08,$08,RIGHT,STAND)
+   ldude(5,EN_FLAME,    0x08,0x08,RIGHT,STAND)
    sleep(40)
-   ldude(6,EN_FLAME,    $0a,$08,LEFT,STAND)
+   ldude(6,EN_FLAME,    0x0a,0x08,LEFT,STAND)
    sleep(40)
-   ldude(7,EN_FLAME,    $09,$07,DOWN,STAND)
+   ldude(7,EN_FLAME,    0x09,0x07,DOWN,STAND)
    sleep(40)
    face(4,DOWN)
 
@@ -156,9 +156,9 @@ credits_scene3:
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_ELYA)
    partyset(2,PARTY_VICTOR)
-   lmap(MAP_GRW, $20,$0a)
-   warp(1,$1f,$0a,RIGHT)
-   warp(2,$1f,$09,DOWN)
+   lmap(MAP_GRW, 0x20,0x0a)
+   warp(1,0x1f,0x0a,RIGHT)
+   warp(2,0x1f,0x09,DOWN)
    lastmoves(RIGHT,DOWN,DOWN)
    fadein2(X_FADE)
 
@@ -176,7 +176,7 @@ credits_scene3:
    frame(10,2)
 
    set(A,8)
-   set(B,$28)
+   set(B,0x28)
    call(grw_growroot)  ; 40
    sleep(16)
 
@@ -184,8 +184,8 @@ credits_scene3:
    sync
 
    set(A,9)
-   set(B,$24)
-   set(C,$0a)
+   set(B,0x24)
+   set(C,0x0a)
    call(grw_growroot)
    sleep(16)
    endnext
@@ -196,8 +196,8 @@ credits_scene3:
    sync
 
    set(A,10)
-   set(B,$26)
-   set(C,$0c)
+   set(B,0x26)
+   set(C,0x0c)
    call(grw_growroot)
    sleep(16)
    ;say(S22_ETXT8)
@@ -257,9 +257,9 @@ credits_scene4:
    partyset(0,PARTY_CONNOR)
    partyset(1,PARTY_ELYA)
    partyset(2,PARTY_VICTOR)
-   lmap(MAP_DUR,  $10,$17)
-   warp(1,$10,$18,UP)
-   warp(2,$10,$19,UP)
+   lmap(MAP_DUR,  0x10,0x17)
+   warp(1,0x10,0x18,UP)
+   warp(2,0x10,0x19,UP)
    lastmoves(UP,UP,UP)
    fadein2(X_FADE)
    walk(0,UP,3)
@@ -355,8 +355,8 @@ credits_scene5:
    call(credits_clearparty)
    partyset(0,PARTY_ELYA)
    face(0,UP)
-   lmap(MAP_TRIAL3, $04,$09)
-   ldude(4,EN_EXANIMA, $04,$04,DOWN,STAND)
+   lmap(MAP_TRIAL3, 0x04,0x09)
+   ldude(4,EN_EXANIMA, 0x04,0x04,DOWN,STAND)
    fadein(X_FADE)
    sleep(64)
    walk(0,UP,4)
@@ -378,21 +378,21 @@ credits_scene6:
    partyset(2,PARTY_VICTOR)
    setwolf(0)
    lockoff
-   lmap(MAP_KASSIM,  23,11) //$0c,$1f)
-   warp(1,$0c,$17,UP)
-   warp(0,$0d,$17,UP)
-   warp(2,$0e,$17,UP)
+   lmap(MAP_KASSIM,  23,11) //0x0c,0x1f)
+   warp(1,0x0c,0x17,UP)
+   warp(0,0x0d,0x17,UP)
+   warp(2,0x0e,0x17,UP)
 
    call(credits_scene39_loadgeist)
-   ldude(4,CH_ROLAND,  $0c,$13,DOWN,STAND)
-   ldude(5,NPC_SOLDIER,$0e,$12,LEFT,STAND)
-   ldude(6,NPC_SOLDIER,$0e,$12,LEFT,STAND)
+   ldude(4,CH_ROLAND,  0x0c,0x13,DOWN,STAND)
+   ldude(5,NPC_SOLDIER,0x0e,0x12,LEFT,STAND)
+   ldude(6,NPC_SOLDIER,0x0e,0x12,LEFT,STAND)
 
-   ldude( 7,NPC_DEAD,   $0f,$10,DOWN,STAND)
-   ldude( 8,NPC_DEAD,   $15,$14,DOWN,STAND)
-   ldude( 9,NPC_DEAD,   $08,$1d,DOWN,STAND)
-   ldude(10,NPC_DEAD,   $11,$1a,DOWN,STAND)
-   ldude(11,NPC_DEAD,   $0b,$19,DOWN,STAND)
+   ldude( 7,NPC_DEAD,   0x0f,0x10,DOWN,STAND)
+   ldude( 8,NPC_DEAD,   0x15,0x14,DOWN,STAND)
+   ldude( 9,NPC_DEAD,   0x08,0x1d,DOWN,STAND)
+   ldude(10,NPC_DEAD,   0x11,0x1a,DOWN,STAND)
+   ldude(11,NPC_DEAD,   0x0b,0x19,DOWN,STAND)
    frame( 7,2)
    frame( 8,2)
    frame( 9,2)
@@ -416,18 +416,18 @@ credits_scene6:
    end
 
 credits_scene39_loadgeist:
-   ldudehi(12,NPC_GEIST, $16,$0a,0)
-   ldudehi(13,NPC_GEIST, $17,$0a,1)
-   ldudehi(14,NPC_GEIST, $18,$0a,2)
-   ldudehi(15,NPC_GEIST, $16,$0b,3)
-   ldudehi(16,NPC_GEIST, $17,$0b,4)
-   ldudehi(17,NPC_GEIST, $18,$0b,5)
-   tile(22,12,$79)
-   tile(23,12,$7a)
-   tile(24,12,$7b)
-   tile(22,13,$7c)
-   tile(23,13,$7d)
-   tile(24,13,$7e)
+   ldudehi(12,NPC_GEIST, 0x16,0x0a,0)
+   ldudehi(13,NPC_GEIST, 0x17,0x0a,1)
+   ldudehi(14,NPC_GEIST, 0x18,0x0a,2)
+   ldudehi(15,NPC_GEIST, 0x16,0x0b,3)
+   ldudehi(16,NPC_GEIST, 0x17,0x0b,4)
+   ldudehi(17,NPC_GEIST, 0x18,0x0b,5)
+   tile(22,12,0x79)
+   tile(23,12,0x7a)
+   tile(24,12,0x7b)
+   tile(22,13,0x7c)
+   tile(23,13,0x7d)
+   tile(24,13,0x7e)
    end
 
 
@@ -439,15 +439,15 @@ credits_scene7:
    partyset(3,PARTY_ELYA)
 
    face(0,UP)
-   lmap(MAP_GRDKISLE, $0c,$0d)
-   ldude(4,NPC_GOLEM, $0a,$06,DOWN,STAND)
-   ldude(5,NPC_GOLEM, $0e,$06,DOWN,STAND)
-   ldude(6,NPC_GOLEM, $0a,$08,DOWN,STAND)
-   ldude(7,NPC_GOLEM, $0d,$08,DOWN,STAND)
-   ldude(8,NPC_GOLEM, $0e,$08,DOWN,STAND)
-   ldude(9,NPC_GOLEM, $08,$0a,DOWN,STAND)
-   ldude(10,NPC_KRAIT, $0b,$07,DOWN,STAND)
-   ldude(11,CH_ALUTHA, $0c,$09,DOWN,STAND)
+   lmap(MAP_GRDKISLE, 0x0c,0x0d)
+   ldude(4,NPC_GOLEM, 0x0a,0x06,DOWN,STAND)
+   ldude(5,NPC_GOLEM, 0x0e,0x06,DOWN,STAND)
+   ldude(6,NPC_GOLEM, 0x0a,0x08,DOWN,STAND)
+   ldude(7,NPC_GOLEM, 0x0d,0x08,DOWN,STAND)
+   ldude(8,NPC_GOLEM, 0x0e,0x08,DOWN,STAND)
+   ldude(9,NPC_GOLEM, 0x08,0x0a,DOWN,STAND)
+   ldude(10,NPC_KRAIT, 0x0b,0x07,DOWN,STAND)
+   ldude(11,CH_ALUTHA, 0x0c,0x09,DOWN,STAND)
    warp2(11,24,20,DOWN)
    setz(11,8)
    frame(11,CEL_TIRED)
@@ -466,11 +466,11 @@ credits_scene7:
    face(3,UP)
    sleep(32)
    panspeed(0)
-   pan($0c,$08)
+   pan(0x0c,0x08)
    sleep(48)
    sleep(32)
    endnext
-   pan($0c,$0b) // $0c)
+   pan(0x0c,0x0b) // 0x0c)
    walk(10,DOWN,3)
    sleep(48)
 
@@ -482,12 +482,12 @@ credits_scene7:
    ;say(S51_ETXT1)
    sleep(16)
    face(10,RIGHT)
-   pan($0c,$0a)
+   pan(0x0c,0x0a)
    darken
    sleep(32)
    call(credits_grd_effect1)
 
-   ldude(10,NPC_KRAIT, $0b,$0a,RIGHT,STAND)
+   ldude(10,NPC_KRAIT, 0x0b,0x0a,RIGHT,STAND)
 
    // align alutha
    setz(11,0)
@@ -548,12 +548,12 @@ credits_scene9:
    call(credits_clearparty)
    partyset(0,PARTY_CONNOR)
 
-   lmap(MAP_SLR_CONNR, $01,$02)
+   lmap(MAP_SLR_CONNR, 0x01,0x02)
 
-   ldude(4,NPC_ANNA, $04,$08,UP,STAND)
+   ldude(4,NPC_ANNA, 0x04,0x08,UP,STAND)
    frame(0,CEL_TIRED)
    panspeed(0)
-   camera($04,$07)
+   camera(0x04,0x07)
    fadein(X_FADE)
 
    sleep(32)
@@ -608,9 +608,9 @@ credits_scene9:
    panspeed(2)
    lockon(0)
 
-   lmap(MAP_SELERA, $18,$08)
-   ldude(4,NPC_ANNA,$18,$08,LEFT,STAND)
-   warp(0,$17,$08,RIGHT)
+   lmap(MAP_SELERA, 0x18,0x08)
+   ldude(4,NPC_ANNA,0x18,0x08,LEFT,STAND)
+   warp(0,0x17,0x08,RIGHT)
    lockon(4)
    fadein(X_FADE)
    sleep(16)
@@ -630,7 +630,7 @@ credits_scene9:
    walk(4,RIGHT,1)
    sync
    face(4,UP)
-   warp(0,$17,$16,DOWN)
+   warp(0,0x17,0x16,DOWN)
    walk(0,DOWN,3)
    sync
    face(4,LEFT)
@@ -640,10 +640,10 @@ credits_scene9:
    sync
    lockoff
 
-   ldude(5,NPC_EMBRACE,$00,$00,DOWN,STAND)
-   ldude(6,NPC_EMBRACE,$00,$00,DOWN,STAND)
-   warp2(5,$2f,$32,DOWN)
-   warp2(6,$31,$32,DOWN)
+   ldude(5,NPC_EMBRACE,0x00,0x00,DOWN,STAND)
+   ldude(6,NPC_EMBRACE,0x00,0x00,DOWN,STAND)
+   warp2(5,0x2f,0x32,DOWN)
+   warp2(6,0x31,0x32,DOWN)
    frame(5,0)
    frame(6,1)
    sleep(2)
@@ -655,7 +655,7 @@ credits_scene9:
    fadefinal
 
    sleep(64)
-   lmap(MAP_THEEND,$05,$04)
+   lmap(MAP_THEEND,0x05,0x04)
    del(0)
    fadein(X_FADESLOW)
    lock

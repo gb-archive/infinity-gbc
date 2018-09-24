@@ -56,11 +56,14 @@ struct FORM_STRUCT
         char guy_y[12];
 };
 
+#define ZONE_STRUCT_SIZE 40
+
 struct ZONE_STRUCT
 {
         char name[32];
-        struct FORM_STRUCT *ptr;
+        int dummy; // 4 bytes of unused data
         int numforms;
+        struct FORM_STRUCT *ptr;
 };
 
 struct ZONES

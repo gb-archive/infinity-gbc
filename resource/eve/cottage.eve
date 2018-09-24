@@ -13,8 +13,8 @@
 O_COT:
    call(MAPPOS_SAVE_R)
    face(0,UP)
-   set(B,$03)
-   set(C,$08)
+   set(B,0x03)
+   set(C,0x08)
    call(L_COT)
    fadein(X_ROLL)
    end
@@ -28,23 +28,23 @@ I_COT:
 L_COT:
    lmap(MAP_COTTAGE,       B,C)
    song(SNG_TOWN1)
-   chstep(OVERWORLD,       $7f,$7f,$0c)
-   chstep(OVERWORLD,       $7f,$09,$0c)
-   cvstep(OVERWORLD,       $7f,$7f,$0b)
-   cvstep(OVERWORLD,       $0a,$7F,$0b)
+   chstep(OVERWORLD,       0x7f,0x7f,0x0c)
+   chstep(OVERWORLD,       0x7f,0x09,0x0c)
+   cvstep(OVERWORLD,       0x7f,0x7f,0x0b)
+   cvstep(OVERWORLD,       0x0a,0x7F,0x0b)
 
-   cstep(cot_inn,          $03,$05)
+   cstep(cot_inn,          0x03,0x05)
 
    end
 
 cot_inn:
    getxy(B,C)
    fadeout(X_FADE)
-   lmap(MAP_COT_INN,       $02,$07)
+   lmap(MAP_COT_INN,       0x02,0x07)
 cot_innjoin:
-   chstep(I_COT,           $02,$08,$01)
-   ldude(4,NPC_MAN2,       $02,$04,DOWN,STAND)
-   csearch(cot_innroom,    $02,$05,S_U)
+   chstep(I_COT,           0x02,0x08,0x01)
+   ldude(4,NPC_MAN2,       0x02,0x04,DOWN,STAND)
+   csearch(cot_innroom,    0x02,0x05,S_U)
    fadein(X_FADE)
    end
 cot_innroom:
@@ -59,7 +59,7 @@ cot_innroom:
 cot_innok:
    tgold(15)
    say(INN_DTXT5)
-   align($03,$06)
+   align(0x03,0x06)
    sync
    call(INNREST)
 cot_innno:
@@ -72,9 +72,9 @@ cot_innns:
    say(INN_DTXT3)
    end
 cot_innload:
-   lmap(MAP_COT_INN,       $02,$06)
+   lmap(MAP_COT_INN,       0x02,0x06)
    song(SNG_TOWN1)
-   set(B,$03)
-   set(C,$05)
+   set(B,0x03)
+   set(C,0x05)
    goto(cot_innjoin)
 

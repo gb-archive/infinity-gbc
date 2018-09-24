@@ -8,7 +8,11 @@ builddir:
 clean:
 	rm -f resource/eve/itemdefs.h
 	rm -f source/eve/itemdefs.h
+	rm -f resource/eve/eform.txt resource/eve/eform.pst resource/eve/eform.dat
+	rm -f resource/eve/dialog.dat
+	rm -f resource/eve/game.pst resource/eve/demo.edt
 	rm -f resource/ext/*.bin
+	rm -f resource/*.pag
 	rm -f source/data/*.h
 	rm -f build/*.o
 
@@ -18,6 +22,30 @@ distclean: clean
 
 source/eve/itemdefs.h: resource/eve/items.ref
 	cd resource/eve && ../../bin/itemconv --defs items.ref && cp itemdefs.h ../../source/eve
+
+resource/eve/eform.pst: resource/eve/enemies.afz
+	cd resource/eve && ../../bin/afzconv enemies.afz && cpp < eform.txt | ../../bin/post > eform.pst
+
+resource/eve/eform.dat: resource/eve/eform.pst
+	yasm -o resource/eve/eform.dat resource/eve/eform.pst
+
+resource/efr00.pag: resource/eve/eform.dat
+	cd resource && ../bin/pagify eve/eform.dat efr
+
+resource/eve/dialog.dat: resource/eve/dialog.txt
+	cd resource/eve && ../../bin/proctext dialog.txt dialog.dat
+
+resource/txt00.pag: resource/eve/dialog.dat
+	cd resource && ../bin/pagify eve/dialog.dat txt
+
+resource/eve/game.pst: resource/eve/game.eve
+	cd resource/eve && cpp < game.eve | ../../bin/post > game.pst
+
+resource/eve/demo.edt: resource/eve/game.pst
+	yasm -o resource/eve/demo.edt resource/eve/game.pst
+
+resource/eve00.pag: resource/eve/demo.edt
+	cd resource && ../bin/pagify eve/demo.edt eve
 
 resource/ext/arrow_w.bin: resource/ext/arrow_w.gbr
 	cd resource/ext && ../../bin/gbr2bin arrow_w.gbr arrow_w.bin /nopal 0 15
@@ -205,7 +233,7 @@ build/dm.o: source/dfs_main.s
 build/t.o: source/title.s
 	cd source && lcc -Wf-bo14 -c -Wa-g -o ../build/t.o title.s
 
-build/j.gb: source/eve/itemdefs.h build/e.o build/asm.o build/j.o build/j2.o build/d1.o build/d2.o build/m.o build/m2.o build/b.o build/b2.o build/b3.o build/b4.o build/b5.o build/b6.o build/dm.o build/t.o
+build/j.gb: source/eve/itemdefs.h build/e.o build/asm.o build/j.o build/j2.o build/d1.o build/d2.o build/m.o build/m2.o build/b.o build/b2.o build/b3.o build/b4.o build/b5.o build/b6.o build/dm.o build/t.o resource/efr00.pag resource/txt00.pag resource/eve00.pag
 	cd build && lcc -Wl-m -Wl-yt27 -Wl-yo128 -Wl-ya4 -o j.gb e.o asm.o j.o j2.o m.o m2.o d1.o d2.o b.o b2.o b3.o b4.o b5.o b6.o dm.o t.o
 
 	cd resource && ../bin/inspage ../build/j.gb zonemap.pag 15

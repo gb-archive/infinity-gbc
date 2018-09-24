@@ -20,7 +20,7 @@ sew_enter1:
 
    ; if VAR_SEW1 == 0, run Scene 28
    get(A,VAR_SEW1)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_SEW1)
    goto(sew_scene28)
 
@@ -45,9 +45,9 @@ sew_part1_nf:
    cstep(sew_part1b,   6,  4)
    cstep(sew_part1c,  40,  6)
 
-   ctres($3b,IT_HPLo,   4,  5,$00,SFX_SEARCH)
-   ctres($3c,IT_LFLo,  19, 21,$3b,SFX_CHEST)
-   ctres($3d,IT_HPLo,  42, 10,$3b,SFX_CHEST)
+   ctres(0x3b,IT_HPLo,   4,  5,0x00,SFX_SEARCH)
+   ctres(0x3c,IT_LFLo,  19, 21,0x3b,SFX_CHEST)
+   ctres(0x3d,IT_HPLo,  42, 10,0x3b,SFX_CHEST)
 
    fadein(X_FADE)
    end
@@ -56,15 +56,15 @@ sew_part1a:
    if(A,CE,0,sew_bounceback)
    fadeout(X_FADE)
    face(0,DOWN)
-   lmap(MAP_TGL_KING,$0a,$03)
+   lmap(MAP_TGL_KING,0x0a,0x03)
    goto(tgl_halld_sew)
 sew_part1b:
-   set(D,$02)
-   set(E,$07)
+   set(D,0x02)
+   set(E,0x07)
    goto(sew_inn)
 sew_part1c:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(sew_part2)
 
 
@@ -83,7 +83,7 @@ sew_part2:
    cstep(sew_hitlo,   17,  6)
 
    csearch(sew_garg,  13,  6, S_ALL)
-   ctres($3e,IT_HALo,119,  5,$3b,SFX_CHEST)
+   ctres(0x3e,IT_HALo,119,  5,0x3b,SFX_CHEST)
 
    fadein(X_FADE)
    end
@@ -121,8 +121,8 @@ sew_part3:
    csearch(sew_garg,  11, 16, S_ALL)
    csearch(sew_garg,  18, 17, S_ALL)
 
-   ctres($3f,IT_HChain,107, 21,$3b,SFX_CHEST)
-   ctres($40,IT_HPLo,123,  5,$3b,SFX_CHEST)
+   ctres(0x3f,IT_HChain,107, 21,0x3b,SFX_CHEST)
+   ctres(0x40,IT_HPLo,123,  5,0x3b,SFX_CHEST)
 
    fadein(X_FADE)
    end
@@ -157,7 +157,7 @@ sew_part4_nf:
 
    csearch(sew_garg,   4,  3, S_ALL)
 
-   ctres($41,IT_GIron,103, 16,$3b,SFX_CHEST)
+   ctres(0x41,IT_GIron,103, 16,0x3b,SFX_CHEST)
 
    fadein(G)
    end
@@ -170,13 +170,13 @@ sew_part4b:
    set(C, 76)
    call(OVER_WARP)
    get(A,VAR_SEW2)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_SEW2)
    goto(sew_scene29)
 
 sew_boss:
    get(A,VAR_SEW3)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_SEW3)
 
    lockoff
@@ -295,7 +295,7 @@ sew_fix:
    get(A,VAR_SEWHIT)
    if(A,CE,1,sew_fix1)
    get(A,VAR_SEWWATER)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    mapstate(3)
    hitstate(2)
    end
@@ -443,8 +443,8 @@ sew_innjoin:
    chstep(sew_inn_a,  2,8,1)
    cvstep(sew_innroom,7,4,2)
 
-   ctres($42,IT_SPLo,    6,  3,$00,SFX_SEARCH)
-   ctres($43,IT_CSaber,  1,  2,$3b,SFX_CHEST)
+   ctres(0x42,IT_SPLo,    6,  3,0x00,SFX_SEARCH)
+   ctres(0x43,IT_CSaber,  1,  2,0x3b,SFX_CHEST)
 
    csearch(sew_note1,    5,  3, S_ALL)
    csearch(sew_note2,    3,  2, S_ALL)
@@ -457,7 +457,7 @@ sew_inn_a:
    set(E,  4)
    goto(sew_part1)
 sew_innroom:
-   align($07,$04)
+   align(0x07,0x04)
    sync
    face(0,RIGHT)
    group
@@ -494,7 +494,7 @@ sew_innsave:
 sew_innns:
    end
 sew_innload:
-   lmap(MAP_SEW_INN,$02,$05)
+   lmap(MAP_SEW_INN,0x02,0x05)
    song(SNG_CAVE1)
    goto(sew_innjoin)
 

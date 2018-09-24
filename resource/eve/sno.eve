@@ -13,16 +13,16 @@
 O_SNO:
    fadeout(X_ROLL)
    face(0,UP)
-   set(D,$08)
-   set(E,$2f)
+   set(D,0x08)
+   set(E,0x2f)
    set(G,X_ROLL)
    song(SNG_MOUNTAIN)
    goto(sno_part1_nf)
 O_SNO2:
    fadeout(X_ROLL)
    face(0,UP)
-   set(D,$20)
-   set(E,$34)
+   set(D,0x20)
+   set(E,0x34)
    set(G,X_ROLL)
    song(SNG_MOUNTAIN)
    goto(sno_part5_nf)
@@ -38,10 +38,10 @@ sno_part1:
 sno_part1_nf:
    lmap(MAP_SNOW, D,E)
    zone(ZONE_SNO)
-   chstep(sno_part1a, $08,$30,$01)
-   cvstep(sno_part1b, $18,$00,$2f)
-   cstep( sno_part1c, $08,$0f)
-   csearch(sno_sign,  $0a,$12,S_U)
+   chstep(sno_part1a, 0x08,0x30,0x01)
+   cvstep(sno_part1b, 0x18,0x00,0x2f)
+   cstep( sno_part1c, 0x08,0x0f)
+   csearch(sno_sign,  0x0a,0x12,S_U)
    fadein(G)
    end
 sno_part1a:
@@ -50,65 +50,65 @@ sno_part1a:
    goto(OVER_WARP)
 sno_part1b:
    getxy(D,E)
-   set(D,$00)
+   set(D,0x00)
    goto(sno_part2)
 sno_part1c:
-   set(D,$04)
-   set(E,$07)
+   set(D,0x04)
+   set(E,0x07)
    goto(sno_part6)
 
 sno_part2:
    fadeout(X_FADE)
    lmap(MAP_SNOW2, D,E)
    zone(ZONE_SNO)
-   cvstep(sno_part2a, $7f,$00,$2f)
-   cvstep(sno_part2b, $18,$29,$03)
-   ctres($59,IT_HHide, $14,$17,$02,SFX_CHEST)
+   cvstep(sno_part2a, 0x7f,0x00,0x2f)
+   cvstep(sno_part2b, 0x18,0x29,0x03)
+   ctres(0x59,IT_HHide, 0x14,0x17,0x02,SFX_CHEST)
    fadein(X_FADE)
    end
 sno_part2a:
    getxy(D,E)
-   set(D,$17)
+   set(D,0x17)
    goto(sno_part1)
 sno_part2b:
-   set(D,$00)
-   set(E,$2d)
+   set(D,0x00)
+   set(E,0x2d)
    goto(sno_part3)
 
 sno_part3:
    fadeout(X_FADE)
    lmap(MAP_SNOW3, D,E)
    zone(ZONE_SNO)
-   cvstep(sno_part3a, $7f,$00,$30)
-   cstep(sno_part3b,  $0c,$05)
+   cvstep(sno_part3a, 0x7f,0x00,0x30)
+   cstep(sno_part3b,  0x0c,0x05)
    fadein(X_FADE)
    end
 sno_part3a:
-   set(D,$17)
-   set(E,$2a)
+   set(D,0x17)
+   set(E,0x2a)
    goto(sno_part2)
 sno_part3b:
-   set(D,$06)
-   set(E,$1a)
+   set(D,0x06)
+   set(E,0x1a)
    goto(sno_part4)
 
 sno_part4:
    fadeout(X_FADE)
    lmap(MAP_SNOW4, D,E)
    zone(ZONE_SNO2)
-   cstep(sno_part4a,  $06,$1b)
-   cstep(sno_part4b,  $32,$1c)
-//   ctres($5a,IT_OClaymore,$23,$1b,$19,SFX_SEARCH)
-   ctres($5b,IT_OClaymore,$03,$06,$19,SFX_SEARCH)
+   cstep(sno_part4a,  0x06,0x1b)
+   cstep(sno_part4b,  0x32,0x1c)
+//   ctres(0x5a,IT_OClaymore,0x23,0x1b,0x19,SFX_SEARCH)
+   ctres(0x5b,IT_OClaymore,0x03,0x06,0x19,SFX_SEARCH)
    fadein(X_FADE)
    end
 sno_part4a:
-   set(D,$0c)
-   set(E,$05)
+   set(D,0x0c)
+   set(E,0x05)
    goto(sno_part3)
 sno_part4b:
-   set(D,$06)
-   set(E,$06)
+   set(D,0x06)
+   set(E,0x06)
    goto(sno_part5)
 
 sno_part5:
@@ -117,21 +117,21 @@ sno_part5:
 sno_part5_nf:
    lmap(MAP_SNOW5, D,E)
    zone(ZONE_SNO)
-   cstep(sno_part5a,  $06,$06)
-   chstep(sno_part5b, $1F,$35,$03)
+   cstep(sno_part5a,  0x06,0x06)
+   chstep(sno_part5b, 0x1F,0x35,0x03)
 
    ; load boss
    get(A,VAR_SNO1)
    if(A,CE,1,sno_part5_noboss)
-   ldude(4,NPC_YETI,  $23,$19, UP,STAND)
+   ldude(4,NPC_YETI,  0x23,0x19, UP,STAND)
    ctalk(sno_boss, 4);
 sno_part5_noboss:
 
    fadein(G)
    end
 sno_part5a:
-   set(D,$32)
-   set(E,$1b)
+   set(D,0x32)
+   set(E,0x1b)
    goto(sno_part4)
 sno_part5b:
    set(B,101)
@@ -166,21 +166,21 @@ sno_part6:
    fadeout(X_FADE)
    lmap(MAP_SNOW6, D,E)
 sno_innjoin:
-   cstep(sno_part6a,  $04,$08)
-   csearch(sno_book1, $06,$01,S_U)
-   csearch(sno_book2, $07,$01,S_U)
-   ldude(5,NPC_FIRE3, $03,$01,DOWN,STAND)
+   cstep(sno_part6a,  0x04,0x08)
+   csearch(sno_book1, 0x06,0x01,S_U)
+   csearch(sno_book2, 0x07,0x01,S_U)
+   ldude(5,NPC_FIRE3, 0x03,0x01,DOWN,STAND)
    set(A,0)
    sub(A,4)
    setz(5,A)
    anim(5)
-   ldude(4,NPC_MAYOR, $06,$05,UP,STAND)
+   ldude(4,NPC_MAYOR, 0x06,0x05,UP,STAND)
    ctalk(sno_guy, 4)
    fadein(X_FADE)
    end
 sno_part6a:
-   set(D,$08)
-   set(E,$0f)
+   set(D,0x08)
+   set(E,0x0f)
    goto(sno_part1)
 
 sno_guy:
@@ -198,7 +198,7 @@ sno_guy:
    sleep(60)
    song_resume
    face(0,DOWN)
-   lmap(MAP_SNOW6,      $04,$04)
+   lmap(MAP_SNOW6,      0x04,0x04)
    call(sno_innjoin)
    sleep(30)
 
@@ -212,6 +212,6 @@ sno_innns:
    say(INN_DTXT3)
    end
 sno_innload:
-   lmap(MAP_SNOW6,      $04,$04)
+   lmap(MAP_SNOW6,      0x04,0x04)
    song(SNG_MOUNTAIN)
    goto(sno_innjoin)

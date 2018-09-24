@@ -13,8 +13,8 @@
 O_KASSIM:
    call(MAPPOS_SAVE_R)
    face(0,UP)
-   set(B,$0C)
-   set(C,$1F)
+   set(B,0x0C)
+   set(C,0x1F)
    call(L_KASSIM)
    fadein(X_ROLL)
    end
@@ -34,23 +34,23 @@ l_kassim_normal:
 
    lmap(F,        B,C)
    song(SNG_KASSIM)
-   chstep(OVERWORLD,       $7f,$7f,$22)
-   chstep(OVERWORLD,       $7f,$20,$22)
-   cvstep(OVERWORLD,       $7f,$7f,$22)
-   cvstep(OVERWORLD,       $20,$7F,$22)
+   chstep(OVERWORLD,       0x7f,0x7f,0x22)
+   chstep(OVERWORLD,       0x7f,0x20,0x22)
+   cvstep(OVERWORLD,       0x7f,0x7f,0x22)
+   cvstep(OVERWORLD,       0x20,0x7F,0x22)
 
-   cstep(ksm_inn,          $15,$13)
+   cstep(ksm_inn,          0x15,0x13)
    cstep(ksm_hous1,        15,13)
    cstep(ksm_hous2,        29,17)
    cstep(ksm_hous3,         2,10)
 
-   ctres($13,IT_KSirocco,  $1f,$1f,$03,SFX_CHEST)
-   ctres($14,IT_HPLO,      $0a,$10,$00,SFX_SEARCH)
-   ctres($15,IT_HPLO,      $1a,$11,$00,SFX_SEARCH)
-   csearch(ksm_sign,       $0e,$1a,S_U)
+   ctres(0x13,IT_KSirocco,  0x1f,0x1f,0x03,SFX_CHEST)
+   ctres(0x14,IT_HPLO,      0x0a,0x10,0x00,SFX_SEARCH)
+   ctres(0x15,IT_HPLO,      0x1a,0x11,0x00,SFX_SEARCH)
+   csearch(ksm_sign,       0x0e,0x1a,S_U)
 
    get(A,VAR_NONLINEAR)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
 
    get(A,VAR_KSM1)
    cif(A,CE,0,ksm_normal_setup)
@@ -59,19 +59,19 @@ l_kassim_normal:
    end
 
 ksm_normal_setup:
-   ldude(4,NPC_HASSAN,     $0d,$14,DOWN,STAND)
+   ldude(4,NPC_HASSAN,     0x0d,0x14,DOWN,STAND)
    get(A,VAR_HASSAN1)
    if(A,CE,0,ksm_nowarp)
    warp(4,16,18,DOWN)
 ksm_nowarp:
-   ldude(5,NPC_MAN2,       $0a,$12,DOWN,STAND)
+   ldude(5,NPC_MAN2,       0x0a,0x12,DOWN,STAND)
    ctalk(ksm_hassan,4)
    ctalk(ksm_shopwep,5)
-   lguy(NPC_GIRL1,         $05,$11, KSM_DTXT2)
-   lguy(NPC_MAN2,          $06,$19, KSM_DTXT3)
-   lguy(NPC_LADY4,         $16,$1a, KSM_DTXT4)
-   lguy(NPC_BOY1,          $0b,$05, KSM_DTXT5)
-   lguy(NPC_MAN1,          $1e,$0b, KSM_DTXT6)
+   lguy(NPC_GIRL1,         0x05,0x11, KSM_DTXT2)
+   lguy(NPC_MAN2,          0x06,0x19, KSM_DTXT3)
+   lguy(NPC_LADY4,         0x16,0x1a, KSM_DTXT4)
+   lguy(NPC_BOY1,          0x0b,0x05, KSM_DTXT5)
+   lguy(NPC_MAN1,          0x1e,0x0b, KSM_DTXT6)
    end
 
 ksm_book1:
@@ -93,15 +93,15 @@ ksm_sign:
 ksm_inn:
    getxy(B,C)
    fadeout(X_FADE)
-   lmap(MAP_KSM_INN,       $02,$07)
+   lmap(MAP_KSM_INN,       0x02,0x07)
 ksm_innjoin:
-   chstep(I_KASSIM,        $02,$08,$01)
+   chstep(I_KASSIM,        0x02,0x08,0x01)
 
    ; wrecked
    get(A,VAR_NONLINEAR)
    if(A,CE,1,ksm_inn_empty)
-   ldude(4,NPC_LADY1,      $02,$04,DOWN,STAND)
-   csearch(ksm_innroom,    $02,$05,S_U)
+   ldude(4,NPC_LADY1,      0x02,0x04,DOWN,STAND)
+   csearch(ksm_innroom,    0x02,0x05,S_U)
 ksm_inn_empty:
 
    fadein(X_FADE)
@@ -118,7 +118,7 @@ ksm_innroom:
 ksm_innok:
    tgold(15)
    say(INN_DTXT5)
-   align($03,$06)
+   align(0x03,0x06)
    sync
    call(INNREST)
 ksm_innno:
@@ -131,10 +131,10 @@ ksm_innns:
    say(INN_DTXT3)
    end
 ksm_innload:
-   lmap(MAP_KSM_INN,       $02,$06)
+   lmap(MAP_KSM_INN,       0x02,0x06)
    song(SNG_KASSIM)
-   set(B,$15)
-   set(C,$13)
+   set(B,0x15)
+   set(C,0x13)
    goto(ksm_innjoin)
 
 ksm_hous1:
@@ -142,9 +142,9 @@ ksm_hous1:
    fadeout(X_FADE)
    lmap(MAP_KSM_HOUS1,     5,8)
    cstep(I_KASSIM,         5,9)
-   csearch(ksm_book1,      $01,$01,S_U)
-   csearch(ksm_desk1,      $07,$05,S_ALL)
-   csearch(ksm_desk1,      $08,$05,S_ALL)
+   csearch(ksm_book1,      0x01,0x01,S_U)
+   csearch(ksm_desk1,      0x07,0x05,S_ALL)
+   csearch(ksm_desk1,      0x08,0x05,S_ALL)
 
    ; wrecked
    get(A,VAR_NONLINEAR)
@@ -161,9 +161,9 @@ ksm_hous2:
    fadeout(X_FADE)
    lmap(MAP_KSM_HOUS2,     6,7)
    cstep(I_KASSIM,         6,8)
-   ctres($16,IT_AU_50,     $01,$02,$00,SFX_SEARCH)
-   csearch(ksm_desk2,      $03,$02,S_ALL)
-   csearch(ksm_desk2,      $04,$02,S_ALL)
+   ctres(0x16,IT_AU_50,     0x01,0x02,0x00,SFX_SEARCH)
+   csearch(ksm_desk2,      0x03,0x02,S_ALL)
+   csearch(ksm_desk2,      0x04,0x02,S_ALL)
 
    ; wrecked
    get(A,VAR_NONLINEAR)
@@ -183,8 +183,8 @@ ksm_hous3:
    fadeout(X_FADE)
    lmap(MAP_KSM_HOUS3,     4,7)
    cstep(I_KASSIM,         4,8)
-   ctres($17,IT_HPLO,      $07,$02,$00,SFX_SEARCH)
-   ctres($18,IT_SPLo,      $03,$04,$00,SFX_SEARCH)
+   ctres(0x17,IT_HPLO,      0x07,0x02,0x00,SFX_SEARCH)
+   ctres(0x18,IT_SPLo,      0x03,0x04,0x00,SFX_SEARCH)
    fadein(X_FADE)
    end
 
@@ -213,7 +213,7 @@ ksm_hassan:
    goto(ksm_shopitm)
 
 ksm_scene16:
-   align($0d,$15)
+   align(0x0d,0x15)
    sync
    face(0,UP)
    face(4,DOWN)
@@ -323,28 +323,28 @@ ksm_scene16:
    end
 
 ksm_scene39_setup:
-   ldude( 7,NPC_DEAD,   $0f,$10,DOWN,STAND)
-   ldude( 8,NPC_DEAD,   $15,$14,DOWN,STAND)
-   ldude( 9,NPC_DEAD,   $08,$1d,DOWN,STAND)
-   ldude(10,NPC_DEAD,   $11,$1a,DOWN,STAND)
-   ldude(11,NPC_DEAD,   $0b,$19,DOWN,STAND)
+   ldude( 7,NPC_DEAD,   0x0f,0x10,DOWN,STAND)
+   ldude( 8,NPC_DEAD,   0x15,0x14,DOWN,STAND)
+   ldude( 9,NPC_DEAD,   0x08,0x1d,DOWN,STAND)
+   ldude(10,NPC_DEAD,   0x11,0x1a,DOWN,STAND)
+   ldude(11,NPC_DEAD,   0x0b,0x19,DOWN,STAND)
    frame( 7,2)
    frame( 8,2)
    frame( 9,2)
    frame(10,2)
    frame(11,2)
 
-   ldude(4,CH_ROLAND,  $0c,$15,DOWN,STAND)
-   ldude(5,NPC_SOLDIER,$0e,$12,LEFT,STAND)
-   ldude(6,NPC_GOLEM,  $04,$15,RIGHT,STAND)
+   ldude(4,CH_ROLAND,  0x0c,0x15,DOWN,STAND)
+   ldude(5,NPC_SOLDIER,0x0e,0x12,LEFT,STAND)
+   ldude(6,NPC_GOLEM,  0x04,0x15,RIGHT,STAND)
 
-   tile(22,12,$79)
-   tile(23,12,$7a)
-   tile(24,12,$7b)
-   tile(22,13,$7c)
-   tile(23,13,$7d)
-   tile(24,13,$7e)
-   chstep(ksm_scene39,$0c,$1c,2)
+   tile(22,12,0x79)
+   tile(23,12,0x7a)
+   tile(24,12,0x7b)
+   tile(22,13,0x7c)
+   tile(23,13,0x7d)
+   tile(24,13,0x7e)
+   chstep(ksm_scene39,0x0c,0x1c,2)
    end
 
 ksm_loadgeist:
@@ -365,7 +365,7 @@ ksm_loadgeist:
 ksm_scene39:
    sleep(4)
    say(S39_ETXT1_1)
-   align($0c,$1c)
+   align(0x0c,0x1c)
    sync
    sleep(2)
    walk(0,UP,6)
@@ -434,11 +434,11 @@ ksm_scene39:
    reform
    partyarr
    detach
-   warp(0,$0c,$16,UP)
-   warp(1,$0b,$15,RIGHT)
-   warp(2,$0d,$15,LEFT)
-   warp(3,$0c,$14,DOWN)
-   camera($0c,$15)
+   warp(0,0x0c,0x16,UP)
+   warp(1,0x0b,0x15,RIGHT)
+   warp(2,0x0d,0x15,LEFT)
+   warp(3,0x0c,0x14,DOWN)
+   camera(0x0c,0x15)
    fadein(X_FADE)
 
    sleep(16)
@@ -452,7 +452,7 @@ ksm_scene39:
    lockon(0)
    walk(0,RIGHT,6)
 
-   ldude(4,NPC_GOLEM,$12,$1d,UP,STAND)
+   ldude(4,NPC_GOLEM,0x12,0x1d,UP,STAND)
    walk(4,UP,7)
    sync
    face(0,DOWN)
@@ -466,8 +466,8 @@ ksm_scene39:
 
    walk(0,UP,6)
 
-   ldude(4,NPC_GOLEM,$0a,$0e,UP,STAND)
-   ldude(5,NPC_GOLEM,$0a,$0f,UP,STAND)
+   ldude(4,NPC_GOLEM,0x0a,0x0e,UP,STAND)
+   ldude(5,NPC_GOLEM,0x0a,0x0f,UP,STAND)
    walk(4,RIGHT,7)
    walk(5,RIGHT,7)
    sync
@@ -505,7 +505,7 @@ ksm_scene39:
    face(3,DOWN)
 
    ; enter kraith
-   ldude(4,NPC_KRAIT,   $18,$12,UP,STAND)
+   ldude(4,NPC_KRAIT,   0x18,0x12,UP,STAND)
    walk(4,UP,2)
    sync
    walk(4,LEFT,1)
@@ -543,7 +543,7 @@ ksm_scene39:
    sleep(16)
    face(4,RIGHT)
 
-   ldude(5,EN_OMEGA,   $18,$15,UP,STAND)
+   ldude(5,EN_OMEGA,   0x18,0x15,UP,STAND)
    walk(5,UP,5)
    sync
    walk(5,LEFT,1)
@@ -553,11 +553,11 @@ ksm_scene39:
    sync
    battle(Special2_KassimBoss,1,1,0,0) ; run-able
 
-   warp(5,$18,$0d,RIGHT)
-   warp(0,$19,$0c,LEFT)
-   warp(1,$19,$0d,LEFT)
-   warp(2,$19,$0e,LEFT)
-   warp(3,$1a,$0d,LEFT)
+   warp(5,0x18,0x0d,RIGHT)
+   warp(0,0x19,0x0c,LEFT)
+   warp(1,0x19,0x0d,LEFT)
+   warp(2,0x19,0x0e,LEFT)
+   warp(3,0x1a,0x0d,LEFT)
    face(4,RIGHT)
    setbosspal(BOSSPAL_OMEGA)
    fadein(X_FADE)

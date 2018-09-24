@@ -365,7 +365,7 @@ int main(int argc, char *argv[])
 	fread(&x, 4, 1, f);
 	printf("Zones: %d\n", x);
 	for(n = 0; n < x; ++n) {
-		fread(&zone, sizeof(struct ZONE_STRUCT), 1, f);
+		fread(&zone, ZONE_STRUCT_SIZE, 1, f);
 		y = zone.numforms;
 		zone.numforms = 0;
 		zone.ptr = NULL;
@@ -548,19 +548,19 @@ int main(int argc, char *argv[])
 	fprintf(out, "; Enemy formation info / Enemy info\n");
 	fprintf(out, ";\n");
 	fprintf(out, "; ----------------------------------------\n");
-	fprintf(out, "#define b(label)                      .dw label\n");
-	fprintf(out, "#define info(map,enum,exp,gold)       .db map, enum \\ .dw exp, gold\n");
-	fprintf(out, "#define bp(x,y)                       .db x, y\n");
-	fprintf(out, "#define be(type,x,y)                  .db type, x, y\n");
-	fprintf(out, "#define  e(lvl,hp,sp,str,end,agl,wis) .db lvl \\ .dw hp,hp,sp,sp \\ .db str,end,agl,wis\n");
-	fprintf(out, "#define  a(att,def,spd,md)            .db att,def,spd,md\n");
-	fprintf(out, "#define  z(item)                      .db item\n");
-	fprintf(out, "#define blank                         .db 0 \\ .dw 0,0,0,0 \\ .db 0,0,0,0, 0,0,0,0 \\ .db 0 \\ .dw 0,0,0,0,0,0,0,0 \\ .db 0,0,0,0 \n");
+	fprintf(out, "#define b(label)                      dw label\n");
+	fprintf(out, "#define info(map,enum,exp,gold)       db map, enum __NL__ dw exp, gold\n");
+	fprintf(out, "#define bp(x,y)                       db x, y\n");
+	fprintf(out, "#define be(type,x,y)                  db type, x, y\n");
+	fprintf(out, "#define  e(lvl,hp,sp,str,end,agl,wis) db lvl __NL__ dw hp,hp,sp,sp __NL__ db str,end,agl,wis\n");
+	fprintf(out, "#define  a(att,def,spd,md)            db att,def,spd,md\n");
+	fprintf(out, "#define  z(item)                      db item\n");
+	fprintf(out, "#define eblank                        db 0 __NL__ dw 0,0,0,0 __NL__ db 0,0,0,0, 0,0,0,0 __NL__ db 0 __NL__ dw 0,0,0,0,0,0,0,0 __NL__ db 0,0,0,0 \n");
 	fprintf(out, "; ----------------------------------------\n");
 	fprintf(out, "\n");
-	fprintf(out, "    .dw	zones\n");
-	fprintf(out, "    .dw	formations\n");
-	fprintf(out, "    .dw	enemies\n");
+	fprintf(out, "    dw	zones\n");
+	fprintf(out, "    dw	formations\n");
+	fprintf(out, "    dw	enemies\n");
 	fprintf(out, "\n");
 
 	// skip defines..
@@ -571,13 +571,13 @@ int main(int argc, char *argv[])
 	for(n = 0; n < 64; ++n) {
 		x = xrevref_zone(n+1);
 		if(x == -1) {
-			fprintf(out, "    .db 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ; blank\n");
+			fprintf(out, "    db 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ; blank\n");
 		}
 		else {
 			--x;
 			printf("[%d]->[%d]\n", n, x);
 
-			fprintf(out, "    .db %d", z.ptr[x].numforms);
+			fprintf(out, "    db %d", z.ptr[x].numforms);
 			for(n2 = 0; n2 < z.ptr[x].numforms; ++n2) {
 				fprintf(out, ",%2d,%2d", xfindform(n2, x, &z), z.ptr[x].ptr[n2].priority);
 				++at;
@@ -605,7 +605,7 @@ int main(int argc, char *argv[])
 	for(n = 0; n < 150; ++n) {
 		x = xfindref_enemy(n);
 		if(x == -1) {
-			fprintf(out, "    blank\n");
+			fprintf(out, "    eblank\n");
 		}
 		else {
 			// match the enemy
@@ -619,14 +619,14 @@ int main(int argc, char *argv[])
 			fprintf(out, "    e(%2d,%2d,%2d,  %2d,%2d,%2d,%2d)\n", e.ptr[x].level, e.ptr[x].hp, e.ptr[x].sp, e.ptr[x].str, e.ptr[x].end, e.ptr[x].agl, e.ptr[x].wis);
 			fprintf(out, "    a(%2d,%2d,%2d,%2d)\n", e.ptr[x].att, e.ptr[x].def, e.ptr[x].spd, e.ptr[x].mgd);
 			fprintf(out, "    z(%2d)\n", e.ptr[x].item);
-			fprintf(out, "    .db ");
+			fprintf(out, "    db ");
 			for(n2 = 0; n2 < 16; ++n2) {
 				if(n2 != 0)
 					fprintf(out, ",");
 				fprintf(out, "%2d", e.ptr[x].ai[n2]);
 			}
 			fprintf(out, "\n");
-			fprintf(out, "    .db %d,%d,%d,%d\n", e.ptr[x].weapon, e.ptr[x].fire, e.ptr[x].water, e.ptr[x].wind);
+			fprintf(out, "    db %d,%d,%d,%d\n", e.ptr[x].weapon, e.ptr[x].fire, e.ptr[x].water, e.ptr[x].wind);
 
 			fprintf(out, "\n");
 		}

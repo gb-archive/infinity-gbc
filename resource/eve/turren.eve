@@ -30,13 +30,13 @@ O_TUR:
 
 tur_fromleft:
    face(0,RIGHT)
-   set(B,$00)
-   set(C,$10)
+   set(B,0x00)
+   set(C,0x10)
    end
 tur_fromright:
    face(0,LEFT)
-   set(B,$1f)
-   set(C,$12)
+   set(B,0x1f)
+   set(C,0x12)
    end
 
 I_TUR:
@@ -49,29 +49,29 @@ L_TUR:
    lmap(MAP_TURREN,        B,C)
    song(SNG_SADNESS)
 ;   song_off
-   chstep(OVERWORLD,       $7f,$04,$22)
-   chstep(OVERWORLD,       $7f,$1b,$22)
-   cvstep(OVERWORLD,       $7f,$7f,$22)
-   cvstep(tur_rightexit,   $20,$7F,$22)
+   chstep(OVERWORLD,       0x7f,0x04,0x22)
+   chstep(OVERWORLD,       0x7f,0x1b,0x22)
+   cvstep(OVERWORLD,       0x7f,0x7f,0x22)
+   cvstep(tur_rightexit,   0x20,0x7F,0x22)
 
-   cvstep(tur_wolves,      $17,$0D,$08)
-   csearch(tur_well,       $0e,$0a,S_U)
-   csearch(tur_well,       $0e,$0b,S_D)
+   cvstep(tur_wolves,      0x17,0x0D,0x08)
+   csearch(tur_well,       0x0e,0x0a,S_U)
+   csearch(tur_well,       0x0e,0x0b,S_D)
 
-   csearch(tur_sign,       $02,$0e,S_U)
+   csearch(tur_sign,       0x02,0x0e,S_U)
 
    ; if RET_TUR != 0 then the place is empty
    get(A,VAR_RET_TUR)
    if(A,CNE,0,tur_outskip)
 
-   set(B,$11)
+   set(B,0x11)
    get(A,VAR_EVEPROG)
    if(A,CL,15,tur_nopush)
    dec(B)
 tur_nopush:
-   ldude(4,NPC_DEAD,       $1b,  B,DOWN,STAND)
-   ldude(5,NPC_DEAD,       $07,$0e,DOWN,STAND)
-   ldude(6,NPC_DEAD,       $10,$12,DOWN,STAND)
+   ldude(4,NPC_DEAD,       0x1b,  B,DOWN,STAND)
+   ldude(5,NPC_DEAD,       0x07,0x0e,DOWN,STAND)
+   ldude(6,NPC_DEAD,       0x10,0x12,DOWN,STAND)
    frame(4,2)
    frame(5,0)
    frame(6,1)
@@ -82,7 +82,7 @@ tur_nopush:
 
 tur_outskip:
    ; treasure -- 0c,13 -- only from facing up
-   csearch(tur_tres1,      $0c,$13,S_U)
+   csearch(tur_tres1,      0x0c,0x13,S_U)
    end
 
 tur_rightexit:
@@ -98,7 +98,7 @@ tur_sign:
 
 tur_tres1:
    get(A,VAR_TURTRES1)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    sfx(SFX_SEARCH)
    give(IT_HPLO)
    put(1,VAR_TURTRES1)
@@ -130,12 +130,12 @@ tur_corpse3:
    if(A,CE,14,tur_corpse3a)
    say(TUR_STXT2)
    get(A,VAR_EVEPROG)
-   if(A,CG,12,RET)
+   if(A,CG,12,GRET)
    ; activate wolves
    put(1,VAR_TURWOLVES)
    end
 tur_corpse3a:
-   align($1a,$11)
+   align(0x1a,0x11)
    sync
    group
    sync
@@ -182,13 +182,13 @@ tur_corpse3a:
 
 tur_wolves:
    get(A,VAR_TURWOLVES)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
 
    face(0,LEFT)
 
-   ldude(7,EN_TWOLF1,$11,$0F,RIGHT,STAND)
-   ldude(8,EN_TWOLF2,$11,$10,RIGHT,STAND)
-   ldude(9,EN_TWOLF3,$11,$11,RIGHT,STAND)
+   ldude(7,EN_TWOLF1,0x11,0x0F,RIGHT,STAND)
+   ldude(8,EN_TWOLF2,0x11,0x10,RIGHT,STAND)
+   ldude(9,EN_TWOLF3,0x11,0x11,RIGHT,STAND)
 
    sfx(SFX_ROAR)
    walk(7,RIGHT,3)
@@ -197,8 +197,8 @@ tur_wolves:
    sync
 
    getxy(B,C)
-   cif(C,CG,$10,tur_wolves1)
-   cif(C,CL,$10,tur_wolves2)
+   cif(C,CG,0x10,tur_wolves1)
+   cif(C,CL,0x10,tur_wolves2)
 
    face(7,RIGHT)
    face(8,RIGHT)
@@ -246,14 +246,14 @@ tur_wolves:
 
 tur_wolves1:
    set(A,C)
-   sub(A,$10)
+   sub(A,0x10)
    walk(7,DOWN,A)
    walk(8,DOWN,A)
    walk(9,DOWN,A)
    sync
    end
 tur_wolves2:
-   set(A,$10)
+   set(A,0x10)
    sub(A,C)
    walk(7,UP,A)
    walk(8,UP,A)
@@ -289,39 +289,39 @@ tur_part1:
    fadeout(X_FADE)
    face(0,DOWN)
    lmap(MAP_TUR_P1,     B,C)
-   cstep(tur_part1a,    $02,$04)
-   cstep(tur_part1b,    $0c,$08)
+   cstep(tur_part1a,    0x02,0x04)
+   cstep(tur_part1b,    0x0c,0x08)
    fadein(X_FADE)
    end
 tur_part1a:
-   set(B,$0e)
-   set(C,$0b)
+   set(B,0x0e)
+   set(C,0x0b)
    goto(I_TUR)
 tur_part1b:
-   set(B,$03)
-   set(C,$12)
+   set(B,0x03)
+   set(C,0x12)
    goto(tur_part2)
 
 ;  x,y  = changed, normal
-; 26,17 = $a2 - $19
-; 26,18 = $a2 - $19
-; 26,19 = $98 - $0b
-; 27,17 = $56 - $a3
-; 27,18 = $56 - $a3
-; 27,19 = $0b - $98
+; 26,17 = 0xa2 - 0x19
+; 26,18 = 0xa2 - 0x19
+; 26,19 = 0x98 - 0x0b
+; 27,17 = 0x56 - 0xa3
+; 27,18 = 0x56 - 0xa3
+; 27,19 = 0x0b - 0x98
 
 tur_part2:
    fadeout(X_FADE)
    lmap(MAP_TUR_P2,     B,C)
    put(0,VAR_A)
-   cstep(tur_part2a,    $03,$13)
-   cstep(tur_part2b,    $07,$02)
-   cstep(tur_part2c,    $22,$02)
-   cstep(tur_part2d,    $24,$02)
+   cstep(tur_part2a,    0x03,0x13)
+   cstep(tur_part2b,    0x07,0x02)
+   cstep(tur_part2c,    0x22,0x02)
+   cstep(tur_part2d,    0x24,0x02)
 
    ; crazy second level swapping
-   cstep(tur_part2e,    $16,$16)
-   cstep(tur_part2f,    $16,$14)
+   cstep(tur_part2e,    0x16,0x16)
+   cstep(tur_part2f,    0x16,0x14)
 
    cstep(tur_part2g,     21,  5)
 
@@ -337,50 +337,50 @@ tur_part2:
    cif(A,CE,14,tur_after)
 
    ; people
-   lguy(NPC_LADY2,      $06,$04,TUR_DTXT1)
-   lguy(NPC_MAN2,       $15,$07,TUR_DTXT2)
-   lguy(NPC_LADY3,      $16,$10,TUR_DTXT3)
-   lguy(NPC_GIRL1,      $22,$05,TUR_DTXT5)
-   lguy(NPC_MAN1,       $22,$18,TUR_DTXT6)
+   lguy(NPC_LADY2,      0x06,0x04,TUR_DTXT1)
+   lguy(NPC_MAN2,       0x15,0x07,TUR_DTXT2)
+   lguy(NPC_LADY3,      0x16,0x10,TUR_DTXT3)
+   lguy(NPC_GIRL1,      0x22,0x05,TUR_DTXT5)
+   lguy(NPC_MAN1,       0x22,0x18,TUR_DTXT6)
 
 tur_inskip:
-   ctres($1f,IT_HPLO,   $0f,$0e,$3b,SFX_CHEST)
-   ctres($20,IT_HPLO,   $0c,$10,$3b,SFX_CHEST)
-   ctres($21,IT_HPLO,   $26,$06,$00,SFX_SEARCH)
+   ctres(0x1f,IT_HPLO,   0x0f,0x0e,0x3b,SFX_CHEST)
+   ctres(0x20,IT_HPLO,   0x0c,0x10,0x3b,SFX_CHEST)
+   ctres(0x21,IT_HPLO,   0x26,0x06,0x00,SFX_SEARCH)
 
    fadein(X_FADE)
    end
 tur_part2a:
-   set(B,$0c)
-   set(C,$08)
+   set(B,0x0c)
+   set(C,0x08)
    goto(tur_part1)
 tur_part2b:
-   set(B,$02)
-   set(C,$07)
+   set(B,0x02)
+   set(C,0x07)
    goto(tur_part3)
 tur_part2c:
-   set(B,$02)
-   set(C,$07)
+   set(B,0x02)
+   set(C,0x07)
    goto(tur_part4)
 tur_part2d:
-   set(B,$06)
-   set(C,$07)
+   set(B,0x06)
+   set(C,0x07)
    goto(tur_part4)
 tur_part2e:
-   tile(26,17,$a2)
-   tile(26,18,$a2)
-   tile(26,19,$98)
-   tile(27,17,$56)
-   tile(27,18,$56)
-   tile(27,19,$0b)
+   tile(26,17,0xa2)
+   tile(26,18,0xa2)
+   tile(26,19,0x98)
+   tile(27,17,0x56)
+   tile(27,18,0x56)
+   tile(27,19,0x0b)
    end
 tur_part2f:
-   tile(26,17,$19)
-   tile(26,18,$19)
-   tile(26,19,$0b)
-   tile(27,17,$a3)
-   tile(27,18,$a3)
-   tile(27,19,$98)
+   tile(26,17,0x19)
+   tile(26,18,0x19)
+   tile(26,19,0x0b)
+   tile(27,17,0xa3)
+   tile(27,18,0xa3)
+   tile(27,19,0x98)
    end
 tur_part2g:
    set(B,  4)
@@ -395,20 +395,20 @@ tur_deadguy:
    end
 tur_deadguy1:
    get(A,VAR_TURTRES)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_TURTRES)
    give(IT_HPathfinder)
    end
 
 tur_before:
-   ldude(4,CH_VICTOR,   $1c,$0d,DOWN,STAND)
-   ldude(5,NPC_LADY1,   $20,$0f,DOWN,STAND)
+   ldude(4,CH_VICTOR,   0x1c,0x0d,DOWN,STAND)
+   ldude(5,NPC_LADY1,   0x20,0x0f,DOWN,STAND)
    frame(4,CEL_TIRED)
    ctalk(tur_victor,4)
    ctalk(tur_lady1,5)
    end
 tur_after:
-   lguy(NPC_LADY1,      $1d,$0e,TUR_DTXT9)
+   lguy(NPC_LADY1,      0x1d,0x0e,TUR_DTXT9)
    end
 
 tur_lady1:
@@ -416,7 +416,7 @@ tur_lady1:
    if(A,CE,14,tur_lady1a)
    say(TUR_DTXT4)
    get(A,VAR_A)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
 
    get(A,VAR_TURMAYOR)
    if(A,CE,0,tur_lady1b)
@@ -435,7 +435,7 @@ tur_lady1b:
    end
 
 tur_victor:
-   align($1d,$0d)
+   align(0x1d,0x0d)
    sync
    face(0,LEFT)
    group
@@ -457,9 +457,9 @@ tur_victor:
 
    set(A,8)
 tur_loop1:
-   ldude(4,CH_VICTOR,  $1c,$0e,DOWN,STAND)
+   ldude(4,CH_VICTOR,  0x1c,0x0e,DOWN,STAND)
    sleep(4)
-   ldude(4,CH_VICTORWOLF,  $1c,$0e,DOWN,STAND)
+   ldude(4,CH_VICTORWOLF,  0x1c,0x0e,DOWN,STAND)
    sleep(4)
    dec(A)
    if(A,CG,0,tur_loop1)
@@ -479,9 +479,9 @@ tur_loop1:
    battle(Special_Victor1,0,1,5,1)
    revive
    song_resume
-   warp(4,$1c,$0f,DOWN)
-   warp(0,$1d,$0f,LEFT)
-   warp(1,$1d,$10,LEFT)
+   warp(4,0x1c,0x0f,DOWN)
+   warp(0,0x1d,0x0f,LEFT)
+   warp(1,0x1d,0x10,LEFT)
    partyarr
    frame(4,CEL_TIRED)
    sleep(32)
@@ -531,49 +531,49 @@ tur_part3:
    fadeout(X_FADE)
    lmap(MAP_TUR_P3,     B,C)
 tur_part3join:
-   chstep(tur_part3a,   $02,$08,$01)
+   chstep(tur_part3a,   0x02,0x08,0x01)
 
    ; if RET_TUR != 0 then the place is empty
    get(A,VAR_RET_TUR)
    if(A,CNE,0,tur_inskip_p3)
 
-   ldude(4,NPC_LADY4,   $02,$03,DOWN,STAND)
+   ldude(4,NPC_LADY4,   0x02,0x03,DOWN,STAND)
    ctalk(tur_innroom,4)
 tur_inskip_p3:
 
    fadein(X_FADE)
    end
 tur_part3a:
-   set(B,$07)
-   set(C,$02)
+   set(B,0x07)
+   set(C,0x02)
    goto(tur_part2)
 
 tur_part4:
    fadeout(X_FADE)
    lmap(MAP_TUR_P4,     B,C)
-   cstep(tur_part4a,    $02,$08)
-   cstep(tur_part4b,    $06,$08)
+   cstep(tur_part4a,    0x02,0x08)
+   cstep(tur_part4b,    0x06,0x08)
 
    ; if RET_TUR != 0 then the place is empty
    get(A,VAR_RET_TUR)
    if(A,CNE,0,tur_inskip_p4)
 
-   ldude(4,NPC_MAN2,    $02,$04,DOWN,STAND)
-   ldude(5,NPC_BOY1,    $06,$04,DOWN,STAND)
+   ldude(4,NPC_MAN2,    0x02,0x04,DOWN,STAND)
+   ldude(5,NPC_BOY1,    0x06,0x04,DOWN,STAND)
    ctalk(tur_wepshop,4)
    ctalk(tur_itemshop,5)
 tur_inskip_p4:
-   ctres($22,IT_HPLO,   $03,$02,$3b,SFX_CHEST)
+   ctres(0x22,IT_HPLO,   0x03,0x02,0x3b,SFX_CHEST)
 
    fadein(X_FADE)
    end
 tur_part4a:
-   set(B,$22)
-   set(C,$02)
+   set(B,0x22)
+   set(C,0x02)
    goto(tur_part2)
 tur_part4b:
-   set(B,$24)
-   set(C,$02)
+   set(B,0x24)
+   set(C,0x02)
    goto(tur_part2)
 
 tur_wepshop:
@@ -640,13 +640,13 @@ tur_innload:
 tur_part5:
    fadeout(X_FADE)
    lmap(MAP_TUR_P5,     B,C)
-   cstep(tur_part5a,    $04,$08)
+   cstep(tur_part5a,    0x04,0x08)
 
    ; if RET_TUR == 2, then theres no mayor
    get(A,VAR_RET_TUR)
    if(A,CE,2,tur_part5_skip)
 
-   ldude(4, NPC_MAYOR,  $04,$03,DOWN,STAND)
+   ldude(4, NPC_MAYOR,  0x04,0x03,DOWN,STAND)
    ctalk(tur_mayor,4)
 tur_part5_skip:
    fadein(X_FADE)
@@ -664,7 +664,7 @@ tur_mayor:
    if(A,CE,1,tur_mayor1)
    put(1,VAR_TURMAYOR)
 
-   align($04,$04)
+   align(0x04,0x04)
    sync
    face(4,DOWN)
    group
@@ -711,7 +711,7 @@ tur_mayor1:
 
 
 tur_scene38:
-   align($04,$04)
+   align(0x04,0x04)
    sync
    face(4,DOWN)
    face(0,UP)
@@ -745,9 +745,9 @@ tur_scene38:
 
    set(A,8)
 tur_loop2:
-   ldude(4,NPC_MAYOR,  $04,$02,UP,STAND)
+   ldude(4,NPC_MAYOR,  0x04,0x02,UP,STAND)
    sleep(4)
-   ldude(4,EN_TWOLF2,  $04,$02,UP,STAND)
+   ldude(4,EN_TWOLF2,  0x04,0x02,UP,STAND)
    sleep(4)
    dec(A)
    if(A,CG,0,tur_loop2)

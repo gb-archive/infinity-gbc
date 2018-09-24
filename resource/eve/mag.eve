@@ -13,8 +13,8 @@
 O_MAG:
    fadeout(X_ROLL)
    face(0,UP)
-   set(D,$08)
-   set(E,$11)
+   set(D,0x08)
+   set(E,0x11)
    set(G,X_ROLL)
    song(SNG_MYSTIC)
 
@@ -62,63 +62,63 @@ mag_part1_nf:
    get(A,VAR_MAG1)
    cif(A,CNE,0,mag_part1_patch)
 
-   cstep(mag_part1a, $08,$12)
-   cstep(mag_part1b, $03,$0c)
-   cstep(mag_part1c, $0d,$0c)
-   cstep(mag_part1d, $08,$04)
+   cstep(mag_part1a, 0x08,0x12)
+   cstep(mag_part1b, 0x03,0x0c)
+   cstep(mag_part1c, 0x0d,0x0c)
+   cstep(mag_part1d, 0x08,0x04)
 
-   ctres($44,IT_FIron,$03,$06,$31,SFX_CHEST)
-   ctres($45,IT_CGladius,$04,$06,$31,SFX_CHEST)
-   ctres($46,IT_HChain,$05,$06,$31,SFX_CHEST)
-   ctres($47,IT_CFalchion,$0b,$06,$31,SFX_CHEST)
-   ctres($48,IT_HAMd,$0c,$06,$31,SFX_CHEST)
-   ctres($49,IT_AU_2000,$0d,$06,$31,SFX_CHEST)
+   ctres(0x44,IT_FIron,0x03,0x06,0x31,SFX_CHEST)
+   ctres(0x45,IT_CGladius,0x04,0x06,0x31,SFX_CHEST)
+   ctres(0x46,IT_HChain,0x05,0x06,0x31,SFX_CHEST)
+   ctres(0x47,IT_CFalchion,0x0b,0x06,0x31,SFX_CHEST)
+   ctres(0x48,IT_HAMd,0x0c,0x06,0x31,SFX_CHEST)
+   ctres(0x49,IT_AU_2000,0x0d,0x06,0x31,SFX_CHEST)
 
    if(F,CNE,0,mag_part1_cskip)
    get(A,VAR_MAG1)
    if(A,CNE,0,mag_part1_noleftguard)
-   ldude(4,NPC_WOOMAGI, $04,$09, DOWN,STAND)
+   ldude(4,NPC_WOOMAGI, 0x04,0x09, DOWN,STAND)
 mag_part1_noleftguard:
-   ldude(5,NPC_WOOMAGI, $0c,$09, DOWN,STAND)
+   ldude(5,NPC_WOOMAGI, 0x0c,0x09, DOWN,STAND)
    ctalk(mag_guard1,4)
    ctalk(mag_guard1,5)
-   lguy(NPC_KIDMAGI, $05,$0c, MAG_DTXT5)
-   lguy(NPC_OLDMAGI, $0c,$0e, MAG_DTXT2)
+   lguy(NPC_KIDMAGI, 0x05,0x0c, MAG_DTXT5)
+   lguy(NPC_OLDMAGI, 0x0c,0x0e, MAG_DTXT2)
 
    fadein(G)
    end
 mag_part1_cskip:
-   ldude(4,NPC_DEAD,    $0b,$0a,DOWN,STAND)
+   ldude(4,NPC_DEAD,    0x0b,0x0a,DOWN,STAND)
    frame(4,DEAD_MAGI)
    ctalk(mag_dead, 4)
-   ldude(5,NPC_DEAD,    $07,$0b,DOWN,STAND)
+   ldude(5,NPC_DEAD,    0x07,0x0b,DOWN,STAND)
    frame(5,DEAD_MAGI2)
    ctalk(mag_dead, 5)
-   ldude(6,NPC_DEAD,    $05,$0d,DOWN,STAND)
+   ldude(6,NPC_DEAD,    0x05,0x0d,DOWN,STAND)
    frame(6,DEAD_MAGI)
    ctalk(mag_dead, 6)
    fadein(G)
    end
 mag_part1a:
-   set(B,$22)
-   set(C,$0e)
+   set(B,0x22)
+   set(C,0x0e)
    goto(OVER_WARP)
 mag_part1b:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(mag_part2)
 mag_part1c:
-   set(D,$0c)
-   set(E,$05)
+   set(D,0x0c)
+   set(E,0x05)
    goto(mag_part2)
 mag_part1d:
    ; no trials if won already
    get(A,VAR_MAG1)
-   if(A,CGE,2,RET)
+   if(A,CGE,2,GRET)
    goto(mag_trials)
 
 mag_part1_patch:
-   tile($08,$09,$48)
+   tile(0x08,0x09,0x48)
    end
 
 mag_guard1:
@@ -132,47 +132,47 @@ mag_part2:
    lmap(A, D,E)
    cif(F,CNE,0,mag_setzone)
 
-   cstep(mag_part2a, $02,$05)
-   cstep(mag_part2b, $0c,$05)
-   cstep(mag_part2c, $05,$02)
-   cstep(mag_part2d, $09,$02)
-   cstep(mag_part2e, $08,$08)
+   cstep(mag_part2a, 0x02,0x05)
+   cstep(mag_part2b, 0x0c,0x05)
+   cstep(mag_part2c, 0x05,0x02)
+   cstep(mag_part2d, 0x09,0x02)
+   cstep(mag_part2e, 0x08,0x08)
 
    if(F,CNE,0,mag_part2_cskip)
-   lguy(NPC_WOOMAGI, $08,$05, MAG_DTXT3)
+   lguy(NPC_WOOMAGI, 0x08,0x05, MAG_DTXT3)
    get(A,VAR_MAG1)
    cif(A,CE,1,mag_load_victor)
 
    fadein(X_FADE)
    end
 mag_part2_cskip:
-   ldude(4,NPC_DEAD,    $06,$04,DOWN,STAND)
+   ldude(4,NPC_DEAD,    0x06,0x04,DOWN,STAND)
    frame(4,DEAD_MAGI2)
    ctalk(mag_dead, 4)
    fadein(X_FADE)
    end
 mag_part2a:
-   set(D,$03)
-   set(E,$0c)
+   set(D,0x03)
+   set(E,0x0c)
    goto(mag_part1)
 mag_part2b:
-   set(D,$0d)
-   set(E,$0c)
+   set(D,0x0d)
+   set(E,0x0c)
    goto(mag_part1)
 mag_part2c:
-   set(D,$07)
-   set(E,$07)
+   set(D,0x07)
+   set(E,0x07)
    goto(mag_shop1)
 mag_part2d:
-   set(D,$03)
-   set(E,$07)
+   set(D,0x03)
+   set(E,0x07)
    goto(mag_inn1)
 mag_part2e:
-   set(D,$08)
-   set(E,$0c)
+   set(D,0x08)
+   set(E,0x0c)
    goto(mag_part3)
 mag_load_victor:
-   ldude(5,CH_VICTORWOLF, $05,$04,DOWN,WALK)
+   ldude(5,CH_VICTORWOLF, 0x05,0x04,DOWN,WALK)
    ctalk(mag_victor, 5)
    end
 mag_victor:
@@ -187,17 +187,17 @@ mag_part3:
    lmap(A, D,E)
    cif(F,CNE,0,mag_setzone)
 
-   cstep(mag_part3a, $08,$0c)
-   cstep(mag_part3b, $06,$0c)
+   cstep(mag_part3a, 0x08,0x0c)
+   cstep(mag_part3b, 0x06,0x0c)
    fadein(X_FADE)
    end
 mag_part3a:
-   set(D,$08)
-   set(E,$08)
+   set(D,0x08)
+   set(E,0x08)
    goto(mag_part2)
 mag_part3b:
-   set(D,$06)
-   set(E,$06)
+   set(D,0x06)
+   set(E,0x06)
    goto(mag_part4)
 
 mag_part4:
@@ -207,37 +207,37 @@ mag_part4:
    lmap(A, D,E)
    cif(F,CNE,0,mag_setzone)
 
-   cstep(mag_part4a, $06,$06)
-   cstep(mag_part4b, $04,$02)
-   cstep(mag_part4c, $0a,$02)
-   cstep(mag_part4d, $08,$06)
+   cstep(mag_part4a, 0x06,0x06)
+   cstep(mag_part4b, 0x04,0x02)
+   cstep(mag_part4c, 0x0a,0x02)
+   cstep(mag_part4d, 0x08,0x06)
 
    if(F,CNE,0,mag_part4_cskip)
-   lguy(NPC_WOOMAGI, $03,$04, MAG_DTXT4)
+   lguy(NPC_WOOMAGI, 0x03,0x04, MAG_DTXT4)
 
    fadein(X_FADE)
    end
 mag_part4_cskip:
-   ldude(4,NPC_DEAD,    $03,$04,DOWN,STAND)
+   ldude(4,NPC_DEAD,    0x03,0x04,DOWN,STAND)
    frame(4,DEAD_MAGI)
    ctalk(mag_dead, 4)
    fadein(X_FADE)
    end
 mag_part4a:
-   set(D,$06)
-   set(E,$0c)
+   set(D,0x06)
+   set(E,0x0c)
    goto(mag_part3)
 mag_part4b:
-   set(D,$03)
-   set(E,$08)
+   set(D,0x03)
+   set(E,0x08)
    goto(mag_lib1)
 mag_part4c:
-   set(D,$0b)
-   set(E,$08)
+   set(D,0x0b)
+   set(E,0x08)
    goto(mag_lib1)
 mag_part4d:
-   set(D,$07)
-   set(E,$0a)
+   set(D,0x07)
+   set(E,0x0a)
    goto(mag_part5)
 
 mag_part5:
@@ -247,11 +247,11 @@ mag_part5:
    lmap(A, D,E)
    cif(F,CNE,0,mag_setzone)
 
-   cstep(mag_part5a, $07,$0a)
-   cstep(mag_part5b, $05,$0a)
+   cstep(mag_part5a, 0x07,0x0a)
+   cstep(mag_part5b, 0x05,0x0a)
 
    if(F,CNE,0,mag_part5_cskip)
-   ldude(4,NPC_OLDMAGI, $05,$03,UP,STAND)
+   ldude(4,NPC_OLDMAGI, 0x05,0x03,UP,STAND)
    ctalk(mag_part5_guy,4)
    get(A,VAR_MAG1)
    cif(A,CE,1,mag_load_ryan)
@@ -262,19 +262,19 @@ mag_part5_cskip:
    fadein(X_FADE)
    end
 mag_part5a:
-   set(D,$08)
-   set(E,$06)
+   set(D,0x08)
+   set(E,0x06)
    goto(mag_part4)
 mag_part5b:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(mag_part6)
 mag_part5_guy:
    say(MAG_DTXT1)
    face(4,UP)
    end
 mag_load_ryan:
-   ldude(5,CH_RYAN, $07,$03,UP,STAND)
+   ldude(5,CH_RYAN, 0x07,0x03,UP,STAND)
    ctalk(mag_ryan, 5)
    end
 mag_ryan
@@ -291,17 +291,17 @@ mag_part6_nf:
    lmap(A, D,E)
    cif(F,CNE,0,mag_setzone)
 
-   cstep(mag_part6a, $06,$05)
-   cstep(mag_part6b, $06,$02)
+   cstep(mag_part6a, 0x06,0x05)
+   cstep(mag_part6b, 0x06,0x02)
    fadein(X_FADE)
    end
 mag_part6a:
-   set(D,$05)
-   set(E,$0a)
+   set(D,0x05)
+   set(E,0x0a)
    goto(mag_part5)
 mag_part6b:
-   set(D,$05)
-   set(E,$09)
+   set(D,0x05)
+   set(E,0x09)
    goto(mag_arch1)
 
 
@@ -312,11 +312,11 @@ mag_arch1:
    lmap(A, D,E)
    cif(F,CNE,0,mag_setzone)
 
-   cstep(mag_arch1a, $05,$0a)
+   cstep(mag_arch1a, 0x05,0x0a)
 
    if(F,CNE,0,mag_arch1_cskip)
-   csearch(mag_book1,$09,$02,S_U)
-   ldude(4,NPC_ARCHMAGI,$05,$04,DOWN,STAND)
+   csearch(mag_book1,0x09,0x02,S_U)
+   ldude(4,NPC_ARCHMAGI,0x05,0x04,DOWN,STAND)
    ctalk(mag_arch1b, 4)
 mag_arch1_cskip:
 
@@ -336,16 +336,16 @@ mag_arch1_cskip:
    cif(A,CE,2,mag_scene47)
    end
 mag_arch1a:
-   set(D,$06)
-   set(E,$02)
+   set(D,0x06)
+   set(E,0x02)
    goto(mag_part6)
 mag_arch1b:
    say(S34_ETXT24)
    end
 mag_scene36_setup:
-   ldude(5,CH_CONNOR,     $03,$06,DOWN,STAND)
-   ldude(6,CH_RYAN,       $07,$05,DOWN,STAND)
-   ldude(7,CH_VICTORWOLF, $07,$06,DOWN,STAND)
+   ldude(5,CH_CONNOR,     0x03,0x06,DOWN,STAND)
+   ldude(6,CH_RYAN,       0x07,0x05,DOWN,STAND)
+   ldude(7,CH_VICTORWOLF, 0x07,0x06,DOWN,STAND)
    end
 
 
@@ -356,23 +356,23 @@ mag_shop1:
    lmap(A, D,E)
    cif(F,CNE,0,mag_setzone)
 
-   cstep(mag_shop1a, $07,$08)
+   cstep(mag_shop1a, 0x07,0x08)
 
    if(F,CNE,0,mag_shop1_cskip)
-   ldude(4,NPC_OLDMAGI,$03,$04,RIGHT,STAND)
-   csearch(mag_shop1_buy, $04,$04,S_L)
+   ldude(4,NPC_OLDMAGI,0x03,0x04,RIGHT,STAND)
+   csearch(mag_shop1_buy, 0x04,0x04,S_L)
 
    fadein(X_FADE)
    end
 mag_shop1_cskip:
-   ldude(4,NPC_DEAD,    $03,$04,DOWN,STAND)
+   ldude(4,NPC_DEAD,    0x03,0x04,DOWN,STAND)
    frame(4,DEAD_MAGI2)
    ctalk(mag_dead, 4)
    fadein(X_FADE)
    end
 mag_shop1a:
-   set(D,$05)
-   set(E,$02)
+   set(D,0x05)
+   set(E,0x02)
    goto(mag_part2)
 mag_shop1_buy:
    shop_res
@@ -394,18 +394,18 @@ mag_inn1:
    cif(F,CNE,0,mag_setzone)
 
 mag_innjoin:
-   chstep(mag_inn1a,    $03,$08,1)
+   chstep(mag_inn1a,    0x03,0x08,1)
 
    if(F,CNE,0,mag_inn1_cskip)
-   ldude(4,NPC_WOOMAGI, $03,$04,DOWN,STAND)
-   csearch(mag_innroom, $03,$05,S_U)
+   ldude(4,NPC_WOOMAGI, 0x03,0x04,DOWN,STAND)
+   csearch(mag_innroom, 0x03,0x05,S_U)
 mag_inn1_cskip:
 
    fadein(X_FADE)
    end
 mag_inn1a:
-   set(D,$09)
-   set(E,$02)
+   set(D,0x09)
+   set(E,0x02)
    goto(mag_part2)
 mag_innroom:
    say(INN_MAG)
@@ -419,7 +419,7 @@ mag_innroom:
 mag_innok:
    tgold(15)
    say(INN_DTXT5)
-   align($04,$06)
+   align(0x04,0x06)
    sync
    walk(0,RIGHT,3)
    sync
@@ -449,7 +449,7 @@ mag_innns:
    say(INN_DTXT3)
    end
 mag_innload:
-   lmap(MAP_MAG_INN, $03,$06)
+   lmap(MAP_MAG_INN, 0x03,0x06)
    set(B,34)
    set(C,14)
    song(SNG_TOWN1)
@@ -547,65 +547,65 @@ mag_lib1:
    lmap(A, D,E)
    cif(F,CNE,0,mag_setzone)
 
-   cstep(mag_lib1a, $03,$09)
-   cstep(mag_lib1b, $0b,$09)
+   cstep(mag_lib1a, 0x03,0x09)
+   cstep(mag_lib1b, 0x0b,0x09)
 
    if(F,CNE,0,mag_lib1_cskip)
-   ldude(4,NPC_KIDMAGI, $09,$04,LEFT,STAND)
-   ldude(5,NPC_WOOMAGI, $0d,$02,UP,STAND)
+   ldude(4,NPC_KIDMAGI, 0x09,0x04,LEFT,STAND)
+   ldude(5,NPC_WOOMAGI, 0x0d,0x02,UP,STAND)
    ctalk(mag_lib1_guy1,4)
    ctalk(mag_lib1_guy2,5)
    get(A,VAR_MAG1)
    cif(A,CE,1,mag_load_connor)
-   lguy(NPC_OLDMAGI,    $05,$03,MAG_DTXT8)
+   lguy(NPC_OLDMAGI,    0x05,0x03,MAG_DTXT8)
 
-   csearch(mag_libbook1,  $01,$01,S_U)
-   csearch(mag_libbook2,  $02,$01,S_U)
-   csearch(mag_libbook3,  $03,$01,S_U)
-   csearch(mag_libbook4,  $01,$03,S_U)
-   csearch(mag_libbook5,  $02,$03,S_U)
-   csearch(mag_libbook6,  $03,$03,S_U)
-   csearch(mag_libbook7,  $01,$05,S_U)
-   csearch(mag_libbook8,  $02,$05,S_U)
-   csearch(mag_libbook9,  $03,$05,S_U)
-   csearch(mag_libbook10, $06,$01,S_U)
-   csearch(mag_libbook11, $07,$01,S_U)
-   csearch(mag_libbook12, $08,$01,S_U)
-   csearch(mag_libbook13, $0B,$01,S_U)
-   csearch(mag_libbook14, $0C,$01,S_U)
-   csearch(mag_libbook15, $0D,$01,S_U)
-   csearch(mag_libbook16, $0B,$03,S_U)
-   csearch(mag_libbook17, $0C,$03,S_U)
-   csearch(mag_libbook18, $0D,$03,S_U)
-   csearch(mag_libbook19, $0B,$05,S_U)
-   csearch(mag_libbook20, $0C,$05,S_U)
-   csearch(mag_libbook21, $0D,$05,S_U)
+   csearch(mag_libbook1,  0x01,0x01,S_U)
+   csearch(mag_libbook2,  0x02,0x01,S_U)
+   csearch(mag_libbook3,  0x03,0x01,S_U)
+   csearch(mag_libbook4,  0x01,0x03,S_U)
+   csearch(mag_libbook5,  0x02,0x03,S_U)
+   csearch(mag_libbook6,  0x03,0x03,S_U)
+   csearch(mag_libbook7,  0x01,0x05,S_U)
+   csearch(mag_libbook8,  0x02,0x05,S_U)
+   csearch(mag_libbook9,  0x03,0x05,S_U)
+   csearch(mag_libbook10, 0x06,0x01,S_U)
+   csearch(mag_libbook11, 0x07,0x01,S_U)
+   csearch(mag_libbook12, 0x08,0x01,S_U)
+   csearch(mag_libbook13, 0x0B,0x01,S_U)
+   csearch(mag_libbook14, 0x0C,0x01,S_U)
+   csearch(mag_libbook15, 0x0D,0x01,S_U)
+   csearch(mag_libbook16, 0x0B,0x03,S_U)
+   csearch(mag_libbook17, 0x0C,0x03,S_U)
+   csearch(mag_libbook18, 0x0D,0x03,S_U)
+   csearch(mag_libbook19, 0x0B,0x05,S_U)
+   csearch(mag_libbook20, 0x0C,0x05,S_U)
+   csearch(mag_libbook21, 0x0D,0x05,S_U)
 
    fadein(X_FADE)
    end
 mag_lib1_cskip:
-   ldude(4,NPC_DEAD,    $02,$05,DOWN,STAND)
+   ldude(4,NPC_DEAD,    0x02,0x05,DOWN,STAND)
    frame(4,DEAD_MAGI2)
    ctalk(mag_dead, 4)
-   ldude(5,NPC_DEAD,    $09,$04,DOWN,STAND)
+   ldude(5,NPC_DEAD,    0x09,0x04,DOWN,STAND)
    frame(5,DEAD_MAGI)
    ctalk(mag_dead, 5)
 
-   csearch(mag_libbook7,  $01,$05,S_U)
-   csearch(mag_libbook9,  $03,$05,S_U)
-   csearch(mag_libbook12, $08,$01,S_U)
-   csearch(mag_libbook13, $0B,$01,S_U)
-   csearch(mag_libbook15, $0D,$01,S_U)
+   csearch(mag_libbook7,  0x01,0x05,S_U)
+   csearch(mag_libbook9,  0x03,0x05,S_U)
+   csearch(mag_libbook12, 0x08,0x01,S_U)
+   csearch(mag_libbook13, 0x0B,0x01,S_U)
+   csearch(mag_libbook15, 0x0D,0x01,S_U)
 
    fadein(X_FADE)
    end
 mag_lib1a:
-   set(D,$04)
-   set(E,$02)
+   set(D,0x04)
+   set(E,0x02)
    goto(mag_part4)
 mag_lib1b:
-   set(D,$0a)
-   set(E,$02)
+   set(D,0x0a)
+   set(E,0x02)
    goto(mag_part4)
 mag_lib1_guy1:
    say(MAG_DTXT6)
@@ -614,7 +614,7 @@ mag_lib1_guy2:
    say(MAG_DTXT7)
    end
 mag_load_connor:
-   ldude(6,CH_CONNOR, $05,$05,RIGHT,STAND)
+   ldude(6,CH_CONNOR, 0x05,0x05,RIGHT,STAND)
    ctalk(mag_connor, 6)
    end
 mag_connor:
@@ -708,7 +708,7 @@ mag_scene33_saveno:
 
 ; talking to the archmage
 mag_scene34:
-   align($05,$07)
+   align(0x05,0x07)
    sync
    face(0,UP)
    panrel(0,-1)
@@ -775,7 +775,7 @@ mag_scene34:
    sync
    sleep(16)
    say(S34_ETXT13)
-   ldude(5,NPC_SOULGEM, $05,$05,DOWN,STAND)
+   ldude(5,NPC_SOULGEM, 0x05,0x05,DOWN,STAND)
    walk(5,UP,1)
    sync
    face(4,RIGHT)
@@ -871,8 +871,8 @@ mag_scene34:
    lockon(0)
 
    sleep(32)
-   set(D,$06)
-   set(E,$02)
+   set(D,0x06)
+   set(E,0x02)
    set(G,X_FADE)
    goto(mag_part6_nf)
 
@@ -880,8 +880,8 @@ mag_scene34:
 ; trials dungeon
 mag_trials:
    fadeout(X_FADE)
-   set(D,$07)
-   set(E,$30)
+   set(D,0x07)
+   set(E,0x30)
    goto(mag_trial1_nf)
 
 mag_trial1:
@@ -889,56 +889,56 @@ mag_trial1:
 mag_trial1_nf:
    lmap(MAP_TRIAL1, D,E)
    zone(ZONE_TRI)
-   cstep(mag_trial1a, $05,$03)
-   ctres($4a,IT_PMaster,$08,$22, $31,SFX_CHEST)
-   ctres($4b,IT_EMaster,$04,$0a, $31,SFX_CHEST)
+   cstep(mag_trial1a, 0x05,0x03)
+   ctres(0x4a,IT_PMaster,0x08,0x22, 0x31,SFX_CHEST)
+   ctres(0x4b,IT_EMaster,0x04,0x0a, 0x31,SFX_CHEST)
    fadein(X_FADE)
    end
 mag_trial1a:
-   set(D,$09)
-   set(E,$24)
+   set(D,0x09)
+   set(E,0x24)
    goto(mag_trial2)
 
 mag_trial2:
    fadeout(X_FADE)
    lmap(MAP_TRIAL2, D,E)
    zone(ZONE_TRI)
-   cstep(mag_trial2a, $09,$24)
-   cstep(mag_trial2b, $09,$04)
+   cstep(mag_trial2a, 0x09,0x24)
+   cstep(mag_trial2b, 0x09,0x04)
    fadein(X_FADE)
    end
 mag_trial2a:
-   set(D,$05)
-   set(E,$03)
+   set(D,0x05)
+   set(E,0x03)
    goto(mag_trial1)
 mag_trial2b:
-   set(D,$04)
-   set(E,$08)
+   set(D,0x04)
+   set(E,0x08)
    goto(mag_trial3)
 
 mag_trial3:
    fadeout(X_FADE)
    lmap(MAP_TRIAL3, D,E)
    zone(ZONE_TRI)
-   cstep(mag_trial3a, $04,$09)
-   cstep(mag_trial3b, $04,$03)
+   cstep(mag_trial3a, 0x04,0x09)
+   cstep(mag_trial3b, 0x04,0x03)
 
    ; exanima already defeated
    get(A,VAR_MAG1)
    if(A,CE,2,skip_exanima)
-   ldude(4,EN_EXANIMA, $04,$04,DOWN,STAND)
+   ldude(4,EN_EXANIMA, 0x04,0x04,DOWN,STAND)
    ctalk(mag_exanima, 4)
 skip_exanima:
 
    fadein(X_FADE)
    end
 mag_trial3a:
-   set(D,$09)
-   set(E,$04)
+   set(D,0x09)
+   set(E,0x04)
    goto(mag_trial2)
 mag_trial3b:
-   set(D,$08)
-   set(E,$04)
+   set(D,0x08)
+   set(E,0x04)
    goto(mag_part1)
 
 mag_exanima:
@@ -1033,9 +1033,9 @@ mag_scene36:
 
    set(A,8)
 mag_loop1:
-   ldude(7,CH_VICTORWOLF, $05,$06,UP,STAND)
+   ldude(7,CH_VICTORWOLF, 0x05,0x06,UP,STAND)
    sleep(4)
-   ldude(7,CH_VICTOR,     $05,$06,UP,STAND)
+   ldude(7,CH_VICTOR,     0x05,0x06,UP,STAND)
    sleep(4)
    dec(A)
    if(A,CG,0,mag_loop1)
@@ -1362,11 +1362,11 @@ mag_scene46:
 
 mag_scene47_setup:
    del(4)
-   ldude(7,NPC_ARCHMAGI,$05,$03,DOWN,STAND)
-   ldude(5,NPC_KRAIT,   $05,$06,UP,  STAND)
+   ldude(7,NPC_ARCHMAGI,0x05,0x03,DOWN,STAND)
+   ldude(5,NPC_KRAIT,   0x05,0x06,UP,  STAND)
 
    ; falling omega
-   ldude(6,EN_OMEGA,   $06,$01,DOWN,STAND)
+   ldude(6,EN_OMEGA,   0x06,0x01,DOWN,STAND)
    frame(6,CEL_DOWN1)
    setbosspal(BOSSPAL_OMEGA)
    end
@@ -1393,7 +1393,7 @@ mag_scene47:
    say(S47_ETXT7)
    sleep(16)
    say(S47_ETXT8)
-   ldude(4,NPC_FIRE,    $05,$04,DOWN,STAND)
+   ldude(4,NPC_FIRE,    0x05,0x04,DOWN,STAND)
    sleep(16)
    walk(4,DOWN,1)
    sync
@@ -1427,14 +1427,14 @@ mag_scene47:
    face(5,UP)
    sleep(16)
    ; fireball shoots at the archmage
-   ldude(4,NPC_FIRE,    $05,$05,DOWN,STAND)
+   ldude(4,NPC_FIRE,    0x05,0x05,DOWN,STAND)
    sleep(32)
    frame(4,CEL_DOWN1)
    walk(4,UP,2)
    sync
    face(4,DOWN)
    sleep(64)
-   ldude(7,NPC_EX1,    $05,$03,DOWN,STAND)
+   ldude(7,NPC_EX1,    0x05,0x03,DOWN,STAND)
    frame(7,ARCH_DEAD)
    frame(4,4)
    sleep(4)
@@ -1470,9 +1470,9 @@ mag_scene47:
 
    lockon(0)
 
-   ldude( 8,NPC_GOLEM,   $05,$09,DOWN,STAND)
-   ldude( 9,NPC_GOLEM,   $05,$09,DOWN,STAND)
-   ldude(10,NPC_GOLEM,   $05,$09,DOWN,STAND)
+   ldude( 8,NPC_GOLEM,   0x05,0x09,DOWN,STAND)
+   ldude( 9,NPC_GOLEM,   0x05,0x09,DOWN,STAND)
+   ldude(10,NPC_GOLEM,   0x05,0x09,DOWN,STAND)
    walk(8,UP,1)
    sync
    walk(8,LEFT,1)
@@ -1494,12 +1494,12 @@ mag_scene47:
    battle(Special2_MagiBoss,0,1,0,0)
    song_resume
    panspeed(2)
-   ldude(6,EN_OMEGA,   $05,$06,DOWN,STAND)
+   ldude(6,EN_OMEGA,   0x05,0x06,DOWN,STAND)
    setbosspal(BOSSPAL_OMEGA)
-   warp(3,$05,$05,DOWN)
-   warp(1,$04,$06,RIGHT)
-   warp(2,$06,$06,LEFT)
-   warp(0,$05,$07,UP)
+   warp(3,0x05,0x05,DOWN)
+   warp(1,0x04,0x06,RIGHT)
+   warp(2,0x06,0x06,LEFT)
+   warp(0,0x05,0x07,UP)
    del(5)
    del(8)
    del(9)
@@ -1521,7 +1521,7 @@ mag_scene47:
    say(S48_ETXT4)
    sleep(32)
    say(S48_ETXT5)
-   ldude(4,NPC_FIRE,    $05,$06,DOWN,STAND)
+   ldude(4,NPC_FIRE,    0x05,0x06,DOWN,STAND)
    frame(4,2)
    sleep(4)
    frame(4,3)
@@ -1566,7 +1566,7 @@ mag_scene47:
 
    sleep(32)
    frame(7,ARCH_KNEEL)
-   ;ldude(7,NPC_ARCHMAGI,$05,$03,DOWN,STAND)
+   ;ldude(7,NPC_ARCHMAGI,0x05,0x03,DOWN,STAND)
    sleep(32)
    say(S48_ETXT9)
    sleep(16)
@@ -1600,13 +1600,13 @@ mag_scene47:
    say(S48_ETXT18)
 
    frame(7,ARCH_DEAD)
-   ;ldude(7,NPC_DEAD    ,$05,$03,DOWN,STAND)
+   ;ldude(7,NPC_DEAD    ,0x05,0x03,DOWN,STAND)
    ;frame(7,0)
    sfx(SFX_LAND)
    sleep(16)
    say(S48_ETXT19)
    sleep(16)
-   ldude(7,NPC_ARCHMAGI,$05,$03,DOWN,STAND)
+   ldude(7,NPC_ARCHMAGI,0x05,0x03,DOWN,STAND)
    sleep(16)
    say(S48_ETXT20)
    sleep(16)
@@ -1622,18 +1622,18 @@ mag_scene47b:
    ; reload everyone
    face(0,UP)
    lockon(0)
-   lmap(MAP_WMAG_ARCH, $05,$05)
-   cstep(mag_arch1a, $05,$0a)
-   ldude(7,NPC_ARCHMAGI,$05,$03,DOWN,STAND)
+   lmap(MAP_WMAG_ARCH, 0x05,0x05)
+   cstep(mag_arch1a, 0x05,0x0a)
+   ldude(7,NPC_ARCHMAGI,0x05,0x03,DOWN,STAND)
    partyarr
    detach
-   warp(1,$04,$04,UP)
-   warp(3,$05,$04,UP)
-   warp(2,$06,$04,UP)
+   warp(1,0x04,0x04,UP)
+   warp(3,0x05,0x04,UP)
+   warp(2,0x06,0x04,UP)
    fadein(X_FADE)
 
    sleep(32)
-   ldude(7,NPC_EX1    ,$05,$03,DOWN,STAND)
+   ldude(7,NPC_EX1    ,0x05,0x03,DOWN,STAND)
    frame(7,ARCH_DEAD)
    sfx(SFX_LAND)
 
@@ -1672,14 +1672,14 @@ mag_scene47b:
    ctalk(mag_architem, 7)
    end
 
-   set(D,$06)
-   set(E,$02)
+   set(D,0x06)
+   set(E,0x02)
    goto(mag_part6)
 
 mag_architem:
    say(S48_STXT4)
    get(A,VAR_ARCHITEM)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_ARCHITEM)
    say(S48_STXT5)
    give(IT_EArchmage)
@@ -1727,7 +1727,7 @@ mag_boat_nonlinear:
 
 
 mag_risetemples:
-   lmap(MAP_OVERWORLD, $22,$0e)
+   lmap(MAP_OVERWORLD, 0x22,0x0e)
    call(burn_forest)
    del(0)
    del(1)
@@ -1786,55 +1786,55 @@ mag_risestop:
    end
 
 mag_sandtemple:
-   tile(23,43,$36)
+   tile(23,43,0x36)
    end
 mag_icetemple:
-   tile(83,15,$35)
+   tile(83,15,0x35)
    end
 mag_wavetemple:
-   tile( 86, 97,$86)
-   tile( 87, 97,$72)
-   tile( 88, 97,$72)
-   tile( 89, 97,$72)
-   tile( 90, 97,$87)
+   tile( 86, 97,0x86)
+   tile( 87, 97,0x72)
+   tile( 88, 97,0x72)
+   tile( 89, 97,0x72)
+   tile( 90, 97,0x87)
 
-   tile( 86, 98,$7a)
-   tile( 87, 98,$02)
-   tile( 88, 98,$02)
-   tile( 89, 98,$02)
-   tile( 90, 98,$73)
+   tile( 86, 98,0x7a)
+   tile( 87, 98,0x02)
+   tile( 88, 98,0x02)
+   tile( 89, 98,0x02)
+   tile( 90, 98,0x73)
 
-   tile( 86, 99,$7a)
-   tile( 87, 99,$02)
-   tile( 88, 99,$34)
-   tile( 89, 99,$02)
-   tile( 90, 99,$73)
+   tile( 86, 99,0x7a)
+   tile( 87, 99,0x02)
+   tile( 88, 99,0x34)
+   tile( 89, 99,0x02)
+   tile( 90, 99,0x73)
 
-   tile( 86,100,$7a)
-   tile( 87,100,$02)
-   tile( 88,100,$02)
-   tile( 89,100,$02)
-   tile( 90,100,$73)
+   tile( 86,100,0x7a)
+   tile( 87,100,0x02)
+   tile( 88,100,0x02)
+   tile( 89,100,0x02)
+   tile( 90,100,0x73)
 
-   tile( 86,101,$8e)
-   tile( 87,101,$7b)
-   tile( 88,101,$7b)
-   tile( 89,101,$7b)
-   tile( 90,101,$8f)
+   tile( 86,101,0x8e)
+   tile( 87,101,0x7b)
+   tile( 88,101,0x7b)
+   tile( 89,101,0x7b)
+   tile( 90,101,0x8f)
    end
 
 mag_wavetemple2:
-   tile( 87, 98,$86)
-   tile( 88, 98,$72)
-   tile( 89, 98,$87)
+   tile( 87, 98,0x86)
+   tile( 88, 98,0x72)
+   tile( 89, 98,0x87)
 
-   tile( 87, 99,$7a)
-   tile( 88, 99,$02)
-   tile( 89, 99,$73)
+   tile( 87, 99,0x7a)
+   tile( 88, 99,0x02)
+   tile( 89, 99,0x73)
 
-   tile( 87,100,$8e)
-   tile( 88,100,$7b)
-   tile( 89,100,$8f)
+   tile( 87,100,0x8e)
+   tile( 88,100,0x7b)
+   tile( 89,100,0x8f)
    end
 
 
@@ -1848,7 +1848,7 @@ mag_settalk1:
 
 mag_setzone:
    get(A,VAR_RET_MAG)
-   cif(A,CE,3,RET)
+   cif(A,CE,3,GRET)
    zone(ZONE_MAG)
    end
 

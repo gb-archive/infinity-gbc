@@ -39,14 +39,14 @@ joy1_selera_nf:
 
 joy1_scene58:
    song_off
-   set(B,$17)
-   set(C,$07)
+   set(B,0x17)
+   set(C,0x07)
 
    set(D,1)
    set(E,2)
    call(joy1_connor_set)
    // load in anna
-   ldude(4,NPC_ANNA,  $04,$08,UP,STAND)
+   ldude(4,NPC_ANNA,  0x04,0x08,UP,STAND)
    frame(0,CEL_TIRED)
    fadein(X_FADE)
    sleep(128)
@@ -129,11 +129,11 @@ joy1_settalk1:
 joy1_connor:
    fadeout(X_FADE)
    getxy(B,C)
-   set(D,$04)
-   set(E,$07)
+   set(D,0x04)
+   set(E,0x07)
    call(joy1_connor_set)
    // load in anna
-   ldude(4,NPC_ANNA,  $04,$05,DOWN,STAND)
+   ldude(4,NPC_ANNA,  0x04,0x05,DOWN,STAND)
    ctalk(joy1_anna1,4)
    fadein(X_FADE)
    end
@@ -141,8 +141,8 @@ joy1_connor_set:
    lmap(MAP_SLR_CONNR,   D,E)
    get(A,VAR_JOY1A)
    cif(A,CE,1,jselera_dark)
-   cstep(I_jselera,      $04,$08)
-   csearch(joy1_book1,   $07,$01,S_U)
+   cstep(I_jselera,      0x04,0x08)
+   csearch(joy1_book1,   0x07,0x01,S_U)
    end
 joy1_book1:
    say(JOY1_BOOK1)
@@ -151,37 +151,37 @@ joy1_book1:
 joy1_house1:
    fadeout(X_FADE)
    getxy(B,C)
-   lmap(MAP_SLR_HOUS1,     $05,$07)
+   lmap(MAP_SLR_HOUS1,     0x05,0x07)
    get(A,VAR_JOY1A)
    cif(A,CE,1,jselera_dark)
-   cstep(I_jselera,        $05,$08)
-   lguy(NPC_LADY2,         $03,$03, JOY1_DTXT10)
-   lguy(NPC_BOY1,          $08,$04, JOY1_DTXT9)
-   csearch(SLR_BOOKCASE3,  $08,$01, S_U)
+   cstep(I_jselera,        0x05,0x08)
+   lguy(NPC_LADY2,         0x03,0x03, JOY1_DTXT10)
+   lguy(NPC_BOY1,          0x08,0x04, JOY1_DTXT9)
+   csearch(SLR_BOOKCASE3,  0x08,0x01, S_U)
    fadein(X_FADE)
    end
 joy1_house2:
    fadeout(X_FADE)
    getxy(B,C)
-   lmap(MAP_SLR_HOUS2,     $09,$08)
+   lmap(MAP_SLR_HOUS2,     0x09,0x08)
    get(A,VAR_JOY1A)
    cif(A,CE,1,jselera_dark)
-   cstep(I_jselera,        $09,$09)
-   csearch(SLR_BOOKCASE4,  $03,$01, S_U)
-   lguy(NPC_MAN2,          $07,$04, JOY1_DTXT11)
+   cstep(I_jselera,        0x09,0x09)
+   csearch(SLR_BOOKCASE4,  0x03,0x01, S_U)
+   lguy(NPC_MAN2,          0x07,0x04, JOY1_DTXT11)
    fadein(X_FADE)
    end
 
 joy1_weapon:
    fadeout(X_FADE)
    getxy(B,C)
-   lmap(MAP_SLR_WEAPN,     $06,$08)
+   lmap(MAP_SLR_WEAPN,     0x06,0x08)
    get(A,VAR_JOY1A)
    cif(A,CE,1,jselera_dark)
-   cstep(I_jselera,        $06,$09)
-   ldude(4, NPC_MAN1,      $03,$04, RIGHT, STAND)
-   ctres($73,IT_HAHi,      $02,$07, $C4, SFX_CHEST)
-   csearch(joy1_weapbuy,   $04,$04, S_L)
+   cstep(I_jselera,        0x06,0x09)
+   ldude(4, NPC_MAN1,      0x03,0x04, RIGHT, STAND)
+   ctres(0x73,IT_HAHi,      0x02,0x07, 0xC4, SFX_CHEST)
+   csearch(joy1_weapbuy,   0x04,0x04, S_L)
    fadein(X_FADE)
    end
 joy1_weapbuy:
@@ -203,10 +203,10 @@ L_jselera:
    get(A,VAR_JOY1A)
    cif(A,CE,1,jselera_dark)
 
-   cstep(joy1_connor,    $17,$07)
-   cstep(joy1_house1,    $0B,$0F)
-   cstep(joy1_house2,    $15,$12)
-   cstep(joy1_weapon,    $0F,$08)
+   cstep(joy1_connor,    0x17,0x07)
+   cstep(joy1_house1,    0x0B,0x0F)
+   cstep(joy1_house2,    0x15,0x12)
+   cstep(joy1_weapon,    0x0F,0x08)
 
    ldude(4,NPC_LADY2,      8,  6, DOWN,STAND)
    ldude(5,NPC_LADY3,     22, 25, LEFT,STAND)
@@ -272,7 +272,7 @@ joy1_anna1:
 
 joy1_scene60:
    face(4,DOWN)
-   align($04,$06)
+   align(0x04,0x06)
    sync
    face(0,UP)
    say(S60_ETXT1)
@@ -285,8 +285,8 @@ joy1_scene60:
    sleep(16)
    
    sfx(SFX_PORTALOPEN)
-   ldude(5,NPC_PORTALA,  $03,$03,DOWN,STAND)
-   ldude(6,NPC_PORTALB,  $03,$04,DOWN,STAND)
+   ldude(5,NPC_PORTALA,  0x03,0x03,DOWN,STAND)
+   ldude(6,NPC_PORTALB,  0x03,0x04,DOWN,STAND)
    anim(5)
    anim(6)
 
@@ -339,8 +339,8 @@ joy1_scene60:
 joy2_scene61:
    //partyset(1,PARTY_ROLAND)
    face(0,DOWN)
-   set(D,$04)
-   set(E,$05)
+   set(D,0x04)
+   set(E,0x05)
    call(jalu_part3_nf)
    sleep(16)
    say(S61_ETXT1)
@@ -354,34 +354,34 @@ jalu_part1_nf:
    colshift(C_BLACK)
    song(SNG_ALUTHA)
 
-   chstep(jalu_part1a,$00,$18,$1E)
-   chstep(jalu_part1b,$0e,$0d,$02)
-   chstep(jalu_part1c,$0e,$07,$02)
-   cstep(jalu_part1d, $07,$02)
-   cstep(jalu_part1e, $16,$02)
-   cstep(jalu_part1f, $07,$11)
-   cstep(jalu_part1g, $16,$11)
-   cstep(jalu_part1h, $07,$06)
-   cstep(jalu_part1i, $16,$06)
+   chstep(jalu_part1a,0x00,0x18,0x1E)
+   chstep(jalu_part1b,0x0e,0x0d,0x02)
+   chstep(jalu_part1c,0x0e,0x07,0x02)
+   cstep(jalu_part1d, 0x07,0x02)
+   cstep(jalu_part1e, 0x16,0x02)
+   cstep(jalu_part1f, 0x07,0x11)
+   cstep(jalu_part1g, 0x16,0x11)
+   cstep(jalu_part1h, 0x07,0x06)
+   cstep(jalu_part1i, 0x16,0x06)
 
-   ldude(4,NPC_DEAD, $0d,$0e,DOWN,STAND)
+   ldude(4,NPC_DEAD, 0x0d,0x0e,DOWN,STAND)
    frame(4,DEAD_GUARD)
    ctalk(jalu_guard1,4)
-   ldude(5,NPC_DEAD, $10,$0e,DOWN,STAND)
+   ldude(5,NPC_DEAD, 0x10,0x0e,DOWN,STAND)
    frame(5,DEAD_GUARD)
    ctalk(jalu_guard1,5)
 
-   ldude(6,NPC_DEAD, $0d,$08,DOWN,STAND)
+   ldude(6,NPC_DEAD, 0x0d,0x08,DOWN,STAND)
    frame(6,DEAD_GUARD)
    ctalk(jalu_guard2,6)
 
-   ldude(7,NPC_DEAD, $08,$02,DOWN,STAND)
+   ldude(7,NPC_DEAD, 0x08,0x02,DOWN,STAND)
    frame(7,DEAD_GUARD)
    ctalk(jalu_guard2,7)
-   ldude(8,NPC_DEAD, $16,$12,DOWN,STAND)
+   ldude(8,NPC_DEAD, 0x16,0x12,DOWN,STAND)
    frame(8,DEAD_GUARD)
    ctalk(jalu_guard2,8)
-   ldude(9,NPC_DEAD, $12,$08,DOWN,STAND)
+   ldude(9,NPC_DEAD, 0x12,0x08,DOWN,STAND)
    frame(9,DEAD_GUARD)
    ctalk(jalu_guard2,9)
 
@@ -392,54 +392,54 @@ jalu_part1_nf:
 jalu_part1a:
    end
 jalu_part1b:
-   set(D,$0f)
-   set(E,$0e)
+   set(D,0x0f)
+   set(E,0x0e)
    goto(jalu_part2)
 jalu_part1c:
-   set(D,$05)
-   set(E,$09)
+   set(D,0x05)
+   set(E,0x09)
    goto(jalu_part7)
 jalu_part1d:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(jalu_part3)
 jalu_part1e:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(jalu_part4)
 jalu_part1f:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(jalu_part5)
 jalu_part1g:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(jalu_part6)
 jalu_part1h:
-   set(D,$04)
-   set(E,$08)
+   set(D,0x04)
+   set(E,0x08)
    goto(jalu_part3)
 jalu_part1i:
-   set(D,$04)
-   set(E,$08)
+   set(D,0x04)
+   set(E,0x08)
    goto(jalu_part4)
 jalu_part1j:
-   set(D,$04)
-   set(E,$02)
+   set(D,0x04)
+   set(E,0x02)
    goto(jalu_part5)
 jalu_part1k:
-   set(D,$04)
-   set(E,$02)
+   set(D,0x04)
+   set(E,0x02)
    goto(jalu_part6)
 jalu_patch:
-   tile($07,$0f,$c1)
-   tile($07,$10,$1a)
-   tile($16,$0f,$c1)
-   tile($16,$10,$1a)
+   tile(0x07,0x0f,0xc1)
+   tile(0x07,0x10,0x1a)
+   tile(0x16,0x0f,0xc1)
+   tile(0x16,0x10,0x1a)
    end
 jalu_patch2:
-   cstep(jalu_part1j, $07,$10)
-   cstep(jalu_part1k, $16,$10)
+   cstep(jalu_part1j, 0x07,0x10)
+   cstep(jalu_part1k, 0x16,0x10)
    end
 jalu_guard1:
    say(JOY2_DTXT1)
@@ -453,61 +453,61 @@ jalu_part2:
    lmap(MAP_ALU_HALL, D,E)
    colshift(C_BLACK)
    // kill staircase
-   tile($06,$05,$04)
+   tile(0x06,0x05,0x04)
    // block exit
-   tile($0e,$0f,$12)
-   tile($0f,$0f,$12)
-   tile($10,$0f,$12)
-   chstep(jalu_part2a,$0e,$0f,$03)
-   cstep(jalu_part2b, $02,$05)
-   cstep(jalu_part2c, $1c,$05)
-   cstep(jalu_part2d, $02,$16)
-   cstep(jalu_part2e, $1c,$16)
-   cstep(jalu_part2f, $0f,$09)
+   tile(0x0e,0x0f,0x12)
+   tile(0x0f,0x0f,0x12)
+   tile(0x10,0x0f,0x12)
+   chstep(jalu_part2a,0x0e,0x0f,0x03)
+   cstep(jalu_part2b, 0x02,0x05)
+   cstep(jalu_part2c, 0x1c,0x05)
+   cstep(jalu_part2d, 0x02,0x16)
+   cstep(jalu_part2e, 0x1c,0x16)
+   cstep(jalu_part2f, 0x0f,0x09)
 
-   cstep(jalu_part2g, $18,$05)
-   cstep(jalu_part2h, $0f,$09)
+   cstep(jalu_part2g, 0x18,0x05)
+   cstep(jalu_part2h, 0x0f,0x09)
 
-   ldude(4,NPC_DEAD, $0e,$0b, DOWN,STAND)
+   ldude(4,NPC_DEAD, 0x0e,0x0b, DOWN,STAND)
    frame(4,DEAD_GUARD)
    ctalk(jalu_guard1, 4)
-   ldude(5,NPC_DEAD, $05,$16, DOWN,STAND)
+   ldude(5,NPC_DEAD, 0x05,0x16, DOWN,STAND)
    frame(5,DEAD_GUARD)
    ctalk(jalu_guard1, 5)
 
    fadein(X_FADE)
    end
 jalu_part2a:
-   set(D,$0e)
-   set(E,$0d)
+   set(D,0x0e)
+   set(E,0x0d)
    goto(jalu_part1)
 jalu_part2b:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(jalu_part3)
 jalu_part2c:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(jalu_part4)
 jalu_part2d:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(jalu_part5)
 jalu_part2e:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(jalu_part6)
 jalu_part2f:
-   set(D,$07)
-   set(E,$06)
+   set(D,0x07)
+   set(E,0x06)
    goto(jalu_part8)
 jalu_part2g:
-   set(D,$09)
-   set(E,$04)
+   set(D,0x09)
+   set(E,0x04)
    goto(jalu_crypt)
 jalu_part2h:
-   set(D,$0a)
-   set(E,$0a)
+   set(D,0x0a)
+   set(E,0x0a)
    goto(jalu_garden)
 
 jalu_part3:
@@ -516,22 +516,22 @@ jalu_part3_nf:
    lmap(MAP_ALU_TOW1, D,E)
    colshift(C_BLACK)
 
-   cstep(jalu_part3a, $06,$05)
-   cstep(jalu_part3b, $04,$09)
-   cstep(jalu_part3c, $02,$05)
+   cstep(jalu_part3a, 0x06,0x05)
+   cstep(jalu_part3b, 0x04,0x09)
+   cstep(jalu_part3c, 0x02,0x05)
    fadein(X_FADE)
    end
 jalu_part3a:
-   set(D,$07)
-   set(E,$02)
+   set(D,0x07)
+   set(E,0x02)
    goto(jalu_part1)
 jalu_part3b:
-   set(D,$07)
-   set(E,$06)
+   set(D,0x07)
+   set(E,0x06)
    goto(jalu_part1)
 jalu_part3c:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(jalu_part2)
 
 jalu_part4:
@@ -539,27 +539,27 @@ jalu_part4:
    lmap(MAP_ALU_TOW2, D,E)
    colshift(C_BLACK)
 
-   cstep(jalu_part4a, $02,$05)
-   cstep(jalu_part4b, $04,$09)
-   cstep(jalu_part4c, $06,$05)
+   cstep(jalu_part4a, 0x02,0x05)
+   cstep(jalu_part4b, 0x04,0x09)
+   cstep(jalu_part4c, 0x06,0x05)
 
-   ldude(4,NPC_DEAD, $04,$04, DOWN,STAND)
+   ldude(4,NPC_DEAD, 0x04,0x04, DOWN,STAND)
    frame(4,DEAD_GUARD)
    ctalk(jalu_guard1, 4)
 
    fadein(X_FADE)
    end
 jalu_part4a:
-   set(D,$16)
-   set(E,$02)
+   set(D,0x16)
+   set(E,0x02)
    goto(jalu_part1)
 jalu_part4b:
-   set(D,$16)
-   set(E,$06)
+   set(D,0x16)
+   set(E,0x06)
    goto(jalu_part1)
 jalu_part4c:
-   set(D,$1c)
-   set(E,$05)
+   set(D,0x1c)
+   set(E,0x05)
    goto(jalu_part2)
 
 jalu_part5:
@@ -568,23 +568,23 @@ jalu_part5:
    lmap(MAP_ALU_TOW3, D,E)
    colshift(C_BLACK)
 
-   cstep(jalu_part5a, $06,$05)
-   cstep(jalu_part5b, $04,$02)
-   cstep(jalu_part5c, $02,$05)
+   cstep(jalu_part5a, 0x06,0x05)
+   cstep(jalu_part5b, 0x04,0x02)
+   cstep(jalu_part5c, 0x02,0x05)
    fadein(X_FADE)
    end
 jalu_part5a:
-   set(D,$07)
-   set(E,$11)
+   set(D,0x07)
+   set(E,0x11)
    set(F,1)
    goto(jalu_part1)
 jalu_part5b:
-   set(D,$07)
-   set(E,$0f)
+   set(D,0x07)
+   set(E,0x0f)
    goto(jalu_part1)
 jalu_part5c:
-   set(D,$02)
-   set(E,$16)
+   set(D,0x02)
+   set(E,0x16)
    goto(jalu_part2)
 
 jalu_part6:
@@ -593,80 +593,80 @@ jalu_part6:
    lmap(MAP_ALU_TOW4, D,E)
    colshift(C_BLACK)
 
-   cstep(jalu_part6a, $02,$05)
-   cstep(jalu_part6b, $04,$02)
-   cstep(jalu_part6c, $06,$05)
+   cstep(jalu_part6a, 0x02,0x05)
+   cstep(jalu_part6b, 0x04,0x02)
+   cstep(jalu_part6c, 0x06,0x05)
    fadein(X_FADE)
    end
 jalu_part6a:
-   set(D,$16)
-   set(E,$11)
+   set(D,0x16)
+   set(E,0x11)
    set(F,1)
    goto(jalu_part1)
 jalu_part6b:
-   set(D,$16)
-   set(E,$0f)
+   set(D,0x16)
+   set(E,0x0f)
    goto(jalu_part1)
 jalu_part6c:
-   set(D,$1c)
-   set(E,$16)
+   set(D,0x1c)
+   set(E,0x16)
    goto(jalu_part2)
 
 jalu_part7:
    fadeout(X_FADE)
    lmap(MAP_ALU_THRON, D,E)
    colshift(C_BLACK)
-   chstep(jalu_part7a,$04,$0a,$03)
+   chstep(jalu_part7a,0x04,0x0a,0x03)
 
-   ldude(4,NPC_AKING,   $05,$04,DOWN,STAND)
+   ldude(4,NPC_AKING,   0x05,0x04,DOWN,STAND)
    ctalk(jalu_king, 4)
 
    fadein(X_FADE)
    end
 jalu_part7a:
-   set(D,$0e)
-   set(E,$07)
+   set(D,0x0e)
+   set(E,0x07)
    goto(jalu_part1)
 
 jalu_part8:
    fadeout(X_FADE)
    lmap(MAP_ALU_BASE, D,E)
    colshift(C_BLACK)
-   cstep(jalu_part8a, $07,$06)
+   cstep(jalu_part8a, 0x07,0x06)
    fadein(X_FADE)
    end
 jalu_part8a:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(jalu_part2)
 
 jalu_crypt:
    fadeout(X_FADE)
    lmap(MAP_ALU_CRYPT, D,E)
    colshift(C_BLACK)
-   cstep(jalu_crypt1a, $09,$04)
+   cstep(jalu_crypt1a, 0x09,0x04)
 
-   csearch(jalu_crypt1b, $02,$03,S_ALL)
-   csearch(jalu_crypt1b, $04,$03,S_ALL)
-   csearch(jalu_crypt1b, $06,$03,S_ALL)
-   csearch(jalu_crypt1b, $02,$06,S_ALL)
-   csearch(jalu_crypt1b, $04,$06,S_ALL)
-   csearch(jalu_crypt1b, $06,$06,S_ALL)
-   csearch(jalu_crypt1b, $02,$09,S_ALL)
-   csearch(jalu_crypt1b, $04,$09,S_ALL)
-   csearch(jalu_crypt1b, $06,$09,S_ALL)
+   csearch(jalu_crypt1b, 0x02,0x03,S_ALL)
+   csearch(jalu_crypt1b, 0x04,0x03,S_ALL)
+   csearch(jalu_crypt1b, 0x06,0x03,S_ALL)
+   csearch(jalu_crypt1b, 0x02,0x06,S_ALL)
+   csearch(jalu_crypt1b, 0x04,0x06,S_ALL)
+   csearch(jalu_crypt1b, 0x06,0x06,S_ALL)
+   csearch(jalu_crypt1b, 0x02,0x09,S_ALL)
+   csearch(jalu_crypt1b, 0x04,0x09,S_ALL)
+   csearch(jalu_crypt1b, 0x06,0x09,S_ALL)
 
    // repair the crypt
-   tile(4,5,$af)
-   tile(4,6,$b7)
+   tile(4,5,0xaf)
+   tile(4,6,0xb7)
 
    get(A,VAR_JOY2A)
    cif(A,CE,1,joy2_loadportal)
    fadein(X_FADE)
    end
 jalu_crypt1a:
-   set(D,$18)
-   set(E,$05)
+   set(D,0x18)
+   set(E,0x05)
    goto(jalu_part2)
 jalu_crypt1b:
    say(ALU_STXT1)
@@ -680,8 +680,8 @@ jalu_garden:
    fadeout(X_FADE)
    lmap(MAP_ALU_GARDEN,    D,E)
    colshift(C_BLACK)
-   cstep(jalu_garden1a,    $0a,$0b)
-   ldude(4, NPC_GIRL1,     $09,$07, DOWN, STAND)
+   cstep(jalu_garden1a,    0x0a,0x0b)
+   ldude(4, NPC_GIRL1,     0x09,0x07, DOWN, STAND)
    ctalk(jalu_gardenAnna, 4)
 
    get(A,VAR_JOY2A)
@@ -693,8 +693,8 @@ jalu_garden:
    cif(A,CE,0,jalu_scene62)
    end
 jalu_garden1a:
-   set(D,$0f)
-   set(E,$09)
+   set(D,0x0f)
+   set(E,0x09)
    goto(jalu_part2)
 jalu_gardenguy:
    say(ALU_DTXT16)
@@ -702,12 +702,12 @@ jalu_gardenguy:
 
 jalu_scene62_setup:
    face(4,RIGHT)
-   ldude(5, NPC_BOY2,      $0a,$07, LEFT, STAND)
+   ldude(5, NPC_BOY2,      0x0a,0x07, LEFT, STAND)
    end
 
 jalu_scene62:
    panspeed(0)
-   pan($0a,$08)
+   pan(0x0a,0x08)
    sleep(64)
    say(S62_ETXT1)
    sleep(16)
@@ -731,9 +731,9 @@ jalu_scene62:
    sleep(32)
    set(A,8)
 jalu_scene62_loop1:
-   ldude(5, NPC_BOY2,      $0a,$07, DOWN, STAND)
+   ldude(5, NPC_BOY2,      0x0a,0x07, DOWN, STAND)
    sleep(4)
-   ldude(5, CH_ROLAND,     $0a,$07, DOWN, STAND)
+   ldude(5, CH_ROLAND,     0x0a,0x07, DOWN, STAND)
    sleep(4)
    dec(A)
    if(A,CG,0,jalu_scene62_loop1)
@@ -779,14 +779,14 @@ jalu_gardenAnna:
 
 joy2_loadportal:
    // load the portal
-   ldude(4,NPC_PORTALA,$03,$01,DOWN,STAND)
-   ldude(5,NPC_PORTALB,$03,$02,DOWN,STAND)
+   ldude(4,NPC_PORTALA,0x03,0x01,DOWN,STAND)
+   ldude(5,NPC_PORTALB,0x03,0x02,DOWN,STAND)
    anim(4)
    anim(5)
-   cstep(joy2_portal, $03,$03)
+   cstep(joy2_portal, 0x03,0x03)
    end
 joy2_portal:
-   align($03,$03)
+   align(0x03,0x03)
    sync
    group
    sync
@@ -832,12 +832,12 @@ joy2_portal:
 joy3_scene64:
    face(0,UP)
    reform
-   lmap(MAP_TRIAL3, $04,$07)
+   lmap(MAP_TRIAL3, 0x04,0x07)
    partyarr
    detach
-   warp(1,$05,$07,UP)
-   ldude(4,CH_ELYA,  $04,$05,DOWN,STAND)
-   ldude(5,CH_ALUTHA,$05,$05,DOWN,STAND)
+   warp(1,0x05,0x07,UP)
+   ldude(4,CH_ELYA,  0x04,0x05,DOWN,STAND)
+   ldude(5,CH_ALUTHA,0x05,0x05,DOWN,STAND)
    song(SNG_MYSTIC)
    fadein(X_FADE)
 
@@ -903,87 +903,87 @@ joy3_scene64:
    face(0,DOWN)
    lockon(0)
 
-   set(D,$08)
-   set(E,$04)
+   set(D,0x08)
+   set(E,0x04)
    goto(jmag_part1_nf)
 
 jmag_part1:
    fadeout(X_FADE)
 jmag_part1_nf:
    lmap(MAP_WMAG_P1, D,E)
-   tile($08,$09,$48)
-   tile($08,$12,$50)
-   cstep(jmag_part1b, $03,$0c)
-   cstep(jmag_part1c, $0d,$0c)
+   tile(0x08,0x09,0x48)
+   tile(0x08,0x12,0x50)
+   cstep(jmag_part1b, 0x03,0x0c)
+   cstep(jmag_part1c, 0x0d,0x0c)
    fadein(X_FADE)
    end
 jmag_part1b:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(jmag_part2)
 jmag_part1c:
-   set(D,$0c)
-   set(E,$05)
+   set(D,0x0c)
+   set(E,0x05)
    goto(jmag_part2)
 
 jmag_part2:
    fadeout(X_FADE)
    lmap(MAP_WMAG_P2, D,E)
-   cstep(jmag_part2a, $02,$05)
-   cstep(jmag_part2b, $0c,$05)
-   cstep(jmag_part2c, $05,$02)
-   cstep(jmag_part2d, $09,$02)
-   cstep(jmag_part2e, $08,$08)
+   cstep(jmag_part2a, 0x02,0x05)
+   cstep(jmag_part2b, 0x0c,0x05)
+   cstep(jmag_part2c, 0x05,0x02)
+   cstep(jmag_part2d, 0x09,0x02)
+   cstep(jmag_part2e, 0x08,0x08)
    fadein(X_FADE)
    end
 jmag_part2a:
-   set(D,$03)
-   set(E,$0c)
+   set(D,0x03)
+   set(E,0x0c)
    goto(jmag_part1)
 jmag_part2b:
-   set(D,$0d)
-   set(E,$0c)
+   set(D,0x0d)
+   set(E,0x0c)
    goto(jmag_part1)
 jmag_part2c:
-   set(D,$07)
-   set(E,$07)
+   set(D,0x07)
+   set(E,0x07)
    goto(jmag_shop1)
 jmag_part2d:
    end
 jmag_part2e:
-   set(D,$08)
-   set(E,$0c)
+   set(D,0x08)
+   set(E,0x0c)
    goto(jmag_part3)
 jmag_shop1:
    fadeout(X_FADE)
    lmap(MAP_WMAG_SHOP, D,E)
-   cstep(jmag_shop1a, $07,$08)
+   cstep(jmag_shop1a, 0x07,0x08)
    fadein(X_FADE)
    end
 jmag_shop1a:
-   set(D,$05)
-   set(E,$02)
+   set(D,0x05)
+   set(E,0x02)
    goto(jmag_part2)
 
 jmag_part3:
    fadeout(X_FADE)
    lmap(MAP_WMAG_P3, D,E)
-   cstep(jmag_part3a,  $08,$0c)
-   chstep(jmag_scene65,$0b,$09,3)
-   ldude(5,NPC_PORTALA,$0c,$07,DOWN,STAND)
-   ldude(6,NPC_PORTALB,$0c,$08,DOWN,STAND)
+   cstep(jmag_part3a,  0x08,0x0c)
+   chstep(jmag_scene65,0x0b,0x09,3)
+   ldude(5,NPC_PORTALA,0x0c,0x07,DOWN,STAND)
+   ldude(6,NPC_PORTALB,0x0c,0x08,DOWN,STAND)
    anim(5)
    anim(6)
    fadein(X_FADE)
    end
 jmag_part3a:
-   set(D,$08)
-   set(E,$08)
+   set(D,0x08)
+   set(E,0x08)
    goto(jmag_part2)
 
 
 jmag_scene65:
-   align($0c,$09)
+   align(0x0c,0x09)
    sync
    face(0,UP)
    group

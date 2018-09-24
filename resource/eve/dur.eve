@@ -32,13 +32,13 @@ O_DUR:
 
 dur_frombottom:
    face(0,UP)
-   set(B,$10)
-   set(C,$1b)
+   set(B,0x10)
+   set(C,0x1b)
    end
 dur_fromtop:
    face(0,DOWN)
-   set(B,$10)
-   set(C,$05)
+   set(B,0x10)
+   set(C,0x05)
    end
 
 I_DUR:
@@ -54,11 +54,11 @@ L_DUR:
    lmap(MAP_DUR,           B,C)
    song(SNG_ALUTHA)
 
-   chstep(OVERWORLD,    $00,$1c,$1c)
-   chstep(dur_topexit,  $0f,$02,$03)
+   chstep(OVERWORLD,    0x00,0x1c,0x1c)
+   chstep(dur_topexit,  0x0f,0x02,0x03)
 
    cstep(dur_part1a,      5,  7)
-   chstep(dur_capture,    3, 17,$06)
+   chstep(dur_capture,    3, 17,0x06)
 
    get(A,VAR_DUR1)
    cif(A,CE,1,dur_guards)
@@ -86,64 +86,64 @@ dur_topexit:
    put(1,VAR_DURTOP)
    goto(OVERWORLD)
 dur_part1b:
-   set(D,$03)
-   set(E,$07)
+   set(D,0x03)
+   set(E,0x07)
    goto(dur_part5)
 dur_part1c:
-   set(D,$0d)
-   set(E,$07)
+   set(D,0x0d)
+   set(E,0x07)
    goto(dur_part5)
 dur_part1d:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(dur_part5)
 dur_part1e:
-   set(D,$0e)
-   set(E,$05)
+   set(D,0x0e)
+   set(E,0x05)
    goto(dur_part5)
 
 dur_unlock:
    // open the doors
-   tile($0d,$10,$16)
-   tile($0d,$11,$0b)
-   tile($12,$10,$16)
-   tile($12,$11,$0b)
+   tile(0x0d,0x10,0x16)
+   tile(0x0d,0x11,0x0b)
+   tile(0x12,0x10,0x16)
+   tile(0x12,0x11,0x0b)
    end
 
 
 l_dur2:
    lmap(MAP_DUR,           B,C)
    song(SNG_ALUTHA)
-   chstep(OVERWORLD,    $00,$1c,$1c)
-   chstep(dur_topexit,  $0f,$02,$03)
-   chstep(dur_scene42,  $0f,$15,$03)
+   chstep(OVERWORLD,    0x00,0x1c,0x1c)
+   chstep(dur_topexit,  0x0f,0x02,0x03)
+   chstep(dur_scene42,  0x0f,0x15,0x03)
 
-   cstep(dur_part1b, $0d,$11)
-   cstep(dur_part1c, $12,$11)
-   cstep(dur_part1d, $0c,$0b)
-   cstep(dur_part1e, $13,$0b)
+   cstep(dur_part1b, 0x0d,0x11)
+   cstep(dur_part1c, 0x12,0x11)
+   cstep(dur_part1d, 0x0c,0x0b)
+   cstep(dur_part1e, 0x13,0x0b)
 
    call(dur_unlock)
 
-   ldude( 4,NPC_DEAD,   $0d,$1b, DOWN,STAND)
+   ldude( 4,NPC_DEAD,   0x0d,0x1b, DOWN,STAND)
    frame( 4,2)
    ctalk(dur_dead,4)
-   ldude( 5,NPC_DEAD,   $0e,$13, DOWN,STAND)
+   ldude( 5,NPC_DEAD,   0x0e,0x13, DOWN,STAND)
    frame( 5,2)
    ctalk(dur_dead,5)
-   ldude( 6,NPC_DEAD,   $07,$0f, DOWN,STAND)
+   ldude( 6,NPC_DEAD,   0x07,0x0f, DOWN,STAND)
    frame( 6,2)
    ctalk(dur_dead,6)
-   ldude( 7,NPC_DEAD,   $05,$08, DOWN,STAND)
+   ldude( 7,NPC_DEAD,   0x05,0x08, DOWN,STAND)
    frame( 7,2)
    ctalk(dur_dead,7)
-   ldude( 8,NPC_DEAD,   $11,$06, DOWN,STAND)
+   ldude( 8,NPC_DEAD,   0x11,0x06, DOWN,STAND)
    frame( 8,2)
    ctalk(dur_dead,8)
-   ldude( 9,NPC_DEAD,   $03,$15, DOWN,STAND)
+   ldude( 9,NPC_DEAD,   0x03,0x15, DOWN,STAND)
    frame( 9,2)
    ctalk(dur_dead,9)
-   ldude(10,NPC_DEAD,   $1a,$03, DOWN,STAND)
+   ldude(10,NPC_DEAD,   0x1a,0x03, DOWN,STAND)
    frame(10,2)
    ctalk(dur_dead,10)
    end
@@ -281,58 +281,58 @@ dur_part4b:
 
 
 dur_locktreasury:
-   tile($0d,$10,$16)
-   tile($0d,$11,$0b)
-   tile($12,$10,$16)
-   tile($12,$11,$0b)
+   tile(0x0d,0x10,0x16)
+   tile(0x0d,0x11,0x0b)
+   tile(0x12,0x10,0x16)
+   tile(0x12,0x11,0x0b)
    end
 
 dur_part5:
    fadeout(X_FADE)
    lmap(MAP_DUR_P5,   D,  E)
 
-   cstep(dur_part5a,$03,$08)
-   cstep(dur_part5b,$0d,$08)
-   cstep(dur_part5c,$02,$05)
-   cstep(dur_part5d,$0e,$05)
+   cstep(dur_part5a,0x03,0x08)
+   cstep(dur_part5b,0x0d,0x08)
+   cstep(dur_part5c,0x02,0x05)
+   cstep(dur_part5d,0x0e,0x05)
 
-   ctres($29,IT_HPMd,$04,$04,$70,SFX_CHEST)
-   ctres($2a,IT_HPMd,$05,$04,$70,SFX_CHEST)
-   ctres($2b,IT_HPlate,$06,$04,$70,SFX_CHEST)
-   ctres($2c,IT_HPMd,$07,$04,$70,SFX_CHEST)
-   ctres($2d,IT_HPMd,$08,$04,$70,SFX_CHEST)
-   ctres($2e,IT_SPMd,$09,$04,$70,SFX_CHEST)
-   ctres($2f,IT_SPMd,$0a,$04,$70,SFX_CHEST)
-   ctres($30,IT_SPMd,$0b,$04,$70,SFX_CHEST)
-   ctres($31,IT_LFLo,$0c,$04,$70,SFX_CHEST)
+   ctres(0x29,IT_HPMd,0x04,0x04,0x70,SFX_CHEST)
+   ctres(0x2a,IT_HPMd,0x05,0x04,0x70,SFX_CHEST)
+   ctres(0x2b,IT_HPlate,0x06,0x04,0x70,SFX_CHEST)
+   ctres(0x2c,IT_HPMd,0x07,0x04,0x70,SFX_CHEST)
+   ctres(0x2d,IT_HPMd,0x08,0x04,0x70,SFX_CHEST)
+   ctres(0x2e,IT_SPMd,0x09,0x04,0x70,SFX_CHEST)
+   ctres(0x2f,IT_SPMd,0x0a,0x04,0x70,SFX_CHEST)
+   ctres(0x30,IT_SPMd,0x0b,0x04,0x70,SFX_CHEST)
+   ctres(0x31,IT_LFLo,0x0c,0x04,0x70,SFX_CHEST)
 
-   ctres($32,IT_LFMd,$04,$05,$70,SFX_CHEST)
-   ctres($33,IT_HPMd,$05,$05,$70,SFX_CHEST)
-   ctres($34,IT_HPMd,$06,$05,$70,SFX_CHEST)
-   ctres($35,IT_HPMd,$07,$05,$70,SFX_CHEST)
-   ctres($36,IT_HPMd,$08,$05,$70,SFX_CHEST)
-   ctres($37,IT_ECudgel,$09,$05,$70,SFX_CHEST)
-   ctres($38,IT_SPMd,$0a,$05,$70,SFX_CHEST)
-   ctres($39,IT_HPMd,$0b,$05,$70,SFX_CHEST)
-   ctres($3a,IT_HPMd,$0c,$05,$70,SFX_CHEST)
+   ctres(0x32,IT_LFMd,0x04,0x05,0x70,SFX_CHEST)
+   ctres(0x33,IT_HPMd,0x05,0x05,0x70,SFX_CHEST)
+   ctres(0x34,IT_HPMd,0x06,0x05,0x70,SFX_CHEST)
+   ctres(0x35,IT_HPMd,0x07,0x05,0x70,SFX_CHEST)
+   ctres(0x36,IT_HPMd,0x08,0x05,0x70,SFX_CHEST)
+   ctres(0x37,IT_ECudgel,0x09,0x05,0x70,SFX_CHEST)
+   ctres(0x38,IT_SPMd,0x0a,0x05,0x70,SFX_CHEST)
+   ctres(0x39,IT_HPMd,0x0b,0x05,0x70,SFX_CHEST)
+   ctres(0x3a,IT_HPMd,0x0c,0x05,0x70,SFX_CHEST)
 
    fadein(X_FADE)
    end
 dur_part5a:
-   set(B,$0d)
-   set(C,$11)
+   set(B,0x0d)
+   set(C,0x11)
    goto(I_DUR)
 dur_part5b:
-   set(B,$12)
-   set(C,$11)
+   set(B,0x12)
+   set(C,0x11)
    goto(I_DUR)
 dur_part5c:
-   set(B,$0c)
-   set(C,$0b)
+   set(B,0x0c)
+   set(C,0x0b)
    goto(I_DUR)
 dur_part5d:
-   set(B,$13)
-   set(C,$0b)
+   set(B,0x13)
+   set(C,0x0b)
    goto(I_DUR)
 
 //  4,4 -> 9 across
@@ -341,7 +341,7 @@ dur_part5d:
 
 dur_capture:
    get(A,VAR_DUR1)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_DUR1)
    goto(dur_scene25)
 
@@ -737,9 +737,9 @@ dur_setb1:
 
 dur_scene42:
    get(A,VAR_RET_DUR)
-   if(A,CE,2,RET)
+   if(A,CE,2,GRET)
 
-   align($10,$14)
+   align(0x10,0x14)
    sync
    group
    sync
