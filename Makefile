@@ -24,6 +24,9 @@ distclean: clean
 	rm -rf source/data
 	rm -rf build
 
+run: build/j.gb
+	retroarch -L /usr/lib/x86_64-linux-gnu/libretro/gambatte_libretro.so build/j.gb
+
 source/eve/itemdefs.h: resource/eve/items.ref
 	cd resource/eve && ../../bin/itemconv --defs items.ref && cp itemdefs.h ../../source/eve
 
