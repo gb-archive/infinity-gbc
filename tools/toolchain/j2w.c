@@ -602,7 +602,7 @@ int main(int argc, char *argv[])
 		printf("  %3d Maps\n", hed.map_num);
 		printf("  %3d Songs\n", hed.song_num);
 
-		printf("Turn to .PAG files? [Y/N]\n");
+		/*printf("Turn to .PAG files? [Y/N]\n");
 		while(1) {
 			#if defined(__MACH__) || defined(__unix__)
 			key = getchar();
@@ -613,7 +613,8 @@ int main(int argc, char *argv[])
 			key = tolower(key);
 			if(key == 'y' || key == 'n')
 				break;
-		}
+		}*/
+		key = 'y';
 
 		if(key == 'y') {
 
