@@ -68,36 +68,45 @@ If all goes well, the game will be built as `build\j.gb`.
 
 **WORK IN PROGRESS**
 
+```sh
+git clone https://github.com/infinity-gbc/infinity.git
+cd infinity
+INFINITY=`pwd`
+```
+
 Build GBDK and install it somewhere. Below installs to `/home/user/tmp/sdk`:
 
 ```sh
 git clone git://github.com/infinity-gbc/gbdk.git
 cd gbdk
-make SDK_DIR=/home/user/tmp
-make SDK_DIR=/home/user/tmp install
+GBDK_SRC=`pwd`
+GBDK_PATH=~/gbdk
+make SDK_DIR=$GBDK_PATH
+make SDK_DIR=$GBDK_PATH install
 ```
 
 Patch the GBDK and build the library:
 
 ```sh
-cd /home/user/tmp/sdk/gbz80-gb/2.1.5    # the dir with "sdk" in it
-patch -p0 < /path/to/infinity/tools/gbdk_infinity.diff
-cd sdk/gbz80-gb/2.1.5/lib
+cd $GBDK_PATH/sdk/gbz80-gb/2.1.5    # the dir with "sdk" in it
+patch -p0 < $INFINITY/tools/gbdk_infinity.diff
+cd lib
 make
+```
+
+Put the compiler in your `$PATH`:
+
+```sh
+export PATH=$PATH:$GBDK_PATH/sdk/gbz80-gb/2.1.5/bin
 ```
 
 Build the toolchain:
 
 ```sh
-# (from infinity dir)
+cd $INFINITY
 cd tools/toolchain
 make
-```
-
-Put the compiler in your `PATH`:
-
-```sh
-export PATH=$PATH:/home/user/tmp/sdk/gbz80-gb/2.1.5/bin
+cd ../../
 ```
 
 Copy all the `.pag` files from a Windows build into the `resource` dir of the infinity dir.
@@ -105,7 +114,6 @@ Copy all the `.pag` files from a Windows build into the `resource` dir of the in
 Build the game!
 
 ```sh
-# (from infinity dir)
 make
 ```
 
