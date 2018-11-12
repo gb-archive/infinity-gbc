@@ -1,0 +1,14 @@
+sdk
+build
+/tools/toolchain/enemy.o
+/bin/afzconv
+/bin/fixgb
+/bin/gbr2bin
+/bin/gfx2h
+/bin/inspage
+/bin/itemconv
+/bin/j2w
+/bin/pagesize
+/bin/pagify
+/bin/post
+/bin/proctext
