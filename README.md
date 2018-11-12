@@ -40,7 +40,7 @@ Put the compiler in your `$PATH`:
 export PATH=$PATH:$GBDK_PATH/sdk/gbz80-gb/2.1.5/bin
 ```
 
-Clone the Infinity respository:
+Clone the Infinity repository:
 
 ```sh
 git clone https://github.com/infinity-gbc/infinity.git
