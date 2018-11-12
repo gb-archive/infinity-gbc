@@ -21,6 +21,7 @@ clean:
 	rm -f build/*.o
 
 distclean: clean
+	cd tools/toolchain && make clean
 	rm -rf source/data
 	rm -rf build
 
