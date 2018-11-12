@@ -12,3 +12,17 @@ build
 /bin/pagify
 /bin/post
 /bin/proctext
+/resource/eve/itemdefs.h
+/source/eve/itemdefs.h
+/resource/eve/eform.*
+/resource/eve/formdefs.h
+/resource/eve/etxt.h
+/resource/eve/dialog.dat
+/resource/eve/game.pst
+/resource/eve/demo.edt
+/resource/ext/*.bin
+/resource/ext/game.j2w
+/resource/ext/zonemap.pag
+/resource/*.pag
+/source/data/*.h
+*.o
