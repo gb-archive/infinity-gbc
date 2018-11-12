@@ -230,7 +230,6 @@ int readrefs_zone(char *fname)
 
 char *zonestr(int x, struct ZONES *z)
 {
-	static char name[256];
 	int n, at, num;
 
 	at = 0;
@@ -293,7 +292,6 @@ int genformdefs(char *fname, struct ZONES *z)
 {
 	FILE *f;
 	int n, n2, at, num;
-	char str[256];
 	char zone[256], form[256];
 
 	f = fopen(fname, "w");
@@ -330,7 +328,6 @@ int main(int argc, char *argv[])
 	int at;
 	int num, exp, au;
 	FILE *out;
-	int arg1, arg2;
 
 	if(argc < 2) {
 		printf("usage: afzconv <.afz file> [cmd] [arg1] [arg2]\n");

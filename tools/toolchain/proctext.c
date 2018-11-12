@@ -17,14 +17,8 @@
  */
 
 #include<stdio.h>
-
-#if !defined(__MACH__) && !defined(__APPLE__)
-#include<malloc.h>
-#endif
-
 #include<string.h>
 #include<stdlib.h>
-//#include<mem.h>
 
 FILE *_log;
 
@@ -102,8 +96,6 @@ int main(int argc, char *argv[])
 	char *buf, line[8192];
 	int size;
 	int n;
-	int c;
-	int inmsg, instr;
 	int len;
 	int at;
 

@@ -172,7 +172,6 @@ int j2w_add(char *fname, int ftype, char *flabel, int info)
 	char tiles[16384];
 	int x, y;
 	char id[3];
-	int len;
 
 	f = fopen(fname, "rb");
 	if(!f)
@@ -313,7 +312,7 @@ int j2w_load(char *fname)
 	char set_meta[2048];
 	char set_pal[144];
 	int pal;
-	int n, n2, i, i2;
+	int n, i, i2;
 	int x, y;
 	char *buf;
 	struct J2W_HEADER newhed;
@@ -422,14 +421,13 @@ int main(int argc, char *argv[])
 	int key;
 	int num, pages;
 	char str[256];
-	int n, n2, i, i2;
+	int n, i;
 	int at;
 	char *tiles;
 	int atpage;
-	int repeat;
+	//int repeat;
 
 	int set_pages;
-	int stb_pages;
 	int spr_pages;
 	int map_pages;
 	int song_pages;

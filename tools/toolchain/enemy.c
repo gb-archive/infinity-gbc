@@ -103,8 +103,6 @@ void zones_reset(struct ZONES *z)
 
 void zone_blank(struct ZONE_STRUCT *zone, char *name)
 {
-        int n;
-
         strcpy(zone->name, name);
         zone->ptr = NULL;
         zone->numforms = 0;

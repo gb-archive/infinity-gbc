@@ -147,9 +147,7 @@ int main(int argc, char* argv[])
 	// gbr2bin gbr_file bin_file [first_tilenum] [last_tilenum]
 	FILE *fGBR = 0;
 	FILE *fBIN = 0;
-	bool bFirstTileNum = false;
 	int firstTileNum = -1;
-	bool bLastTileNum = false;
 	int lastTileNum = -1;
 
 	// argument count
@@ -190,7 +188,7 @@ int main(int argc, char* argv[])
 	byteVector_t tiledata;
 	byteVector_t paldata;
 	int tileCount;
-	int palCount;
+	//int palCount;
 	bool bBigTiles = false;
 	word type;
 	while( !feof( fGBR ) ) {
@@ -198,7 +196,7 @@ int main(int argc, char* argv[])
 		if( type == OBJECT_TYPE_TILEDATA )
 			tileCount = GBR_ExportTiles( &block[0], &tiledata, bBigTiles );
 		if( type == OBJECT_TYPE_TILEPAL )
-			palCount = GBR_ExportPals( &block[0], &paldata );
+			/*palCount =*/ GBR_ExportPals( &block[0], &paldata );
 	}
 
 	// tilelist

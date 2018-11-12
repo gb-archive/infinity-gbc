@@ -72,12 +72,12 @@ char *memstr(char *ptr, char *str, int bytes)
 int get_type(char icon)
 {
 	char chart[] = { 0, 5, 2, 2, 2, 2, 4, 3, 4, 4, 4, 4, 4, 0, 2, 3 };
-	return chart[icon];
+	return chart[(int)icon];
 }
 
 char *equip2str(int x)
 {
-	static char str[6];
+	static char str[7];
 
 	strcpy(str, "------");
 	if(x & 1)  str[0] = 'C';
@@ -130,7 +130,7 @@ char get_attrib(char *s)
 
 int getvals(char *inbuf, int *index, int *icon, char *name)
 {
-	char *p, *p2;
+	char *p;
 	int a_index, a_icon;
 	char a_name[256];
 
@@ -161,7 +161,7 @@ int main(int argc, char *argv[])
 	FILE *f;
 	char *p, *p2;
 	char line[256];
-	int n, n2, x;
+	int n, x;
 	int index, icon;
 	char name[256];
 	char dat[256];
