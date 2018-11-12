@@ -12,69 +12,9 @@ Additionally, any programming source files for the main game program, as well as
 
 ## Building
 
-Currently the game only builds on a Windows host. Building the game requires GBDK, TASM, as well as custom build utilities that you'll need to compile.
+Building the game requires a unix-like environment, GBDK, Yasm, as well as custom build utilities that you'll need to compile. On Windows, you can use [MSYS2](https://www.msys2.org/).
 
-From within the source tree, run `setup.bat` from a command prompt:
-
-```
-cd \path\to\infinity\bin
-setup
-```
-
-This will create a virtual `J:` drive pointing to the root of the project and change to it.
-
-Download [GBDK 2.1.5](https://sourceforge.net/projects/gbdk/files/gbdk/2.1.5/) (the .zip file that's in there) and unpack into the root of the project as the directory `sdk`.
-
-Download and install [MinGW](http://www.mingw.org/wiki/Getting_Started) if you don't already have it. From a MinGW shell (leave the original command prompt alone, we'll come back to it), patch the GBDK and build the custom build utiltiies:
-
-```sh
-cd /j/sdk/gbz80-gb/2-1-5/lib
-patch -p0 < tools/gbdk_infinity.diff
-cd tools/toolchain
-make
-```
-
-You can close the MinGW shell now, we won't need it from here on.
-
-Now from the command prompt, build the GBDK library using `make.bat`:
-
-```
-cd \sdk\gbz80-gb\2-1-5\lib
-make.bat
-```
-
-Download [TASM 3.2](http://www.ticalc.org/archives/files/fileinfo/250/25051.html). Unpack and save `tasm.exe` into the project's `bin` directory.
-
-You should now have all the tools ready to build the game. Now go run a bunch of commands:
-
-```
-PATH=%PATH%;c:\mingw\bin
-cd \resource\eve
-itemconv --defs items.ref
-copy itemdefs.h ..\..\source\eve
-e
-d
-c
-build
-cd \resource\ext
-build             (press Y at the prompt)
-cd \
-do
-```
-
-If all goes well, the game will be built as `build\j.gb`.
-
-## Building on Linux
-
-**WORK IN PROGRESS**
-
-```sh
-git clone https://github.com/infinity-gbc/infinity.git
-cd infinity
-INFINITY=`pwd`
-```
-
-Build GBDK and install it somewhere. Below installs to `/home/user/tmp/sdk`:
+Clone our GBDK repository, which contains tweaks for it to build on modern systems. Build and install it somewhere. Below installs to `/home/user/gbdk/sdk`:
 
 ```sh
 git clone git://github.com/infinity-gbc/gbdk.git
@@ -85,10 +25,10 @@ make SDK_DIR=$GBDK_PATH
 make SDK_DIR=$GBDK_PATH install
 ```
 
-Patch the GBDK and build the library:
+Patch and build the GBDK library:
 
 ```sh
-cd $GBDK_PATH/sdk/gbz80-gb/2.1.5    # the dir with "sdk" in it
+cd $GBDK_PATH/sdk/gbz80-gb/2.1.5
 patch -p0 < $INFINITY/tools/gbdk_infinity.diff
 cd lib
 make
@@ -100,6 +40,14 @@ Put the compiler in your `$PATH`:
 export PATH=$PATH:$GBDK_PATH/sdk/gbz80-gb/2.1.5/bin
 ```
 
+Clone the Infinity respository:
+
+```sh
+git clone https://github.com/infinity-gbc/infinity.git
+cd infinity
+INFINITY=`pwd`
+```
+
 Build the toolchain:
 
 ```sh
@@ -108,8 +56,6 @@ cd tools/toolchain
 make
 cd ../../
 ```
-
-Copy all the `.pag` files from a Windows build into the `resource` dir of the infinity dir.
 
 Build the game!
 
