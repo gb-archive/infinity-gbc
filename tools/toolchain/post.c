@@ -56,6 +56,9 @@ int main(int argc, char *argv[])
 		p = strstr(line, "..");
 		if(p)
 			*p = 0;
+		p = strstr(line, "//");
+		if(p)
+			*p = 0;
 
 		llen = strlen(line);
 		if(llen < 1)
