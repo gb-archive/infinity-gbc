@@ -19,7 +19,6 @@ Clone our GBDK repository, which contains tweaks for it to build on modern syste
 ```sh
 git clone git://github.com/infinity-gbc/gbdk.git
 cd gbdk
-GBDK_SRC=`pwd`
 GBDK_PATH=~/gbdk
 make SDK_DIR=$GBDK_PATH
 make SDK_DIR=$GBDK_PATH install
