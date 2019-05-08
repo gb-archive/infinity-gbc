@@ -1,12 +1,12 @@
 # Infinity
 
-Infinity is a role-playing game for the Game Boy Color handheld game console, developed by Affinix Software primarily between the years 1999 and 2001. The game is incomplete and should be considered alpha/preview quality. See the [Affinix website](http://affinix.com) for the full announcement regarding the project release as well as a downloadable ROM file.
+Infinity is a role-playing game for the Game Boy Color handheld game console, developed by Affinix Software primarily between the years 1999 and 2001. The game is incomplete and should be considered alpha/preview quality. See the [Infinity website](http://infinity-gbc.org) for the full announcement regarding the project release as well as a downloadable ROM file.
 
 ## License
 
 This project is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/) and the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/), with different parts covered by each license, and with certain exceptions to allow the parts to be combined. COMMERCIAL USE PROHIBITED. See the LICENSE file for details.
 
-For commercial inquiries, please contact support@affinix.com.
+For commercial inquiries, please contact justin@karneges.com.
 
 Additionally, any programming source files for the main game program, as well as for any utility programs, are licensed under the GNU General Public License, Version 3 or any later version. This includes files written in C and assembly language, but does not include event programming files. Such source files that are additionally covered by the GPL are marked with an appropriate license header.
 
