@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -42,8 +42,6 @@ extern unsigned char slurpgfx[];
 extern unsigned char spawn1[];
 extern unsigned char slash1[];
 extern unsigned char whirl1[];
-
-extern unsigned char eventdat[];
 
 extern UBYTE item_name[][20];
 extern UBYTE item_data[][7];

@@ -1,6 +1,6 @@
-diff -ru SDK.orig/gbz80-gb/2-1-5/lib/crt0.s SDK/gbz80-gb/2-1-5/lib/crt0.s
---- SDK.orig/gbz80-gb/2-1-5/lib/crt0.s	1999-10-17 22:02:46.000000000 -0700
-+++ SDK/gbz80-gb/2-1-5/lib/crt0.s	2016-07-25 14:14:31.603316904 -0700
+diff -ru lib.orig/crt0.s lib/crt0.s
+--- lib.orig/crt0.s	1999-10-17 22:02:46.000000000 -0700
++++ lib/crt0.s		2016-07-25 14:14:31.603316904 -0700
 @@ -10,66 +10,99 @@
  	.org	0x00
  	RET			; Empty function (default for interrupts)
@@ -748,9 +748,9 @@ diff -ru SDK.orig/gbz80-gb/2-1-5/lib/crt0.s SDK/gbz80-gb/2-1-5/lib/crt0.s
  
  	.area	_HEAP
  _malloc_heap_start::
-diff -ru SDK.orig/gbz80-gb/2-1-5/lib/mul.s SDK/gbz80-gb/2-1-5/lib/mul.s
---- SDK.orig/gbz80-gb/2-1-5/lib/mul.s	1999-10-17 22:02:49.000000000 -0700
-+++ SDK/gbz80-gb/2-1-5/lib/mul.s	2016-07-25 14:14:31.775316898 -0700
+diff -ru lib.orig/mul.s lib/mul.s
+--- lib.orig/mul.s	1999-10-17 22:02:49.000000000 -0700
++++ lib/mul.s		2016-07-25 14:14:31.775316898 -0700
 @@ -1,13 +1,7 @@
 -	.include	"global.s"
 +   .include "global.s"

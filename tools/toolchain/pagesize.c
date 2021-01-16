@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -20,7 +20,7 @@
 
 unsigned char buf[16384];
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int n, page, size, total;
 	FILE *f;

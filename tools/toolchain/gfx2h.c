@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -18,18 +18,18 @@
 
 #include<stdio.h>
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
         unsigned char c;
         FILE *in, *out;
         int n;
 
         if(argc < 4)
-                return;
+                return 1;
         in = fopen(argv[1], "rb");
         out = fopen(argv[2], "wb");
         if(!in || !out)
-                return;
+                return 1;
 
         fprintf(out, "unsigned char %s[] = {\n", argv[3]);
         n = 0;

@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -17,12 +17,10 @@
  */
 
 #include<stdio.h>
-#include<malloc.h>
 #include<string.h>
 #include<stdlib.h>
-//#include<mem.h>
 
-FILE *log;
+FILE *_log;
 
 void mem_error()
 {
@@ -63,7 +61,7 @@ void proc_line(char *s)
 	*(p++) = 0;
 //	n = atoi(s);
 	n = highest + 1;
-	fprintf(log, "#define %s %d\n", s, n);
+	fprintf(_log, "#define %s %d\n", s, n);
 
 	strcpy(str, p);
 
@@ -91,19 +89,17 @@ void proc_line(char *s)
 //	++numtexts;
 }
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *in, *out;
 	char *p, *p2;
 	char *buf, line[8192];
 	int size;
 	int n;
-	int c;
-	int inmsg, instr;
 	int len;
 	int at;
 
-	log = fopen("etxt.h", "w");
+	_log = fopen("etxt.h", "w");
 
 	highest = -1;
 	numtexts = 0;

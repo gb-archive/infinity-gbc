@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -82,9 +82,9 @@ word GBR_ExportTiles( byte *array, byteVector_t *result, bool &bBigTiles ) {
 	word count = *(word *)&array[34];
 	byte *data = &array[40];
 	word bytewidth = width / 8;
-	word blockwidth = bytewidth / 2;
+	word blockwidth = ( bytewidth + 1 ) / 2;
 	word localwidth = (bytewidth < 2) ? bytewidth : 2;
-	word blockheight = height / 16;
+	word blockheight = ( height + 15 ) / 16;
 	word localheight = (height < 16) ? height : 16;
 
 	if( blockwidth > 1 && blockheight > 1 )
@@ -147,15 +147,13 @@ int main(int argc, char* argv[])
 	// gbr2bin gbr_file bin_file [first_tilenum] [last_tilenum]
 	FILE *fGBR = 0;
 	FILE *fBIN = 0;
-	bool bFirstTileNum = false;
 	int firstTileNum = -1;
-	bool bLastTileNum = false;
 	int lastTileNum = -1;
 
 	// argument count
 	if( argc < 3 ) {
 		printf("Usage:\n");
-		printf("gbr2bin gbr_file bin_file [ [first_tilenum] [last_tilenum] ... ]\n");
+		printf("gbr2bin gbr_file bin_file [/nopal] [ [first_tilenum] [last_tilenum] ... ]\n");
 		return 1;
 	}
 
@@ -171,6 +169,14 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
+	//check if we don't want to export palettes
+	int start_tile_arg = 3;
+	bool bExportPalettes = true;
+	if( argc >= 4 && !strcmp( argv[3], "/nopal" ) ) {
+		bExportPalettes = false;
+		start_tile_arg++;
+	}
+
 	// read and check for valid header
 	if( !GBR_ReadHeader( fGBR ) ) {
 		printf("%s invalid file format!\n", argv[1]);
@@ -182,7 +188,7 @@ int main(int argc, char* argv[])
 	byteVector_t tiledata;
 	byteVector_t paldata;
 	int tileCount;
-	int palCount;
+	//int palCount;
 	bool bBigTiles = false;
 	word type;
 	while( !feof( fGBR ) ) {
@@ -190,14 +196,14 @@ int main(int argc, char* argv[])
 		if( type == OBJECT_TYPE_TILEDATA )
 			tileCount = GBR_ExportTiles( &block[0], &tiledata, bBigTiles );
 		if( type == OBJECT_TYPE_TILEPAL )
-			palCount = GBR_ExportPals( &block[0], &paldata );
+			/*palCount =*/ GBR_ExportPals( &block[0], &paldata );
 	}
 
 	// tilelist
 	std::vector<int> tilelist;
 	std::vector<int>::iterator it;
-	if( argc >= 4 ) {
-		for( int i = 3; i < argc - 1; i += 2 ) {
+	if( argc >= start_tile_arg + 1 ) {
+		for( int i = start_tile_arg; i < argc - 1; i += 2 ) {
 			firstTileNum = atoi( argv[ i ] );
 			lastTileNum = atoi( argv[ i + 1 ] );
 			for( int j = firstTileNum; j <= lastTileNum; j++ ) {
@@ -220,11 +226,13 @@ int main(int argc, char* argv[])
 
 //	printf("foo[%d]\n", palCountPerTile);
 
-	// palette out
-	for( it = tilelist.begin(); it != tilelist.end(); it++ ) {
-		i = *it;
-		for( j = 0; j < palCountPerTile; j++ )
-			fwrite( &paldata[ i ], sizeof(byte), 1, fBIN );
+	if( bExportPalettes ){
+		// palette out
+		for( it = tilelist.begin(); it != tilelist.end(); it++ ) {
+			i = *it;
+			for( j = 0; j < palCountPerTile; j++ )
+				fwrite( &paldata[ i ], sizeof(byte), 1, fBIN );
+		}
 	}
 
 	int sizePerTile = tiledata.size() / tileCount;

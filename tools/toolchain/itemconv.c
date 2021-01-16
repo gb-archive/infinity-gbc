@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -72,12 +72,12 @@ char *memstr(char *ptr, char *str, int bytes)
 int get_type(char icon)
 {
 	char chart[] = { 0, 5, 2, 2, 2, 2, 4, 3, 4, 4, 4, 4, 4, 0, 2, 3 };
-	return chart[icon];
+	return chart[(int)icon];
 }
 
 char *equip2str(int x)
 {
-	static char str[6];
+	static char str[7];
 
 	strcpy(str, "------");
 	if(x & 1)  str[0] = 'C';
@@ -130,7 +130,7 @@ char get_attrib(char *s)
 
 int getvals(char *inbuf, int *index, int *icon, char *name)
 {
-	char *p, *p2;
+	char *p;
 	int a_index, a_icon;
 	char a_name[256];
 
@@ -156,12 +156,12 @@ int getvals(char *inbuf, int *index, int *icon, char *name)
 	return 1;
 }
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *f;
 	char *p, *p2;
 	char line[256];
-	int n, n2, x;
+	int n, x;
 	int index, icon;
 	char name[256];
 	char dat[256];
@@ -288,7 +288,7 @@ main(int argc, char *argv[])
 			printf("unable to locate the Infinity Item List in this rom!\n");
 			return 1;
 		}
-		printf("Located at offset: [%d]\n", p - rom);
+		printf("Located at offset: [%ld]\n", p - rom);
 		p += 19;
 
 		for(n = 0; n < 100; ++n) {
@@ -306,7 +306,7 @@ main(int argc, char *argv[])
 			printf("unable to locate the Infinity Item List in this rom!\n");
 			return 1;
 		}
-		printf("Located at offset: [%d]\n", p - rom);
+		printf("Located at offset: [%ld]\n", p - rom);
 		p += 18;
 
 		for(n = 0; n < 100; ++n) {
@@ -329,7 +329,7 @@ main(int argc, char *argv[])
 			printf("unable to locate the Infinity Item List in this rom!\n");
 			return 1;
 		}
-		printf("Located at offset: [%d]\n", p - rom);
+		printf("Located at offset: [%ld]\n", p - rom);
 		p += 19;
 
 		for(n = 0; n < 100; ++n) {

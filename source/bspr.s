@@ -6,7 +6,7 @@
 ; NonCommercial-ShareAlike 4.0 International License as published by Creative
 ; Commons.
 ;
-; Alteratively, this file may be used under the terms of the GNU General
+; Alternatively, this file may be used under the terms of the GNU General
 ; Public License as published by the Free Software Foundation, either version
 ; 3 of the License, or (at your option) any later version.
 ;
@@ -1759,7 +1759,7 @@ bicon_notwingding:
    ADD   HL, DE
    LD    A, (HL)
 
-   LD    HL, #_itemgfx-6*64+24         ; data page
+   LD    HL, #_itemgfx-6*64+12         ; data page
    ADD   HL, BC
    JR    loadbicon
 bicon_notitem:

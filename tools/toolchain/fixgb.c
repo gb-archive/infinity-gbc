@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -17,9 +17,9 @@
  */
 
 #include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
 #include<memory.h>
-#include<malloc.h>
 
 unsigned char *buf;
 char title[16] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x80};
@@ -42,7 +42,7 @@ int find_deadbeef(unsigned char **addr, int size)
    return 0;
 }
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
    FILE *f;
    unsigned int total;

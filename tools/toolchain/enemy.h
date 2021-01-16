@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -56,11 +56,14 @@ struct FORM_STRUCT
         char guy_y[12];
 };
 
+#define ZONE_STRUCT_SIZE 40
+
 struct ZONE_STRUCT
 {
         char name[32];
-        struct FORM_STRUCT *ptr;
+        int dummy; // 4 bytes of unused data
         int numforms;
+        struct FORM_STRUCT *ptr;
 };
 
 struct ZONES

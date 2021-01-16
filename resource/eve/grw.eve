@@ -13,8 +13,8 @@
 O_GRW:
    fadeout(X_ROLL)
    face(0,RIGHT)
-   set(D,$01)
-   set(E,$10)
+   set(D,0x01)
+   set(E,0x10)
    set(G,X_ROLL)
    song(SNG_FOREST)
 
@@ -28,7 +28,7 @@ grw_firstzone:
    call(grw_part1_nf)
 
    get(A,VAR_RET_TUR)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    if(A,CE,3,grw_scene41)
 
    ; victor doesnt want to go here
@@ -42,40 +42,40 @@ grw_firstzone:
 O_GRW2:
    fadeout(X_ROLL)
    face(0,LEFT)
-   set(D,$31)
-   set(E,$04)
+   set(D,0x31)
+   set(E,0x04)
    set(G,X_ROLL)
    song(SNG_FOREST)
    goto(grw_part1_nf)
 
-; tres - $49
+; tres - 0x49
 grw_part1:
    fadeout(X_FADE)
    set(G,X_FADE)
 grw_part1_nf:
    lmap(MAP_GRW,        D,E)
    zone(F)
-   cvstep(grw_part1a,   $00,$0f,$03)
-   cvstep(grw_part1b,   $32,$04,$02)
+   cvstep(grw_part1a,   0x00,0x0f,0x03)
+   cvstep(grw_part1b,   0x32,0x04,0x02)
 
-   cvstep(grw_vict1,    $04,$0f,$03)
-   cstep( grw_vict2,    $09,$26)
-   chstep(grw_vict3,    $14,$0a,$02)
-   cvstep(grw_treeboss, $27,$09,$04)
+   cvstep(grw_vict1,    0x04,0x0f,0x03)
+   cstep( grw_vict2,    0x09,0x26)
+   chstep(grw_vict3,    0x14,0x0a,0x02)
+   cvstep(grw_treeboss, 0x27,0x09,0x04)
 
-   ctres($23,IT_PHunter,$04,$04,$49,SFX_CHEST)
-   ctres($24,IT_EThorn, $0b,$1d,$49,SFX_CHEST)
-   ctres($25,IT_LGolden,$1c,$2b,$49,SFX_CHEST)
+   ctres(0x23,IT_PHunter,0x04,0x04,0x49,SFX_CHEST)
+   ctres(0x24,IT_EThorn, 0x0b,0x1d,0x49,SFX_CHEST)
+   ctres(0x25,IT_LGolden,0x1c,0x2b,0x49,SFX_CHEST)
 
    fadein(G)
    end
 grw_part1a:
-   set(B,$48)
-   set(C,$3d)
+   set(B,0x48)
+   set(C,0x3d)
    goto(OVER_WARP)
 grw_part1b:
-   ;set(B,$4f)
-   ;set(C,$39)
+   ;set(B,0x4f)
+   ;set(C,0x39)
    ;goto(OVER_WARP)
    fadeout(X_FADE)
    song_off
@@ -86,7 +86,7 @@ grw_part1b:
 
 grw_vict1:
    get(A,VAR_GRW)
-   if(A,CG,0,RET)
+   if(A,CG,0,GRET)
 
    getxy(B,C)
    align(B,C)
@@ -114,9 +114,9 @@ grw_vict1:
    end
 grw_vict2:
    get(A,VAR_GRW)
-   if(A,CG,1,RET)
+   if(A,CG,1,GRET)
 
-   align($09,$26)
+   align(0x09,0x26)
    sync
 
    walk(0,RIGHT,3)
@@ -166,9 +166,9 @@ grw_vict2:
    end
 grw_vict3:
    get(A,VAR_GRW)
-   if(A,CG,2,RET)
+   if(A,CG,2,GRET)
 
-   align($15,$07)
+   align(0x15,0x07)
    sync
    group
    sync
@@ -211,10 +211,10 @@ grw_vict3:
    end
 
 grw_ftreeload:
-   ldude(4,EN_TREE1, $26,$07,DOWN,STAND)
-   ldude(5,EN_TREE1, $26,$08,DOWN,STAND)
-   ldude(6,EN_TREE1, $27,$07,DOWN,STAND)
-   ldude(7,EN_TREE1, $27,$08,DOWN,STAND)
+   ldude(4,EN_TREE1, 0x26,0x07,DOWN,STAND)
+   ldude(5,EN_TREE1, 0x26,0x08,DOWN,STAND)
+   ldude(6,EN_TREE1, 0x27,0x07,DOWN,STAND)
+   ldude(7,EN_TREE1, 0x27,0x08,DOWN,STAND)
    call(grw_ftree1)
 
 grw_ftree1:
@@ -248,7 +248,7 @@ grw_growroot:
 
 grw_treeboss:
    get(A,VAR_EVEPROG)
-   if(A,CG,15,RET)
+   if(A,CG,15,GRET)
 
    getxy(B,C)
 
@@ -261,18 +261,18 @@ grw_treeboss:
    frame(10,2)
 
    set(A,8)
-   set(B,$28)
+   set(B,0x28)
    call(grw_growroot)
    sleep(16)
 
-   align($27,$0a)
+   align(0x27,0x0a)
    sync
    walk(0,LEFT,2)
    sync
 
    set(A,9)
-   set(B,$24)
-   set(C,$0a)
+   set(B,0x24)
+   set(C,0x0a)
    call(grw_growroot)
    sleep(16)
 
@@ -282,8 +282,8 @@ grw_treeboss:
    sync
 
    set(A,10)
-   set(B,$26)
-   set(C,$0c)
+   set(B,0x26)
+   set(C,0x0c)
    call(grw_growroot)
    sleep(16)
    say(S22_ETXT8)
@@ -365,9 +365,9 @@ grw_treeboss:
    del(9)
    del(10)
 
-   warp(0,$26,$09,DOWN)
-   warp(1,$27,$09,DOWN)
-   warp(2,$26,$0a,UP)
+   warp(0,0x26,0x09,DOWN)
+   warp(1,0x27,0x09,DOWN)
+   warp(2,0x26,0x0a,UP)
    song(SNG_FOREST)
 
    lockon(2)
@@ -463,11 +463,11 @@ grw_treeboss:
 
 grw_scene41:
    get(A,VAR_RET_GRW)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
 
    sleep(4)
    say(S41_ETXT1)
-   align($03,$10)
+   align(0x03,0x10)
 
    sync
    group

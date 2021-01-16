@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -1243,7 +1243,7 @@ UBYTE load_bgfx_item(UBYTE x)
 
    lastpage = rom_page(DATA_PAGE);
 
-   ptr = (UBYTE *)itemgfx + 24;
+   ptr = (UBYTE *)itemgfx + 12;
    ptr += (UWORD)x * 64;
 
    VBK_REG = 1;

@@ -13,8 +13,8 @@
 O_ALT:
    call(MAPPOS_SAVE_R)
    face(0,UP)
-   set(B,$09)
-   set(C,$17)
+   set(B,0x09)
+   set(C,0x17)
    call(L_ALT)
    fadein(X_ROLL)
    end
@@ -28,15 +28,15 @@ I_ALT:
 L_ALT:
    lmap(MAP_ALT,        B,C)
    song(SNG_ALUTHA)
-   chstep(OVERWORLD,    $00,$18,$18)
-   cstep(alt_hous1,     $0e,$03)
-   csearch(alt_sign,    $07,$16,S_U)
-   csearch(alt_statue,  $0b,$08,S_U)
+   chstep(OVERWORLD,    0x00,0x18,0x18)
+   cstep(alt_hous1,     0x0e,0x03)
+   csearch(alt_sign,    0x07,0x16,S_U)
+   csearch(alt_statue,  0x0b,0x08,S_U)
 
-   csearch(alt_locked,  $07,$06,S_U)
-   csearch(alt_locked,  $10,$0b,S_U)
-   csearch(alt_locked,  $13,$0c,S_U)
-   csearch(alt_locked,  $0d,$13,S_U)
+   csearch(alt_locked,  0x07,0x06,S_U)
+   csearch(alt_locked,  0x10,0x0b,S_U)
+   csearch(alt_locked,  0x13,0x0c,S_U)
+   csearch(alt_locked,  0x0d,0x13,S_U)
    end
 
 alt_locked:
@@ -51,9 +51,9 @@ alt_book1:
 alt_hous1:
    fadeout(X_FADE)
    getxy(B,C)
-   lmap(MAP_ALT_HOUS,   $02,$07)
-   cstep(I_ALT,         $02,$08)
-   csearch(alt_book1,   $06,$01,S_U)
+   lmap(MAP_ALT_HOUS,   0x02,0x07)
+   cstep(I_ALT,         0x02,0x08)
+   csearch(alt_book1,   0x06,0x01,S_U)
    fadein(X_FADE)
    end
 

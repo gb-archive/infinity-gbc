@@ -1,0 +1,53 @@
+(R) = Relative pointer from within the same page
+
+TABLE_PAGE:
+
+	At the beginning of the table is an array of 4 byte entries
+	that point to various types of data.  Other small data
+	will also reside deeper in the page.
+
+	Entry 1: SPRITES
+		1 byte - sprite startpage
+		2 byte - pointer to sprite palette table (R)
+		1 byte - number of sprites
+
+	Entry 2: TILESETS
+		1 byte - tileset startpage
+		2 byte - pointer to tileset table (R)
+		1 byte - number of tilesets
+
+	Entry 3: MAPS
+		1 byte - map page
+		2 byte - pointer to map table (R)
+		1 byte - number of maps
+
+	Entry 4: SONGS
+		1 byte - song startpage
+		2 byte - pointer to song table (R)
+
+
+
+	sprite palette table:
+		1 byte entries for each sprite:
+			1 byte - palette
+
+	tileset table:
+		8 byte entries for each tileset:
+			1 byte - tileset page
+			2 byte - tileset pointer
+			1 byte - number of meta tiles
+			1 byte - number of tiles
+			2 byte - size of tileset
+
+	map table:
+		6 byte entries for each tileset:
+			1 byte - map page
+			2 byte - map pointer
+			1 byte - x size
+			1 byte - y size
+
+	song table:
+		4 byte entries for each song:
+			1 byte - song page
+			2 byte - song pointer
+

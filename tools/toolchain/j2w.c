@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -19,7 +19,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<ctype.h> // tolower
+
+#if !defined(__MACH__) && !defined(__APPLE__)
 #include<malloc.h>
+#endif
+
 //#include<bios.h>
 
 #define PAGEBASE	28
@@ -167,7 +172,6 @@ int j2w_add(char *fname, int ftype, char *flabel, int info)
 	char tiles[16384];
 	int x, y;
 	char id[3];
-	int len;
 
 	f = fopen(fname, "rb");
 	if(!f)
@@ -294,6 +298,8 @@ int j2w_save(char *fname)
 		fwrite(&song[n], sizeof(struct J2W_SONG), 1, f);
 
 	fclose(f);
+
+	return 0;
 }
 
 int j2w_load(char *fname)
@@ -306,7 +312,7 @@ int j2w_load(char *fname)
 	char set_meta[2048];
 	char set_pal[144];
 	int pal;
-	int n, n2, i, i2;
+	int n, i, i2;
 	int x, y;
 	char *buf;
 	struct J2W_HEADER newhed;
@@ -405,7 +411,7 @@ void usage()
 	printf(" usage: j2w <.j2w file> <.lst config file>\n");
 }
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *out, *lst;
 	char buf[16384];
@@ -415,14 +421,13 @@ void main(int argc, char *argv[])
 	int key;
 	int num, pages;
 	char str[256];
-	int n, n2, i, i2;
+	int n, i;
 	int at;
 	char *tiles;
 	int atpage;
-	int repeat;
+	//int repeat;
 
 	int set_pages;
-	int stb_pages;
 	int spr_pages;
 	int map_pages;
 	int song_pages;
@@ -456,7 +461,7 @@ void main(int argc, char *argv[])
 		lst = fopen(argv[2], "r");
 		if(!lst) {
 			printf("can't read [%s]\n", argv[2]);
-			return;
+			return 1;
 		}
 		// read the contents
 		while(1) {
@@ -496,7 +501,7 @@ void main(int argc, char *argv[])
 
 			if(ftype == 0) {
 				printf("Unknown type for label \"%s\".\n", flabel);
-				return;
+				return 1;
 			}
 			// maps need tilesets
 			if(ftype == 5) {
@@ -504,7 +509,7 @@ void main(int argc, char *argv[])
 				p = strtok(NULL, ",");
 				if(!p) {
 					printf("No tileset label for map \"%s\".\n", flabel);
-					return;
+					return 1;
 				}
 
 				// search through tilesets for this label
@@ -514,7 +519,7 @@ void main(int argc, char *argv[])
 				}
 				if(n >= hed.set_num) {
 					printf("Undefined tileset reference \"%s\".\n", p);
-					return;
+					return 1;
 				}
 				info = n;
 			}
@@ -528,7 +533,7 @@ void main(int argc, char *argv[])
 			if(!j2w_add(fadd, ftype, flabel, info)) {
 				//printf("Couldn't add [%s]\n", fadd);
 				printf("Error adding!\n");
-				return;
+				return 1;
 			}
 			else {
 				//printf("Added [%s]\n", fadd);
@@ -595,13 +600,19 @@ void main(int argc, char *argv[])
 		printf("  %3d Maps\n", hed.map_num);
 		printf("  %3d Songs\n", hed.song_num);
 
-		printf("Turn to .PAG files? [Y/N]\n");
+		/*printf("Turn to .PAG files? [Y/N]\n");
 		while(1) {
+			#if defined(__MACH__) || defined(__unix__)
+			key = getchar();
+			#else
 			key = getch();//bioskey(0);
+			#endif
+
 			key = tolower(key);
 			if(key == 'y' || key == 'n')
 				break;
-		}
+		}*/
+		key = 'y';
 
 		if(key == 'y') {
 
@@ -828,10 +839,15 @@ void main(int argc, char *argv[])
 			buf[2] = 0x10;
 			buf[3] = hed.ch_num;
 
-			buf[4096] = hed.ch_num / CHSIZE;
-			buf[4097] = hed.en_num / ENSIZE;
-			buf[4098] = hed.npc_num / NPCSIZE;
-			printf("ch_num = %d, en_num = %d, npc_num = %d\n", buf[4096], buf[4097], buf[4098]);
+			{
+				int ch_num = hed.ch_num / CHSIZE;
+				int en_num = hed.en_num / ENSIZE;
+				int npc_num = hed.npc_num / NPCSIZE;
+				buf[4096] = ch_num;
+				buf[4097] = en_num;
+				buf[4098] = npc_num;
+				printf("ch_num = %d, en_num = %d, npc_num = %d\n", ch_num, en_num, npc_num);
+			}
 
 			at = 4;
 			for(n = 0; n < hed.ch_num; ++n, ++at) {
@@ -902,5 +918,5 @@ void main(int argc, char *argv[])
 		}
 		printf("Done.\n");
 	}
-	return;
+	return 0;
 }

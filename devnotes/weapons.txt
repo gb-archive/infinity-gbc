@@ -1,0 +1,54 @@
+LongSwords		Damage		Speed		Bonus			Cost		Location
+Conscript		7							40		First Weapon
+Iron			9							150		Chest in N Pass, near corpse
+Scimitar		12		+1					300		Sold Kassin Oasis
+Crimson			11		-2		Fire			600		Chest Fire Caves, hard to get
+Rapier			14		+4					800		Sold Turren
+Saber			19									Chest Sewer
+Cutlass			26									Chest Pirates
+Gladius			35									Chest Magi
+Katana			45		+8		Agl + 2					Sold Alutha
+Falchion		55									Sold Fairport2, Chest Magi2
+Frozen			55				Ice					Chest Temple of Ice
+Crystal			60									Chest Great Dark
+Ancestral		65		+6		End + 5					Chest Tomb of Anna
+
+
+BroadSwords		Damage		Speed		Bonus			Cost		Location
+Bastard			39		-2							First Weapon
+Flamberge		43		-6		Fire					Chest Fire Caves, hard to get
+Claymore		52		-5		Def + 1					Chest M. Pass, Sold Alutha
+Zweihander		62		-8							Sold Fairport2
+Ancient			63		-2		Wind					Chest Temple of Sands
+Frey			75		-5		Str + 5					Chest Roland's Joyous Day,
+													Alutha's casket
+
+Arrows			Damage		Speed		Bonus			Cost		Location
+Basic			6		+4					40		First Weapon
+Sharp			9		+4					150		Sold Selera
+Pirate			22		+7							Rejoins
+Blessed			26		+10		Wind					Chest, Cave of Darkness
+
+
+Staves			Damage		Speed		Bonus			Cost		Location
+Oak			11									First Weapon
+Thorn			14				Def + 2					Chest Great Wood
+Traveler		18		+5							Holbrooke
+Master			26				Wis + 4					Chest before Exanima, Trial
+Cudgel			33									Chest Durgardt
+War			41				Def + 2					Sold Alutha
+Archmage		50				Wis + 7					Left behind by dead Archmage
+Sea			55				Water					Temple of the Waves
+Gilus			55				Wis + 10				Great Dark, Gilus's corpse
+
+Claws
+Wolf			15		-10		Agl + 10				First Weapon, "cursed"
+	[If possible, I'd like to have cursed items, that cannot be removed, which would serve as his claw and Alutha's final
+	sword, Frey.  (Yes, there are two Freys, one can be found in the Joyous Day, the other starts on Alutha.  With Victor
+	though, because he can't get anything new for a while, I think it might be cool if we have plot events change his
+	item...if we can do this, I'd like him to gain +5 for killing Evil Tree (+5 attack), +5 more for beating the boss of
+	the sewers, +5 more for beating Ryan.)]
+Iron			30				Def + 2					Chest, Magi
+Bear			40				End + 5					Gained from Boss, M. Pass
+Omega			50				Def + 5					Gained from Boss, Magi2
+Dino			60		+5							Gained from Boss, Ice Cave

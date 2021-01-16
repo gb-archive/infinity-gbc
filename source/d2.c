@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -616,7 +616,7 @@ UWORD item_selldata[] = {
    0,0,0,0,0,
 };
 
-#include "data\slurp.h"
-#include "data\spawn1.h"
-#include "data\slash1.h"
-#include "data\whirl1.h"
+#include "data/slurp.h"
+#include "data/spawn1.h"
+#include "data/slash1.h"
+#include "data/whirl1.h"

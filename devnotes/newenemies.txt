@@ -1,0 +1,52 @@
+yak
+grumble
+oaff
+saru
+watazka
+
+golem
+
+open area:
+ yak
+ yuk
+ oaff
+ watazka
+
+desert:
+ cactruss
+ werdge
+ yuk
+
+firecave:
+ firebat
+ flamie
+ grossle
+
+ 
+yuk	- better yak
+optrus	- rat
+wasp
+
+cactruss
+werdge
+lekim
+falcan
+
+grossle
+fuegwa
+fiery
+melta
+
+
+
+imp
+eyeball
+dive eagle
+rat
+
+bug
+moth
+
+pede
+mermen
+bug

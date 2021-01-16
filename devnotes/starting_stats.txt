@@ -1,0 +1,27 @@
+Level indicates the level adjustment factor based off of the average level of party members when the character joins.  Hence, if Connor is level 3 when Ryan joins, Ryan will be level 4.  He will then gain all stat increases that he would get for level
+4 added to his starting stats.  That way, we don't have to guess what level the player will be when a char joins.
+
+P indicates primary stat
+S indicates secondary
+
+I would do it like this:
+P increase = 6 + (0 to 2)
+S increase = 4 + (0 to 2)
+Other inc  = 0 + (1 to 6)
+
+That way, you don't always gain the exact same in your primary and secondary
+
+		HP	SP	STR	END	AGL	WIS		LEVEL
+Connor		51	20	11P	11	7	10S		0
+Ryan		45	10	9S	10	13P	8		+1
+Elya		35	30	5	7S	5	14P		-1
+Victor		85	10	20P	35	20S	5		0
+Roland		65	10	15P	12S	10	5		+2
+Alutha	        95	20	20P	12S	10	10		+2
+
+I would do HP gained per level as (4*End/5) to (5*End/4)
+I don't know what the max level will be in the game, but at level 20, that gives the highest possible HP gained by someone
+who has gained the max END every level to be 100. Lowest, then, would be 64.  It sets the spread for Connor on level 1to
+be 8 to 10.  It's a pretty wide spread, we can narrow it if you like.  Also, if you want it to go up faster, we can do that too.
+
+SP increase would be the same, divided by 3.  That way, most chars won't go crazy with tons of MP by the end of the game.

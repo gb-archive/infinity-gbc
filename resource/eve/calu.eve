@@ -13,8 +13,8 @@
 O_ALU:
    fadeout(X_ROLL)
    face(0,UP)
-   set(D,$0e)
-   set(E,$17)
+   set(D,0x0e)
+   set(E,0x17)
    set(G,X_ROLL)
    song(SNG_CASTLE)
    set(F,0)
@@ -26,30 +26,30 @@ alu_part1:
    set(G,X_FADE)
 alu_part1_nf:
    lmap(MAP_ALU, D,E)
-   chstep(alu_part1a,$00,$18,$1E)
-   chstep(alu_part1b,$0e,$0d,$02)
-   chstep(alu_part1c,$0e,$07,$02)
-   cstep(alu_part1d, $07,$02)
-   cstep(alu_part1e, $16,$02)
-   cstep(alu_part1f, $07,$11)
-   cstep(alu_part1g, $16,$11)
-   cstep(alu_part1h, $07,$06)
-   cstep(alu_part1i, $16,$06)
+   chstep(alu_part1a,0x00,0x18,0x1E)
+   chstep(alu_part1b,0x0e,0x0d,0x02)
+   chstep(alu_part1c,0x0e,0x07,0x02)
+   cstep(alu_part1d, 0x07,0x02)
+   cstep(alu_part1e, 0x16,0x02)
+   cstep(alu_part1f, 0x07,0x11)
+   cstep(alu_part1g, 0x16,0x11)
+   cstep(alu_part1h, 0x07,0x06)
+   cstep(alu_part1i, 0x16,0x06)
 
-   ldude(4,NPC_SOLDIER, $0d,$0e,DOWN,STAND)
+   ldude(4,NPC_SOLDIER, 0x0d,0x0e,DOWN,STAND)
    ctalk(alu_guard1,4)
-   ldude(5,NPC_SOLDIER, $10,$0e,DOWN,STAND)
+   ldude(5,NPC_SOLDIER, 0x10,0x0e,DOWN,STAND)
    ctalk(alu_guard1,5)
 
-   ldude(6,NPC_SOLDIER, $0d,$08,DOWN,STAND)
+   ldude(6,NPC_SOLDIER, 0x0d,0x08,DOWN,STAND)
    ctalk(alu_guard2,6)
 
    get(A,VAR_ALU2)
    cif(A,CE,0,alu_blocked)
 
-   lguy(NPC_SOLDIER,    $08,$02,ALU_DTXT3)
-   lguy(NPC_SOLDIER,    $16,$12,ALU_DTXT5)
-   lguy(NPC_SOLDIER,    $12,$08,ALU_DTXT13)
+   lguy(NPC_SOLDIER,    0x08,0x02,ALU_DTXT3)
+   lguy(NPC_SOLDIER,    0x16,0x12,ALU_DTXT5)
+   lguy(NPC_SOLDIER,    0x12,0x08,ALU_DTXT13)
    cif(F,CE,1,alu_patch)
    cif(F,CNE,1,alu_patch2)
    fadein(G)
@@ -62,54 +62,54 @@ alu_part1a:
    fadeout(X_ROLL)
    goto(alu_scene44)
 alu_part1b:
-   set(D,$0f)
-   set(E,$0e)
+   set(D,0x0f)
+   set(E,0x0e)
    goto(alu_part2)
 alu_part1c:
-   set(D,$05)
-   set(E,$09)
+   set(D,0x05)
+   set(E,0x09)
    goto(alu_part7)
 alu_part1d:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(alu_part3)
 alu_part1e:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(alu_part4)
 alu_part1f:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(alu_part5)
 alu_part1g:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(alu_part6)
 alu_part1h:
-   set(D,$04)
-   set(E,$08)
+   set(D,0x04)
+   set(E,0x08)
    goto(alu_part3)
 alu_part1i:
-   set(D,$04)
-   set(E,$08)
+   set(D,0x04)
+   set(E,0x08)
    goto(alu_part4)
 alu_part1j:
-   set(D,$04)
-   set(E,$02)
+   set(D,0x04)
+   set(E,0x02)
    goto(alu_part5)
 alu_part1k:
-   set(D,$04)
-   set(E,$02)
+   set(D,0x04)
+   set(E,0x02)
    goto(alu_part6)
 alu_patch:
-   tile($07,$0f,$17)
-   tile($07,$10,$1a)
-   tile($16,$0f,$17)
-   tile($16,$10,$1a)
+   tile(0x07,0x0f,0x17)
+   tile(0x07,0x10,0x1a)
+   tile(0x16,0x0f,0x17)
+   tile(0x16,0x10,0x1a)
    end
 alu_patch2:
-   cstep(alu_part1j, $07,$10)
-   cstep(alu_part1k, $16,$10)
+   cstep(alu_part1j, 0x07,0x10)
+   cstep(alu_part1k, 0x16,0x10)
    end
 alu_guard1:
    say(ALU_DTXT1)
@@ -118,9 +118,9 @@ alu_guard2:
    say(ALU_DTXT11)
    end
 alu_blocked:
-   warp(6,$0e,$08,DOWN)
+   warp(6,0x0e,0x08,DOWN)
 
-   ldude(7,NPC_SOLDIER, $0f,$08,DOWN,STAND)
+   ldude(7,NPC_SOLDIER, 0x0f,0x08,DOWN,STAND)
    ctalk(alu_guard2,7)
    end
 
@@ -128,172 +128,172 @@ alu_blocked:
 alu_part2:
    fadeout(X_FADE)
    lmap(MAP_ALU_HALL, D,E)
-   chstep(alu_part2a,$0e,$0f,$03)
-   cstep(alu_part2b, $02,$05)
-   cstep(alu_part2c, $1c,$05)
-   cstep(alu_part2d, $02,$16)
-   cstep(alu_part2e, $1c,$16)
-   cstep(alu_part2f, $06,$05)
+   chstep(alu_part2a,0x0e,0x0f,0x03)
+   cstep(alu_part2b, 0x02,0x05)
+   cstep(alu_part2c, 0x1c,0x05)
+   cstep(alu_part2d, 0x02,0x16)
+   cstep(alu_part2e, 0x1c,0x16)
+   cstep(alu_part2f, 0x06,0x05)
 
-   lguy(NPC_SOLDIER, $0e,$0b,ALU_DTXT7)
-   lguy(NPC_SOLDIER, $05,$16,ALU_DTXT15)
+   lguy(NPC_SOLDIER, 0x0e,0x0b,ALU_DTXT7)
+   lguy(NPC_SOLDIER, 0x05,0x16,ALU_DTXT15)
 
    fadein(X_FADE)
    end
 alu_part2a:
-   set(D,$0e)
-   set(E,$0d)
+   set(D,0x0e)
+   set(E,0x0d)
    goto(alu_part1)
 alu_part2b:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(alu_part3)
 alu_part2c:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(alu_part4)
 alu_part2d:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(alu_part5)
 alu_part2e:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(alu_part6)
 alu_part2f:
-   set(D,$07)
-   set(E,$06)
+   set(D,0x07)
+   set(E,0x06)
    goto(alu_part8)
 
 alu_part3:
    fadeout(X_FADE)
    lmap(MAP_ALU_TOW1, D,E)
-   cstep(alu_part3a, $06,$05)
-   cstep(alu_part3b, $04,$09)
-   cstep(alu_part3c, $02,$05)
+   cstep(alu_part3a, 0x06,0x05)
+   cstep(alu_part3b, 0x04,0x09)
+   cstep(alu_part3c, 0x02,0x05)
    fadein(X_FADE)
    end
 alu_part3a:
-   set(D,$07)
-   set(E,$02)
+   set(D,0x07)
+   set(E,0x02)
    goto(alu_part1)
 alu_part3b:
-   set(D,$07)
-   set(E,$06)
+   set(D,0x07)
+   set(E,0x06)
    goto(alu_part1)
 alu_part3c:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(alu_part2)
 
 alu_part4:
    fadeout(X_FADE)
    lmap(MAP_ALU_TOW2, D,E)
-   cstep(alu_part4a, $02,$05)
-   cstep(alu_part4b, $04,$09)
-   cstep(alu_part4c, $06,$05)
+   cstep(alu_part4a, 0x02,0x05)
+   cstep(alu_part4b, 0x04,0x09)
+   cstep(alu_part4c, 0x06,0x05)
 
-   lguy(NPC_SOLDIER, $04,$04,ALU_DTXT17)
+   lguy(NPC_SOLDIER, 0x04,0x04,ALU_DTXT17)
 
    fadein(X_FADE)
    end
 alu_part4a:
-   set(D,$16)
-   set(E,$02)
+   set(D,0x16)
+   set(E,0x02)
    goto(alu_part1)
 alu_part4b:
-   set(D,$16)
-   set(E,$06)
+   set(D,0x16)
+   set(E,0x06)
    goto(alu_part1)
 alu_part4c:
-   set(D,$1c)
-   set(E,$05)
+   set(D,0x1c)
+   set(E,0x05)
    goto(alu_part2)
 
 alu_part5:
    set(F,0)
    fadeout(X_FADE)
    lmap(MAP_ALU_TOW3, D,E)
-   cstep(alu_part5a, $06,$05)
-   cstep(alu_part5b, $04,$02)
-   cstep(alu_part5c, $02,$05)
+   cstep(alu_part5a, 0x06,0x05)
+   cstep(alu_part5b, 0x04,0x02)
+   cstep(alu_part5c, 0x02,0x05)
    fadein(X_FADE)
    end
 alu_part5a:
-   set(D,$07)
-   set(E,$11)
+   set(D,0x07)
+   set(E,0x11)
    set(F,1)
    goto(alu_part1)
 alu_part5b:
-   set(D,$07)
-   set(E,$0f)
+   set(D,0x07)
+   set(E,0x0f)
    goto(alu_part1)
 alu_part5c:
-   set(D,$02)
-   set(E,$16)
+   set(D,0x02)
+   set(E,0x16)
    goto(alu_part2)
 
 alu_part6:
    set(F,0)
    fadeout(X_FADE)
    lmap(MAP_ALU_TOW4, D,E)
-   cstep(alu_part6a, $02,$05)
-   cstep(alu_part6b, $04,$02)
-   cstep(alu_part6c, $06,$05)
+   cstep(alu_part6a, 0x02,0x05)
+   cstep(alu_part6b, 0x04,0x02)
+   cstep(alu_part6c, 0x06,0x05)
    fadein(X_FADE)
    end
 alu_part6a:
-   set(D,$16)
-   set(E,$11)
+   set(D,0x16)
+   set(E,0x11)
    set(F,1)
    goto(alu_part1)
 alu_part6b:
-   set(D,$16)
-   set(E,$0f)
+   set(D,0x16)
+   set(E,0x0f)
    goto(alu_part1)
 alu_part6c:
-   set(D,$1c)
-   set(E,$16)
+   set(D,0x1c)
+   set(E,0x16)
    goto(alu_part2)
 
 alu_part7:
    fadeout(X_FADE)
    lmap(MAP_ALU_THRON, D,E)
-   chstep(alu_part7a,$04,$0a,$03)
+   chstep(alu_part7a,0x04,0x0a,0x03)
 
-   ldude(4,NPC_AKING,   $05,$04,DOWN,STAND)
+   ldude(4,NPC_AKING,   0x05,0x04,DOWN,STAND)
    ctalk(alu_king, 4)
 
    fadein(X_FADE)
    end
 alu_part7a:
-   set(D,$0e)
-   set(E,$07)
+   set(D,0x0e)
+   set(E,0x07)
    goto(alu_part1)
 
 alu_part8:
    fadeout(X_FADE)
    lmap(MAP_ALU_BASE, D,E)
    put(1,VAR_ALU2)
-   cstep(alu_part8a, $07,$06)
+   cstep(alu_part8a, 0x07,0x06)
 
-   ldude(4,NPC_LADY3,   $06,$03,DOWN,STAND)
+   ldude(4,NPC_LADY3,   0x06,0x03,DOWN,STAND)
    ctalk(alu_inn, 4)
-   ldude(5,NPC_SOLDIER, $08,$03,DOWN,STAND)
+   ldude(5,NPC_SOLDIER, 0x08,0x03,DOWN,STAND)
    ctalk(alu_shop, 5)
-   ldude(6,NPC_SOLDIER, $0b,$03,DOWN,STAND)
+   ldude(6,NPC_SOLDIER, 0x0b,0x03,DOWN,STAND)
    ctalk(alu_lady1, 6)
 
-   lguy(NPC_MAN1,       $02,$06, ALU_DTXT4)
-   lguy(NPC_LADY2,      $06,$09, ALU_DTXT6)
-   lguy(NPC_LADY4,      $0a,$08, ALU_DTXT9)
-   lguy(NPC_BOY1,       $0d,$05, ALU_DTXT10)
-   lguy(NPC_MAN2,       $05,$06, ALU_DTXT16)
+   lguy(NPC_MAN1,       0x02,0x06, ALU_DTXT4)
+   lguy(NPC_LADY2,      0x06,0x09, ALU_DTXT6)
+   lguy(NPC_LADY4,      0x0a,0x08, ALU_DTXT9)
+   lguy(NPC_BOY1,       0x0d,0x05, ALU_DTXT10)
+   lguy(NPC_MAN2,       0x05,0x06, ALU_DTXT16)
    fadein(X_FADE)
    end
 alu_part8a:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(alu_part2)
 
 alu_lady1:
@@ -313,7 +313,7 @@ alu_king:
    end
 
 alu_scene43:
-   align($05,$05)
+   align(0x05,0x05)
    sync
    face(0,UP)
    face(4,DOWN)
@@ -361,7 +361,7 @@ alu_scene43:
    say(S43_ETXT10)
 
    panspeed(1)
-   ldude(5,NPC_SOLDIER,    $05,$0a,UP,STAND)
+   ldude(5,NPC_SOLDIER,    0x05,0x0a,UP,STAND)
    lockon(5)
    sleep(48)
    walk(5,UP,3)
@@ -392,24 +392,24 @@ alu_scene43:
    sync
    fadeout(X_FADE)
 
-   lmap(MAP_ALU,  $0e,$0a)
+   lmap(MAP_ALU,  0x0e,0x0a)
    lockoff
-   warp(0,$0d,$08,DOWN)
-   warp(1,$0e,$08,DOWN)
-   warp(2,$0f,$08,DOWN)
-   warp(3,$10,$08,DOWN)
-   ldude(4,NPC_AKING,   $0e,$09,DOWN,STAND)
-   ldude(5,NPC_SOLDIER, $12,$09,DOWN,STAND)
+   warp(0,0x0d,0x08,DOWN)
+   warp(1,0x0e,0x08,DOWN)
+   warp(2,0x0f,0x08,DOWN)
+   warp(3,0x10,0x08,DOWN)
+   ldude(4,NPC_AKING,   0x0e,0x09,DOWN,STAND)
+   ldude(5,NPC_SOLDIER, 0x12,0x09,DOWN,STAND)
 
-   ldude(6,NPC_KRAIT,   $0e,$10,UP,STAND)
-   ldude(7,NPC_GOLEM,   $0e,$11,UP,STAND)
-   ldude(8,NPC_GOLEM,   $0f,$11,UP,STAND)
+   ldude(6,NPC_KRAIT,   0x0e,0x10,UP,STAND)
+   ldude(7,NPC_GOLEM,   0x0e,0x11,UP,STAND)
+   ldude(8,NPC_GOLEM,   0x0f,0x11,UP,STAND)
    fadein(X_FADE)
 
    sleep(16)
-   pan($0e,$10)
+   pan(0x0e,0x10)
    sleep(48)
-   pan($0e,$0a)
+   pan(0x0e,0x0a)
    sleep(48)
 
    say(S43_ETXT13)
@@ -422,7 +422,7 @@ alu_scene43:
    sleep(16)
    say(S43_ETXT16)
 
-   pan($0e,$10)
+   pan(0x0e,0x10)
    sleep(48)
    say(S43_ETXT17)
    sleep(16)
@@ -432,7 +432,7 @@ alu_scene43:
    sleep(16)
    say(S43_ETXT19)
 
-   pan($0e,$0a)
+   pan(0x0e,0x0a)
    sleep(48)
    say(S43_ETXT20)
    sleep(16)
@@ -440,23 +440,23 @@ alu_scene43:
    sleep(16)
    say(S43_ETXT22)
 
-   pan($0e,$10)
+   pan(0x0e,0x10)
    sleep(48)
    say(S43_ETXT23)
    walk(6,DOWN,6)
    walk(7,UP,2)
    walk(8,UP,2)
    sleep(8)
-   pan($0e,$0a)
+   pan(0x0e,0x0a)
    face(4,UP)
    sleep(32)
    say(S43_ETXT24)
    sleep(16)
    fadeout(X_FADE)
 
-   lmap(MAP_ALU_HALL, $0f,$0c)
+   lmap(MAP_ALU_HALL, 0x0f,0x0c)
    lockoff
-   warp(0,$09,$0c,RIGHT)
+   warp(0,0x09,0x0c,RIGHT)
    reform
    partyarr
    fadein(X_FADE)
@@ -491,16 +491,16 @@ alu_scene43:
    sleep(16)
    fadeout(X_FADE)
 
-   lmap(MAP_ALU,  $0e,$0f)
+   lmap(MAP_ALU,  0x0e,0x0f)
    lockoff
    partyarr
    detach
-   warp(0,$0d,$0e,DOWN)
-   warp(1,$0e,$0e,DOWN)
-   warp(2,$0f,$0e,DOWN)
-   warp(3,$10,$0e,DOWN)
-   ldude(4,NPC_GOLEM,   $0e,$0f,UP,STAND)
-   ldude(5,NPC_GOLEM,   $0f,$0f,UP,STAND)
+   warp(0,0x0d,0x0e,DOWN)
+   warp(1,0x0e,0x0e,DOWN)
+   warp(2,0x0f,0x0e,DOWN)
+   warp(3,0x10,0x0e,DOWN)
+   ldude(4,NPC_GOLEM,   0x0e,0x0f,UP,STAND)
+   ldude(5,NPC_GOLEM,   0x0f,0x0f,UP,STAND)
    fadein(X_FADE)
 
    sleep(16)
@@ -509,8 +509,8 @@ alu_scene43:
    del(5)
    fadein(X_FADE)
 
-   ldude(4,NPC_GOLEM,   $0e,$15,UP,STAND)
-   ldude(5,NPC_GOLEM,   $0f,$15,UP,STAND)
+   ldude(4,NPC_GOLEM,   0x0e,0x15,UP,STAND)
+   ldude(5,NPC_GOLEM,   0x0f,0x15,UP,STAND)
    walk(4,UP,6)
    walk(5,UP,6)
    sync
@@ -541,18 +541,18 @@ alu_scene43:
    fadeout(X_FADE)
 
    ; second wave
-   lmap(MAP_ALU_HALL, $0f,$0c)
+   lmap(MAP_ALU_HALL, 0x0f,0x0c)
    lockoff
    partyarr
    detach
-   warp(0,$0e,$0c,DOWN)
-   warp(1,$10,$0c,DOWN)
-   warp(2,$0e,$0b,DOWN)
-   warp(3,$10,$0b,DOWN)
+   warp(0,0x0e,0x0c,DOWN)
+   warp(1,0x10,0x0c,DOWN)
+   warp(2,0x0e,0x0b,DOWN)
+   warp(3,0x10,0x0b,DOWN)
    fadein(X_FADE)
 
    sleep(16)
-   ldude(4,NPC_GOLEM,   $0f,$0f,UP,STAND)
+   ldude(4,NPC_GOLEM,   0x0f,0x0f,UP,STAND)
    walk(4,UP,2)
    sync
    sleep(4)
@@ -561,8 +561,8 @@ alu_scene43:
    fadein(X_FADE)
 
    sleep(16)
-   ldude(4,NPC_GOLEM,   $0f,$0f,UP,STAND)
-   ldude(5,NPC_GOLEM,   $0f,$10,UP,STAND)
+   ldude(4,NPC_GOLEM,   0x0f,0x0f,UP,STAND)
+   ldude(5,NPC_GOLEM,   0x0f,0x10,UP,STAND)
    walk(4,UP,4)
    walk(5,UP,4)
    sleep(16)
@@ -581,8 +581,8 @@ alu_scene43:
    face(0,RIGHT)
    face(2,RIGHT)
 
-   ldude(6,NPC_GOLEM,   $0f,$0f,UP,STAND)
-   ldude(7,NPC_GOLEM,   $0f,$10,UP,STAND)
+   ldude(6,NPC_GOLEM,   0x0f,0x0f,UP,STAND)
+   ldude(7,NPC_GOLEM,   0x0f,0x10,UP,STAND)
    walk(6,UP,4)
    walk(7,UP,4)
    sync
@@ -617,7 +617,7 @@ alu_scene43:
    del(5)
    fadein(X_FADE)
 
-   ldude(4,NPC_GOLEM,   $0f,$0f,UP,STAND)
+   ldude(4,NPC_GOLEM,   0x0f,0x0f,UP,STAND)
    walk(4,UP,3)
    sync
    lockon(1)
@@ -659,7 +659,7 @@ alu_scene43:
    partyset(1,PARTY_VICTOR)
 
    face(0,DOWN)
-   lmap(MAP_ALU,  $07,$06)
+   lmap(MAP_ALU,  0x07,0x06)
    lockon(0)
    partyarr
    fadein(X_FADE)
@@ -673,7 +673,7 @@ alu_scene43:
    walk(1,DOWN,1)
    sync
    face(1,LEFT)
-   ldude(4,NPC_GOLEM,   $07,$06,DOWN,STAND)
+   ldude(4,NPC_GOLEM,   0x07,0x06,DOWN,STAND)
    walk(4,DOWN,2)
    sync
    walk(4,RIGHT,2)
@@ -696,16 +696,16 @@ alu_skip:
    partyset(0,PARTY_ROLAND)
    partyset(1,PARTY_ELYA)
 
-   lmap(MAP_ALU_TOW2, $04,$05)
+   lmap(MAP_ALU_TOW2, 0x04,0x05)
    lockoff
-   warp(0,$06,$05,DOWN)
+   warp(0,0x06,0x05,DOWN)
    reform
    partyarr
    fadein(X_FADE)
    walk(0,LEFT,2)
    sync
    walk(0,DOWN,2)
-   ldude(4,NPC_GOLEM,   $06,$05,DOWN,STAND)
+   ldude(4,NPC_GOLEM,   0x06,0x05,DOWN,STAND)
    sleep(9)
    walk(4,LEFT,2)
    sleep(9)
@@ -733,11 +733,11 @@ alu_skip:
    fadeout(X_FADE)
 
    ; meet at the top
-   lmap(MAP_ALU,  $16,$06)
+   lmap(MAP_ALU,  0x16,0x06)
    lockon(0)
    partyarr
-   ldude(4,CH_CONNOR, $0e,$08,RIGHT,STAND)
-   ldude(5,CH_VICTOR, $0e,$09,RIGHT,STAND)
+   ldude(4,CH_CONNOR, 0x0e,0x08,RIGHT,STAND)
+   ldude(5,CH_VICTOR, 0x0e,0x09,RIGHT,STAND)
    fadein(X_FADE)
 
    walk(0,DOWN,2)
@@ -751,8 +751,8 @@ alu_skip:
    face(1,LEFT)
    sleep(16)
 
-   ldude(6,NPC_GOLEM,   $09,$08,DOWN,STAND)
-   ldude(7,NPC_GOLEM,   $14,$08,DOWN,STAND)
+   ldude(6,NPC_GOLEM,   0x09,0x08,DOWN,STAND)
+   ldude(7,NPC_GOLEM,   0x14,0x08,DOWN,STAND)
    walk(6,RIGHT,4)
    walk(7,LEFT,4)
    sleep(16)
@@ -780,21 +780,21 @@ alu_skip:
    del(5)
    del(6)
    del(7)
-   warp(0,$0e,$08,LEFT)
-   warp(2,$0e,$09,LEFT)
-   warp(1,$0f,$08,RIGHT)
-   warp(3,$0f,$09,RIGHT)
-   camera($0e,$09)
+   warp(0,0x0e,0x08,LEFT)
+   warp(2,0x0e,0x09,LEFT)
+   warp(1,0x0f,0x08,RIGHT)
+   warp(3,0x0f,0x09,RIGHT)
+   camera(0x0e,0x09)
    fadein(X_FADE)
    sleep(32)
 
-   ldude(4,NPC_GOLEM,   $09,$08,DOWN,STAND)
+   ldude(4,NPC_GOLEM,   0x09,0x08,DOWN,STAND)
    walk(4,RIGHT,4)
    sync
    sleep(4)
    battle(0,0,1,0,0)
    del(4)
-   camera($0e,$09)
+   camera(0x0e,0x09)
    fadein(X_FADE)
    sleep(64)
 
@@ -828,7 +828,7 @@ alu_skip:
    face(3,RIGHT)
 
    sleep(48)
-   ldude(4,NPC_GOLEM,   $14,$08,DOWN,STAND)
+   ldude(4,NPC_GOLEM,   0x14,0x08,DOWN,STAND)
    quake
    sleep(16)
    quake
@@ -862,8 +862,8 @@ alu_skip:
    say(S43_ETXT31)
    del(4)
 
-   ldude(4,NPC_AKING,   $09,$08,DOWN,STAND)
-   ldude(5,NPC_SOLDIER, $08,$08,DOWN,STAND)
+   ldude(4,NPC_AKING,   0x09,0x08,DOWN,STAND)
+   ldude(5,NPC_SOLDIER, 0x08,0x08,DOWN,STAND)
    walk(4,RIGHT,4)
    walk(5,RIGHT,4)
    sleep(16)
@@ -913,15 +913,15 @@ alu_skip:
    sync
    fadeout(X_FADE)
 
-   lmap(MAP_ALU_THRON,  $05,$07)
+   lmap(MAP_ALU_THRON,  0x05,0x07)
    lockoff
    partyarr
    detach
-   ldude(4,NPC_AKING,   $05,$05,UP,STAND)
-   warp(0,$04,$07,UP)
-   warp(1,$05,$07,UP)
-   warp(2,$06,$07,UP)
-   warp(3,$07,$07,UP)
+   ldude(4,NPC_AKING,   0x05,0x05,UP,STAND)
+   warp(0,0x04,0x07,UP)
+   warp(1,0x05,0x07,UP)
+   warp(2,0x06,0x07,UP)
+   warp(3,0x07,0x07,UP)
    fadein(X_FADE)
 
    sleep(32)
@@ -956,7 +956,7 @@ alu_skip:
    sleep(16)
    say(S43_ETXT47)
 
-   ldude(5,NPC_SOLDIER, $05,$0c,UP,STAND)
+   ldude(5,NPC_SOLDIER, 0x05,0x0c,UP,STAND)
    walk(5,UP,4)
    sync
    face(0,DOWN)
@@ -1024,7 +1024,7 @@ alu_skip:
 
    put(1,VAR_ALU1)
 
-   set(D,$0e)
-   set(E,$07)
+   set(D,0x0e)
+   set(E,0x07)
    set(G,X_FADE)
    goto(alu_part1_nf)

@@ -18,8 +18,8 @@ O_WAV:
    put(0,VAR_WAVWATER2)
 
    face(0,UP)
-   set(D,$04)
-   set(E,$0a)
+   set(D,0x04)
+   set(E,0x0a)
    set(G,X_ROLL)
    song(SNG_MYSTERY)
    goto(wav_part1_nf)
@@ -30,8 +30,8 @@ wav_part1:
 wav_part1_nf:
    lmap(MAP_WAV_P1, D,E)
    zone(ZONE_WAV)
-   cstep(wav_part1a, $04,$0b)
-   cstep(wav_part1b, $04,$05)
+   cstep(wav_part1a, 0x04,0x0b)
+   cstep(wav_part1b, 0x04,0x05)
    fadein(G)
    end
 wav_part1a:
@@ -39,100 +39,100 @@ wav_part1a:
    set(C,99)
    goto(OVER_WARP)
 wav_part1b:
-   set(D,$12)
-   set(E,$14)
+   set(D,0x12)
+   set(E,0x14)
    goto(wav_part2)
 
 wav_part2:
    fadeout(X_FADE)
    lmap(MAP_WAV_P2, D,E)
    zone(ZONE_WAV)
-   cstep(wav_part2a, $12,$14)
-   cstep(wav_part2b, $14,$03)
-   ctres($67,IT_HPLo,$0d,$07,$31,SFX_CHEST)
+   cstep(wav_part2a, 0x12,0x14)
+   cstep(wav_part2b, 0x14,0x03)
+   ctres(0x67,IT_HPLo,0x0d,0x07,0x31,SFX_CHEST)
    fadein(X_FADE)
    end
 wav_part2a:
-   set(D,$04)
-   set(E,$05)
+   set(D,0x04)
+   set(E,0x05)
    goto(wav_part1)
 wav_part2b:
-   set(D,$0e)
-   set(E,$1e)
+   set(D,0x0e)
+   set(E,0x1e)
    goto(wav_part3)
 
 wav_part3:
    fadeout(X_FADE)
    lmap(MAP_WAV_P3, D,E)
    zone(ZONE_WAV)
-   cstep(wav_part3a, $0e,$1f)
-   cstep(wav_part3b, $08,$01)
-   cstep(wav_part3c, $14,$01)
-   cstep(wav_part3d, $1a,$14)
-   ctres($68,IT_HPLo,$03,$13,$31,SFX_CHEST)
-   ctres($69,IT_HPLo,$19,$13,$31,SFX_CHEST)
+   cstep(wav_part3a, 0x0e,0x1f)
+   cstep(wav_part3b, 0x08,0x01)
+   cstep(wav_part3c, 0x14,0x01)
+   cstep(wav_part3d, 0x1a,0x14)
+   ctres(0x68,IT_HPLo,0x03,0x13,0x31,SFX_CHEST)
+   ctres(0x69,IT_HPLo,0x19,0x13,0x31,SFX_CHEST)
    fadein(X_FADE)
    end
 wav_part3a:
-   set(D,$14)
-   set(E,$03)
+   set(D,0x14)
+   set(E,0x03)
    goto(wav_part2)
 wav_part3b:
-   set(D,$08)
-   set(E,$1e)
+   set(D,0x08)
+   set(E,0x1e)
    goto(wav_part5)
 wav_part3c:
-   set(D,$08)
-   set(E,$1e)
+   set(D,0x08)
+   set(E,0x1e)
    goto(wav_part6)
 wav_part3d:
-   set(D,$01)
-   set(E,$08)
+   set(D,0x01)
+   set(E,0x08)
    goto(wav_part4)
 
 wav_part4:
    fadeout(X_FADE)
    lmap(MAP_WAV_P4, D,E)
    zone(ZONE_WAV)
-   cstep(wav_part4a, $00,$08)
-   ctres($6a,IT_HPLo,$06,$06,$31,SFX_CHEST)
-   ctres($6b,IT_HPLo,$08,$06,$31,SFX_CHEST)
+   cstep(wav_part4a, 0x00,0x08)
+   ctres(0x6a,IT_HPLo,0x06,0x06,0x31,SFX_CHEST)
+   ctres(0x6b,IT_HPLo,0x08,0x06,0x31,SFX_CHEST)
    fadein(X_FADE)
    end
 wav_part4a:
-   set(D,$19)
-   set(E,$14)
+   set(D,0x19)
+   set(E,0x14)
    goto(wav_part3)
 
 wav_part5:
    fadeout(X_FADE)
    lmap(MAP_WAV_P5, D,E)
    zone(ZONE_WAV)
-   cstep(wav_part5a, $08,$1f)
-   ctres($6c,IT_HPLo,$0f,$06,$31,SFX_CHEST)
+   cstep(wav_part5a, 0x08,0x1f)
+   ctres(0x6c,IT_HPLo,0x0f,0x06,0x31,SFX_CHEST)
    fadein(X_FADE)
    end
 wav_part5a:
-   set(D,$08)
-   set(E,$01)
+   set(D,0x08)
+   set(E,0x01)
    goto(wav_part3)
 
 wav_part6:
    fadeout(X_FADE)
    lmap(MAP_WAV_P6, D,E)
    zone(ZONE_WAV)
-   cstep(wav_part6a, $08,$1f)
-   cstep(wav_part6b, $08,$0c)
-   ctres($6d,IT_HPLo,$01,$06,$31,SFX_CHEST)
+   cstep(wav_part6a, 0x08,0x1f)
+   cstep(wav_part6b, 0x08,0x0c)
+   ctres(0x6d,IT_HPLo,0x01,0x06,0x31,SFX_CHEST)
    fadein(X_FADE)
    end
 wav_part6a:
-   set(D,$14)
-   set(E,$01)
+   set(D,0x14)
+   set(E,0x01)
    goto(wav_part3)
 wav_part6b:
-   set(D,$0c)
-   set(E,$07)
+   set(D,0x0c)
+   set(E,0x07)
    goto(wav_part7)
 
 wav_part7:
@@ -142,52 +142,52 @@ wav_part7:
    hitstate(2)
    call(wav_check)
 
-   cstep(wav_part7a, $0c,$07)
-   cstep(wav_part7b, $10,$03)
-   chstep(wav_hithi, $0f,$0f,1)
-   chstep(wav_hitlo, $0f,$10,1)
-   csearch(wav_switch1, $03,$10,S_ALL)
-   csearch(wav_switch2, $18,$08,S_ALL)
+   cstep(wav_part7a, 0x0c,0x07)
+   cstep(wav_part7b, 0x10,0x03)
+   chstep(wav_hithi, 0x0f,0x0f,1)
+   chstep(wav_hitlo, 0x0f,0x10,1)
+   csearch(wav_switch1, 0x03,0x10,S_ALL)
+   csearch(wav_switch2, 0x18,0x08,S_ALL)
 
-   ctres($6e,IT_HPLo,$0b,$15,$31,SFX_CHEST)
+   ctres(0x6e,IT_HPLo,0x0b,0x15,0x31,SFX_CHEST)
    fadein(X_FADE)
    end
 wav_part7a:
-   set(D,$08)
-   set(E,$0c)
+   set(D,0x08)
+   set(E,0x0c)
    goto(wav_part6)
 wav_part7b:
-   set(D,$06)
-   set(E,$0d)
+   set(D,0x06)
+   set(E,0x0d)
    goto(wav_part8)
 
 wav_part8:
    fadeout(X_FADE)
    lmap(MAP_WAV_P8, D,E)
    zone(ZONE_WAV)
-   cstep(wav_part8a, $06,$0e)
-   ctres($6f,IT_HPLo,$05,$07,$31,SFX_CHEST)
-   ctres($70,IT_HPLo,$07,$07,$31,SFX_CHEST)
+   cstep(wav_part8a, 0x06,0x0e)
+   ctres(0x6f,IT_HPLo,0x05,0x07,0x31,SFX_CHEST)
+   ctres(0x70,IT_HPLo,0x07,0x07,0x31,SFX_CHEST)
    fadein(X_FADE)
    end
 wav_part8a:
-   set(D,$10)
-   set(E,$03)
+   set(D,0x10)
+   set(E,0x03)
    goto(wav_part7)
 
 wav_hitlo:
    get(A,VAR_WAVWATER1)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    get(A,VAR_WAVWATER2)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    hitstate(1)
    put(1,VAR_WAVHIT)
    end
 wav_hithi:
    get(A,VAR_WAVWATER1)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    get(A,VAR_WAVWATER2)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    hitstate(2)
    put(0,VAR_WAVHIT)
    end
@@ -215,7 +215,7 @@ wav_switch:
     end
 
 wav_showA:
-   pan($10,$03)
+   pan(0x10,0x03)
    sleep(72)
    end
 wav_showB:
@@ -247,7 +247,7 @@ wav_check:
    cif(A,CE,2,wav_ldBC)
 
    mapstate(B)
-   if(B,CL,3,RET)
+   if(B,CL,3,GRET)
    inc(B)
    hitstate(B)
    end

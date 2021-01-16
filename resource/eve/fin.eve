@@ -22,115 +22,115 @@ fin_part1:
    set(G,X_FADE)
 fin_part1_nf:
    lmap(MAP_FIN_P1, D,E)
-   cstep(fin_part1a, $06,$07)
-   cstep(fin_part1b, $1a,$07)
-   csearch(fin_door1,$0f,$11,S_D)
-   csearch(fin_door1,$10,$11,S_D)
-   csearch(fin_door1,$11,$11,S_D)
-   cvstep(fin_scene53,$0a,$06,4)
+   cstep(fin_part1a, 0x06,0x07)
+   cstep(fin_part1b, 0x1a,0x07)
+   csearch(fin_door1,0x0f,0x11,S_D)
+   csearch(fin_door1,0x10,0x11,S_D)
+   csearch(fin_door1,0x11,0x11,S_D)
+   cvstep(fin_scene53,0x0a,0x06,4)
    fadein(G)
    end
 fin_part1a:
-   set(D,$18)
-   set(E,$15)
+   set(D,0x18)
+   set(E,0x15)
    goto(fin_part2)
 fin_part1b:
-   set(D,$1e)
-   set(E,$15)
+   set(D,0x1e)
+   set(E,0x15)
    goto(fin_part2)
 
 fin_part2:
    fadeout(X_FADE)
    lmap(MAP_FIN_P2, D,E)
-   cstep(fin_part2a, $18,$15)
-   cstep(fin_part2b, $1e,$15)
-   cstep(fin_part2c, $03,$09)
-   cstep(fin_part2d, $24,$03)
-   cstep(fin_part2e, $32,$06)
+   cstep(fin_part2a, 0x18,0x15)
+   cstep(fin_part2b, 0x1e,0x15)
+   cstep(fin_part2c, 0x03,0x09)
+   cstep(fin_part2d, 0x24,0x03)
+   cstep(fin_part2e, 0x32,0x06)
    fadein(X_FADE)
    end
 fin_part2a:
-   set(D,$06)
-   set(E,$07)
+   set(D,0x06)
+   set(E,0x07)
    goto(fin_part1)
 fin_part2b:
-   set(D,$1a)
-   set(E,$07)
+   set(D,0x1a)
+   set(E,0x07)
    goto(fin_part1)
 fin_part2c:
-   set(D,$12)
-   set(E,$1b)
+   set(D,0x12)
+   set(E,0x1b)
    goto(fin_part3)
 fin_part2d:
-   set(D,$03)
-   set(E,$11)
+   set(D,0x03)
+   set(E,0x11)
    goto(fin_part7)
 fin_part2e:
-   set(D,$04)
-   set(E,$0a)
+   set(D,0x04)
+   set(E,0x0a)
    goto(fin_part6)
 
 fin_part3:
    fadeout(X_FADE)
 fin_part3_nf:
    lmap(MAP_FIN_P3, D,E)
-   chstep(fin_part3a, $11,$1c,3)
-   cstep(fin_part3b, $05,$15)
-   cstep(fin_part3c, $24,$19)
+   chstep(fin_part3a, 0x11,0x1c,3)
+   cstep(fin_part3b, 0x05,0x15)
+   cstep(fin_part3c, 0x24,0x19)
    fadein(X_FADE)
    end
 fin_part3a:
-   set(D,$03)
-   set(E,$09)
+   set(D,0x03)
+   set(E,0x09)
    goto(fin_part2)
 fin_part3b:
-   set(D,$04)
-   set(E,$20)
+   set(D,0x04)
+   set(E,0x20)
    goto(fin_part9)
 fin_part3c:
-   set(D,$0b)
-   set(E,$02)
+   set(D,0x0b)
+   set(E,0x02)
    goto(fin_part4)
 
 fin_part4:
    fadeout(X_FADE)
    lmap(MAP_FIN_P4, D,E)
-   cstep(fin_part4a, $0b,$02)
-   ctres($71,IT_HPLO, $02,$0a,$69,SFX_CHEST)
+   cstep(fin_part4a, 0x0b,0x02)
+   ctres(0x71,IT_HPLO, 0x02,0x0a,0x69,SFX_CHEST)
    fadein(X_FADE)
    end
 fin_part4a:
-   set(D,$24)
-   set(E,$18)
+   set(D,0x24)
+   set(E,0x18)
    goto(fin_part3)
 
 fin_part5:
    fadeout(X_FADE)
    lmap(MAP_FIN_P5, D,E)
-   cstep(fin_part5a, $05,$0e)
+   cstep(fin_part5a, 0x05,0x0e)
    get(A,VAR_FIN1)
    cif(A,CE,3,fin_scene57_setup)
    fadein(X_FADE)
    end
 fin_part5a:
-   set(D,$04)
-   set(E,$02)
+   set(D,0x04)
+   set(E,0x02)
    goto(fin_part9)
 
 fin_part6:
    fadeout(X_FADE)
    lmap(MAP_FIN_P6, D,E)
 fin_innjoin:
-   cstep(fin_part6a, $04,$0b)
-   cstep(fin_inn,    $04,$06)
+   cstep(fin_part6a, 0x04,0x0b)
+   cstep(fin_inn,    0x04,0x06)
    fadein(X_FADE)
    end
 fin_part6a:
-   set(D,$32)
-   set(E,$06)
+   set(D,0x32)
+   set(E,0x06)
    goto(fin_part2)
 fin_inn:
-   align($04,$06)
+   align(0x04,0x06)
    sync
    group
    sync
@@ -161,7 +161,7 @@ fin_inn:
    sleep(60)
    song_resume
    face(0,DOWN)
-   lmap(MAP_FIN_P6,      $04,$06)
+   lmap(MAP_FIN_P6,      0x04,0x06)
    lockon(0)
    call(fin_innjoin)
    sleep(30)
@@ -184,13 +184,13 @@ fin_innno:
 fin_asksave:
    yesno(A)
    say(INN_DTXT6)
-   if(A,CE,0,RET)
+   if(A,CE,0,GRET)
    set(A,SVL_FIN)
    savemenu
    end
 
 fin_innload:
-   lmap(MAP_FIN_P6,      $04,$06)
+   lmap(MAP_FIN_P6,      0x04,0x06)
    song(SNG_GREATDARK)
    goto(fin_innjoin)
 
@@ -198,16 +198,16 @@ fin_innload:
 fin_part7:
    fadeout(X_FADE)
    lmap(MAP_FIN_P7, D,E)
-   cstep(fin_part7a, $03,$11)
-   cstep(fin_part7b, $04,$06)
-   cstep(fin_part7c, $08,$01)
+   cstep(fin_part7a, 0x03,0x11)
+   cstep(fin_part7b, 0x04,0x06)
+   cstep(fin_part7c, 0x08,0x01)
 
    get(A,VAR_FIN1)
    if(A,CGE,2,fin_part7_door1)
-   csearch(fin_door2,$04,$06,S_U)
+   csearch(fin_door2,0x04,0x06,S_U)
    goto(fin_part7_door2)
 fin_part7_door1:
-   tile(4,6,$18)
+   tile(4,6,0x18)
 fin_part7_door2:
 
    get(A,VAR_FIN1)
@@ -217,55 +217,55 @@ fin_part7_door2:
    cif(A,CE,2,fin_scene55)
    end
 fin_part7a:
-   set(D,$24)
-   set(E,$03)
+   set(D,0x24)
+   set(E,0x03)
    goto(fin_part2)
 fin_part7b:
-   set(D,$0a)
-   set(E,$10)
+   set(D,0x0a)
+   set(E,0x10)
    goto(fin_part8)
 fin_part7c:
-   set(D,$0f)
-   set(E,$0e)
+   set(D,0x0f)
+   set(E,0x0e)
    goto(fin_part8)
 
 
 fin_part8:
    fadeout(X_FADE)
    lmap(MAP_FIN_P8, D,E)
-   cstep(fin_part8a, $0a,$11)
-   cstep(fin_part8b, $0f,$0f)
-   ctres($72,IT_HPLO, $15,$0a,$69,SFX_CHEST)
-   cvstep(fin_scene54,$0d,$05,3)
+   cstep(fin_part8a, 0x0a,0x11)
+   cstep(fin_part8b, 0x0f,0x0f)
+   ctres(0x72,IT_HPLO, 0x15,0x0a,0x69,SFX_CHEST)
+   cvstep(fin_scene54,0x0d,0x05,3)
    get(A,VAR_FIN1)
    cif(A,CE,1,fin_scene54_setup)
    if(A,CLE,1,fin_notdeadyet)
-   ldude(5,NPC_EXH,     $05,$06,DOWN,STAND)
+   ldude(5,NPC_EXH,     0x05,0x06,DOWN,STAND)
    frame(5,1)
    ctalk(fin_find1, 5)
-   ldude(6,NPC_EXH,     $09,$06,DOWN,STAND)
+   ldude(6,NPC_EXH,     0x09,0x06,DOWN,STAND)
    frame(6,3)
    ctalk(fin_find2, 6)
 fin_notdeadyet:
    fadein(X_FADE)
    end
 fin_part8a:
-   set(D,$04)
-   set(E,$06)
+   set(D,0x04)
+   set(E,0x06)
    goto(fin_part7)
 fin_part8b:
-   set(D,$08)
-   set(E,$01)
+   set(D,0x08)
+   set(E,0x01)
    goto(fin_part7)
 fin_find1:
    get(A,VAR_FINFIND1)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_FINFIND1)
    give(IT_OFrey)
    end
 fin_find2:
    get(A,VAR_FINFIND2)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
    put(1,VAR_FINFIND2)
    give(IT_EGilus)
    end
@@ -273,17 +273,17 @@ fin_find2:
 fin_part9:
    fadeout(X_FADE)
    lmap(MAP_FIN_P9, D,E)
-   cstep(fin_part9a, $04,$21)
-   cstep(fin_part9b, $04,$02)
+   cstep(fin_part9a, 0x04,0x21)
+   cstep(fin_part9b, 0x04,0x02)
    fadein(X_FADE)
    end
 fin_part9a:
-   set(D,$05)
-   set(E,$15)
+   set(D,0x05)
+   set(E,0x15)
    goto(fin_part3)
 fin_part9b:
-   set(D,$05)
-   set(E,$0d)
+   set(D,0x05)
+   set(E,0x0d)
    goto(fin_part5)
 
 
@@ -292,13 +292,13 @@ fin_scene52:
    partyset(2,0)
    partyset(2,PARTY_ELYA)
 
-   set(D,$12)
-   set(E,$12)
+   set(D,0x12)
+   set(E,0x12)
    face(0,DOWN)
    lmap(MAP_FIN_P3, D,E)
-   chstep(fin_part3a, $11,$1c,3)
-   cstep(fin_part3b, $05,$15)
-   cstep(fin_part3c, $24,$19)
+   chstep(fin_part3a, 0x11,0x1c,3)
+   cstep(fin_part3b, 0x05,0x15)
+   cstep(fin_part3c, 0x24,0x19)
    lockoff
    partyarr
    detach
@@ -341,11 +341,11 @@ fin_scene52:
 
 fin_scene53:
    get(A,VAR_FIN1)
-   if(A,CNE,0,RET)
+   if(A,CNE,0,GRET)
    put(1,VAR_FIN1)
 
    // do scene 53
-   align($0b,$07)
+   align(0x0b,0x07)
    sync
    face(0,RIGHT)
    group
@@ -416,25 +416,25 @@ fin_scene53:
 */
 
 fin_scene54_setup:
-   ldude(5,NPC_EXH,     $06,$06,DOWN,STAND)
+   ldude(5,NPC_EXH,     0x06,0x06,DOWN,STAND)
    frame(5,0)
-   ldude(6,NPC_EXH,     $08,$06,DOWN,STAND)
+   ldude(6,NPC_EXH,     0x08,0x06,DOWN,STAND)
    frame(6,2)
-   ldude(8,NPC_UNNAMED, $07,$04,DOWN,STAND)
+   ldude(8,NPC_UNNAMED, 0x07,0x04,DOWN,STAND)
    end
 
 fin_scene54:
    get(A,VAR_FIN1)
-   if(A,CNE,1,RET)
+   if(A,CNE,1,GRET)
    put(2,VAR_FIN1)
 
-   ldude(3,CH_ALUTHA,   $07,$07,UP,  STAND)
+   ldude(3,CH_ALUTHA,   0x07,0x07,UP,  STAND)
    partyset(3,PARTY_ALUTHA)
 
    // do scene 54
-   pan($07,$07)
+   pan(0x07,0x07)
    panspeed(0)
-   align($0d,$06)
+   align(0x0d,0x06)
    sync
    face(0,LEFT)
    group
@@ -450,7 +450,7 @@ fin_scene54:
    sleep(96)
 
    say(S54_ETXT1)
-   ldude(6,NPC_GILUS,     $08,$06,DOWN,  STAND)
+   ldude(6,NPC_GILUS,     0x08,0x06,DOWN,  STAND)
    sleep(16)
    walk(6,LEFT,1)
    sync
@@ -458,24 +458,24 @@ fin_scene54:
    sleep(16)
 
    // Cast
-   ldude(6,NPC_EXH,       $07,$06,DOWN,  STAND)
+   ldude(6,NPC_EXH,       0x07,0x06,DOWN,  STAND)
    frame(6,4)
 
    sleep(16)
    say(S54_ETXT2)
-   ldude(6,NPC_GILUS,     $07,$06,UP,    STAND)
+   ldude(6,NPC_GILUS,     0x07,0x06,UP,    STAND)
 
-   ldude(7,NPC_FIRE,    $07,$06,DOWN,STAND)
+   ldude(7,NPC_FIRE,    0x07,0x06,DOWN,STAND)
    setz(7,1)
    frame(7,CEL_DOWN1)
    sfx(SFX_ENGULF)
    walk(7,UP,2)
    sync
    del(7)
-   ldude(6,NPC_GILUS,     $07,$06,UP,  STAND)
+   ldude(6,NPC_GILUS,     0x07,0x06,UP,  STAND)
 
    sleep(16)
-   ldude(7,NPC_FIRE2,   $07,$04,DOWN,STAND)
+   ldude(7,NPC_FIRE2,   0x07,0x04,DOWN,STAND)
    setz(7,1)
    anim(7)
    sleep(16)
@@ -486,7 +486,7 @@ fin_scene54:
    walk(6,RIGHT,1)
    sync
 
-   ldude(6,NPC_EXH,       $08,$06,DOWN,  STAND)
+   ldude(6,NPC_EXH,       0x08,0x06,DOWN,  STAND)
    frame(6,3)
 
    sleep(32)
@@ -582,8 +582,8 @@ fin_scene54_spin:
 
    sleep(32)
 
-   ldude(5,NPC_SELERA,     $06,$06,UP,  STAND)
-   ldude(6,NPC_GILUS,      $08,$06,UP,  STAND)
+   ldude(5,NPC_SELERA,     0x06,0x06,UP,  STAND)
+   ldude(6,NPC_GILUS,      0x08,0x06,UP,  STAND)
 
    say(S54_ETXT5)
 
@@ -641,7 +641,7 @@ fin_scene54_spin:
    sleep(4)
    sfx(SFX_SWORD)
    sync
-   ldude(5,NPC_EXH,     $06,$06,DOWN,STAND)
+   ldude(5,NPC_EXH,     0x06,0x06,DOWN,STAND)
    frame(5,1)   
    walk(5,LEFT,1)
    walk2(3,RIGHT,1)
@@ -665,7 +665,7 @@ fin_scene54_spin:
    sfx(SFX_SWORD)
 
    sync
-   ldude(6,NPC_EXH,     $08,$06,DOWN,STAND)
+   ldude(6,NPC_EXH,     0x08,0x06,DOWN,STAND)
    frame(6,3)
    walk(6,RIGHT,1)
    walk2(3,LEFT,1)
@@ -698,7 +698,7 @@ fin_scene54_spin:
    sleep(16)
    walk(3,DOWN,4)
    sleep(16)
-   pan($0d,$06)
+   pan(0x0d,0x06)
    sleep(112)
    del(3)
    partyset(3,0)
@@ -721,16 +721,16 @@ fin_scene54_spin:
 
 
 fin_scene55_setup:
-   ldude(4,CH_ALUTHA,  $04,$07,UP,STAND)
-   ldude(5,NPC_PORTALA,$06,$08,DOWN,STAND)
-   ldude(6,NPC_PORTALB,$06,$09,DOWN,STAND)
+   ldude(4,CH_ALUTHA,  0x04,0x07,UP,STAND)
+   ldude(5,NPC_PORTALA,0x06,0x08,DOWN,STAND)
+   ldude(6,NPC_PORTALB,0x06,0x09,DOWN,STAND)
    anim(5)
    anim(6)
    end
 
 fin_scene55:
    get(A,VAR_FIN1)
-   if(A,CE,3,RET)
+   if(A,CE,3,GRET)
    put(3,VAR_FIN1)
 
    walk(0,DOWN,9)
@@ -741,7 +741,7 @@ fin_scene55:
    sync
 
    walk(4,DOWN,1)
-   align($04,$09)
+   align(0x04,0x09)
    sync
    group
    sync
@@ -859,16 +859,16 @@ fin_scene55:
    end
 
 fin_scene57_setup:
-   ldude(4,NPC_PORTALA,$05,$04,DOWN,STAND)
-   ldude(5,NPC_PORTALB,$05,$05,DOWN,STAND)
+   ldude(4,NPC_PORTALA,0x05,0x04,DOWN,STAND)
+   ldude(5,NPC_PORTALB,0x05,0x05,DOWN,STAND)
    anim(4)
    anim(5)
-   cstep(fin_scene57,$05,$07)
+   cstep(fin_scene57,0x05,0x07)
    end
 
 fin_scene57:
    sleep(4)
-   align($05,$07)
+   align(0x05,0x07)
    sync
    face(0,UP)
    group

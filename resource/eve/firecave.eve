@@ -13,16 +13,16 @@
 O_FRC:
    fadeout(X_ROLL)
    face(0,UP)
-   set(D,$0c)
-   set(E,$0f)
+   set(D,0x0c)
+   set(E,0x0f)
    set(G,X_ROLL)
    call(frc_init)
    goto(frc_part1_nf)
 O_FRC2:
    fadeout(X_ROLL)
    face(0,UP)
-   set(D,$0a)
-   set(E,$12)
+   set(D,0x0a)
+   set(E,0x12)
    set(G,X_ROLL)
    call(frc_init)
    goto(frc_part10_nf)
@@ -52,11 +52,11 @@ frc_part1:
 frc_part1_nf:
    lmap(MAP_FRC_P1, D,E)
    zone(F)
-   cstep(frc_part1a, $0c,$10)
-   cstep(frc_part1b, $03,$05)
-   cstep(frc_part1c, $15,$08)
-   cstep(frc_part1d, $09,$04)
-   ctres($19,IT_HPLO, $02,$08,$3B,SFX_CHEST)
+   cstep(frc_part1a, 0x0c,0x10)
+   cstep(frc_part1b, 0x03,0x05)
+   cstep(frc_part1c, 0x15,0x08)
+   cstep(frc_part1d, 0x09,0x04)
+   ctres(0x19,IT_HPLO, 0x02,0x08,0x3B,SFX_CHEST)
 
    get(A,VAR_FRC1)
    cif(A,CE,1,frc_scene40_setup)
@@ -68,20 +68,20 @@ frc_part1a:
    get(A,VAR_FRC2)
    if(A,CE,1,frc_noleave)
 
-   set(B,$2d)
-   set(C,$36)
+   set(B,0x2d)
+   set(C,0x36)
    goto(OVER_WARP)
 frc_part1b:
-   set(D,$09)
-   set(E,$0e)
+   set(D,0x09)
+   set(E,0x0e)
    goto(frc_part2)
 frc_part1c:
-   set(D,$05)
-   set(E,$03)
+   set(D,0x05)
+   set(E,0x03)
    goto(frc_part3)
 frc_part1d:
-   set(D,$20)
-   set(E,$05)
+   set(D,0x20)
+   set(E,0x05)
    goto(frc_part4)
 frc_noleave:
    sleep(4)
@@ -96,84 +96,84 @@ frc_part2:
    fadeout(X_FADE)
    lmap(MAP_FRC_P2, D,E)
    zone(F)
-   cstep(frc_part2a, $09,$0f)
+   cstep(frc_part2a, 0x09,0x0f)
    fadein(X_FADE)
    end
 frc_part2a:
-   set(D,$03)
-   set(E,$05)
+   set(D,0x03)
+   set(E,0x05)
    goto(frc_part1)
 
 frc_part3:
    fadeout(X_FADE)
    lmap(MAP_FRC_P3, D,E)
    zone(F)
-   cstep(frc_part3a, $05,$03)
-   ctres($1a,IT_HPLO,     $02,$0e,$3B,SFX_CHEST)
-   ctres($1b,IT_CCrimson, $04,$0e,$3B,SFX_CHEST)
+   cstep(frc_part3a, 0x05,0x03)
+   ctres(0x1a,IT_HPLO,     0x02,0x0e,0x3B,SFX_CHEST)
+   ctres(0x1b,IT_CCrimson, 0x04,0x0e,0x3B,SFX_CHEST)
    fadein(X_FADE)
    end
 frc_part3a:
-   set(D,$15)
-   set(E,$08)
+   set(D,0x15)
+   set(E,0x08)
    goto(frc_part1)
 
 frc_part4:
    fadeout(X_FADE)
    lmap(MAP_FRC_P4, D,E)
    zone(F)
-   cstep(frc_part4a, $20,$05)
-   cstep(frc_part4b, $13,$04)
-   ctres($1c,IT_HPLO, $02,$07,$3B,SFX_CHEST)
+   cstep(frc_part4a, 0x20,0x05)
+   cstep(frc_part4b, 0x13,0x04)
+   ctres(0x1c,IT_HPLO, 0x02,0x07,0x3B,SFX_CHEST)
    fadein(X_FADE)
    end
 frc_part4a:
-   set(D,$09)
-   set(E,$04)
+   set(D,0x09)
+   set(E,0x04)
    goto(frc_part1)
 frc_part4b:
-   set(D,$09)
-   set(E,$13)
+   set(D,0x09)
+   set(E,0x13)
    goto(frc_part5)
 
 frc_part5:
    fadeout(X_FADE)
    lmap(MAP_FRC_P5, D,E)
    zone(F)
-   cstep(frc_part5a, $09,$14)
-   cstep(frc_part5b, $0a,$0d)
+   cstep(frc_part5a, 0x09,0x14)
+   cstep(frc_part5b, 0x0a,0x0d)
    fadein(X_FADE)
    end
 frc_part5a:
-   set(D,$13)
-   set(E,$04)
+   set(D,0x13)
+   set(E,0x04)
    goto(frc_part4)
 frc_part5b:
-   set(D,$07)
-   set(E,$06)
+   set(D,0x07)
+   set(E,0x06)
    goto(frc_part6)
 
 frc_part6:
    fadeout(X_FADE)
    lmap(MAP_FRC_P6, D,E)
    zone(F)
-   cstep(frc_part6a, $07,$06)
-   cstep(frc_part6b, $0f,$06)
-   ctres($1d,IT_HPLO, $13,$0a,$3B,SFX_CHEST)
+   cstep(frc_part6a, 0x07,0x06)
+   cstep(frc_part6b, 0x0f,0x06)
+   ctres(0x1d,IT_HPLO, 0x13,0x0a,0x3B,SFX_CHEST)
    get(A,VAR_FRCFLAME)
    cif(A,CE,0,frc_flame)
    fadein(X_FADE)
    end
 frc_part6a:
-   set(D,$0a)
-   set(E,$0d)
+   set(D,0x0a)
+   set(E,0x0d)
    goto(frc_part5)
 frc_part6b:
-   set(D,$09)
-   set(E,$0c)
+   set(D,0x09)
+   set(E,0x0c)
    goto(frc_part7)
 frc_flame:
-   ldude(4,EN_FLAME,    $0B,$06,LEFT,STAND)
+   ldude(4,EN_FLAME,    0x0B,0x06,LEFT,STAND)
    ctalk(frc_flame2,4)
    end
 frc_flame2:
@@ -198,29 +198,29 @@ frc_flame2a:
 frc_part7:
    fadeout(X_FADE)
    lmap(MAP_FRC_P7, D,E)
-   cstep(frc_part7a, $09,$0c)
-   cstep(frc_part7b, $09,$02)
+   cstep(frc_part7a, 0x09,0x0c)
+   cstep(frc_part7b, 0x09,0x02)
    get(A,VAR_GUTANA)
    cif(A,CE,0,frc_gutana1)
    fadein(X_FADE)
    end
 frc_part7a:
-   set(D,$0f)
-   set(E,$06)
+   set(D,0x0f)
+   set(E,0x06)
    goto(frc_part6)
 frc_part7b:
-   set(D,$04)
-   set(E,$09)
+   set(D,0x04)
+   set(E,0x09)
    goto(frc_part8)
 frc_gutana1:
-   ldude(4,EN_GUTANA,   $09,$06,DOWN,STAND)
-   cstep(frc_gutana1a,  $09,$09)
+   ldude(4,EN_GUTANA,   0x09,0x06,DOWN,STAND)
+   cstep(frc_gutana1a,  0x09,0x09)
    end
 frc_gutana1a:
    get(A,VAR_GUTANA)
-   if(A,CE,1,RET)
+   if(A,CE,1,GRET)
 
-   ldude(8,CH_ELYA,     $09,$02,DOWN,STAND)
+   ldude(8,CH_ELYA,     0x09,0x02,DOWN,STAND)
    walk(0,UP,1)
    sync
    say(S17_ETXT1)
@@ -242,13 +242,13 @@ frc_gutana1a:
 
    ; load the flamies
    sfx(SFX_ENGULF)
-   ldude(5,EN_FLAME,    $08,$08,RIGHT,STAND)
+   ldude(5,EN_FLAME,    0x08,0x08,RIGHT,STAND)
    sleep(40)
    sfx(SFX_ENGULF)
-   ldude(6,EN_FLAME,    $0a,$08,LEFT,STAND)
+   ldude(6,EN_FLAME,    0x0a,0x08,LEFT,STAND)
    sleep(40)
    sfx(SFX_ENGULF)
-   ldude(7,EN_FLAME,    $09,$07,DOWN,STAND)
+   ldude(7,EN_FLAME,    0x09,0x07,DOWN,STAND)
    sleep(40)
    face(4,DOWN)
 
@@ -310,8 +310,8 @@ frc_gutana1a:
    del(8)
    reform
    partyarr
-   warp(0,$08,$06,RIGHT)
-   warp(1,$09,$06,LEFT)
+   warp(0,0x08,0x06,RIGHT)
+   warp(1,0x09,0x06,LEFT)
    sleep(32)
    fadein(X_FADE)
 
@@ -323,35 +323,35 @@ frc_part8:
    fadeout(X_FADE)
    lmap(MAP_FRC_P8, D,E)
    zone(F)
-   cstep(frc_part8a, $04,$0a)
-   cstep(frc_part8b, $02,$05)
-   cstep(frc_part8c, $06,$05)
+   cstep(frc_part8a, 0x04,0x0a)
+   cstep(frc_part8b, 0x02,0x05)
+   cstep(frc_part8c, 0x06,0x05)
    fadein(X_FADE)
    end
 frc_part8a:
-   set(D,$09)
-   set(E,$02)
+   set(D,0x09)
+   set(E,0x02)
    goto(frc_part7)
 frc_part8b:
-   set(D,$0e)
-   set(E,$05)
+   set(D,0x0e)
+   set(E,0x05)
    goto(frc_part9)
 frc_part8c:
-   set(D,$02)
-   set(E,$08)
+   set(D,0x02)
+   set(E,0x08)
    goto(frc_part10)
 
 frc_part9:
    fadeout(X_FADE)
    lmap(MAP_FRC_P9, D,E)
    zone(F)
-   cstep(frc_part9a, $0e,$05)
-   ctres($1e,IT_HPLO, $0e,$03,$3B,SFX_CHEST)
+   cstep(frc_part9a, 0x0e,0x05)
+   ctres(0x1e,IT_HPLO, 0x0e,0x03,0x3B,SFX_CHEST)
    fadein(X_FADE)
    end
 frc_part9a:
-   set(D,$02)
-   set(E,$05)
+   set(D,0x02)
+   set(E,0x05)
    goto(frc_part8)
 
 frc_part10:
@@ -360,17 +360,17 @@ frc_part10:
 frc_part10_nf:
    lmap(MAP_FRC_P10, D,E)
    zone(F)
-   cstep(frc_part10a, $02,$08)
-   cstep(frc_part10b, $0a,$13)
+   cstep(frc_part10a, 0x02,0x08)
+   cstep(frc_part10b, 0x0a,0x13)
    fadein(G)
    end
 frc_part10a:
-   set(D,$06)
-   set(E,$05)
+   set(D,0x06)
+   set(E,0x05)
    goto(frc_part8)
 frc_part10b:
-   set(B,$30)
-   set(C,$41)
+   set(B,0x30)
+   set(C,0x41)
    goto(OVER_WARP)
 
 frc_elya:
@@ -419,17 +419,17 @@ frc_scene40_setup:
    lockoff
    partyarr
    detach
-   warp(0,$0c,$0a,DOWN)
-   warp(3,$0b,$0b,RIGHT)
-   warp(1,$0d,$0b,LEFT)
-   warp(2,$0c,$0c,UP)
+   warp(0,0x0c,0x0a,DOWN)
+   warp(3,0x0b,0x0b,RIGHT)
+   warp(1,0x0d,0x0b,LEFT)
+   warp(2,0x0c,0x0c,UP)
    end
 
 frc_scene40:
    call(frc_init)
    set(G,X_FADE)
-   set(D,$0c)
-   set(E,$0c)
+   set(D,0x0c)
+   set(E,0x0c)
    call(frc_part1_nf)
 
    sleep(32)

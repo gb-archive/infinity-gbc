@@ -7,7 +7,7 @@
  * NonCommercial-ShareAlike 4.0 International License as published by Creative
  * Commons.
  *
- * Alteratively, this file may be used under the terms of the GNU General
+ * Alternatively, this file may be used under the terms of the GNU General
  * Public License as published by the Free Software Foundation, either version
  * 3 of the License, or (at your option) any later version.
  *
@@ -103,8 +103,6 @@ void zones_reset(struct ZONES *z)
 
 void zone_blank(struct ZONE_STRUCT *zone, char *name)
 {
-        int n;
-
         strcpy(zone->name, name);
         zone->ptr = NULL;
         zone->numforms = 0;

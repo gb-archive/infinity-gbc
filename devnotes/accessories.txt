@@ -1,0 +1,21 @@
+C = Connor
+R = Ryan
+E = Elya
+V = Victor (nonwolf)
+W = Wolf Victor
+O = Roland
+A = Alutha
+ring, necklace, shield, cape, boots
+
+
+Name		Type		Effect			Cost	User		Location
+Cloak		Cape		Def + 2, Speed - 2	40	CREOA		Sold Selera, Starting Connor
+Round		Shield		Def + 4, Att - 1	60	COA		Sold Selera
+Traveler	Boots		Def + 1, Speed + 7	90	CREVOA		Sold Kassim
+Desert		Ring		Fire			200	CREVOA		Chest Fire Caves
+Wizard		Ring		Wis + 5			160	CREVOA		Starting Elya
+Camoflauge	Cape		Def + 6, Speed - 8	250	CREOA		Sold Turren
+Golden		Necklace	NONE			800	CREVOA		Chest Great Wood
+Iron		Shield		Def + 8, Att - 3		COA		Chest Sewers (Storeroom)
+Slippers	Boots		Speed + 5			E		Chest Fairport
+Pirate		Ring		Speed + 4, Def + 2		CREVOA		Chest Pirate's Lair, starting Ryan2
